@@ -7,7 +7,7 @@ import { errorTypes, makeReport, appendReport, issueURL } from './feedback.js';
 
 const app = document.querySelector('#app');
 const dialog = document.querySelector('#dialog');
-let state = readState(), bank, view = 'today', session = null, syncStatus = 'Checking for updates', syncing = false, toastTimer;
+let state = readState(), bank, view = 'today', session = null, syncStatus = 'Checking for updates', syncing = false, offlineStatus = 'Preparing offline access', toastTimer;
 const icons = {
   sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/>',
   layers:'<path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/>',
@@ -34,7 +34,7 @@ function nav() {
   return [['today','sun','Today'],['topics','layers','Topics'],['progress','chart','Progress'],['settings','settings','Settings']].map(([id,svg,label]) => `<button class="nav-item ${view === id ? 'active' : ''}" data-view="${id}" ${view === id ? 'aria-current="page"' : ''}>${icon(svg)}<span>${label}</span></button>`).join('');
 }
 function shell(content) {
-  app.innerHTML = `<div class="shell"><header class="topbar"><button class="wordmark" data-view="today" aria-label="Recall home">recall<span>↗</span></button><nav aria-label="Main navigation">${nav()}</nav><span class="top-note">A little learning goes a long way.</span><span class="mobile-streak">${icon('spark')} ${streak(state)} day${streak(state) === 1 ? '' : 's'}</span></header><main id="main" tabindex="-1">${content}</main><footer class="site-footer"><span>SMALL SESSIONS. LASTING KNOWLEDGE.</span><button class="sync-status" data-action="sync">${icon('sync')} ${esc(syncStatus)}</button></footer><nav class="mobile-nav" aria-label="Mobile navigation">${nav()}</nav></div>`;
+  app.innerHTML = `<div class="shell"><header class="topbar"><button class="wordmark" data-view="today" aria-label="Recall home">recall<span>↗</span></button><nav aria-label="Main navigation">${nav()}</nav><span class="top-note">A little learning goes a long way.</span><span class="mobile-streak">${icon('spark')} ${streak(state)} day${streak(state) === 1 ? '' : 's'}</span></header><main id="main" tabindex="-1">${content}</main><footer class="site-footer"><span id="offline-status" aria-live="polite">${esc(offlineStatus)}</span><button class="sync-status" data-action="sync">${icon('sync')} ${esc(syncStatus)}</button></footer><nav class="mobile-nav" aria-label="Mobile navigation">${nav()}</nav></div>`;
 }
 function heading(eyebrow,title,subtitle='') { return `<div class="page-heading"><p class="eyebrow">${eyebrow}</p><h1>${title}</h1>${subtitle ? `<p class="subheading">${subtitle}</p>` : ''}</div>`; }
 function topicCard(topic, compact=false) {
@@ -185,6 +185,12 @@ async function boot(){
   try{const cached=JSON.parse(localStorage.getItem('recall-bank'));if(isBank(cached))bank=cached;}catch{}
   if(!bank){const response=await fetch('./bank.json');bank=await response.json();if(!isBank(bank))throw new Error('Invalid question bank');}
   render();syncBank();
-  if('serviceWorker' in navigator && import.meta.env.PROD)navigator.serviceWorker.register('./sw.js').catch(()=>toast('Offline setup did not finish. Open Recall online again to retry.'));
+  const setOfflineStatus = text => {offlineStatus=text;const el=document.querySelector('#offline-status');if(el)el.textContent=text;};
+  if('serviceWorker' in navigator && import.meta.env.PROD) {
+    navigator.serviceWorker.register('./sw.js').then(async () => {
+      await navigator.serviceWorker.ready;
+      setOfflineStatus('Offline ready · app and questions saved');
+    }).catch(() => setOfflineStatus('Offline setup failed · reopen online to retry'));
+  } else setOfflineStatus(import.meta.env.PROD ? 'Offline unavailable in this browser · use Safari' : 'Development preview · offline mode needs a production build');
 }
 boot().catch(()=>{app.innerHTML='<main class="loading"><h1>Let’s try again.</h1><p>Recall needs a connection for its first visit.</p><button onclick="location.reload()">Reload</button></main>';});

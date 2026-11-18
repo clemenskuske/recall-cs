@@ -1,0 +1,1 @@
+{"reportId": "eed9ba1a-b70a-45f0-86a6-964252588b2e", "resolvedAt": "2026-11-18T12:56:17.551302+00:00", "action": "no-change", "questionId": "binary-search", "revision": 1, "reason": "Setup-only integration test passed: GitHub issue ingestion appended exactly one report line. No content issue was alleged and no authoring rule was inferred.", "ruleIds": []}
