@@ -1,0 +1,2172 @@
+{
+  "schemaVersion": 1,
+  "version": "c9079697af6c6ed1",
+  "topics": [
+    {
+      "id": "algorithms",
+      "title": "Algorithms",
+      "description": "Think in steps. Find a better way.",
+      "symbol": "route",
+      "color": "sage"
+    },
+    {
+      "id": "data-structures",
+      "title": "Data structures",
+      "description": "The right shape for your information.",
+      "symbol": "layers",
+      "color": "clay"
+    },
+    {
+      "id": "graph-theory",
+      "title": "Graph theory",
+      "description": "Explore the mathematics of connections.",
+      "symbol": "graph",
+      "color": "lavender"
+    },
+    {
+      "id": "complexity",
+      "title": "Complexity",
+      "description": "Understand the limits of computation.",
+      "symbol": "braces",
+      "color": "sand"
+    }
+  ],
+  "questions": [
+    {
+      "schemaVersion": 1,
+      "id": "amortized-doubling",
+      "topic": "algorithms",
+      "revision": 1,
+      "status": "active",
+      "prompt": "A dynamic array doubles its capacity whenever it fills. Starting empty, what is the amortized time per append over $n$ appends, assuming a copy or write costs $\\Theta(1)$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\Theta(1)$",
+          "correct": true,
+          "explanation": "The copied capacities form a geometric series $1+2+4+\\cdots=O(n)$. Together with $n$ writes, the total cost is $\\Theta(n)$, or $\\Theta(1)$ per append."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\Theta(n^2)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The total work is linear, not cubic as this per-operation bound would imply."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\Theta(2^n)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Doubling capacity makes resizing infrequent; it does not cause exponential total copying."
+        },
+        {
+          "id": "distractor-3",
+          "text": "There is no finite amortized bound.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Summing the geometric series gives a finite linear total cost."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\Theta(n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A single resizing append can be linear, but that is a worst-case individual cost, not the amortized cost."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\Theta(\\sqrt n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The total cost is linear, which yields a constant cost per append."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\Theta(n\\log n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This overcounts copying: an old capacity is copied only when that capacity fills."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\Theta(\\log n)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "There are logarithmically many resizes, but the total copied elements form a geometric sum, not n times the number of resizes."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\Theta(1/n)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every append performs at least one write; its amortized cost cannot decrease below a constant."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Constant amortized time only if the append values are random.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The bound holds for every sequence of append values; it is not a distributional average."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Analysis of Algorithms",
+          "url": "https://algs4.cs.princeton.edu/14analysis/"
+        },
+        {
+          "title": "Princeton Algorithms — Shortest Paths",
+          "url": "https://algs4.cs.princeton.edu/44sp/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "bfs-shortest-path",
+      "topic": "algorithms",
+      "revision": 1,
+      "status": "active",
+      "prompt": "In an unweighted graph, which property explains why breadth-first search finds a shortest path from its source to every reachable vertex?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "It explores vertices in nondecreasing distance from the source.",
+          "correct": true,
+          "explanation": "BFS finishes distance layer k before exploring layer k+1. The first discovery of a vertex therefore uses a minimum number of edges."
+        },
+        {
+          "id": "distractor-1",
+          "text": "It explores every possible path.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "BFS need not enumerate paths; it visits each reachable vertex once."
+        },
+        {
+          "id": "distractor-2",
+          "text": "It always chooses the smallest-numbered vertex.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Vertex labels have no bearing on shortest-path distances."
+        },
+        {
+          "id": "distractor-3",
+          "text": "It sorts edges by weight.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This graph is unweighted; BFS uses a FIFO queue, not edge sorting."
+        },
+        {
+          "id": "distractor-4",
+          "text": "It explores one branch fully before backtracking.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "That describes depth-first search, which does not generally give shortest paths."
+        },
+        {
+          "id": "distractor-5",
+          "text": "It chooses a neighbor with the largest degree.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Degree is unrelated to the minimum number of edges from the source."
+        },
+        {
+          "id": "distractor-6",
+          "text": "It keeps vertices in a last-in, first-out stack.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A stack gives depth-first behavior. BFS relies on a first-in, first-out queue."
+        },
+        {
+          "id": "distractor-7",
+          "text": "It finalizes a vertex only after exploring all paths to it.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The first discovery is sufficient because BFS explores distance layers in order."
+        },
+        {
+          "id": "distractor-8",
+          "text": "It visits vertices in nondecreasing degree.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The invariant concerns distance from the source, not degree."
+        },
+        {
+          "id": "distractor-9",
+          "text": "It guarantees that every discovered edge lies on a shortest path from the source.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "BFS tree edges give shortest paths, but other graph edges can connect vertices in the same layer."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Analysis of Algorithms",
+          "url": "https://algs4.cs.princeton.edu/14analysis/"
+        },
+        {
+          "title": "Princeton Algorithms — Shortest Paths",
+          "url": "https://algs4.cs.princeton.edu/44sp/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "binary-search",
+      "topic": "algorithms",
+      "revision": 1,
+      "status": "active",
+      "prompt": "A sorted array contains $n$ distinct values. What is the tight worst-case time bound for ordinary binary search, assuming constant-time array access?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\Theta(\\log n)$",
+          "correct": true,
+          "explanation": "Each comparison discards roughly half of the remaining interval. After $k$ comparisons its size is about $n/2^k$, so $k=\\Theta(\\log n)$."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\Theta(n)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "That is the worst-case bound for a linear scan. Binary search halves the search interval."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\Theta(n^2)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Binary search does not compare every pair of entries."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\Theta(1)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "One comparison is enough in some cases, but not in the worst case as the array grows."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\Theta(\\sqrt n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Halving the interval produces logarithmic, not square-root, growth."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\Theta(n\\log n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "That is a typical comparison-sorting bound; the array is already sorted."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\Theta(2^n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The algorithm follows one shrinking interval, not an exponential search tree."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\Theta(\\log\\log n)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Repeated halving gives a logarithm. A double logarithm would require a much faster reduction."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\Theta((\\log n)^2)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Each of the logarithmically many comparisons costs constant time; there is no second logarithmic factor."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\Theta(n/\\log n)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The relevant equation is the remaining interval size after repeated halving, not a linear scan divided by a logarithm."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Analysis of Algorithms",
+          "url": "https://algs4.cs.princeton.edu/14analysis/"
+        },
+        {
+          "title": "Princeton Algorithms — Shortest Paths",
+          "url": "https://algs4.cs.princeton.edu/44sp/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "dijkstra-condition",
+      "topic": "algorithms",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which edge-weight assumption guarantees correctness of standard Dijkstra’s algorithm on every finite directed graph, using permanent finalization when a vertex is extracted?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "All edge weights are nonnegative.",
+          "correct": true,
+          "explanation": "With nonnegative weights, extending a path cannot lower its weight. This makes it safe to finalize the unsettled vertex with smallest tentative distance."
+        },
+        {
+          "id": "distractor-1",
+          "text": "All edge weights are negative.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Negative edges can invalidate an already finalized distance."
+        },
+        {
+          "id": "distractor-2",
+          "text": "The graph has at least one positive edge.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "One positive edge gives no guarantee about the remaining edges."
+        },
+        {
+          "id": "distractor-3",
+          "text": "All vertices have equal degree.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Degrees do not make the greedy distance invariant valid."
+        },
+        {
+          "id": "distractor-4",
+          "text": "The sum of all edge weights is nonnegative.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A nonnegative total does not rule out a negative edge that breaks finalization."
+        },
+        {
+          "id": "distractor-5",
+          "text": "There are no negative-weight cycles.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This suffices for finite shortest-path distances, but standard Dijkstra can still fail with a negative edge."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Every edge weight is an integer.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Negative integers can break the algorithm just as negative real weights can."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Every directed cycle has strictly positive total weight.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Even an acyclic graph with a negative edge can break permanent finalization."
+        },
+        {
+          "id": "distractor-8",
+          "text": "All edges leaving the source are nonnegative.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A later negative edge can still produce a shorter path to an already finalized vertex."
+        },
+        {
+          "id": "distractor-9",
+          "text": "There is at most one negative edge.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A single negative edge is enough to defeat the correctness guarantee."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Analysis of Algorithms",
+          "url": "https://algs4.cs.princeton.edu/14analysis/"
+        },
+        {
+          "title": "Princeton Algorithms — Shortest Paths",
+          "url": "https://algs4.cs.princeton.edu/44sp/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "merge-recurrence",
+      "topic": "algorithms",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For powers of two, let $T(n)=2T(n/2)+n$ with $T(1)=1$. What is the tight asymptotic bound?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\Theta(n\\log n)$",
+          "correct": true,
+          "explanation": "Each of the $\\log_2 n$ internal recursion levels costs $n$ in total. The leaves add $n$, giving $\\Theta(n\\log n)$."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\Theta(1)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The top-level work alone grows linearly."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\Theta(2^n)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The subproblem sizes halve; the recurrence does not generate exponentially many leaves in n."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\Theta(\\log n)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "There are logarithmically many levels, but each costs linear total work."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\Theta(n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This misses the linear work repeated at every internal level."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\Theta(n^2)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The per-level cost is n and the depth is logarithmic, not linear."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\Theta(\\sqrt n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Even the root contributes more work than this."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\Theta(n(\\log n)^2)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "There is one logarithmic factor for the depth; the per-level work contributes no second logarithm."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\Theta(n\\log\\log n)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Halving gives logarithmic depth, not double-logarithmic depth."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\Theta(n^{\\log_2 3})$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "That exponent corresponds to three half-size recursive subproblems; this recurrence has two."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Analysis of Algorithms",
+          "url": "https://algs4.cs.princeton.edu/14analysis/"
+        },
+        {
+          "title": "Princeton Algorithms — Shortest Paths",
+          "url": "https://algs4.cs.princeton.edu/44sp/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "stable-sort",
+      "topic": "algorithms",
+      "revision": 1,
+      "status": "active",
+      "prompt": "What does it mean for a sorting algorithm to be stable?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Items with equal keys keep their original relative order.",
+          "correct": true,
+          "explanation": "Stability preserves input order within each group of equal keys. It says nothing by itself about time or extra space."
+        },
+        {
+          "id": "distractor-1",
+          "text": "It never uses extra memory.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "That is a space property, not stability."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Its output is always in descending order.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Either ascending or descending sorting can be stable."
+        },
+        {
+          "id": "distractor-3",
+          "text": "It always runs in constant time.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Stability concerns equal keys, not running time."
+        },
+        {
+          "id": "distractor-4",
+          "text": "It preserves the original order of all items.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Items with different keys generally need to move relative to one another."
+        },
+        {
+          "id": "distractor-5",
+          "text": "It never moves an item whose key is duplicated.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Equal-key items may move; only their relative order must remain."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Its running time is the same on every input.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Input-dependent running time and stability are separate properties."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Items with equal keys end up in their original array positions.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Positions may change when smaller or larger keys move around them."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Items with unequal keys keep their original relative order.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The requirement applies to equal keys; unequal keys must follow the sort order."
+        },
+        {
+          "id": "distractor-9",
+          "text": "It breaks equal-key ties by sorting a second field.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An arbitrary second-field ordering may reverse the original order and violate stability."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Analysis of Algorithms",
+          "url": "https://algs4.cs.princeton.edu/14analysis/"
+        },
+        {
+          "title": "Princeton Algorithms — Shortest Paths",
+          "url": "https://algs4.cs.princeton.edu/44sp/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "bst-inorder",
+      "topic": "data-structures",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For a binary search tree with distinct keys, what order does an in-order traversal (left subtree, root, right subtree) produce?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Increasing key order.",
+          "correct": true,
+          "explanation": "Every key in the left subtree is smaller than the root, and every key in the right is larger. Applying this recursively yields sorted order."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Decreasing key order.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "That would follow from right-root-left traversal."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Insertion order.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The traversal does not track the chronology of insertion."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Random order.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The search-tree invariant determines the ordering."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Order by increasing depth.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "That is breadth-first traversal, not in-order traversal."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Root first, then all remaining keys sorted.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "In-order visits the left subtree before the root."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Leaves first, then internal vertices.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "In-order can visit an internal vertex before some leaves."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Increasing order only if the tree is balanced.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Balance affects performance and height, not the in-order ordering guarantee."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Increasing order only if the tree is complete.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The BST ordering invariant suffices; completeness is unnecessary."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Increasing order separately within each depth level.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The result is globally sorted across all levels, and vertices are not grouped by depth."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Stacks and Queues",
+          "url": "https://algs4.cs.princeton.edu/13stacks/"
+        },
+        {
+          "title": "Princeton Algorithms — Priority Queues",
+          "url": "https://algs4.cs.princeton.edu/24pq/"
+        },
+        {
+          "title": "Princeton Algorithms — Hash Tables",
+          "url": "https://algs4.cs.princeton.edu/34hash/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "hash-worst-case",
+      "topic": "data-structures",
+      "revision": 1,
+      "status": "active",
+      "prompt": "In a hash table with separate chaining and $n$ stored keys, what is the worst-case time to search for a key, if hashing and each key comparison take $\\Theta(1)$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\Theta(n)$",
+          "correct": true,
+          "explanation": "All $n$ keys can collide into one bucket. Searching that chain can require $n$ comparisons. Expected constant time requires assumptions about hashing and load."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\Theta(2^n)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A search examines at most the stored chain, not exponentially many candidates."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\Theta(n^2)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Each key in a chain needs at most one comparison during an ordinary search."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\Theta(1/n)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Even computing the hash requires constant time."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\Theta(1)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This confuses expected performance under suitable assumptions with the worst case."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\Theta(\\log n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A chain is not a balanced search tree; it can contain every key."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\Theta(\\sqrt n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "There is no worst-case guarantee that chains stop at square-root length."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Constant time whenever the load factor is at most 1.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A small average bucket size does not prevent all keys from colliding into a single bucket."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Logarithmic time if all stored keys are distinct.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Distinct keys can have identical hash values."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Constant time if the hash function is deterministic.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Determinism does not prevent collisions; the worst case may still scan all keys."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Stacks and Queues",
+          "url": "https://algs4.cs.princeton.edu/13stacks/"
+        },
+        {
+          "title": "Princeton Algorithms — Priority Queues",
+          "url": "https://algs4.cs.princeton.edu/24pq/"
+        },
+        {
+          "title": "Princeton Algorithms — Hash Tables",
+          "url": "https://algs4.cs.princeton.edu/34hash/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "heap-minimum",
+      "topic": "data-structures",
+      "revision": 1,
+      "status": "active",
+      "prompt": "In a nonempty binary min-heap with distinct keys, which position is guaranteed to contain the minimum key?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "The root.",
+          "correct": true,
+          "explanation": "Every parent has a smaller key than its children. Following parent links shows that the root is no greater than any other key."
+        },
+        {
+          "id": "distractor-1",
+          "text": "The last leaf.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A leaf has no minimum guarantee."
+        },
+        {
+          "id": "distractor-2",
+          "text": "The deepest vertex.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Depth does not determine the minimum; the root is minimum."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Any vertex with two children.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Only the root is guaranteed to dominate every other key."
+        },
+        {
+          "id": "distractor-4",
+          "text": "The leftmost leaf.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A heap does not have the in-order sorting property of a binary search tree."
+        },
+        {
+          "id": "distractor-5",
+          "text": "The rightmost leaf.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Left-to-right position does not sort heap keys."
+        },
+        {
+          "id": "distractor-6",
+          "text": "The first child of the root.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The root has a smaller key than that child."
+        },
+        {
+          "id": "distractor-7",
+          "text": "The root’s smaller child.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "That child is minimum only among the two child roots, not the entire heap."
+        },
+        {
+          "id": "distractor-8",
+          "text": "The median position in the array representation.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Heap array order describes the complete tree, not sorted key order."
+        },
+        {
+          "id": "distractor-9",
+          "text": "The last position before the leaves begin.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Internal positions below the root can still have larger keys than their ancestors."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Stacks and Queues",
+          "url": "https://algs4.cs.princeton.edu/13stacks/"
+        },
+        {
+          "title": "Princeton Algorithms — Priority Queues",
+          "url": "https://algs4.cs.princeton.edu/24pq/"
+        },
+        {
+          "title": "Princeton Algorithms — Hash Tables",
+          "url": "https://algs4.cs.princeton.edu/34hash/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "linked-list-delete",
+      "topic": "data-structures",
+      "revision": 1,
+      "status": "active",
+      "prompt": "In a doubly linked list, you already hold a reference to a node. What is the worst-case time to unlink it, including updating head or tail if necessary, but excluding searching for it and freeing memory?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\Theta(1)$",
+          "correct": true,
+          "explanation": "Only a fixed number of neighboring links and possibly the head or tail references need to change."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\Theta(n^2)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Unlinking does not compare pairs of nodes."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\Theta(2^n)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Only local pointer changes are required."
+        },
+        {
+          "id": "distractor-3",
+          "text": "It is impossible without copying the list.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The predecessor and successor links allow local removal."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\Theta(n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Searching could be linear, but the question supplies the node reference."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\Theta(\\log n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "No tree search or logarithmic walk is needed."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\Theta(\\sqrt n)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The number of changed pointers is independent of list length."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Constant time only for nodes at the head.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An interior node has predecessor and successor pointers, so it also takes constant time."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Constant time only if the list is circular.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Ordinary head and tail boundary cases still require only a fixed number of changes."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Linear time because all later nodes change index.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A linked list does not store a contiguous array of indices that must be shifted."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Stacks and Queues",
+          "url": "https://algs4.cs.princeton.edu/13stacks/"
+        },
+        {
+          "title": "Princeton Algorithms — Priority Queues",
+          "url": "https://algs4.cs.princeton.edu/24pq/"
+        },
+        {
+          "title": "Princeton Algorithms — Hash Tables",
+          "url": "https://algs4.cs.princeton.edu/34hash/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "queue-choice",
+      "topic": "data-structures",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which abstract data type directly provides first-in, first-out removal?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "A queue.",
+          "correct": true,
+          "explanation": "A queue removes the earliest inserted item that has not yet been removed."
+        },
+        {
+          "id": "distractor-1",
+          "text": "A stack.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A stack is last in, first out."
+        },
+        {
+          "id": "distractor-2",
+          "text": "A set.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A set describes membership and does not require insertion-order removal."
+        },
+        {
+          "id": "distractor-3",
+          "text": "A binary search tree.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A search tree is organized by keys, not arrival times."
+        },
+        {
+          "id": "distractor-4",
+          "text": "A min-priority queue ordered by task size.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "That removes the smallest task, which need not be the oldest."
+        },
+        {
+          "id": "distractor-5",
+          "text": "A max-priority queue ordered by task size.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "That removes the largest task, which need not be the oldest."
+        },
+        {
+          "id": "distractor-6",
+          "text": "A hash map.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The map interface provides key-value access, not FIFO removal."
+        },
+        {
+          "id": "distractor-7",
+          "text": "A deque restricted to insertions and removals at the same end.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Using the same end gives LIFO behavior. Opposite ends can implement FIFO."
+        },
+        {
+          "id": "distractor-8",
+          "text": "A stack with constant-time operations.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Operation speed does not change LIFO ordering into FIFO."
+        },
+        {
+          "id": "distractor-9",
+          "text": "A sorted set ordered by item value.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Value order need not match insertion order."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Stacks and Queues",
+          "url": "https://algs4.cs.princeton.edu/13stacks/"
+        },
+        {
+          "title": "Princeton Algorithms — Priority Queues",
+          "url": "https://algs4.cs.princeton.edu/24pq/"
+        },
+        {
+          "title": "Princeton Algorithms — Hash Tables",
+          "url": "https://algs4.cs.princeton.edu/34hash/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "stack-order",
+      "topic": "data-structures",
+      "revision": 1,
+      "status": "active",
+      "prompt": "An initially empty stack receives push(A), push(B), push(C), then two pop operations. Which values do the pops return, in order?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "C, then B.",
+          "correct": true,
+          "explanation": "A stack is last in, first out. C is on top, and B is immediately beneath it."
+        },
+        {
+          "id": "distractor-1",
+          "text": "A, then B.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "That is the order a FIFO queue would return."
+        },
+        {
+          "id": "distractor-2",
+          "text": "A, then C.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The oldest item is not popped first from a stack."
+        },
+        {
+          "id": "distractor-3",
+          "text": "B, then A.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "C remains above B after the three pushes."
+        },
+        {
+          "id": "distractor-4",
+          "text": "C, then A.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "After popping C, B is still on top of A."
+        },
+        {
+          "id": "distractor-5",
+          "text": "B, then C.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "B cannot be popped while C remains above it."
+        },
+        {
+          "id": "distractor-6",
+          "text": "A, then A.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Each pop removes the returned item; A was inserted only once."
+        },
+        {
+          "id": "distractor-7",
+          "text": "C, then C.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Pop removes C, so the second operation returns B."
+        },
+        {
+          "id": "distractor-8",
+          "text": "B, then B.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The first pop must return C, and removed elements cannot be popped again."
+        },
+        {
+          "id": "distractor-9",
+          "text": "C, then nothing.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "After removing C, the stack still contains A and B."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Stacks and Queues",
+          "url": "https://algs4.cs.princeton.edu/13stacks/"
+        },
+        {
+          "title": "Princeton Algorithms — Priority Queues",
+          "url": "https://algs4.cs.princeton.edu/24pq/"
+        },
+        {
+          "title": "Princeton Algorithms — Hash Tables",
+          "url": "https://algs4.cs.princeton.edu/34hash/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "bipartite-cycle",
+      "topic": "graph-theory",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which condition is equivalent to a finite undirected simple graph being bipartite?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "It has no cycle of odd length.",
+          "correct": true,
+          "explanation": "A two-coloring alternates colors around each cycle, so all cycles must be even. Conversely, if there are no odd cycles, distance parity gives a consistent two-coloring in each component."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Every vertex has even degree.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A triangle has all degrees even but is not bipartite."
+        },
+        {
+          "id": "distractor-2",
+          "text": "The graph is connected.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A connected graph may contain an odd cycle."
+        },
+        {
+          "id": "distractor-3",
+          "text": "It has no edges.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Edgeless graphs are bipartite, but many graphs with edges are too."
+        },
+        {
+          "id": "distractor-4",
+          "text": "It has no cycle of even length.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A triangle has no even cycle but is not bipartite."
+        },
+        {
+          "id": "distractor-5",
+          "text": "It has no cycles of any length.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Acyclicity is sufficient but not necessary; an even cycle is bipartite."
+        },
+        {
+          "id": "distractor-6",
+          "text": "It has an even number of vertices.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A triangle plus an isolated vertex has even order but is not bipartite."
+        },
+        {
+          "id": "distractor-7",
+          "text": "It has no triangles.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A five-cycle is triangle-free but not bipartite."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Every connected component has an even number of vertices.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A component can have odd order and still be bipartite, such as a three-vertex path."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Every vertex belongs to at most one odd cycle.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Even one odd cycle prevents a two-coloring."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Undirected Graphs",
+          "url": "https://algs4.cs.princeton.edu/41graph/"
+        },
+        {
+          "title": "Princeton Algorithms — Directed Graphs",
+          "url": "https://algs4.cs.princeton.edu/42digraph/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "complete-graph-edges",
+      "topic": "graph-theory",
+      "revision": 1,
+      "status": "active",
+      "prompt": "How many edges does the complete undirected simple graph $K_n$ have?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$n(n-1)/2$",
+          "correct": true,
+          "explanation": "Each unordered pair of distinct vertices contributes one edge. There are n choose 2 such pairs."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$n$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Each vertex connects to every other vertex, so the count is generally quadratic."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$n-1$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "That is a tree’s edge count, not a complete graph’s."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$n^2$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This counts ordered pairs and includes pairs of a vertex with itself."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$n(n-1)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This counts every undirected edge in both directions."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$n(n+1)/2$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This includes n extra diagonal pairs, corresponding to forbidden loops."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$2n$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Complete graphs generally have quadratic rather than linear edge counts."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$(n-1)(n-2)/2$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "That counts a complete graph on n−1 vertices."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$n(n-2)/2$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every vertex has n−1 neighbors, not n−2."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$n(n-1)/2+1$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The binomial count already includes every allowed edge; there is no extra edge."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Undirected Graphs",
+          "url": "https://algs4.cs.princeton.edu/41graph/"
+        },
+        {
+          "title": "Princeton Algorithms — Directed Graphs",
+          "url": "https://algs4.cs.princeton.edu/42digraph/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "connected-components-forest",
+      "topic": "graph-theory",
+      "revision": 1,
+      "status": "active",
+      "prompt": "An undirected forest has $n$ vertices and $c$ connected components. How many edges does it have?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$n-c$",
+          "correct": true,
+          "explanation": "Each component is a tree. If component $i$ has $n_i$ vertices, it has $n_i-1$ edges. Summing gives $n-c$."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$n+c$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Each component contributes one fewer edge than vertices, not one more."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$nc$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Components contribute additively, not multiplicatively."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$n^2-c$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A forest has only linearly many edges."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$n-1$ for every value of $c$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is the connected case c=1; every additional component reduces the edge count by one."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$n-2c$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A tree contributes one fewer edge than vertices, not two fewer."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$c-1$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The number of components alone does not determine the internal edges."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$n-c+1$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The sum of c tree edge counts subtracts c, with no additional edge."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$n-c-1$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This subtracts one too many; summing n_i−1 gives exactly n−c."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$n-c$ only if no vertex is isolated.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An isolated vertex is a one-vertex tree and contributes zero edges, so the formula still holds."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Undirected Graphs",
+          "url": "https://algs4.cs.princeton.edu/41graph/"
+        },
+        {
+          "title": "Princeton Algorithms — Directed Graphs",
+          "url": "https://algs4.cs.princeton.edu/42digraph/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "dag-topological",
+      "topic": "graph-theory",
+      "revision": 1,
+      "status": "active",
+      "prompt": "A finite directed graph has a topological ordering exactly when it satisfies which condition?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "It has no directed cycle.",
+          "correct": true,
+          "explanation": "A topological ordering places the tail of every edge before its head. A directed cycle makes this impossible; repeatedly removing an indegree-zero vertex orders any DAG."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Every vertex has the same outdegree.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Equal outdegrees neither prevent directed cycles nor ensure an ordering."
+        },
+        {
+          "id": "distractor-2",
+          "text": "It is strongly connected.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Strong connectivity with multiple vertices entails directed cycles."
+        },
+        {
+          "id": "distractor-3",
+          "text": "It has more edges than vertices.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The edge count alone does not characterize topological orderability."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Its underlying undirected graph has no cycle.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "That is sufficient but unnecessary: an acyclic orientation of a triangle admits an ordering."
+        },
+        {
+          "id": "distractor-5",
+          "text": "It has no isolated vertices.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Isolated vertices can appear anywhere in a topological ordering."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Every vertex has positive indegree.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A nonempty finite DAG must have an indegree-zero vertex."
+        },
+        {
+          "id": "distractor-7",
+          "text": "It has at least one vertex of indegree zero.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Another component can still contain a directed cycle."
+        },
+        {
+          "id": "distractor-8",
+          "text": "It has no directed cycle of length two.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Longer directed cycles also prevent topological ordering."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Its vertices can be ordered by nondecreasing indegree.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Sorting by indegree does not necessarily place every tail before its head."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Undirected Graphs",
+          "url": "https://algs4.cs.princeton.edu/41graph/"
+        },
+        {
+          "title": "Princeton Algorithms — Directed Graphs",
+          "url": "https://algs4.cs.princeton.edu/42digraph/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "handshake",
+      "topic": "graph-theory",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For a finite undirected simple graph $G=(V,E)$, what is $\\sum_{v\\in V}\\deg(v)$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$2|E|$",
+          "correct": true,
+          "explanation": "Every edge has two endpoints, so summing degrees counts each edge twice."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$|V|$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The number of vertices does not determine the degree sum."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$|E|$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This counts each edge only once, but it contributes at both endpoints."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$|V|+|E|$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The degree sum counts edge endpoints, not vertices plus edges."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$|E|/2$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The degree sum is twice the edge count, not half."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$|V|\\cdot|E|$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "An edge contributes exactly two, regardless of the number of vertices."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$2|V|$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This happens in some graphs, such as cycles, but is not the general identity."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$2|E|-|V|$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "No vertex term should be subtracted; isolated vertices simply contribute zero."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$2|E|$ only if the graph is connected.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Each edge still has two endpoints in a disconnected graph."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$2|E|$ only if every degree is even.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The identity is unconditional; individual degrees may be odd."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Undirected Graphs",
+          "url": "https://algs4.cs.princeton.edu/41graph/"
+        },
+        {
+          "title": "Princeton Algorithms — Directed Graphs",
+          "url": "https://algs4.cs.princeton.edu/42digraph/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "tree-edge-count",
+      "topic": "graph-theory",
+      "revision": 1,
+      "status": "active",
+      "prompt": "How many edges does a finite undirected tree with $n\\geq 1$ vertices have?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$n-1$",
+          "correct": true,
+          "explanation": "A tree is connected and acyclic. Removing a leaf and its one edge gives an induction proving $|E|=|V|-1$."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$n$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "That is one edge too many for a tree; a connected graph with n edges has a cycle."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$2n$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A tree has far fewer edges; each added leaf contributes one edge."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$n^2$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Trees are sparse and contain exactly n−1 edges."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$n+1$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Two more edges than a tree can have would create cycles in a connected graph."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$n/2$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "For example, a tree on four vertices has three edges, not two."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$2n-2$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "That is the sum of degrees, which counts each edge twice."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$n-2$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A connected graph on n vertices needs at least n−1 edges."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\binom{n}{2}$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "That counts edges in a complete simple graph, which is generally not a tree."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$n-1$ only when the tree is binary.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The edge-count identity holds for every finite undirected tree, regardless of degrees."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Princeton Algorithms — Undirected Graphs",
+          "url": "https://algs4.cs.princeton.edu/41graph/"
+        },
+        {
+          "title": "Princeton Algorithms — Directed Graphs",
+          "url": "https://algs4.cs.princeton.edu/42digraph/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "class-np",
+      "topic": "complexity",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which statement defines membership of a decision problem in NP?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Every yes-instance has a polynomial-size certificate verifiable in deterministic polynomial time.",
+          "correct": true,
+          "explanation": "NP concerns efficient verification of yes-certificates. It does not require efficient deterministic search for those certificates."
+        },
+        {
+          "id": "distractor-1",
+          "text": "It cannot be solved by any algorithm.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "NP problems are decidable; exhaustive certificate search is possible."
+        },
+        {
+          "id": "distractor-2",
+          "text": "It requires non-polynomial time on every input.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "NP does not mean non-polynomial, and P is contained in NP."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Its output must be a number.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A decision problem has a yes/no output."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Both yes- and no-instances must have polynomial-time verifiable certificates.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This describes membership in NP intersect coNP, a stronger requirement than NP alone."
+        },
+        {
+          "id": "distractor-5",
+          "text": "A deterministic algorithm solves it in polynomial time.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "That defines P and is sufficient, but is not the definition of all NP problems."
+        },
+        {
+          "id": "distractor-6",
+          "text": "A polynomial-time verifier may use certificates of unbounded length.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "NP bounds certificate length polynomially in input size."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Every no-instance has a polynomial-size certificate verifiable in polynomial time.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "That is the certificate characterization of coNP."
+        },
+        {
+          "id": "distractor-8",
+          "text": "At least one yes-instance has an efficiently verifiable certificate.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The guarantee must cover every yes-instance and reject every certificate for each no-instance."
+        },
+        {
+          "id": "distractor-9",
+          "text": "A polynomial-time verifier accepts every certificate for a yes-instance.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Only the existence of an accepting certificate is required; invalid certificates may be rejected."
+        }
+      ],
+      "sources": [
+        {
+          "title": "MIT 6.045 — Automata, Computability, and Complexity",
+          "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "halting-problem",
+      "topic": "complexity",
+      "revision": 1,
+      "status": "active",
+      "prompt": "What does undecidability of the general halting problem mean?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "No algorithm always terminates and correctly decides, for every program and input, whether that program halts.",
+          "correct": true,
+          "explanation": "Undecidability rules out a total, universally correct decider. Particular programs can still be analyzed, and simulation recognizes halting when it occurs."
+        },
+        {
+          "id": "distractor-1",
+          "text": "No program ever halts.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Many programs halt; the obstacle is a universal decision procedure."
+        },
+        {
+          "id": "distractor-2",
+          "text": "No specific program can be proved to halt.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Termination can be proved for many particular programs."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Computers cannot simulate other programs.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Simulation is possible, but it may itself run forever when the simulated program does."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Every halting question requires exponential time.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Undecidability is stronger than an exponential lower bound: no total decider exists."
+        },
+        {
+          "id": "distractor-5",
+          "text": "There is no algorithm that recognizes halting cases.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Simulation recognizes a halting case by eventually observing termination."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Only very large programs can fail to halt.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Even a tiny unconditional infinite loop need not halt."
+        },
+        {
+          "id": "distractor-7",
+          "text": "A decider exists if it may take arbitrarily long but finite time on every input.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "That would still be a total decision algorithm, which undecidability rules out."
+        },
+        {
+          "id": "distractor-8",
+          "text": "No restricted programming language has a decidable halting problem.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Some restricted languages or finite-state systems do have decidable halting problems."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Simulation decides both halting and nonhalting by waiting long enough.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Any finite wait is inconclusive when a program has not halted yet; it may halt later."
+        }
+      ],
+      "sources": [
+        {
+          "title": "MIT 6.045 — Automata, Computability, and Complexity",
+          "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "np-complete",
+      "topic": "complexity",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Under polynomial-time many-one reductions, what two conditions make a decision problem NP-complete?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "It is in NP, and every problem in NP reduces to it in polynomial time.",
+          "correct": true,
+          "explanation": "Membership supplies efficiently verifiable yes-certificates. NP-hardness says that solving this problem efficiently would solve every problem in NP efficiently."
+        },
+        {
+          "id": "distractor-1",
+          "text": "It is impossible to solve and impossible to verify.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "NP-complete problems are decidable and have polynomial-time verifiable yes-certificates."
+        },
+        {
+          "id": "distractor-2",
+          "text": "It uses polynomial space and has a numeric output.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Those conditions do not define NP-completeness."
+        },
+        {
+          "id": "distractor-3",
+          "text": "It takes exponential time on at least one particular machine.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A slow implementation does not establish a complexity lower bound or completeness."
+        },
+        {
+          "id": "distractor-4",
+          "text": "It is in P, and it reduces to an NP problem.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "These conditions do not establish NP-hardness."
+        },
+        {
+          "id": "distractor-5",
+          "text": "It is in NP, and it reduces to every problem in NP.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The hardness direction is reversed: every NP problem must reduce to it."
+        },
+        {
+          "id": "distractor-6",
+          "text": "It is NP-hard, with no membership requirement.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "NP-hardness alone does not imply membership in NP."
+        },
+        {
+          "id": "distractor-7",
+          "text": "It is in NP, and some problem in NP reduces to it.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An arbitrary easy NP problem can reduce to it; hardness requires all NP problems or a known NP-hard one."
+        },
+        {
+          "id": "distractor-8",
+          "text": "It is in coNP, and every NP problem reduces to it.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This gives NP-hardness and coNP membership, but does not establish the required NP membership."
+        },
+        {
+          "id": "distractor-9",
+          "text": "It is in NP, and it is not known to have a polynomial-time algorithm.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Lack of a known algorithm is not proof of NP-hardness."
+        }
+      ],
+      "sources": [
+        {
+          "title": "MIT 6.045 — Automata, Computability, and Complexity",
+          "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "p-subset-np",
+      "topic": "complexity",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Why does $\\mathrm{P}\\subseteq\\mathrm{NP}$ hold?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "A polynomial-time decider can act as a verifier that ignores the certificate.",
+          "correct": true,
+          "explanation": "For a problem in P, run its deterministic polynomial-time algorithm. It accepts exactly the yes-instances, regardless of the supplied certificate."
+        },
+        {
+          "id": "distractor-1",
+          "text": "NP means problems outside polynomial time.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "NP means nondeterministic polynomial time; it does not exclude P."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Every problem can be solved in polynomial time.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is false; decidable problems exist outside P."
+        },
+        {
+          "id": "distractor-3",
+          "text": "All NP problems are already known to be in P.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Whether P equals NP is unresolved."
+        },
+        {
+          "id": "distractor-4",
+          "text": "A verifier is allowed exponential time.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "An NP verifier must run in polynomial time."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Every input is a yes-instance.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "P includes decision problems with both yes- and no-instances."
+        },
+        {
+          "id": "distractor-6",
+          "text": "The certificate may contain an arbitrarily long computation.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "NP certificates must have polynomial length."
+        },
+        {
+          "id": "distractor-7",
+          "text": "The verifier can accept without inspecting the input.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "It must still distinguish yes- and no-instances; running the decider does that."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Each P problem is NP-complete.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Membership in P does not imply NP-hardness."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Deterministic and nondeterministic polynomial time are proven equal.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Only containment is known in general; equality is an open question."
+        }
+      ],
+      "sources": [
+        {
+          "title": "MIT 6.045 — Automata, Computability, and Complexity",
+          "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "polynomial-input-length",
+      "topic": "complexity",
+      "revision": 1,
+      "status": "active",
+      "prompt": "A positive integer $N$ is encoded in binary. An algorithm takes $\\Theta(N)$ steps. In terms of the bit length $b=\\lfloor\\log_2 N\\rfloor+1$, how does its running time grow?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\Theta(2^b)$",
+          "correct": true,
+          "explanation": "For a $b$-bit positive integer, $2^{b-1}\\leq N<2^b$. Thus linear time in the numeric value is exponential in the input length."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\Theta(1)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The numeric value grows with the bit length."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\Theta(b)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This confuses the numeric value N with the number of bits used to write it."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\Theta(\\log b)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The relationship is exponential in b, not logarithmic."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\Theta(b^2)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The encoded value can be exponentially larger than the square of its bit length."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\Theta(b\\log b)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "That is nearly linear in bit length and much smaller than N."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\Theta(\\sqrt b)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "N is exponential, not sublinear, in its bit length."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\Theta(2^{b/2})$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "That scales like the square root of N, whereas the algorithm takes linear time in N."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\Theta(b\\,2^b)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The given cost is already Θ(N) steps; there is no additional factor of b in this statement."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\Theta(2^{2b})$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "That scales like N squared, rather than N."
+        }
+      ],
+      "sources": [
+        {
+          "title": "MIT 6.045 — Automata, Computability, and Complexity",
+          "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "reduction-direction",
+      "topic": "complexity",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Suppose $A\\leq_p B$ via a polynomial-time many-one reduction. Which consequence is guaranteed?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "If $B\\in\\mathrm{P}$, then $A\\in\\mathrm{P}$.",
+          "correct": true,
+          "explanation": "To decide A, transform its input into an equivalent B-instance in polynomial time, then run the polynomial-time decider for B."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$A$ and $B$ must be the same language.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A reduction can map between different languages."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$A$ has no algorithm.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Reducibility alone says nothing of that sort."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$B$ has no yes-instances.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A reduction imposes no such requirement."
+        },
+        {
+          "id": "distractor-4",
+          "text": "If $A\\in\\mathrm{P}$, then $B\\in\\mathrm{P}$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "An easy problem can reduce to a harder one; the implication goes the other way."
+        },
+        {
+          "id": "distractor-5",
+          "text": "If $A\\in\\mathrm{NP}$, then $B\\in\\mathrm{NP}$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Reducing an NP problem to B does not give a verifier for all of B."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$B$ is always NP-complete.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A reduction from an arbitrary A does not establish NP-hardness or membership in NP."
+        },
+        {
+          "id": "distractor-7",
+          "text": "If $B$ is NP-hard, then $A$ is NP-hard.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Hardness transfers from the source to the target, not generally from the target to the source."
+        },
+        {
+          "id": "distractor-8",
+          "text": "If $B\\notin\\mathrm{P}$, then $A\\notin\\mathrm{P}$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A can be easy even when B is hard."
+        },
+        {
+          "id": "distractor-9",
+          "text": "The reduction must be invertible in polynomial time.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Many-one reductions need preserve the yes/no answer, not be invertible."
+        }
+      ],
+      "sources": [
+        {
+          "title": "MIT 6.045 — Automata, Computability, and Complexity",
+          "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+        }
+      ]
+    }
+  ]
+}

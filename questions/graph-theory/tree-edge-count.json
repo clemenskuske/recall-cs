@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "tree-edge-count",
+  "topic": "graph-theory",
+  "revision": 1,
+  "status": "active",
+  "prompt": "How many edges does a finite undirected tree with $n\\geq 1$ vertices have?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$n-1$",
+      "correct": true,
+      "explanation": "A tree is connected and acyclic. Removing a leaf and its one edge gives an induction proving $|E|=|V|-1$."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$n$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "That is one edge too many for a tree; a connected graph with n edges has a cycle."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$2n$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A tree has far fewer edges; each added leaf contributes one edge."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$n^2$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Trees are sparse and contain exactly n−1 edges."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$n+1$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Two more edges than a tree can have would create cycles in a connected graph."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$n/2$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "For example, a tree on four vertices has three edges, not two."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$2n-2$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "That is the sum of degrees, which counts each edge twice."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$n-2$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A connected graph on n vertices needs at least n−1 edges."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\binom{n}{2}$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "That counts edges in a complete simple graph, which is generally not a tree."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$n-1$ only when the tree is binary.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The edge-count identity holds for every finite undirected tree, regardless of degrees."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Undirected Graphs",
+      "url": "https://algs4.cs.princeton.edu/41graph/"
+    },
+    {
+      "title": "Princeton Algorithms — Directed Graphs",
+      "url": "https://algs4.cs.princeton.edu/42digraph/"
+    }
+  ]
+}

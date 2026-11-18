@@ -1,0 +1,4 @@
+interface:
+  display_name: "Recall CS Questions"
+  short_description: "Create and improve the Recall CS question bank"
+  default_prompt: "Use $recall-cs-questions to add carefully verified questions or resolve feedback in my Recall repository."

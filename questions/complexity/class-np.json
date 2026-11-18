@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "class-np",
+  "topic": "complexity",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which statement defines membership of a decision problem in NP?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Every yes-instance has a polynomial-size certificate verifiable in deterministic polynomial time.",
+      "correct": true,
+      "explanation": "NP concerns efficient verification of yes-certificates. It does not require efficient deterministic search for those certificates."
+    },
+    {
+      "id": "distractor-1",
+      "text": "It cannot be solved by any algorithm.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "NP problems are decidable; exhaustive certificate search is possible."
+    },
+    {
+      "id": "distractor-2",
+      "text": "It requires non-polynomial time on every input.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "NP does not mean non-polynomial, and P is contained in NP."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Its output must be a number.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A decision problem has a yes/no output."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Both yes- and no-instances must have polynomial-time verifiable certificates.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This describes membership in NP intersect coNP, a stronger requirement than NP alone."
+    },
+    {
+      "id": "distractor-5",
+      "text": "A deterministic algorithm solves it in polynomial time.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "That defines P and is sufficient, but is not the definition of all NP problems."
+    },
+    {
+      "id": "distractor-6",
+      "text": "A polynomial-time verifier may use certificates of unbounded length.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "NP bounds certificate length polynomially in input size."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Every no-instance has a polynomial-size certificate verifiable in polynomial time.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "That is the certificate characterization of coNP."
+    },
+    {
+      "id": "distractor-8",
+      "text": "At least one yes-instance has an efficiently verifiable certificate.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The guarantee must cover every yes-instance and reject every certificate for each no-instance."
+    },
+    {
+      "id": "distractor-9",
+      "text": "A polynomial-time verifier accepts every certificate for a yes-instance.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Only the existence of an accepting certificate is required; invalid certificates may be rejected."
+    }
+  ],
+  "sources": [
+    {
+      "title": "MIT 6.045 — Automata, Computability, and Complexity",
+      "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+    }
+  ]
+}

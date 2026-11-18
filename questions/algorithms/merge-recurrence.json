@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "merge-recurrence",
+  "topic": "algorithms",
+  "revision": 1,
+  "status": "active",
+  "prompt": "For powers of two, let $T(n)=2T(n/2)+n$ with $T(1)=1$. What is the tight asymptotic bound?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\Theta(n\\log n)$",
+      "correct": true,
+      "explanation": "Each of the $\\log_2 n$ internal recursion levels costs $n$ in total. The leaves add $n$, giving $\\Theta(n\\log n)$."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\Theta(1)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The top-level work alone grows linearly."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\Theta(2^n)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The subproblem sizes halve; the recurrence does not generate exponentially many leaves in n."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\Theta(\\log n)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "There are logarithmically many levels, but each costs linear total work."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\Theta(n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This misses the linear work repeated at every internal level."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\Theta(n^2)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The per-level cost is n and the depth is logarithmic, not linear."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\Theta(\\sqrt n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Even the root contributes more work than this."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\Theta(n(\\log n)^2)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "There is one logarithmic factor for the depth; the per-level work contributes no second logarithm."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\Theta(n\\log\\log n)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Halving gives logarithmic depth, not double-logarithmic depth."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\Theta(n^{\\log_2 3})$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "That exponent corresponds to three half-size recursive subproblems; this recurrence has two."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Analysis of Algorithms",
+      "url": "https://algs4.cs.princeton.edu/14analysis/"
+    },
+    {
+      "title": "Princeton Algorithms — Shortest Paths",
+      "url": "https://algs4.cs.princeton.edu/44sp/"
+    }
+  ]
+}

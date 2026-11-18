@@ -1,0 +1,20 @@
+{
+  "name": "recall-cs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "validate": "node scripts/content.mjs --check",
+    "build": "node scripts/content.mjs && vite build && node scripts/service-worker.mjs",
+    "test": "node --test test/*.test.mjs",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "katex": "0.19.1",
+    "ts-fsrs": "5.4.2"
+  },
+  "devDependencies": {
+    "vite": "6.4.1"
+  }
+}

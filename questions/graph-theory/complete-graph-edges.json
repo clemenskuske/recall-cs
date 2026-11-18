@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "complete-graph-edges",
+  "topic": "graph-theory",
+  "revision": 1,
+  "status": "active",
+  "prompt": "How many edges does the complete undirected simple graph $K_n$ have?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$n(n-1)/2$",
+      "correct": true,
+      "explanation": "Each unordered pair of distinct vertices contributes one edge. There are n choose 2 such pairs."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$n$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Each vertex connects to every other vertex, so the count is generally quadratic."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$n-1$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "That is a tree’s edge count, not a complete graph’s."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$n^2$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This counts ordered pairs and includes pairs of a vertex with itself."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$n(n-1)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This counts every undirected edge in both directions."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$n(n+1)/2$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This includes n extra diagonal pairs, corresponding to forbidden loops."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$2n$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Complete graphs generally have quadratic rather than linear edge counts."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$(n-1)(n-2)/2$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "That counts a complete graph on n−1 vertices."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$n(n-2)/2$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Every vertex has n−1 neighbors, not n−2."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$n(n-1)/2+1$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The binomial count already includes every allowed edge; there is no extra edge."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Undirected Graphs",
+      "url": "https://algs4.cs.princeton.edu/41graph/"
+    },
+    {
+      "title": "Princeton Algorithms — Directed Graphs",
+      "url": "https://algs4.cs.princeton.edu/42digraph/"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "dijkstra-condition",
+  "topic": "algorithms",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which edge-weight assumption guarantees correctness of standard Dijkstra’s algorithm on every finite directed graph, using permanent finalization when a vertex is extracted?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "All edge weights are nonnegative.",
+      "correct": true,
+      "explanation": "With nonnegative weights, extending a path cannot lower its weight. This makes it safe to finalize the unsettled vertex with smallest tentative distance."
+    },
+    {
+      "id": "distractor-1",
+      "text": "All edge weights are negative.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Negative edges can invalidate an already finalized distance."
+    },
+    {
+      "id": "distractor-2",
+      "text": "The graph has at least one positive edge.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "One positive edge gives no guarantee about the remaining edges."
+    },
+    {
+      "id": "distractor-3",
+      "text": "All vertices have equal degree.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Degrees do not make the greedy distance invariant valid."
+    },
+    {
+      "id": "distractor-4",
+      "text": "The sum of all edge weights is nonnegative.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A nonnegative total does not rule out a negative edge that breaks finalization."
+    },
+    {
+      "id": "distractor-5",
+      "text": "There are no negative-weight cycles.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This suffices for finite shortest-path distances, but standard Dijkstra can still fail with a negative edge."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Every edge weight is an integer.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Negative integers can break the algorithm just as negative real weights can."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Every directed cycle has strictly positive total weight.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Even an acyclic graph with a negative edge can break permanent finalization."
+    },
+    {
+      "id": "distractor-8",
+      "text": "All edges leaving the source are nonnegative.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A later negative edge can still produce a shorter path to an already finalized vertex."
+    },
+    {
+      "id": "distractor-9",
+      "text": "There is at most one negative edge.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A single negative edge is enough to defeat the correctness guarantee."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Analysis of Algorithms",
+      "url": "https://algs4.cs.princeton.edu/14analysis/"
+    },
+    {
+      "title": "Princeton Algorithms — Shortest Paths",
+      "url": "https://algs4.cs.princeton.edu/44sp/"
+    }
+  ]
+}

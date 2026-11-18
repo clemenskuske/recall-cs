@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "p-subset-np",
+  "topic": "complexity",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Why does $\\mathrm{P}\\subseteq\\mathrm{NP}$ hold?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "A polynomial-time decider can act as a verifier that ignores the certificate.",
+      "correct": true,
+      "explanation": "For a problem in P, run its deterministic polynomial-time algorithm. It accepts exactly the yes-instances, regardless of the supplied certificate."
+    },
+    {
+      "id": "distractor-1",
+      "text": "NP means problems outside polynomial time.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "NP means nondeterministic polynomial time; it does not exclude P."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Every problem can be solved in polynomial time.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This is false; decidable problems exist outside P."
+    },
+    {
+      "id": "distractor-3",
+      "text": "All NP problems are already known to be in P.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Whether P equals NP is unresolved."
+    },
+    {
+      "id": "distractor-4",
+      "text": "A verifier is allowed exponential time.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "An NP verifier must run in polynomial time."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Every input is a yes-instance.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "P includes decision problems with both yes- and no-instances."
+    },
+    {
+      "id": "distractor-6",
+      "text": "The certificate may contain an arbitrarily long computation.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "NP certificates must have polynomial length."
+    },
+    {
+      "id": "distractor-7",
+      "text": "The verifier can accept without inspecting the input.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "It must still distinguish yes- and no-instances; running the decider does that."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Each P problem is NP-complete.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Membership in P does not imply NP-hardness."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Deterministic and nondeterministic polynomial time are proven equal.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Only containment is known in general; equality is an open question."
+    }
+  ],
+  "sources": [
+    {
+      "title": "MIT 6.045 — Automata, Computability, and Complexity",
+      "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+    }
+  ]
+}

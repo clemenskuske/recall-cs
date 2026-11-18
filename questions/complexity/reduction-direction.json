@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "reduction-direction",
+  "topic": "complexity",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Suppose $A\\leq_p B$ via a polynomial-time many-one reduction. Which consequence is guaranteed?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "If $B\\in\\mathrm{P}$, then $A\\in\\mathrm{P}$.",
+      "correct": true,
+      "explanation": "To decide A, transform its input into an equivalent B-instance in polynomial time, then run the polynomial-time decider for B."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$A$ and $B$ must be the same language.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A reduction can map between different languages."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$A$ has no algorithm.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Reducibility alone says nothing of that sort."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$B$ has no yes-instances.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A reduction imposes no such requirement."
+    },
+    {
+      "id": "distractor-4",
+      "text": "If $A\\in\\mathrm{P}$, then $B\\in\\mathrm{P}$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "An easy problem can reduce to a harder one; the implication goes the other way."
+    },
+    {
+      "id": "distractor-5",
+      "text": "If $A\\in\\mathrm{NP}$, then $B\\in\\mathrm{NP}$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Reducing an NP problem to B does not give a verifier for all of B."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$B$ is always NP-complete.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A reduction from an arbitrary A does not establish NP-hardness or membership in NP."
+    },
+    {
+      "id": "distractor-7",
+      "text": "If $B$ is NP-hard, then $A$ is NP-hard.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Hardness transfers from the source to the target, not generally from the target to the source."
+    },
+    {
+      "id": "distractor-8",
+      "text": "If $B\\notin\\mathrm{P}$, then $A\\notin\\mathrm{P}$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A can be easy even when B is hard."
+    },
+    {
+      "id": "distractor-9",
+      "text": "The reduction must be invertible in polynomial time.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Many-one reductions need preserve the yes/no answer, not be invertible."
+    }
+  ],
+  "sources": [
+    {
+      "title": "MIT 6.045 — Automata, Computability, and Complexity",
+      "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+    }
+  ]
+}

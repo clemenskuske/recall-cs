@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "handshake",
+  "topic": "graph-theory",
+  "revision": 1,
+  "status": "active",
+  "prompt": "For a finite undirected simple graph $G=(V,E)$, what is $\\sum_{v\\in V}\\deg(v)$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$2|E|$",
+      "correct": true,
+      "explanation": "Every edge has two endpoints, so summing degrees counts each edge twice."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$|V|$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The number of vertices does not determine the degree sum."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$|E|$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This counts each edge only once, but it contributes at both endpoints."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$|V|+|E|$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The degree sum counts edge endpoints, not vertices plus edges."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$|E|/2$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The degree sum is twice the edge count, not half."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$|V|\\cdot|E|$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "An edge contributes exactly two, regardless of the number of vertices."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$2|V|$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This happens in some graphs, such as cycles, but is not the general identity."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$2|E|-|V|$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "No vertex term should be subtracted; isolated vertices simply contribute zero."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$2|E|$ only if the graph is connected.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Each edge still has two endpoints in a disconnected graph."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$2|E|$ only if every degree is even.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The identity is unconditional; individual degrees may be odd."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Undirected Graphs",
+      "url": "https://algs4.cs.princeton.edu/41graph/"
+    },
+    {
+      "title": "Princeton Algorithms — Directed Graphs",
+      "url": "https://algs4.cs.princeton.edu/42digraph/"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "halting-problem",
+  "topic": "complexity",
+  "revision": 1,
+  "status": "active",
+  "prompt": "What does undecidability of the general halting problem mean?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "No algorithm always terminates and correctly decides, for every program and input, whether that program halts.",
+      "correct": true,
+      "explanation": "Undecidability rules out a total, universally correct decider. Particular programs can still be analyzed, and simulation recognizes halting when it occurs."
+    },
+    {
+      "id": "distractor-1",
+      "text": "No program ever halts.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Many programs halt; the obstacle is a universal decision procedure."
+    },
+    {
+      "id": "distractor-2",
+      "text": "No specific program can be proved to halt.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Termination can be proved for many particular programs."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Computers cannot simulate other programs.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Simulation is possible, but it may itself run forever when the simulated program does."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Every halting question requires exponential time.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Undecidability is stronger than an exponential lower bound: no total decider exists."
+    },
+    {
+      "id": "distractor-5",
+      "text": "There is no algorithm that recognizes halting cases.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Simulation recognizes a halting case by eventually observing termination."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Only very large programs can fail to halt.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Even a tiny unconditional infinite loop need not halt."
+    },
+    {
+      "id": "distractor-7",
+      "text": "A decider exists if it may take arbitrarily long but finite time on every input.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "That would still be a total decision algorithm, which undecidability rules out."
+    },
+    {
+      "id": "distractor-8",
+      "text": "No restricted programming language has a decidable halting problem.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Some restricted languages or finite-state systems do have decidable halting problems."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Simulation decides both halting and nonhalting by waiting long enough.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Any finite wait is inconclusive when a program has not halted yet; it may halt later."
+    }
+  ],
+  "sources": [
+    {
+      "title": "MIT 6.045 — Automata, Computability, and Complexity",
+      "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+    }
+  ]
+}

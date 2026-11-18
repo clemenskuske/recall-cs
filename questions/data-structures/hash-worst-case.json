@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "hash-worst-case",
+  "topic": "data-structures",
+  "revision": 1,
+  "status": "active",
+  "prompt": "In a hash table with separate chaining and $n$ stored keys, what is the worst-case time to search for a key, if hashing and each key comparison take $\\Theta(1)$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\Theta(n)$",
+      "correct": true,
+      "explanation": "All $n$ keys can collide into one bucket. Searching that chain can require $n$ comparisons. Expected constant time requires assumptions about hashing and load."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\Theta(2^n)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A search examines at most the stored chain, not exponentially many candidates."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\Theta(n^2)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Each key in a chain needs at most one comparison during an ordinary search."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\Theta(1/n)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Even computing the hash requires constant time."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\Theta(1)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This confuses expected performance under suitable assumptions with the worst case."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\Theta(\\log n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A chain is not a balanced search tree; it can contain every key."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\Theta(\\sqrt n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "There is no worst-case guarantee that chains stop at square-root length."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Constant time whenever the load factor is at most 1.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A small average bucket size does not prevent all keys from colliding into a single bucket."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Logarithmic time if all stored keys are distinct.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Distinct keys can have identical hash values."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Constant time if the hash function is deterministic.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Determinism does not prevent collisions; the worst case may still scan all keys."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Stacks and Queues",
+      "url": "https://algs4.cs.princeton.edu/13stacks/"
+    },
+    {
+      "title": "Princeton Algorithms — Priority Queues",
+      "url": "https://algs4.cs.princeton.edu/24pq/"
+    },
+    {
+      "title": "Princeton Algorithms — Hash Tables",
+      "url": "https://algs4.cs.princeton.edu/34hash/"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+# Learning design and limits
+
+Recall uses retrieval practice, explanatory feedback, distributed review, and a small daily new-question allowance. The defaults are five minutes, eight new questions, and a 90% FSRS target retention. These are adjustable starting points, not an experimentally optimal prescription for this user.
+
+The pinned `ts-fsrs` 5.4.2 package implements FSRS-6. Each question revision has its own card. Correct answers map to `Good`; mistakes and explicitly acknowledged guesses map to `Again`. Learning steps are 1 and 10 minutes; relearning uses 1 minute. The library determines subsequent intervals. Every review records the answer, presented alternatives, revision, timestamp, difficulty, guess flag, and FSRS review log. Parameters are the library defaults, not fitted to the user. This is multiple-choice recognition practice and does not fully measure free recall or programming skill.
+
+Due questions precede new questions. New questions are interleaved across selected topics; the new-item allowance is per local calendar day, across sessions. A missed question becomes eligible again at its scheduled time. When no work is due, the app finishes rather than inventing additional repetitions; the user can return when a short learning step becomes due. Correct responses in a mature review state generally expand gaps, but intervals need not increase after every single response or settings change.
+
+Distractor progression is separate from FSRS: one mastery point per calendar day with successful retrieval, one point lost after an error/guess, capped at three presentation levels (level 2 after two points, level 3 after four). The app selects three wrong answers nearest to the current level and shuffles all four alternatives. This heuristic is configurable and has not been validated as an optimal learning intervention. Because harder alternatives change the question's difficulty, interpret predicted retention cautiously.
+
+The timer counts only an active, visible quiz with no dialog open. It is a gentle session limit checked between questions. Leaving the page does not advance it. A learning streak means at least one answered question on a local calendar day, independent of the time target. There is no notification permission or push service.
+
+Progress is local to this browser/install. Export/import carries settings, card states, full review history, report drafts, and pauses; GitHub tokens are not included. Deleting browser data can remove progress. No learner activity is sent to an LLM or analytics service. The app fetches the public bank from GitHub when opened, foregrounded, or reconnected. A validated cached bank allows offline learning; revisions restart learning for the affected item, and retired or removed items leave the queue.
+
+## Evidence
+
+- [Butler & Roediger (2008), Feedback enhances the positive effects and reduces the negative effects of multiple-choice testing](https://pubmed.ncbi.nlm.nih.gov/18491500/): explanatory feedback is especially relevant because incorrect alternatives can otherwise be remembered.
+- [Cepeda et al. (2008), Spacing Effects in Learning](https://digitalcommons.usf.edu/psy_facpub/1766/): retention depends on both practice spacing and the later retention interval; there is no single universally best gap.
+- [FSRS implementation and documentation](https://github.com/open-spaced-repetition/ts-fsrs/tree/v5.4.2): implementation reference, distinct from experimental evidence for this specific product.

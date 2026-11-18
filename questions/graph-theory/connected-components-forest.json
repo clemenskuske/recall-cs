@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "connected-components-forest",
+  "topic": "graph-theory",
+  "revision": 1,
+  "status": "active",
+  "prompt": "An undirected forest has $n$ vertices and $c$ connected components. How many edges does it have?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$n-c$",
+      "correct": true,
+      "explanation": "Each component is a tree. If component $i$ has $n_i$ vertices, it has $n_i-1$ edges. Summing gives $n-c$."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$n+c$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Each component contributes one fewer edge than vertices, not one more."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$nc$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Components contribute additively, not multiplicatively."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$n^2-c$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A forest has only linearly many edges."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$n-1$ for every value of $c$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This is the connected case c=1; every additional component reduces the edge count by one."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$n-2c$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A tree contributes one fewer edge than vertices, not two fewer."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$c-1$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The number of components alone does not determine the internal edges."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$n-c+1$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The sum of c tree edge counts subtracts c, with no additional edge."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$n-c-1$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This subtracts one too many; summing n_i−1 gives exactly n−c."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$n-c$ only if no vertex is isolated.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "An isolated vertex is a one-vertex tree and contributes zero edges, so the formula still holds."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Undirected Graphs",
+      "url": "https://algs4.cs.princeton.edu/41graph/"
+    },
+    {
+      "title": "Princeton Algorithms — Directed Graphs",
+      "url": "https://algs4.cs.princeton.edu/42digraph/"
+    }
+  ]
+}

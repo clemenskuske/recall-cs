@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "bipartite-cycle",
+  "topic": "graph-theory",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which condition is equivalent to a finite undirected simple graph being bipartite?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "It has no cycle of odd length.",
+      "correct": true,
+      "explanation": "A two-coloring alternates colors around each cycle, so all cycles must be even. Conversely, if there are no odd cycles, distance parity gives a consistent two-coloring in each component."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Every vertex has even degree.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A triangle has all degrees even but is not bipartite."
+    },
+    {
+      "id": "distractor-2",
+      "text": "The graph is connected.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A connected graph may contain an odd cycle."
+    },
+    {
+      "id": "distractor-3",
+      "text": "It has no edges.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Edgeless graphs are bipartite, but many graphs with edges are too."
+    },
+    {
+      "id": "distractor-4",
+      "text": "It has no cycle of even length.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A triangle has no even cycle but is not bipartite."
+    },
+    {
+      "id": "distractor-5",
+      "text": "It has no cycles of any length.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Acyclicity is sufficient but not necessary; an even cycle is bipartite."
+    },
+    {
+      "id": "distractor-6",
+      "text": "It has an even number of vertices.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A triangle plus an isolated vertex has even order but is not bipartite."
+    },
+    {
+      "id": "distractor-7",
+      "text": "It has no triangles.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A five-cycle is triangle-free but not bipartite."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Every connected component has an even number of vertices.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A component can have odd order and still be bipartite, such as a three-vertex path."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Every vertex belongs to at most one odd cycle.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Even one odd cycle prevents a two-coloring."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Undirected Graphs",
+      "url": "https://algs4.cs.princeton.edu/41graph/"
+    },
+    {
+      "title": "Princeton Algorithms — Directed Graphs",
+      "url": "https://algs4.cs.princeton.edu/42digraph/"
+    }
+  ]
+}

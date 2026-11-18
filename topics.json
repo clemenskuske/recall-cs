@@ -1,0 +1,30 @@
+[
+  {
+    "id": "algorithms",
+    "title": "Algorithms",
+    "description": "Think in steps. Find a better way.",
+    "symbol": "route",
+    "color": "sage"
+  },
+  {
+    "id": "data-structures",
+    "title": "Data structures",
+    "description": "The right shape for your information.",
+    "symbol": "layers",
+    "color": "clay"
+  },
+  {
+    "id": "graph-theory",
+    "title": "Graph theory",
+    "description": "Explore the mathematics of connections.",
+    "symbol": "graph",
+    "color": "lavender"
+  },
+  {
+    "id": "complexity",
+    "title": "Complexity",
+    "description": "Understand the limits of computation.",
+    "symbol": "braces",
+    "color": "sand"
+  }
+]

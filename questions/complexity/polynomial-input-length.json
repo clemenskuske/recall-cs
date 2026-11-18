@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "polynomial-input-length",
+  "topic": "complexity",
+  "revision": 1,
+  "status": "active",
+  "prompt": "A positive integer $N$ is encoded in binary. An algorithm takes $\\Theta(N)$ steps. In terms of the bit length $b=\\lfloor\\log_2 N\\rfloor+1$, how does its running time grow?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\Theta(2^b)$",
+      "correct": true,
+      "explanation": "For a $b$-bit positive integer, $2^{b-1}\\leq N<2^b$. Thus linear time in the numeric value is exponential in the input length."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\Theta(1)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The numeric value grows with the bit length."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\Theta(b)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This confuses the numeric value N with the number of bits used to write it."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\Theta(\\log b)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The relationship is exponential in b, not logarithmic."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\Theta(b^2)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The encoded value can be exponentially larger than the square of its bit length."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\Theta(b\\log b)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "That is nearly linear in bit length and much smaller than N."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\Theta(\\sqrt b)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "N is exponential, not sublinear, in its bit length."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\Theta(2^{b/2})$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "That scales like the square root of N, whereas the algorithm takes linear time in N."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\Theta(b\\,2^b)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The given cost is already Θ(N) steps; there is no additional factor of b in this statement."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\Theta(2^{2b})$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "That scales like N squared, rather than N."
+    }
+  ],
+  "sources": [
+    {
+      "title": "MIT 6.045 — Automata, Computability, and Complexity",
+      "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+    }
+  ]
+}

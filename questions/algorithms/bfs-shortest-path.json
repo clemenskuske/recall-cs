@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "bfs-shortest-path",
+  "topic": "algorithms",
+  "revision": 1,
+  "status": "active",
+  "prompt": "In an unweighted graph, which property explains why breadth-first search finds a shortest path from its source to every reachable vertex?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "It explores vertices in nondecreasing distance from the source.",
+      "correct": true,
+      "explanation": "BFS finishes distance layer k before exploring layer k+1. The first discovery of a vertex therefore uses a minimum number of edges."
+    },
+    {
+      "id": "distractor-1",
+      "text": "It explores every possible path.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "BFS need not enumerate paths; it visits each reachable vertex once."
+    },
+    {
+      "id": "distractor-2",
+      "text": "It always chooses the smallest-numbered vertex.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Vertex labels have no bearing on shortest-path distances."
+    },
+    {
+      "id": "distractor-3",
+      "text": "It sorts edges by weight.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This graph is unweighted; BFS uses a FIFO queue, not edge sorting."
+    },
+    {
+      "id": "distractor-4",
+      "text": "It explores one branch fully before backtracking.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "That describes depth-first search, which does not generally give shortest paths."
+    },
+    {
+      "id": "distractor-5",
+      "text": "It chooses a neighbor with the largest degree.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Degree is unrelated to the minimum number of edges from the source."
+    },
+    {
+      "id": "distractor-6",
+      "text": "It keeps vertices in a last-in, first-out stack.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A stack gives depth-first behavior. BFS relies on a first-in, first-out queue."
+    },
+    {
+      "id": "distractor-7",
+      "text": "It finalizes a vertex only after exploring all paths to it.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The first discovery is sufficient because BFS explores distance layers in order."
+    },
+    {
+      "id": "distractor-8",
+      "text": "It visits vertices in nondecreasing degree.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The invariant concerns distance from the source, not degree."
+    },
+    {
+      "id": "distractor-9",
+      "text": "It guarantees that every discovered edge lies on a shortest path from the source.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "BFS tree edges give shortest paths, but other graph edges can connect vertices in the same layer."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Analysis of Algorithms",
+      "url": "https://algs4.cs.princeton.edu/14analysis/"
+    },
+    {
+      "title": "Princeton Algorithms — Shortest Paths",
+      "url": "https://algs4.cs.princeton.edu/44sp/"
+    }
+  ]
+}

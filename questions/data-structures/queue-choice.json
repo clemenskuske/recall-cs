@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "queue-choice",
+  "topic": "data-structures",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which abstract data type directly provides first-in, first-out removal?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "A queue.",
+      "correct": true,
+      "explanation": "A queue removes the earliest inserted item that has not yet been removed."
+    },
+    {
+      "id": "distractor-1",
+      "text": "A stack.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A stack is last in, first out."
+    },
+    {
+      "id": "distractor-2",
+      "text": "A set.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A set describes membership and does not require insertion-order removal."
+    },
+    {
+      "id": "distractor-3",
+      "text": "A binary search tree.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A search tree is organized by keys, not arrival times."
+    },
+    {
+      "id": "distractor-4",
+      "text": "A min-priority queue ordered by task size.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "That removes the smallest task, which need not be the oldest."
+    },
+    {
+      "id": "distractor-5",
+      "text": "A max-priority queue ordered by task size.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "That removes the largest task, which need not be the oldest."
+    },
+    {
+      "id": "distractor-6",
+      "text": "A hash map.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The map interface provides key-value access, not FIFO removal."
+    },
+    {
+      "id": "distractor-7",
+      "text": "A deque restricted to insertions and removals at the same end.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Using the same end gives LIFO behavior. Opposite ends can implement FIFO."
+    },
+    {
+      "id": "distractor-8",
+      "text": "A stack with constant-time operations.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Operation speed does not change LIFO ordering into FIFO."
+    },
+    {
+      "id": "distractor-9",
+      "text": "A sorted set ordered by item value.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Value order need not match insertion order."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Stacks and Queues",
+      "url": "https://algs4.cs.princeton.edu/13stacks/"
+    },
+    {
+      "title": "Princeton Algorithms — Priority Queues",
+      "url": "https://algs4.cs.princeton.edu/24pq/"
+    },
+    {
+      "title": "Princeton Algorithms — Hash Tables",
+      "url": "https://algs4.cs.princeton.edu/34hash/"
+    }
+  ]
+}

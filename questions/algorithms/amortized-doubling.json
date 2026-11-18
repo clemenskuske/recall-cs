@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "amortized-doubling",
+  "topic": "algorithms",
+  "revision": 1,
+  "status": "active",
+  "prompt": "A dynamic array doubles its capacity whenever it fills. Starting empty, what is the amortized time per append over $n$ appends, assuming a copy or write costs $\\Theta(1)$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\Theta(1)$",
+      "correct": true,
+      "explanation": "The copied capacities form a geometric series $1+2+4+\\cdots=O(n)$. Together with $n$ writes, the total cost is $\\Theta(n)$, or $\\Theta(1)$ per append."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\Theta(n^2)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The total work is linear, not cubic as this per-operation bound would imply."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\Theta(2^n)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Doubling capacity makes resizing infrequent; it does not cause exponential total copying."
+    },
+    {
+      "id": "distractor-3",
+      "text": "There is no finite amortized bound.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Summing the geometric series gives a finite linear total cost."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\Theta(n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A single resizing append can be linear, but that is a worst-case individual cost, not the amortized cost."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\Theta(\\sqrt n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The total cost is linear, which yields a constant cost per append."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\Theta(n\\log n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This overcounts copying: an old capacity is copied only when that capacity fills."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\Theta(\\log n)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "There are logarithmically many resizes, but the total copied elements form a geometric sum, not n times the number of resizes."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\Theta(1/n)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Every append performs at least one write; its amortized cost cannot decrease below a constant."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Constant amortized time only if the append values are random.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The bound holds for every sequence of append values; it is not a distributional average."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Analysis of Algorithms",
+      "url": "https://algs4.cs.princeton.edu/14analysis/"
+    },
+    {
+      "title": "Princeton Algorithms — Shortest Paths",
+      "url": "https://algs4.cs.princeton.edu/44sp/"
+    }
+  ]
+}

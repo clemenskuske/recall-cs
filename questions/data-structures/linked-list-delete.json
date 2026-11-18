@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "linked-list-delete",
+  "topic": "data-structures",
+  "revision": 1,
+  "status": "active",
+  "prompt": "In a doubly linked list, you already hold a reference to a node. What is the worst-case time to unlink it, including updating head or tail if necessary, but excluding searching for it and freeing memory?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\Theta(1)$",
+      "correct": true,
+      "explanation": "Only a fixed number of neighboring links and possibly the head or tail references need to change."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\Theta(n^2)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Unlinking does not compare pairs of nodes."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\Theta(2^n)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Only local pointer changes are required."
+    },
+    {
+      "id": "distractor-3",
+      "text": "It is impossible without copying the list.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The predecessor and successor links allow local removal."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\Theta(n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Searching could be linear, but the question supplies the node reference."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\Theta(\\log n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "No tree search or logarithmic walk is needed."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\Theta(\\sqrt n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The number of changed pointers is independent of list length."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Constant time only for nodes at the head.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "An interior node has predecessor and successor pointers, so it also takes constant time."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Constant time only if the list is circular.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Ordinary head and tail boundary cases still require only a fixed number of changes."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Linear time because all later nodes change index.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A linked list does not store a contiguous array of indices that must be shifted."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Stacks and Queues",
+      "url": "https://algs4.cs.princeton.edu/13stacks/"
+    },
+    {
+      "title": "Princeton Algorithms — Priority Queues",
+      "url": "https://algs4.cs.princeton.edu/24pq/"
+    },
+    {
+      "title": "Princeton Algorithms — Hash Tables",
+      "url": "https://algs4.cs.princeton.edu/34hash/"
+    }
+  ]
+}

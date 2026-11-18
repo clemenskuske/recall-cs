@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "bst-inorder",
+  "topic": "data-structures",
+  "revision": 1,
+  "status": "active",
+  "prompt": "For a binary search tree with distinct keys, what order does an in-order traversal (left subtree, root, right subtree) produce?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Increasing key order.",
+      "correct": true,
+      "explanation": "Every key in the left subtree is smaller than the root, and every key in the right is larger. Applying this recursively yields sorted order."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Decreasing key order.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "That would follow from right-root-left traversal."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Insertion order.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The traversal does not track the chronology of insertion."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Random order.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The search-tree invariant determines the ordering."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Order by increasing depth.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "That is breadth-first traversal, not in-order traversal."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Root first, then all remaining keys sorted.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "In-order visits the left subtree before the root."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Leaves first, then internal vertices.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "In-order can visit an internal vertex before some leaves."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Increasing order only if the tree is balanced.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Balance affects performance and height, not the in-order ordering guarantee."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Increasing order only if the tree is complete.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The BST ordering invariant suffices; completeness is unnecessary."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Increasing order separately within each depth level.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The result is globally sorted across all levels, and vertices are not grouped by depth."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Stacks and Queues",
+      "url": "https://algs4.cs.princeton.edu/13stacks/"
+    },
+    {
+      "title": "Princeton Algorithms — Priority Queues",
+      "url": "https://algs4.cs.princeton.edu/24pq/"
+    },
+    {
+      "title": "Princeton Algorithms — Hash Tables",
+      "url": "https://algs4.cs.princeton.edu/34hash/"
+    }
+  ]
+}

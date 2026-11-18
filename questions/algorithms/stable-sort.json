@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "stable-sort",
+  "topic": "algorithms",
+  "revision": 1,
+  "status": "active",
+  "prompt": "What does it mean for a sorting algorithm to be stable?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Items with equal keys keep their original relative order.",
+      "correct": true,
+      "explanation": "Stability preserves input order within each group of equal keys. It says nothing by itself about time or extra space."
+    },
+    {
+      "id": "distractor-1",
+      "text": "It never uses extra memory.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "That is a space property, not stability."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Its output is always in descending order.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Either ascending or descending sorting can be stable."
+    },
+    {
+      "id": "distractor-3",
+      "text": "It always runs in constant time.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Stability concerns equal keys, not running time."
+    },
+    {
+      "id": "distractor-4",
+      "text": "It preserves the original order of all items.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Items with different keys generally need to move relative to one another."
+    },
+    {
+      "id": "distractor-5",
+      "text": "It never moves an item whose key is duplicated.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Equal-key items may move; only their relative order must remain."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Its running time is the same on every input.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Input-dependent running time and stability are separate properties."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Items with equal keys end up in their original array positions.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Positions may change when smaller or larger keys move around them."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Items with unequal keys keep their original relative order.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The requirement applies to equal keys; unequal keys must follow the sort order."
+    },
+    {
+      "id": "distractor-9",
+      "text": "It breaks equal-key ties by sorting a second field.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "An arbitrary second-field ordering may reverse the original order and violate stability."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Analysis of Algorithms",
+      "url": "https://algs4.cs.princeton.edu/14analysis/"
+    },
+    {
+      "title": "Princeton Algorithms — Shortest Paths",
+      "url": "https://algs4.cs.princeton.edu/44sp/"
+    }
+  ]
+}

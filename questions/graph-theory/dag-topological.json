@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "dag-topological",
+  "topic": "graph-theory",
+  "revision": 1,
+  "status": "active",
+  "prompt": "A finite directed graph has a topological ordering exactly when it satisfies which condition?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "It has no directed cycle.",
+      "correct": true,
+      "explanation": "A topological ordering places the tail of every edge before its head. A directed cycle makes this impossible; repeatedly removing an indegree-zero vertex orders any DAG."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Every vertex has the same outdegree.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Equal outdegrees neither prevent directed cycles nor ensure an ordering."
+    },
+    {
+      "id": "distractor-2",
+      "text": "It is strongly connected.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Strong connectivity with multiple vertices entails directed cycles."
+    },
+    {
+      "id": "distractor-3",
+      "text": "It has more edges than vertices.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The edge count alone does not characterize topological orderability."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Its underlying undirected graph has no cycle.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "That is sufficient but unnecessary: an acyclic orientation of a triangle admits an ordering."
+    },
+    {
+      "id": "distractor-5",
+      "text": "It has no isolated vertices.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Isolated vertices can appear anywhere in a topological ordering."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Every vertex has positive indegree.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A nonempty finite DAG must have an indegree-zero vertex."
+    },
+    {
+      "id": "distractor-7",
+      "text": "It has at least one vertex of indegree zero.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Another component can still contain a directed cycle."
+    },
+    {
+      "id": "distractor-8",
+      "text": "It has no directed cycle of length two.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Longer directed cycles also prevent topological ordering."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Its vertices can be ordered by nondecreasing indegree.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Sorting by indegree does not necessarily place every tail before its head."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Undirected Graphs",
+      "url": "https://algs4.cs.princeton.edu/41graph/"
+    },
+    {
+      "title": "Princeton Algorithms — Directed Graphs",
+      "url": "https://algs4.cs.princeton.edu/42digraph/"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "np-complete",
+  "topic": "complexity",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Under polynomial-time many-one reductions, what two conditions make a decision problem NP-complete?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "It is in NP, and every problem in NP reduces to it in polynomial time.",
+      "correct": true,
+      "explanation": "Membership supplies efficiently verifiable yes-certificates. NP-hardness says that solving this problem efficiently would solve every problem in NP efficiently."
+    },
+    {
+      "id": "distractor-1",
+      "text": "It is impossible to solve and impossible to verify.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "NP-complete problems are decidable and have polynomial-time verifiable yes-certificates."
+    },
+    {
+      "id": "distractor-2",
+      "text": "It uses polynomial space and has a numeric output.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Those conditions do not define NP-completeness."
+    },
+    {
+      "id": "distractor-3",
+      "text": "It takes exponential time on at least one particular machine.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A slow implementation does not establish a complexity lower bound or completeness."
+    },
+    {
+      "id": "distractor-4",
+      "text": "It is in P, and it reduces to an NP problem.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "These conditions do not establish NP-hardness."
+    },
+    {
+      "id": "distractor-5",
+      "text": "It is in NP, and it reduces to every problem in NP.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The hardness direction is reversed: every NP problem must reduce to it."
+    },
+    {
+      "id": "distractor-6",
+      "text": "It is NP-hard, with no membership requirement.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "NP-hardness alone does not imply membership in NP."
+    },
+    {
+      "id": "distractor-7",
+      "text": "It is in NP, and some problem in NP reduces to it.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "An arbitrary easy NP problem can reduce to it; hardness requires all NP problems or a known NP-hard one."
+    },
+    {
+      "id": "distractor-8",
+      "text": "It is in coNP, and every NP problem reduces to it.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This gives NP-hardness and coNP membership, but does not establish the required NP membership."
+    },
+    {
+      "id": "distractor-9",
+      "text": "It is in NP, and it is not known to have a polynomial-time algorithm.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Lack of a known algorithm is not proof of NP-hardness."
+    }
+  ],
+  "sources": [
+    {
+      "title": "MIT 6.045 — Automata, Computability, and Complexity",
+      "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+    }
+  ]
+}

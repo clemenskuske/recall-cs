@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "stack-order",
+  "topic": "data-structures",
+  "revision": 1,
+  "status": "active",
+  "prompt": "An initially empty stack receives push(A), push(B), push(C), then two pop operations. Which values do the pops return, in order?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "C, then B.",
+      "correct": true,
+      "explanation": "A stack is last in, first out. C is on top, and B is immediately beneath it."
+    },
+    {
+      "id": "distractor-1",
+      "text": "A, then B.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "That is the order a FIFO queue would return."
+    },
+    {
+      "id": "distractor-2",
+      "text": "A, then C.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The oldest item is not popped first from a stack."
+    },
+    {
+      "id": "distractor-3",
+      "text": "B, then A.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "C remains above B after the three pushes."
+    },
+    {
+      "id": "distractor-4",
+      "text": "C, then A.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "After popping C, B is still on top of A."
+    },
+    {
+      "id": "distractor-5",
+      "text": "B, then C.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "B cannot be popped while C remains above it."
+    },
+    {
+      "id": "distractor-6",
+      "text": "A, then A.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Each pop removes the returned item; A was inserted only once."
+    },
+    {
+      "id": "distractor-7",
+      "text": "C, then C.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Pop removes C, so the second operation returns B."
+    },
+    {
+      "id": "distractor-8",
+      "text": "B, then B.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The first pop must return C, and removed elements cannot be popped again."
+    },
+    {
+      "id": "distractor-9",
+      "text": "C, then nothing.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "After removing C, the stack still contains A and B."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Stacks and Queues",
+      "url": "https://algs4.cs.princeton.edu/13stacks/"
+    },
+    {
+      "title": "Princeton Algorithms — Priority Queues",
+      "url": "https://algs4.cs.princeton.edu/24pq/"
+    },
+    {
+      "title": "Princeton Algorithms — Hash Tables",
+      "url": "https://algs4.cs.princeton.edu/34hash/"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "heap-minimum",
+  "topic": "data-structures",
+  "revision": 1,
+  "status": "active",
+  "prompt": "In a nonempty binary min-heap with distinct keys, which position is guaranteed to contain the minimum key?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "The root.",
+      "correct": true,
+      "explanation": "Every parent has a smaller key than its children. Following parent links shows that the root is no greater than any other key."
+    },
+    {
+      "id": "distractor-1",
+      "text": "The last leaf.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A leaf has no minimum guarantee."
+    },
+    {
+      "id": "distractor-2",
+      "text": "The deepest vertex.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Depth does not determine the minimum; the root is minimum."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Any vertex with two children.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Only the root is guaranteed to dominate every other key."
+    },
+    {
+      "id": "distractor-4",
+      "text": "The leftmost leaf.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A heap does not have the in-order sorting property of a binary search tree."
+    },
+    {
+      "id": "distractor-5",
+      "text": "The rightmost leaf.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Left-to-right position does not sort heap keys."
+    },
+    {
+      "id": "distractor-6",
+      "text": "The first child of the root.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The root has a smaller key than that child."
+    },
+    {
+      "id": "distractor-7",
+      "text": "The root’s smaller child.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "That child is minimum only among the two child roots, not the entire heap."
+    },
+    {
+      "id": "distractor-8",
+      "text": "The median position in the array representation.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Heap array order describes the complete tree, not sorted key order."
+    },
+    {
+      "id": "distractor-9",
+      "text": "The last position before the leaves begin.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Internal positions below the root can still have larger keys than their ancestors."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Stacks and Queues",
+      "url": "https://algs4.cs.princeton.edu/13stacks/"
+    },
+    {
+      "title": "Princeton Algorithms — Priority Queues",
+      "url": "https://algs4.cs.princeton.edu/24pq/"
+    },
+    {
+      "title": "Princeton Algorithms — Hash Tables",
+      "url": "https://algs4.cs.princeton.edu/34hash/"
+    }
+  ]
+}

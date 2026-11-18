@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "binary-search",
+  "topic": "algorithms",
+  "revision": 1,
+  "status": "active",
+  "prompt": "A sorted array contains $n$ distinct values. What is the tight worst-case time bound for ordinary binary search, assuming constant-time array access?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\Theta(\\log n)$",
+      "correct": true,
+      "explanation": "Each comparison discards roughly half of the remaining interval. After $k$ comparisons its size is about $n/2^k$, so $k=\\Theta(\\log n)$."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\Theta(n)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "That is the worst-case bound for a linear scan. Binary search halves the search interval."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\Theta(n^2)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Binary search does not compare every pair of entries."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\Theta(1)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "One comparison is enough in some cases, but not in the worst case as the array grows."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\Theta(\\sqrt n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Halving the interval produces logarithmic, not square-root, growth."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\Theta(n\\log n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "That is a typical comparison-sorting bound; the array is already sorted."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\Theta(2^n)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The algorithm follows one shrinking interval, not an exponential search tree."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\Theta(\\log\\log n)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Repeated halving gives a logarithm. A double logarithm would require a much faster reduction."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\Theta((\\log n)^2)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Each of the logarithmically many comparisons costs constant time; there is no second logarithmic factor."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\Theta(n/\\log n)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The relevant equation is the remaining interval size after repeated halving, not a linear scan divided by a logarithm."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Princeton Algorithms — Analysis of Algorithms",
+      "url": "https://algs4.cs.princeton.edu/14analysis/"
+    },
+    {
+      "title": "Princeton Algorithms — Shortest Paths",
+      "url": "https://algs4.cs.princeton.edu/44sp/"
+    }
+  ]
+}
