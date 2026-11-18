@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "hash-worst-case",
   "topic": "data-structures",
-  "revision": 1,
-  "status": "active",
+  "revision": 2,
+  "status": "retired",
   "prompt": "In a hash table with separate chaining and $n$ stored keys, what is the worst-case time to search for a key, if hashing and each key comparison take $\\Theta(1)$?",
   "answers": [
     {
@@ -89,5 +89,6 @@
       "title": "Princeton Algorithms — Hash Tables",
       "url": "https://algs4.cs.princeton.edu/34hash/"
     }
-  ]
+  ],
+  "retirementReason": "Retired at the learner’s request on 2026-11-18: the starter bank was too elementary. Only add questions on topics explicitly requested by the learner."
 }

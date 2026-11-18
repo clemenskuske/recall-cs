@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-17-merge-radius",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $B_r^{R_i}(v)$ be the radius-$r$ ball in $(V,R_i)$. In the merge-sequence convention allowing several merges per step, which quantity is the sequence’s radius-$r$ width?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\displaystyle\\max_{i\\ge2}\\max_{v\\in V}\\bigl|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}\\bigr|$.",
+      "correct": true,
+      "explanation": "Count parts reached through resolved pairs, not vertices. Use the previous partition with the current resolved-pair set; the index offset prevents a large merge from hiding its cost."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\displaystyle\\max_{i\\ge2}\\max_{v\\in V}|B_r^{R_i}(v)|$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A ball may contain many vertices in one part. Width counts intersected parts instead of vertices."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\displaystyle\\max_{i\\ge2}|\\mathcal P_{i-1}|$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Only parts reached from a vertex within the radius count, not every current part."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\displaystyle\\max_{i\\ge2}|R_i|$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The number of resolved pairs is not the local reachability width."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\displaystyle\\max_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_i:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}|$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Using the new partition omits the required offset. A single large merge could collapse the measured count to one."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\displaystyle\\max_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_{i-1}}(v)\\ne\\varnothing\\}|$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This measures the old resolved set and ignores pairs resolved immediately before the merge."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\displaystyle\\max_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^G(v)\\ne\\varnothing\\}|$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Reachability is in the resolved-pair graph, which includes resolved non-edges, not in the original graph."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\displaystyle\\max_{i\\ge2}\\min_v|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}|$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Every vertex must satisfy the width bound; the best vertex cannot witness the maximum local complexity."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\displaystyle\\min_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}|$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The sequence width is the worst stage, not the easiest stage."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\displaystyle\\max_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_{i-1}:A\\subseteq B_r^{R_i}(v)\\}|$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Reaching one vertex of a part suffices. The ball need not contain the entire part."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+      "url": "https://arxiv.org/html/2502.18065v2"
+    }
+  ]
+}

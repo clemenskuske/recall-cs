@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "amortized-doubling",
   "topic": "algorithms",
-  "revision": 1,
-  "status": "active",
+  "revision": 2,
+  "status": "retired",
   "prompt": "A dynamic array doubles its capacity whenever it fills. Starting empty, what is the amortized time per append over $n$ appends, assuming a copy or write costs $\\Theta(1)$?",
   "answers": [
     {
@@ -85,5 +85,6 @@
       "title": "Princeton Algorithms — Shortest Paths",
       "url": "https://algs4.cs.princeton.edu/44sp/"
     }
-  ]
+  ],
+  "retirementReason": "Retired at the learner’s request on 2026-11-18: the starter bank was too elementary. Only add questions on topics explicitly requested by the learner."
 }

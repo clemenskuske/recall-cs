@@ -52,7 +52,12 @@ export function eligibleQuestions(bank, state) {
   return bank.questions.filter(q => selected.includes(q.topic) && q.status !== 'retired' && state.suspended[q.id] !== q.revision);
 }
 export function selectedTopicIds(bank, state) {
-  if (state.settings.selectedTopics !== null) return state.settings.selectedTopics;
+  if (state.settings.selectedTopics !== null) {
+    const selected = state.settings.selectedTopics.filter(id => bank.topics.some(t => t.id === id));
+    // Preserve intentionally selecting nothing. If all previously selected topics
+    // have been retired, start with the current default instead of an empty queue.
+    if (selected.length || state.settings.selectedTopics.length === 0) return selected;
+  }
   const preferred = bank.topics.filter(t => t.defaultSelected === true);
   return (preferred.length ? preferred : bank.topics).map(t => t.id);
 }

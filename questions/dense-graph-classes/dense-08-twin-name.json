@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-08-twin-name",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Merge two parts at each step, from singletons to $\\{V(G)\\}$. Join distinct parts by a red edge exactly when their original adjacency is neither complete nor empty. Minimise the largest red degree over the entire sequence. Which parameter is this?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Twin-width.",
+      "correct": true,
+      "explanation": "Red edges record non-homogeneous pairs of parts. The width is a maximum degree over all intermediate red graphs, minimised over binary merge sequences."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Clique-width.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Clique-width minimises labels in a graph-building expression, not red degree during contractions."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Treewidth.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Treewidth uses bags in a tree decomposition; it is not defined by this merging process."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Shrubdepth.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Shrubdepth concerns bounded-height, bounded-colour tree-models for a class."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Rank-width.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Rank-width minimises the maximum binary rank of adjacency matrices across decomposition cuts."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Neighbourhood diversity.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Neighbourhood diversity counts twin classes in one partition; it does not optimise an entire contraction sequence."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Radius-1 merge-width.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Merge-width counts parts reached through resolved pairs of original vertices, not red degree between current parts."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Component twin-width.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Component twin-width bounds the size of red connected components, rather than their maximum degree."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Linear clique-width.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Linear clique-width restricts labelled construction expressions to adding one vertex at a time."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Radius-infinity merge-width.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "That parameter counts reachable parts in resolved-pair components and is equivalent in boundedness to clique-width."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    },
+    {
+      "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+      "url": "https://arxiv.org/html/2502.18065v2"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-26-shrub-transduction",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which condition characterises bounded shrubdepth using first-order transductions?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "The class is contained in the outputs of one fixed FO transduction of finite rooted trees whose height has a uniform bound.",
+      "correct": true,
+      "explanation": "A bounded-height tree-model gives such a transduction using finitely many colours. Conversely, fixed FO interpretations of bounded-height coloured trees have bounded shrubdepth."
+    },
+    {
+      "id": "distractor-1",
+      "text": "The class is contained in the outputs of fixed FO transductions of arbitrary finite graphs.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This is vacuous: the identity transduction already covers every graph class."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Every member is a subgraph of some rooted tree of bounded height.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This excludes dense examples such as cliques. A transduction can create adjacency between leaves."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Every member is a minor of some rooted tree of bounded height.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Minors of trees are forests, so this cannot cover bounded-shrubdepth classes containing triangles."
+    },
+    {
+      "id": "distractor-4",
+      "text": "The class is transducible from finite rooted trees of arbitrary height, with no other restriction.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The identity on all paths already gives an unbounded-shrubdepth output class. A uniform height bound is essential."
+    },
+    {
+      "id": "distractor-5",
+      "text": "The class transduces some bounded-height trees.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This reverses the direction and is too weak: even very complicated classes can output an edgeless graph or one vertex."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Each output graph has its own FO transduction from a height-one tree, with no uniform formula bound.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Any fixed finite graph can be encoded with sufficiently many specially chosen colours. The recipe must be uniform across the class."
+    },
+    {
+      "id": "distractor-7",
+      "text": "The class is transducible from trees of bounded degree, allowing unbounded height.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Paths have bounded degree but unbounded shrubdepth, and the identity transduction preserves them."
+    },
+    {
+      "id": "distractor-8",
+      "text": "A fixed FO transduction from bounded-height trees must preserve the original tree edges on its output vertices.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The interpretation may completely redefine adjacency. Requiring inherited tree edges would rule out dense examples."
+    },
+    {
+      "id": "distractor-9",
+      "text": "One fixed finite rooted tree must supply all outputs, although their vertex counts can be unbounded.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Fixed finite copying and interpretation cannot produce arbitrarily large outputs from one fixed finite input."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+      "url": "https://arxiv.org/html/1707.00359v4"
+    },
+    {
+      "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
+    }
+  ]
+}

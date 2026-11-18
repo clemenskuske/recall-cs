@@ -13,4 +13,7 @@ These initial rules are authoring standards, not rules inferred from real user r
 
 ## Lessons from resolved feedback
 
-No user reports have been resolved yet. Add entries with rule ID, supporting report IDs, the demonstrated failure, and the narrow guideline that prevents it. Never claim a rule was learned from feedback unless the cited reports exist.
+- **R9 — Match this learner’s level.** Report `a6060a7c-8d3f-4955-802e-ece951a0db14` says “Too simple”; the learner’s follow-up on 2026-11-18 requested retirement of the entire 38-question starter bank. This is a pedagogical preference, not a wrong answer key (despite the report’s `wrong-key` category). Do not reintroduce these starter questions or unsolicited elementary prerequisites. Use the advanced level of the requested subject.
+- **R10 — Let the learner choose the curriculum.** The same report and follow-up explicitly request questions only on supplied topics, with a preference for names and definitions in both directions, as well as relationships. Keep additions within the chosen topic; related notions may appear where needed to distinguish definitions or explain implications. Do not generate unrelated topic packs on your own.
+
+For the dense-graph topic, record the FO transduction convention, keep constants uniform over graph classes, preserve hypotheses such as heredity, and distinguish bounded from almost bounded parameters. Date any question about a recent preprint rather than silently mixing theorem and conjecture status. These are verification requirements for this topic, not additional lessons attributed to the learner’s report.

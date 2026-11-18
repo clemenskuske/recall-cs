@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-22-clique-twin-relation",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "For classes of finite simple graphs, what is the relation between bounded clique-width and bounded twin-width?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Bounded clique-width implies bounded twin-width; the converse fails, for example on square grids.",
+      "correct": true,
+      "explanation": "Clique-width bounds yield twin-width bounds. Square grids have uniformly bounded twin-width but unbounded clique-width."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Bounded twin-width implies bounded clique-width, but not conversely.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The implication is in the other direction; square grids refute the proposed implication."
+    },
+    {
+      "id": "distractor-2",
+      "text": "The two boundedness properties are equivalent.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Square grids have bounded twin-width and unbounded clique-width."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Neither boundedness property implies the other.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Every class of bounded clique-width has bounded twin-width."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Bounded clique-width implies bounded twin-width only for sparse classes.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The implication holds also for dense graphs; no sparsity hypothesis is needed."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Bounded clique-width implies bounded twin-width only for hereditary classes.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The parameter bound applies to individual graphs and hence to any class, without a closure hypothesis."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Bounded twin-width implies bounded clique-width for all bipartite classes.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Square grids are bipartite and still have unbounded clique-width."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Bounded twin-width implies bounded clique-width for all planar classes.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The square-grid counterexample is already planar."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Bounded twin-width implies bounded clique-width for all classes of maximum degree at most four.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Square grids have maximum degree at most four."
+    },
+    {
+      "id": "distractor-9",
+      "text": "The parameters are numerically equal on every graph.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Even a clique with at least two vertices has twin-width zero and clique-width two."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    }
+  ]
+}

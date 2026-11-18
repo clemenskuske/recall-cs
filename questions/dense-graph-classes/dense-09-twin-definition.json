@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-09-twin-definition",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $R_i$ be the red graph at step $i$ of a valid contraction sequence $\\sigma$ from a finite nonempty graph $G$ to one vertex. Which formula defines $\\operatorname{tww}(G)$? Here $\\Delta$ is maximum degree.",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\min_{\\sigma}\\max_i\\Delta(R_i)$.",
+      "correct": true,
+      "explanation": "Choose the best sequence, but control the worst red degree at every stage and every current vertex."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\max_{\\sigma}\\max_i\\Delta(R_i)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Twin-width optimises over the choice of sequence; it does not use the worst possible sequence."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\min_{\\sigma}\\min_i\\Delta(R_i)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The first and last red graphs are edgeless, so this would always be zero."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\min_{\\sigma}\\sum_i\\Delta(R_i)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The definition bounds the peak, not the sum of red degrees over time."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\min_{\\sigma}\\max_i|E(R_i)|$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Total red-edge count can be large while every red degree stays small."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\min_{\\sigma}\\max_i|V(R_i)|$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The initial graph already has all input vertices; counting them measures input size rather than contraction errors."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\min_{\\sigma}\\max_i\\Delta(B_i)$, where $B_i$ contains only black edges.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Twin-width bounds red uncertainty. Black adjacency can be arbitrarily dense, as in a clique."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\min_{\\sigma}\\max_i\\operatorname{avgdeg}(R_i)$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "An average can hide a vertex with large red degree. The bound must hold at every vertex."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\min_{\\sigma}\\max_i\\max\\{|C|:C\\text{ is a component of }R_i\\}$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This bounds red component size, a stronger and different width measure."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\min_{\\sigma}\\max_i\\Delta(R_i)$, with $\\sigma$ restricted to merging adjacent vertices.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Standard twin-width allows identification of nonadjacent vertices too; an edgeless graph must still admit a sequence."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    }
+  ]
+}

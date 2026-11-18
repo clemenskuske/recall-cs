@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-19-merge-bounded",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "What does it mean for a graph class $\\mathcal C$ to have bounded merge-width, using the finite-radius parameters $\\operatorname{mw}_r$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\forall r\\ge1\\;\\exists k_r\\;\\forall G\\in\\mathcal C:\\ \\operatorname{mw}_r(G)\\le k_r$.",
+      "correct": true,
+      "explanation": "Each fixed radius has a class-wide constant bound. That constant may depend on the radius, but not on graph order."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\forall G\\in\\mathcal C\\;\\forall r\\ge1\\;\\exists k:\\ \\operatorname{mw}_r(G)\\le k$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Every finite graph has finite width. Bounds chosen after the graph give no uniform class property."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\exists r\\ge1\\;\\exists k\\;\\forall G\\in\\mathcal C:\\ \\operatorname{mw}_r(G)\\le k$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The definition requires a bound for every fixed radius, not just one radius."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\exists k\\;\\forall r\\ge1\\;\\forall G\\in\\mathcal C:\\ \\operatorname{mw}_r(G)\\le k$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A single constant for all radii is stronger; it bounds radius-infinity merge-width and hence clique-width."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\forall r\\ge1\\;\\exists c_r\\;\\forall G\\in\\mathcal C:\\ \\operatorname{mw}_r(G)\\le c_r|V(G)|$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A linear bound in graph order is not a constant bound; indeed width is trivially at most the number of vertices."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\forall r\\ge1\\;\\exists c_r\\;\\forall G\\in\\mathcal C:\\ \\operatorname{mw}_r(G)\\le c_r\\sqrt{|V(G)|}$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A bound growing with graph order does not express bounded merge-width."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\forall r\\ge1\\;\\exists k_r\\;\\exists G\\in\\mathcal C:\\ \\operatorname{mw}_r(G)\\le k_r$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The bound must hold for every graph in the class, not just a chosen graph."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\forall r\\ge1\\;\\exists k_r\\;\\forall G\\in\\mathcal C:$ every merge sequence has radius-$r$ width at most $k_r$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The graph parameter minimises over sequences. Bad sequences may have large width even for a simple graph."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\forall r\\ge1\\;\\exists k_r\\;\\forall G\\in\\mathcal C:$ every radius-$r$ ball in $G$ has at most $k_r$ vertices.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This bounds original graph balls, excluding large cliques, although cliques have bounded merge-width."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\forall r\\ge1\\;\\exists k_r\\;\\forall G\\in\\mathcal C:$ some merge sequence uses at most $k_r$ singleton parts initially.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The initial singleton count is graph order. Bounded merge-width allows arbitrarily large graphs."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+      "url": "https://arxiv.org/html/2502.18065v2"
+    }
+  ]
+}

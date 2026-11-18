@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "logic-10-double-negation",
   "topic": "logic-basics",
-  "revision": 1,
-  "status": "active",
+  "revision": 2,
+  "status": "retired",
   "prompt": "In classical two-valued logic, what is $\\neg\\neg P$ equivalent to? Here $Q$ is a separate, independent statement.",
   "answers": [
     {
@@ -81,5 +81,6 @@
       "title": "Oscar Levin — Propositional Logic",
       "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
     }
-  ]
+  ],
+  "retirementReason": "Retired at the learner’s request on 2026-11-18: the starter bank was too elementary. Only add questions on topics explicitly requested by the learner."
 }

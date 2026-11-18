@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "logic-12-valid-inference",
   "topic": "logic-basics",
-  "revision": 1,
-  "status": "active",
+  "revision": 2,
+  "status": "retired",
   "prompt": "Which formula expresses an inference that is valid for every truth assignment? An implication $(A\\land B)\\to C$ means “from premises A and B, conclude C”.",
   "answers": [
     {
@@ -81,5 +81,6 @@
       "title": "Oscar Levin — Propositional Logic",
       "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
     }
-  ]
+  ],
+  "retirementReason": "Retired at the learner’s request on 2026-11-18: the starter bank was too elementary. Only add questions on topics explicitly requested by the learner."
 }

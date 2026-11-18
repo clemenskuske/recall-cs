@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-16-merge-sequence",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "In the merge-sequence definition for a simple graph $G=(V,E)$, what conditions must $(\\mathcal P_i,R_i)$ satisfy? Write $AB=\\{\\{a,b\\}:a\\in A,b\\in B,a\\ne b\\}$.",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "The partitions coarsen from singletons to $\\{V\\}$; $R_i\\subseteq R_{i+1}$; for every $A,B\\in\\mathcal P_i$, including $A=B$, all pairs in $AB\\setminus R_i$ are edges or all are non-edges.",
+      "correct": true,
+      "explanation": "Resolved pairs are exceptions to a uniform default on each pair of parts. Both edges and non-edges may be resolved, and resolved pairs remain resolved."
+    },
+    {
+      "id": "distractor-1",
+      "text": "The partitions refine from singletons to $\\{V\\}$, with increasing $R_i$ and homogeneous unresolved pairs.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Refinement goes towards smaller parts. Going from singletons to one part requires coarsening."
+    },
+    {
+      "id": "distractor-2",
+      "text": "The partitions coarsen, but every resolved pair must belong to $E$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Resolved pairs may also be non-edges; otherwise one cannot represent arbitrary exceptions to a complete default."
+    },
+    {
+      "id": "distractor-3",
+      "text": "The partitions coarsen and $R_i$ decreases; unresolved pairs are homogeneous.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Resolution is cumulative: the sets of resolved pairs must increase, not decrease."
+    },
+    {
+      "id": "distractor-4",
+      "text": "The partitions coarsen and $R_i$ increases; every pair of parts must be homogeneous in the original graph, including resolved pairs.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Only unresolved pairs must share a default. Resolved pairs are precisely the allowed exceptions."
+    },
+    {
+      "id": "distractor-5",
+      "text": "The partitions coarsen and $R_i$ increases; homogeneous unresolved pairs are required only for distinct parts.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The condition also applies inside a part. Otherwise the final single part could hide arbitrary unresolved structure."
+    },
+    {
+      "id": "distractor-6",
+      "text": "The partitions coarsen and $R_i$ increases; every $AB\\setminus R_i$ must consist only of edges.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "An empty-adjacency default is also allowed; the default may differ between pairs of parts."
+    },
+    {
+      "id": "distractor-7",
+      "text": "The partitions coarsen and $R_i$ increases; every $AB\\setminus R_i$ must consist only of non-edges.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Complete-adjacency defaults are allowed too; resolved pairs are not just the graph’s edges."
+    },
+    {
+      "id": "distractor-8",
+      "text": "The partitions coarsen and unresolved pairs are homogeneous; a pair can leave $R_i$ when its endpoints merge.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Resolved pairs are original vertex pairs and remain resolved even after their parts are merged."
+    },
+    {
+      "id": "distractor-9",
+      "text": "The partitions coarsen and $R_i$ increases; every $AB\\cap R_i$ must be homogeneous, with no restriction on $AB\\setminus R_i$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The uniformity condition is on unresolved pairs, not the resolved exceptions."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+      "url": "https://arxiv.org/html/2502.18065v2"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-23-twin-merge-relation",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "For unordered finite simple graph classes, what is the relation between bounded twin-width and bounded merge-width?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Bounded twin-width implies bounded merge-width; the converse fails even for the class of graphs of maximum degree at most three.",
+      "correct": true,
+      "explanation": "A bounded-red-degree contraction sequence gives bounds at each finite radius. Bounded-degree classes have bounded merge-width, while subcubic graphs have unbounded twin-width."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Bounded merge-width implies bounded twin-width, but not conversely.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The direction is reversed; the class of subcubic graphs refutes this implication."
+    },
+    {
+      "id": "distractor-2",
+      "text": "The two properties are equivalent for all unordered graph classes.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Subcubic graphs give a counterexample to equivalence."
+    },
+    {
+      "id": "distractor-3",
+      "text": "The properties are incomparable.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Bounded twin-width always implies bounded merge-width."
+    },
+    {
+      "id": "distractor-4",
+      "text": "The implication from twin-width to merge-width requires bounded clique-width as well.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A bounded twin-width sequence suffices; no clique-width bound is needed."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Bounded merge-width implies bounded twin-width whenever the class is hereditary.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The class of all graphs of maximum degree at most three is hereditary and refutes this."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Bounded merge-width implies bounded twin-width whenever the class has bounded maximum degree.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Subcubic graphs have a fixed maximum-degree bound but unbounded twin-width."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Bounded twin-width supplies one constant that bounds merge-width simultaneously at every radius, including infinity.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A uniform infinity-radius bound would imply bounded clique-width, which square grids refute."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Bounded twin-width supplies finite-radius merge-width bounds only after choosing an order as an extra input relation.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The implication already holds for unordered graphs. An order is not required."
+    },
+    {
+      "id": "distractor-9",
+      "text": "The ordered-graph equivalence proves equivalence after simply forgetting the order on any bounded-merge-width graph.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "One must control the width of the ordered expansion. An unordered bound alone does not supply such an expansion."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+      "url": "https://arxiv.org/html/2502.18065v2"
+    },
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    }
+  ]
+}

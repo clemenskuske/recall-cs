@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "logic-13-negate-every",
   "topic": "logic-basics",
-  "revision": 1,
-  "status": "active",
+  "revision": 2,
+  "status": "retired",
   "prompt": "Let $P(x)$ mean “$x$ is a program” and $T(x)$ mean “$x$ terminates”. Which formula negates “Every program terminates”, written $\\forall x\\,(P(x)\\to T(x))$?",
   "answers": [
     {
@@ -81,5 +81,6 @@
       "title": "Oscar Levin — Quantifiers and Predicate Logic",
       "url": "https://discrete.openmathbooks.org/dmoi2/sec_quantifiers.html"
     }
-  ]
+  ],
+  "retirementReason": "Retired at the learner’s request on 2026-11-18: the starter bank was too elementary. Only add questions on topics explicitly requested by the learner."
 }

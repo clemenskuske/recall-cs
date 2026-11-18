@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-24-infinite-merge",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Extend resolved-pair reachability to $r=\\infty$, so an entire connected component can be reached. Which class property is equivalent to $\\sup_{G\\in\\mathcal C}\\operatorname{mw}_\\infty(G)<\\infty$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Bounded clique-width.",
+      "correct": true,
+      "explanation": "The infinity-radius parameter is functionally equivalent to clique-width. Bounds at each fixed finite radius are weaker than one bound on whole resolved components."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Bounded maximum degree.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Cliques have bounded clique-width and infinity-radius merge-width but unbounded maximum degree."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Bounded clique number.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Cliques again have bounded infinity-radius merge-width but unbounded clique number."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Bounded treewidth.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Cliques have bounded clique-width but unbounded treewidth."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Bounded twin-width.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Square grids have bounded twin-width but unbounded clique-width, and therefore unbounded infinity-radius merge-width."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Bounded merge-width at each fixed finite radius.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Square grids have bounded merge-width at every fixed finite radius but unbounded clique-width."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Monadic dependence.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Monadic dependence includes square grids and many classes of unbounded clique-width."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Bounded shrubdepth.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Paths have bounded clique-width, hence bounded infinity-radius merge-width, but unbounded shrubdepth."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Bounded linear clique-width.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is stronger than bounded clique-width; for example cographs have bounded clique-width but unbounded linear clique-width."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Bounded neighbourhood diversity.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Paths have bounded clique-width and unbounded neighbourhood diversity."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+      "url": "https://arxiv.org/html/2502.18065v2"
+    },
+    {
+      "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+      "url": "https://arxiv.org/html/1707.00359v4"
+    },
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    },
+    {
+      "title": "Brignall, Korpelainen & Vatter — Linear Clique-Width for Hereditary Classes of Cographs",
+      "url": "https://arxiv.org/abs/1305.0636"
+    }
+  ]
+}

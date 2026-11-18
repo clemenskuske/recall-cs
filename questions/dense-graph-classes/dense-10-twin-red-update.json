@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-10-twin-red-update",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "In a trigraph contraction, merge $u,v$ into $w$ and consider another vertex $x$. Write $B,N,R$ for black edge, non-edge, and red edge. What is the status of $wx$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$BB\\mapsto B$, $NN\\mapsto N$; every other pair of statuses maps to $R$.",
+      "correct": true,
+      "explanation": "Both parts must agree definitely to yield a definite edge or non-edge. Any disagreement or inherited uncertainty stays red."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$BB\\mapsto B$, $NN\\mapsto N$, $BN\\mapsto N$; inherited red edges stay red.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "An edge/non-edge disagreement must become red; choosing non-edge loses the discrepancy."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$BB\\mapsto B$, $NN\\mapsto N$, $BN\\mapsto B$; inherited red edges stay red.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Taking the union of neighbourhoods hides an edge/non-edge disagreement instead of recording it."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Every status pair maps to $R$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Agreement of two black edges stays black, and agreement of two non-edges stays a non-edge."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$BB\\mapsto B$, $NN\\mapsto N$, $BN\\mapsto R$; $RR\\mapsto N$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Two red incidences do not cancel their inherited uncertainty."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$BB\\mapsto B$, $NN\\mapsto N$, $BN\\mapsto R$; $BR\\mapsto B$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A black edge does not resolve the uncertainty inherited from the red edge."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$BB\\mapsto B$, $NN\\mapsto N$, $BN\\mapsto R$; $NR\\mapsto N$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A definite non-edge does not resolve uncertainty from a red incidence."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$BB\\mapsto R$, $NN\\mapsto N$; every remaining pair maps to $R$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Two complete adjacency relations combine into another complete relation, so black plus black is black."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$BB\\mapsto B$, $NN\\mapsto R$; every remaining pair maps to $R$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Two empty adjacency relations combine into an empty relation, so non-edge plus non-edge stays a non-edge."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Equal statuses are preserved; unequal statuses map to the status of $ux$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The merge is symmetric in its two inputs. Different definite statuses must produce red, independent of order."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    }
+  ]
+}

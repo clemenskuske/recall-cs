@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-28-twin-complement",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "What happens to twin-width under complementation of a finite simple graph $G$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\operatorname{tww}(\\overline G)=\\operatorname{tww}(G)$: the same partition sequence has the same red graphs.",
+      "correct": true,
+      "explanation": "Complementation swaps complete and empty pairs of parts, while mixed pairs remain mixed. Thus every sequence keeps exactly the same red degrees."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\operatorname{tww}(\\overline G)=\\operatorname{tww}(G)+1$ for every nonempty $G$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Complementing twice would increase the value by two while returning to the original graph."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\operatorname{tww}(\\overline G)=|V(G)|-1-\\operatorname{tww}(G)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A clique and an edgeless graph both have twin-width zero, refuting this formula."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\operatorname{tww}(\\overline G)=0$ for every $G$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Complementation is an involution, so this would incorrectly give twin-width zero to every graph."
+    },
+    {
+      "id": "distractor-4",
+      "text": "A red pair becomes black because a mixed adjacency relation becomes complete.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Complementing a mixture of edges and non-edges leaves another mixture, not a complete relation."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Every black pair becomes red because all its adjacencies change.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Changing a complete pair to an empty pair preserves homogeneity; it creates no red edge."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Every non-edge pair becomes red because new edges are introduced.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "An empty pair becomes complete and remains homogeneous."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Equality is guaranteed only for graphs of bounded maximum degree.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The homogeneity argument applies to every finite simple graph, irrespective of degree."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Equality requires a different contraction sequence and fails for the original optimal sequence.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The same sequence preserves exactly which pairs of parts are mixed."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Complementation preserves only the total red-edge count; individual red degrees can change along the same partition sequence.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The whole red graph is unchanged at each partition, so every individual red degree is unchanged too."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    }
+  ]
+}

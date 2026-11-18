@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "reduction-direction",
   "topic": "complexity",
-  "revision": 1,
-  "status": "active",
+  "revision": 2,
+  "status": "retired",
   "prompt": "Suppose $A\\leq_p B$ via a polynomial-time many-one reduction. Which consequence is guaranteed?",
   "answers": [
     {
@@ -81,5 +81,6 @@
       "title": "MIT 6.045 — Automata, Computability, and Complexity",
       "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
     }
-  ]
+  ],
+  "retirementReason": "Retired at the learner’s request on 2026-11-18: the starter bank was too elementary. Only add questions on topics explicitly requested by the learner."
 }

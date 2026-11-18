@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-15-shrub-adjacency",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "In an $m$-colour tree-model of height $d$, distinct leaves $u,v$ have colours $i,j$ and distance $2\\ell$. A symmetric signature $S\\subseteq[m]^2\\times[d]$ is given. How is adjacency defined?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$uv\\in E(G)\\iff(i,j,\\ell)\\in S$.",
+      "correct": true,
+      "explanation": "The signature uses the two leaf colours and half their tree distance. With all leaves at depth $d$, this is equivalent to using their least common ancestor’s depth."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$uv\\in E(G)\\iff\\{u,v\\}\\in E(T)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Distinct leaves are not joined by a tree edge in these models. Graph adjacency is interpreted from the signature."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$uv\\in E(G)\\iff i=j$, regardless of $S$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Equal-colour pairs can be adjacent or nonadjacent depending on the signature and distance."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$uv\\in E(G)\\iff\\ell=1$, regardless of $S$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Sibling leaves need not be adjacent, and leaves farther apart may be adjacent."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$uv\\in E(G)\\iff(i,j,2\\ell)\\in S$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The third signature coordinate ranges over half-distances, not full tree distances."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$uv\\in E(G)\\iff(i,j,d-\\ell)\\in S$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Here the signature was indexed by half-distance. Using least-common-ancestor depth requires translating the signature too."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$uv\\in E(G)\\iff(i,j,\\ell)\\notin S$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This uses the complementary signature and produces the complement graph."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$uv\\in E(G)\\iff\\exists t\\in[d]:(i,j,t)\\in S$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This forgets the actual distance and may add edges intended only for other levels."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$uv\\in E(G)\\iff\\forall t\\in[d]:(i,j,t)\\in S$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Adjacency at the actual level does not require adjacency at every possible level."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$uv\\in E(G)\\iff(i,i,\\ell)\\in S\\land(j,j,\\ell)\\in S$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Cross-colour adjacency is its own signature entry; it need not follow from either same-colour entry."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+      "url": "https://arxiv.org/html/1707.00359v4"
+    }
+  ]
+}

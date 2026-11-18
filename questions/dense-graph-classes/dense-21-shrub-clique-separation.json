@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-21-shrub-clique-separation",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Bounded shrubdepth implies bounded clique-width. Which class witnesses that the converse fails?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "All finite paths $\\{P_n:n\\ge1\\}$.",
+      "correct": true,
+      "explanation": "Paths have clique-width at most three, but no fixed tree-model height and fixed colour count can represent paths of every length."
+    },
+    {
+      "id": "distractor-1",
+      "text": "All cliques $\\{K_n:n\\ge1\\}$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Cliques have height-one, one-colour tree-models, so their shrubdepth is bounded."
+    },
+    {
+      "id": "distractor-2",
+      "text": "All edgeless graphs.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Use height one, one colour, and an empty adjacency signature."
+    },
+    {
+      "id": "distractor-3",
+      "text": "All complete bipartite graphs $K_{a,b}$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Two colours on a height-one tree distinguish the sides; the signature joins exactly different colours."
+    },
+    {
+      "id": "distractor-4",
+      "text": "All stars.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Stars are complete bipartite graphs with one side of size one, so height one and two colours suffice."
+    },
+    {
+      "id": "distractor-5",
+      "text": "All disjoint unions of edges and isolated vertices.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A height-two model groups the two endpoints of each edge; one colour and adjacency only within a group suffice."
+    },
+    {
+      "id": "distractor-6",
+      "text": "All disjoint unions of cliques.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A height-two model groups vertices by clique; use one colour and join exactly leaves in the same group."
+    },
+    {
+      "id": "distractor-7",
+      "text": "All complements of matchings.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A height-two model groups matched pairs; its signature joins leaves from different groups."
+    },
+    {
+      "id": "distractor-8",
+      "text": "All disjoint unions of stars.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Use height-two groups for components and two colours for centres and leaves; join unlike colours only inside a group."
+    },
+    {
+      "id": "distractor-9",
+      "text": "All complete multipartite graphs.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A height-two, one-colour model groups each independent part and joins leaves exactly across different groups."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+      "url": "https://arxiv.org/html/1707.00359v4"
+    }
+  ]
+}

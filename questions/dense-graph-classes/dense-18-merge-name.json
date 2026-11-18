@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-18-merge-name",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Fix $r$. Over valid merge sequences, minimise the maximum number of previous-partition parts reached from one original vertex by at most $r$ resolved pairs. Which graph parameter is defined?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Radius-$r$ merge-width, $\\operatorname{mw}_r(G)$.",
+      "correct": true,
+      "explanation": "The radius is measured in the resolved-pair graph on original vertices. Optimising this local part count over merge sequences defines the parameter."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Clique-width.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Clique-width counts construction labels. It corresponds in boundedness to radius-infinity merge-width, not a fixed finite radius."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Twin-width.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Twin-width counts non-homogeneous neighbouring parts during binary contractions, rather than resolved-pair reachability."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Shrubdepth.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Shrubdepth is a uniform height condition on coloured tree-models for a graph class."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Radius-$r$ weak colouring number.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Weak colouring numbers use an order on vertices and paths in the original graph, not merge sequences and resolved pairs."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Radius-$r$ flip-width.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Flip-width uses a pursuit game with adjacency flips; this is a decomposition-based definition."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Rank-width.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Rank-width uses binary matrix ranks across cuts, not local balls of resolved pairs."
+    },
+    {
+      "id": "distractor-7",
+      "text": "The radius-$r$ width of one specified merge sequence.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The minimum over all valid sequences is a graph parameter; a specified sequence has its own possibly larger width."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Radius-$r$ neighbourhood complexity.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Neighbourhood complexity counts distinct neighbourhood traces, not parts encountered during a construction."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Component twin-width.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Component twin-width measures red components of contraction trigraphs, not bounded-radius reachability of original vertices."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+      "url": "https://arxiv.org/html/2502.18065v2"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-25-monadic-merge-relation",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "For a hereditary class $\\mathcal C$ (closed under induced subgraphs), what relationship follows from the merge-width results, including the 4 November 2026 preprint?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\mathcal C$ is monadically dependent if and only if it has almost bounded merge-width.",
+      "correct": true,
+      "explanation": "The November preprint proves dependence implies almost bounded merge-width. The reverse implication for hereditary classes was already known. “Almost bounded” means subpolynomial at every fixed radius."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\mathcal C$ is monadically dependent if and only if it has bounded clique-width.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Square grids and their induced subgraphs are monadically dependent but have unbounded clique-width."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\mathcal C$ is monadically dependent if and only if it has bounded twin-width.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The hereditary class of all subcubic graphs is dependent but has unbounded twin-width."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\mathcal C$ is monadically dependent if and only if it has bounded shrubdepth.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "All linear forests form a hereditary dependent class containing arbitrarily long paths, so shrubdepth is unbounded."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\mathcal C$ is monadically dependent if and only if it has bounded merge-width.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Dependence permits unbounded merge-width: nowhere dense classes with unbounded expansion are examples."
+    },
+    {
+      "id": "distractor-5",
+      "text": "The implication from dependence to almost bounded merge-width remains conjectural at every radius.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The cited November 2026 preprint states and proves it for every fixed radius."
+    },
+    {
+      "id": "distractor-6",
+      "text": "The November result proves the implication only at radius one.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The earlier July 2026 result handled radius one; the November theorem handles every fixed radius."
+    },
+    {
+      "id": "distractor-7",
+      "text": "The result replaces “every positive exponent” with “one fixed positive exponent” in the width bound.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Almost boundedness means every positive exponent, with constants allowed to depend on that exponent."
+    },
+    {
+      "id": "distractor-8",
+      "text": "The result gives one subpolynomial bound uniform over all radii simultaneously.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The subpolynomial function may depend on the fixed radius. Uniform control of arbitrarily large radii is not asserted."
+    },
+    {
+      "id": "distractor-9",
+      "text": "The result says that every merge sequence of every graph in the class has subpolynomial width.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "It asserts existence of suitable sequences and gives an algorithm to find them. Bad sequences may still have large width."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
+      "url": "https://arxiv.org/html/2611.06804v1"
+    },
+    {
+      "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+      "url": "https://arxiv.org/html/2502.18065v2"
+    },
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    },
+    {
+      "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+      "url": "https://arxiv.org/html/1707.00359v4"
+    }
+  ]
+}

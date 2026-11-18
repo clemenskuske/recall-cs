@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-20-merge-almost",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "For nonempty graphs in $\\mathcal C$, which bound expresses almost bounded merge-width?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "For every fixed $r\\ge1$ and $\\varepsilon>0$, some $c_{r,\\varepsilon}$ satisfies $\\operatorname{mw}_r(G)\\le c_{r,\\varepsilon}|V(G)|^\\varepsilon$ for all $G\\in\\mathcal C$.",
+      "correct": true,
+      "explanation": "This is subpolynomial growth uniformly over the class at each fixed radius. The constant may depend on the class, radius and exponent."
+    },
+    {
+      "id": "distractor-1",
+      "text": "For every fixed $r$, some $c_r$ satisfies $\\operatorname{mw}_r(G)\\le c_r$ for all $G\\in\\mathcal C$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "That defines bounded merge-width, which is stronger than almost bounded merge-width."
+    },
+    {
+      "id": "distractor-2",
+      "text": "For every fixed $r$, some $c_r$ satisfies $\\operatorname{mw}_r(G)\\le c_r|V(G)|$ for all $G\\in\\mathcal C$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Linear growth is not subpolynomial. Every graph already has width at most its order."
+    },
+    {
+      "id": "distractor-3",
+      "text": "For some $\\varepsilon>0$ and every $r$, $\\operatorname{mw}_r(G)=O(|V(G)|^\\varepsilon)$ uniformly over $\\mathcal C$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Almost boundedness requires every positive exponent, not one sufficiently large exponent."
+    },
+    {
+      "id": "distractor-4",
+      "text": "For every fixed $r$, $\\operatorname{mw}_r(G)=O(\\sqrt{|V(G)|})$ uniformly over $\\mathcal C$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "One fixed power bound does not imply bounds for all smaller positive powers."
+    },
+    {
+      "id": "distractor-5",
+      "text": "For every fixed $r$ and $\\varepsilon>0$, each graph may choose its own constant in the bound.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Allowing the constant to depend on the individual graph makes the condition vacuous."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Only $\\operatorname{mw}_1(G)$ must satisfy every positive-power bound.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Almost bounded merge-width requires this at every fixed radius, not just radius one."
+    },
+    {
+      "id": "distractor-7",
+      "text": "For every fixed $r$, the definition requires $\\operatorname{mw}_r(G)=O(\\log |V(G)|)$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Logarithmic growth is a particular subpolynomial bound; it is not the defining bound in general."
+    },
+    {
+      "id": "distractor-8",
+      "text": "There is a single constant $c$ such that $\\operatorname{mw}_r(G)\\le c|V(G)|^\\varepsilon$ for every $r,\\varepsilon>0,G$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The constants may depend on radius and exponent. Requiring one constant imposes a much stronger condition."
+    },
+    {
+      "id": "distractor-9",
+      "text": "For each fixed $r$, it is enough that the average width of graphs of each order in $\\mathcal C$ is subpolynomial.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The bound must hold for every member, not merely on average over graphs of an order."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+      "url": "https://arxiv.org/html/2502.18065v2"
+    },
+    {
+      "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
+      "url": "https://arxiv.org/html/2611.06804v1"
+    }
+  ]
+}

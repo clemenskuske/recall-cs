@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-14-shrub-quantifiers",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $\\mathrm{TM}_m(d)$ denote graphs with an $m$-colour tree-model of height $d$. Which statement defines bounded shrubdepth of a class $\\mathcal C$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\exists d\\;\\exists m\\;\\forall G\\in\\mathcal C:\\ G\\in\\mathrm{TM}_m(d)$.",
+      "correct": true,
+      "explanation": "A single height and a single finite colour bound must work for the whole class. The actual tree and adjacency signature may vary."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\forall G\\in\\mathcal C\\;\\exists d,m:\\ G\\in\\mathrm{TM}_m(d)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Every finite graph has a height-one model using one colour per vertex. Per-graph bounds make the condition vacuous."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\exists d\\;\\forall G\\in\\mathcal C\\;\\exists m:\\ G\\in\\mathrm{TM}_m(d)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Choosing a different unbounded colour count for each graph again allows every graph at height one."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\forall d\\;\\exists m\\;\\forall G\\in\\mathcal C:\\ G\\in\\mathrm{TM}_m(d)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This demands models at every height, including height one, and is stronger than bounded shrubdepth."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\exists m\\;\\forall G\\in\\mathcal C\\;\\exists d:\\ G\\in\\mathrm{TM}_m(d)$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The height must also be uniform. Unbounded-height one-colour models already include all cographs, whose shrubdepth is unbounded."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\exists d,m\\;\\exists G\\in\\mathcal C:\\ G\\in\\mathrm{TM}_m(d)$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A model for one member gives no uniform control over the whole class."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\forall d,m\\;\\forall G\\in\\mathcal C:\\ G\\in\\mathrm{TM}_m(d)$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The definition requires some sufficient bounds, not every possible choice of bounds."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\exists d,m\\;\\forall G\\in\\mathcal C:$ one fixed finite tree $T$ models every $G$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Tree size must be allowed to grow with the number of graph vertices."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\exists d,m\\;\\forall G\\in\\mathcal C:$ the model has at most $m$ leaves and height $d$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The bound is on leaf colours, not on leaf count; the class may contain arbitrarily large graphs."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\exists d,m\\;\\forall G\\in\\mathcal C:$ the model has height $d$ and maximum branching $m$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Bounding height and branching bounds the total number of leaves. Bounded shrubdepth does not bound graph order."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+      "url": "https://arxiv.org/html/1707.00359v4"
+    },
+    {
+      "title": "Brignall, Korpelainen & Vatter — Linear Clique-Width for Hereditary Classes of Cographs",
+      "url": "https://arxiv.org/abs/1305.0636"
+    }
+  ]
+}

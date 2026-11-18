@@ -1,3372 +1,2474 @@
 {
   "schemaVersion": 1,
-  "version": "b67bb60721ce60ba",
+  "version": "6ca6e4d4ba909ec1",
   "topics": [
     {
-      "id": "logic-basics",
-      "title": "Logic basics",
-      "description": "Start with and, or, if…then, and clear reasoning.",
-      "symbol": "braces",
-      "color": "sage",
-      "defaultSelected": true
-    },
-    {
-      "id": "algorithms",
-      "title": "Algorithms",
-      "description": "Think in steps. Find a better way.",
-      "symbol": "route",
-      "color": "sage",
-      "defaultSelected": false
-    },
-    {
-      "id": "data-structures",
-      "title": "Data structures",
-      "description": "The right shape for your information.",
-      "symbol": "layers",
-      "color": "clay",
-      "defaultSelected": false
-    },
-    {
-      "id": "graph-theory",
-      "title": "Graph theory",
-      "description": "Explore the mathematics of connections.",
+      "id": "dense-graph-classes",
+      "title": "Dense graph classes",
+      "description": "Transductions, monadic dependence, and the definitions and relationships of graph widths.",
       "symbol": "graph",
       "color": "lavender",
-      "defaultSelected": false
-    },
-    {
-      "id": "complexity",
-      "title": "Complexity",
-      "description": "Understand the limits of computation.",
-      "symbol": "braces",
-      "color": "sand",
-      "defaultSelected": false
+      "defaultSelected": true
     }
   ],
   "questions": [
     {
       "schemaVersion": 1,
-      "id": "logic-01-and",
-      "topic": "logic-basics",
+      "id": "dense-01-transduction-name",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Let $P$ mean “the lamp is on” and $Q$ mean “the door is open”. Which formula says that both are true?",
+      "prompt": "Fix finitely many unary predicates and FO formulas $\\delta(x),\\varphi(x,y)$, with $\\varphi$ symmetric and irreflexive. Arbitrarily interpret the predicates on $G$, select vertices by $\\delta$, and define adjacency by $\\varphi$. What is this set-valued operation, with no copying?",
       "answers": [
         {
           "id": "correct",
-          "text": "$P\\land Q$",
+          "text": "A non-copying first-order transduction.",
           "correct": true,
-          "explanation": "$\\land$ means “and”. The conjunction is true only when $P$ and $Q$ are both true."
+          "explanation": "The formulas and predicate vocabulary are fixed; the unary expansions vary. Each expansion yields an interpreted graph, so one input can have several outputs."
         },
         {
           "id": "distractor-1",
-          "text": "$P\\lor Q$",
+          "text": "A graph homomorphism.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "“Or” permits just one statement to be true; both are not required."
+          "explanation": "A homomorphism maps vertices while preserving edges; it does not redefine adjacency by arbitrary FO formulas."
         },
         {
           "id": "distractor-2",
-          "text": "$\\neg P$",
+          "text": "A graph minor operation.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This says the lamp is not on and says nothing about the door."
+          "explanation": "Minor operations delete or contract edges and vertices; an FO transduction can also create edges."
         },
         {
           "id": "distractor-3",
-          "text": "$\\neg Q$",
+          "text": "A graph isomorphism.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This says the door is not open and says nothing about the lamp."
+          "explanation": "An isomorphism preserves the whole adjacency relation bijectively. Here both the domain and adjacency may change."
         },
         {
           "id": "distractor-4",
-          "text": "$P\\to Q$",
+          "text": "A deterministic interpretation of the uncoloured graph alone.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "An implication can be true when the lamp is off. It does not assert that both statements hold."
+          "explanation": "The arbitrary unary expansions are extra choices, so the output is not determined by the uncoloured input alone."
         },
         {
           "id": "distractor-5",
-          "text": "$P\\leftrightarrow Q$",
+          "text": "A vertex-colouring operation with adjacency unchanged.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This also holds when both statements are false, whereas “both are true” does not."
+          "explanation": "Colouring is only the preparatory step; the formulas can also change edges and select a domain."
         },
         {
           "id": "distractor-6",
-          "text": "$\\neg P\\land\\neg Q$",
+          "text": "An arbitrary MSO transduction requiring vertex-set quantifiers in its defining formulas.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This says that both statements are false."
+          "explanation": "The defining formulas here are first-order. Unary parameters do not make their quantifiers second-order."
         },
         {
           "id": "distractor-7",
-          "text": "$P\\land\\neg Q$",
+          "text": "A quotient interpretation whose output vertices must be equivalence classes.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This gets the lamp right but requires the door to be closed."
+          "explanation": "The selected vertices are individual input vertices; this convention includes no quotient operation."
         },
         {
           "id": "distractor-8",
-          "text": "$\\neg P\\land Q$",
+          "text": "A two-dimensional interpretation whose output vertices must be ordered pairs.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This gets the door right but requires the lamp to be off."
+          "explanation": "Here the domain formula has one free variable. Output vertices are not pairs of input vertices."
         },
         {
           "id": "distractor-9",
-          "text": "$\\neg(P\\land Q)$",
+          "text": "A copying transduction with an unbounded input-dependent number of copies.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This denies that both are true; it is the negation of the requested statement."
+          "explanation": "No copies occur here; even in the copying convention the copy number is a fixed constant."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Propositional Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+          "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+          "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
+        },
+        {
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-02-inclusive-or",
-      "topic": "logic-basics",
+      "id": "dense-02-transduction-definition",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Let $P$ mean “I use a keyboard” and $Q$ mean “I use a mouse”. Which formula means “I use at least one of them, possibly both”?",
+      "prompt": "How does a non-copying FO transduction with domain formula $\\delta$ and symmetric, irreflexive edge formula $\\varphi$ construct an output $H$ from a unary expansion $G^+$?",
       "answers": [
         {
           "id": "correct",
-          "text": "$P\\lor Q$",
+          "text": "$V(H)=\\{v:G^+\\models\\delta(v)\\}$; for $u,v\\in V(H)$, $uv\\in E(H)\\iff G^+\\models\\varphi(u,v)$.",
           "correct": true,
-          "explanation": "The logical $\\lor$ is inclusive “or”: either statement, or both, may be true."
+          "explanation": "Evaluate both fixed formulas in the expanded input. The domain formula selects output vertices; the edge formula determines adjacency between them."
         },
         {
           "id": "distractor-1",
-          "text": "$P\\land Q$",
+          "text": "$V(H)=V(G)$; retain exactly the original edges, regardless of $\\delta$ and $\\varphi$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This requires both devices; the original permits using only one."
+          "explanation": "This ignores both defining formulas and cannot describe a general transduction."
         },
         {
           "id": "distractor-2",
-          "text": "$\\neg P\\land\\neg Q$",
+          "text": "$V(H)=\\{v:G^+\\models\\varphi(v,v)\\}$; adjacency is determined by $\\delta(u)\\land\\delta(v)$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This says neither device is used."
+          "explanation": "The edge formula is irreflexive, so its diagonal is empty. The roles of the domain and edge formulas are reversed."
         },
         {
           "id": "distractor-3",
-          "text": "$\\neg(P\\lor Q)$",
+          "text": "$V(H)=E(G)$; join two output vertices when the corresponding input edges meet.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This is true only when neither statement is true."
+          "explanation": "That describes the line-graph construction, not this one-dimensional vertex-domain definition."
         },
         {
           "id": "distractor-4",
-          "text": "$P\\to Q$",
+          "text": "$V(H)=\\{v:G^+\\models\\delta(v)\\}$; keep only input edges that also satisfy $\\varphi$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This can be true when neither device is used, which fails the “at least one” requirement."
+          "explanation": "An FO edge formula may create an edge that was absent from the input. Intersecting with the old edge set is an extra restriction."
         },
         {
           "id": "distractor-5",
-          "text": "$P\\leftrightarrow Q$",
+          "text": "$V(H)=\\{v:G^+\\models\\delta(v)\\}$; test $\\varphi$ only in $G^+[V(H)]$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This permits neither device and excludes using just one."
+          "explanation": "Quantified variables of the edge formula range over the input structure. Deleting unselected witnesses first can change its truth."
         },
         {
           "id": "distractor-6",
-          "text": "$\\neg P\\lor\\neg Q$",
+          "text": "$V(H)=\\{v:G^+\\models\\delta(v)\\}$; evaluate $\\varphi$ after forgetting all added predicates.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This says at least one device is not used, rather than at least one is used."
+          "explanation": "The edge formula is allowed to use those unary predicates."
         },
         {
           "id": "distractor-7",
-          "text": "$(P\\lor Q)\\land\\neg(P\\land Q)$",
+          "text": "Use the stated domain, but require $\\varphi(u,v)$ in every unary expansion of $G$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This is exclusive “or”: it wrongly excludes using both."
+          "explanation": "Each individual expansion can produce its own output. Taking the intersection over all expansions changes the operation."
         },
         {
           "id": "distractor-8",
-          "text": "$P\\land\\neg Q$",
+          "text": "Use the stated domain, but choose a separate unary expansion for each pair $u,v$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This permits only the keyboard, excluding the mouse-only and both-device cases."
+          "explanation": "One expansion must determine the entire output graph, not a different expansion for each potential edge."
         },
         {
           "id": "distractor-9",
-          "text": "$\\neg P\\land Q$",
+          "text": "Use the stated domain, but evaluate $\\varphi$ in the output graph $H$ itself.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This permits only the mouse, excluding the keyboard-only and both-device cases."
+          "explanation": "The formulas are evaluated in the input expansion. Evaluating them recursively in the output is not this definition."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Propositional Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+          "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+          "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-03-implication",
-      "topic": "logic-basics",
+      "id": "dense-03-transduction-uniformity",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "In classical two-valued logic, which formula is equivalent to $P\\to Q$ (“if $P$, then $Q$”)?",
+      "prompt": "For graph classes $\\mathcal C,\\mathcal D$, what does $\\mathcal D\\subseteq T(\\mathcal C)$ require of a single fixed FO transduction $T$?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\neg P\\lor Q$",
+          "text": "One fixed finite vocabulary and fixed formulas work for every $H\\in\\mathcal D$; the chosen $G\\in\\mathcal C$ and its colouring may depend on $H$.",
           "correct": true,
-          "explanation": "An implication is false only when $P$ is true and $Q$ is false. Both $P\\to Q$ and $\\neg P\\lor Q$ have exactly that one false case."
+          "explanation": "Uniformity concerns the recipe, not the input graph or colouring. Every target must occur among the outputs of that one recipe."
         },
         {
           "id": "distractor-1",
-          "text": "$P\\land Q$",
+          "text": "Every $G\\in\\mathcal C$ must produce every $H\\in\\mathcal D$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "An implication can be true when its premise is false; a conjunction cannot."
+          "explanation": "Class transducibility only requires some suitable input for each target."
         },
         {
           "id": "distractor-2",
-          "text": "$\\neg P\\land\\neg Q$",
+          "text": "One finite $G\\in\\mathcal C$ must produce all graphs of every order in $\\mathcal D$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "An implication is also true when both statements are true, but this formula is false then."
+          "explanation": "A fixed finite input has bounded output size. The input is allowed to vary with the target."
         },
         {
           "id": "distractor-3",
-          "text": "$P\\land\\neg Q$",
+          "text": "The defining formula may be chosen separately for each target $H$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This describes precisely the case in which the implication is false."
+          "explanation": "That discards the fixed-recipe requirement."
         },
         {
           "id": "distractor-4",
-          "text": "$P\\lor Q$",
+          "text": "The formulas are fixed, but the number of unary predicates may grow with the target.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "When both statements are false, the implication is true but this disjunction is false."
+          "explanation": "The finite predicate vocabulary is also part of the fixed transduction."
         },
         {
           "id": "distractor-5",
-          "text": "$Q\\to P$",
+          "text": "The vocabulary is fixed, but quantifier rank may grow through a new formula for each target.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This is the converse. If P is false and Q is true, the original is true but the converse is false."
+          "explanation": "A fixed transduction uses fixed formulas, hence a fixed quantifier rank."
         },
         {
           "id": "distractor-6",
-          "text": "$P\\leftrightarrow Q$",
+          "text": "The recipe must generate exactly $\\mathcal D$ and no additional outputs.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "The biconditional also requires the converse; it is false when P is false and Q is true."
+          "explanation": "The definition asks for containment in the outputs, not equality."
         },
         {
           "id": "distractor-7",
-          "text": "$P\\lor\\neg Q$",
+          "text": "Each target uses one recipe for vertices and unrelated input graphs for its individual edges.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This reverses the implication: it is false when P is false and Q is true."
+          "explanation": "The whole output is interpreted in a single expanded input graph."
         },
         {
           "id": "distractor-8",
-          "text": "$\\neg P\\lor\\neg Q$",
+          "text": "The unary predicates must be FO-definable in the uncoloured input.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This is false when P and Q are both true, although the original implication is true."
+          "explanation": "They are arbitrary unary parameters, not predicates required to be definable without parameters."
         },
         {
           "id": "distractor-9",
-          "text": "$\\neg(P\\lor Q)$",
+          "text": "The formulas and one fixed colouring assignment must work unchanged on all input graphs.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This requires both statements to be false; the implication also allows Q to be true."
+          "explanation": "The formulas are uniform, but colour assignments are chosen separately on each input vertex set."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Propositional Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+          "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+          "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-04-if-and-only-if",
-      "topic": "logic-basics",
+      "id": "dense-04-transduction-copying",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Which formula expresses $P\\leftrightarrow Q$ (“$P$ if and only if $Q$”) as two implications?",
+      "prompt": "In the convention allowing copying, how is a $k$-copy operation used in an FO transduction?",
       "answers": [
         {
           "id": "correct",
-          "text": "$(P\\to Q)\\land(Q\\to P)$",
+          "text": "Use a fixed $k$, distinguish the copies, and link corresponding copies of each original vertex before the fixed FO interpretation.",
           "correct": true,
-          "explanation": "“If and only if” requires both directions. Equivalently, P and Q must have the same truth value, including the case where both are false."
+          "explanation": "Copying supplies finitely many tagged copies and a correspondence relation. The constant and interpretation belong to the transduction, not to individual inputs."
         },
         {
           "id": "distractor-1",
-          "text": "$P\\land Q$",
+          "text": "Take $|V(G)|$ copies and choose new defining formulas for each input.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This excludes the case where both are false, which satisfies a biconditional."
+          "explanation": "Both an input-dependent copy number and input-dependent formulas violate the fixed-transduction convention."
         },
         {
           "id": "distractor-2",
-          "text": "$P\\lor Q$",
+          "text": "Replace every vertex by all subsets of the input vertex set.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This permits one true and one false, which violates a biconditional."
+          "explanation": "A fixed-copy operation gives only a constant-factor increase, not a powerset domain."
         },
         {
           "id": "distractor-3",
-          "text": "$\\neg P\\land\\neg Q$",
+          "text": "Contract every connected component before interpreting the graph.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This excludes the case where both are true."
+          "explanation": "Copying duplicates vertices; it is not a component quotient."
         },
         {
           "id": "distractor-4",
-          "text": "$P\\to Q$",
+          "text": "Take a fixed number of untagged copies and erase which vertices correspond.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This gives only one direction and allows P false with Q true."
+          "explanation": "The standard copying structure supplies copy tags and the correspondence relation for the formulas to use."
         },
         {
           "id": "distractor-5",
-          "text": "$Q\\to P$",
+          "text": "Allow arbitrarily many copies as long as the edge formula is fixed.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This gives only the converse and allows Q false with P true."
+          "explanation": "The copy number itself must also be fixed."
         },
         {
           "id": "distractor-6",
-          "text": "$\\neg(P\\leftrightarrow Q)$",
+          "text": "Use a fixed number of copies, but require the output to contain every copied vertex.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This requires different truth values, the opposite of a biconditional."
+          "explanation": "The subsequent interpretation may select a smaller domain."
         },
         {
           "id": "distractor-7",
-          "text": "$(P\\to Q)\\lor(Q\\to P)$",
+          "text": "Use a fixed number of copies, but forbid formulas from relating different copies.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "At least one of these implications is always true. Their disjunction does not require matching truth values."
+          "explanation": "The correspondence relation and copy tags are supplied precisely so cross-copy relationships can be defined."
         },
         {
           "id": "distractor-8",
-          "text": "$(P\\to Q)\\land(P\\to\\neg Q)$",
+          "text": "Use a fixed number of copies, identified into one equivalence class per original vertex before any formula is evaluated.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This is equivalent to not P; it does not require Q to match P."
+          "explanation": "That collapses the copies before interpretation. Standard copying retains the distinct copies as available elements."
         },
         {
           "id": "distractor-9",
-          "text": "$(P\\to Q)\\land(\\neg P\\to Q)$",
+          "text": "Use a fixed number of copies only when all unary parameters are already definable in the original graph.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This forces Q to be true, whereas a biconditional also allows both statements to be false."
+          "explanation": "Arbitrary finitely many unary parameters are allowed; definability in the original graph is not required."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Propositional Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-05-converse",
-      "topic": "logic-basics",
+      "id": "dense-05-monadic-name",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "What is the converse of $P\\to Q$? Choose a formula with the converse’s truth conditions.",
+      "prompt": "A class $\\mathcal C$ cannot produce every finite simple graph by any one fixed FO transduction, even with arbitrary finitely many unary vertex predicates. What is this property called?",
       "answers": [
         {
           "id": "correct",
-          "text": "$Q\\to P$",
+          "text": "Monadic dependence (monadic NIP).",
           "correct": true,
-          "explanation": "The converse swaps the premise and conclusion. It need not be equivalent to the original implication."
+          "explanation": "The forbidden encoding is a single uniform recipe for all finite graphs. Unary expansions account for the word “monadic”."
         },
         {
           "id": "distractor-1",
-          "text": "$P\\to Q$",
+          "text": "Bounded clique-width.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This is the original implication; its direction has not changed."
+          "explanation": "Bounded clique-width implies this property, but its definition uses labelled graph expressions and is stronger."
         },
         {
           "id": "distractor-2",
-          "text": "$P\\land Q$",
+          "text": "Bounded twin-width.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "The converse is an implication and does not assert both statements."
+          "explanation": "Twin-width is defined by contraction sequences. Monadic dependence also includes classes with unbounded twin-width."
         },
         {
           "id": "distractor-3",
-          "text": "$P\\lor Q$",
+          "text": "Bounded shrubdepth.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This disjunction is not the converse; it fails when both statements are false."
+          "explanation": "Shrubdepth requires uniformly bounded tree-model height and colour count, a stronger condition."
         },
         {
           "id": "distractor-4",
-          "text": "$P\\to\\neg Q$",
+          "text": "Monadic independence.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This changes the conclusion to not Q rather than swapping the original premise and conclusion."
+          "explanation": "Independence is the opposite: some fixed transduction does encode all finite graphs."
         },
         {
           "id": "distractor-5",
-          "text": "$P\\leftrightarrow Q$",
+          "text": "Monadic stability.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This requires both the original and its converse, which is stronger than just the converse."
+          "explanation": "Stability forbids transducing all half-graphs, not merely all finite graphs; it is stronger."
         },
         {
           "id": "distractor-6",
-          "text": "$Q\\land\\neg P$",
+          "text": "Nowhere denseness.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This describes the one case in which the converse is false."
+          "explanation": "Nowhere denseness is a sparse structural property; monadic dependence also permits arbitrarily large cliques."
         },
         {
           "id": "distractor-7",
-          "text": "$\\neg Q\\to\\neg P$",
+          "text": "Bounded merge-width.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This is the contrapositive of the original, equivalent to the original rather than its converse."
+          "explanation": "Bounded merge-width controls each radius by a constant. Monadic dependence need only yield almost bounded merge-width."
         },
         {
           "id": "distractor-8",
-          "text": "$\\neg(P\\to Q)$",
+          "text": "Bounded VC-dimension of the adjacency relation alone.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This says P is true and Q false, rather than expressing the converse."
+          "explanation": "Monadic dependence controls every fixed FO encoding after unary expansions, not only raw adjacency."
         },
         {
           "id": "distractor-9",
-          "text": "$\\neg P\\lor\\neg Q$",
+          "text": "Exclusion of one finite graph as an induced subgraph.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This fails when both P and Q are true, but the converse is true then."
+          "explanation": "An induced-subgraph exclusion alone does not prevent logical encodings of all graphs."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Propositional Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+          "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+          "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
+        },
+        {
+          "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
+          "url": "https://arxiv.org/html/2611.06804v1"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-06-contrapositive",
-      "topic": "logic-basics",
+      "id": "dense-06-monadic-definition",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Which formula is the contrapositive of $P\\to Q$?",
+      "prompt": "Let $\\mathcal G$ be all finite simple graphs and $T$ range over fixed FO transductions with unary parameters. Which condition defines monadic dependence of $\\mathcal C$?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\neg Q\\to\\neg P$",
+          "text": "$\\forall T\\;\\exists H\\in\\mathcal G:\\ H\\notin T(\\mathcal C)$.",
           "correct": true,
-          "explanation": "The contrapositive reverses the direction and negates both statements. It is equivalent to the original: if Q is false, P must also be false for the implication to hold."
+          "explanation": "Every fixed recipe misses at least one finite graph. The graph it misses may depend on the recipe."
         },
         {
           "id": "distractor-1",
-          "text": "$P\\land Q$",
+          "text": "$\\exists T\\;\\forall H\\in\\mathcal G:\\ H\\in T(\\mathcal C)$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Conjoining the statements neither reverses nor negates them."
+          "explanation": "This is monadic independence, the negation of dependence."
         },
         {
           "id": "distractor-2",
-          "text": "$Q\\to P$",
+          "text": "$\\forall T\\;\\forall H\\in\\mathcal G:\\ H\\notin T(\\mathcal C)$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This is the converse: it reverses direction but does not negate either statement."
+          "explanation": "This forbids even trivial outputs; dependence only requires each recipe to miss some graph."
         },
         {
           "id": "distractor-3",
-          "text": "$\\neg P\\land\\neg Q$",
+          "text": "$\\exists T\\;\\exists H\\in\\mathcal G:\\ H\\notin T(\\mathcal C)$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "The contrapositive is an implication; it does not assert that both statements are false."
+          "explanation": "One weak transduction missing a graph says nothing about another transduction encoding all graphs."
         },
         {
           "id": "distractor-4",
-          "text": "$\\neg P\\to\\neg Q$",
+          "text": "$\\exists H\\in\\mathcal G\\;\\forall T:\\ H\\notin T(\\mathcal C)$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This is the inverse: it negates both statements but keeps the original direction."
+          "explanation": "This swaps the quantifiers. For example, large cliques can encode any one fixed finite graph using finitely many colours tailored to that graph."
         },
         {
           "id": "distractor-5",
-          "text": "$Q\\to\\neg P$",
+          "text": "$\\forall H\\in\\mathcal G\\;\\exists T:\\ H\\notin T(\\mathcal C)$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "The premise needs to be not Q, not Q itself."
+          "explanation": "Choosing a deliberately unhelpful transduction separately for each target does not rule out a universal encoding."
         },
         {
           "id": "distractor-6",
-          "text": "$\\neg Q\\to P$",
+          "text": "$\\forall T\\;\\exists G\\in\\mathcal C\\;\\exists H\\in\\mathcal G:\\ H\\notin T(G)$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "The conclusion needs to be not P, not P itself."
+          "explanation": "Failure on one input is insufficient: the target might be produced from another input in the class."
         },
         {
           "id": "distractor-7",
-          "text": "$\\neg(Q\\to P)$",
+          "text": "$\\forall T\\;\\exists H\\in\\mathcal G:\\ H\\notin T(\\mathcal C)$, but only for transductions without unary parameters.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Negating the whole converse gives Q and not P; that is not contraposition."
+          "explanation": "Removing unary parameters weakens the test. Monadic dependence explicitly allows arbitrary finite unary expansions."
         },
         {
           "id": "distractor-8",
-          "text": "$\\neg P\\lor\\neg Q$",
+          "text": "$\\forall T\\;\\exists H\\in\\mathcal G:\\ H\\notin T(\\mathcal C)$, but only for quantifier-free edge formulas.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This is false when both statements are true; the original and its contrapositive are true then."
+          "explanation": "All first-order formulas must be considered, not just quantifier-free ones."
         },
         {
           "id": "distractor-9",
-          "text": "$P\\leftrightarrow Q$",
+          "text": "$\\forall G\\in\\mathcal C\\;\\forall T\\;\\exists H\\in\\mathcal G:\\ H\\notin T(G)$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "A biconditional additionally requires the converse, which contraposition does not."
+          "explanation": "Every fixed finite input has bounded output size. This holds even for the class of all finite graphs."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Propositional Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+          "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+          "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
+        },
+        {
+          "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
+          "url": "https://arxiv.org/html/2611.06804v1"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-07-negate-implication",
-      "topic": "logic-basics",
+      "id": "dense-07-monadic-closure",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Which formula is equivalent to $\\neg(P\\to Q)$?",
+      "prompt": "Let $\\mathcal C$ be monadically dependent and let $\\mathcal D\\subseteq T(\\mathcal C)$ for a fixed FO transduction $T$. What follows?",
       "answers": [
         {
           "id": "correct",
-          "text": "$P\\land\\neg Q$",
+          "text": "$\\mathcal D$ is monadically dependent: a universal encoding from $\\mathcal D$ would compose with $T$ to give one from $\\mathcal C$.",
           "correct": true,
-          "explanation": "To make “if P, then Q” false, its premise P must hold while its conclusion Q fails."
+          "explanation": "FO transductions compose. If a transduction of the output class encoded all graphs, the composition would contradict dependence of the input class."
         },
         {
           "id": "distractor-1",
-          "text": "$P\\to Q$",
+          "text": "$\\mathcal D$ must be monadically independent, because a transduction adds arbitrary colours.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This repeats the implication instead of negating it."
+          "explanation": "Arbitrary colours are already allowed in the definition of monadic dependence."
         },
         {
           "id": "distractor-2",
-          "text": "$P\\land Q$",
+          "text": "$\\mathcal D$ must have bounded shrubdepth, regardless of $\\mathcal C$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "When both are true, the implication is true rather than false."
+          "explanation": "The identity transduction on all paths disproves this: paths are monadically dependent but have unbounded shrubdepth."
         },
         {
           "id": "distractor-3",
-          "text": "$\\neg P\\land\\neg Q$",
+          "text": "$\\mathcal D$ must have bounded clique-width, regardless of $\\mathcal C$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "A false premise makes the implication true, so this does not negate it."
+          "explanation": "The identity on planar grids disproves this: they are dependent but have unbounded clique-width."
         },
         {
           "id": "distractor-4",
-          "text": "$\\neg P\\to\\neg Q$",
+          "text": "Dependence follows only when $T$ is injective on isomorphism classes.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Negating both parts of an implication is not the same as negating the implication."
+          "explanation": "The composition argument needs no injectivity."
         },
         {
           "id": "distractor-5",
-          "text": "$Q\\to P$",
+          "text": "Dependence follows only when $T$ never changes adjacency.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This is the converse, which is true in many cases where the original is also true."
+          "explanation": "Composition works for arbitrary allowed edge formulas, including complementation."
         },
         {
           "id": "distractor-6",
-          "text": "$\\neg P\\lor Q$",
+          "text": "Dependence follows only when $\\mathcal D=T(\\mathcal C)$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This is equivalent to the original implication, not its negation."
+          "explanation": "A subclass of a dependent class is dependent; containment is sufficient."
         },
         {
           "id": "distractor-7",
-          "text": "$P\\lor\\neg Q$",
+          "text": "Dependence follows only when $\\mathcal C$ is closed under arbitrary subgraphs.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "“Or” allows cases such as both statements true; falsifying the implication requires both P and not Q."
+          "explanation": "The composition argument requires no subgraph-closure assumption."
         },
         {
           "id": "distractor-8",
-          "text": "$\\neg P\\land Q$",
+          "text": "Dependence follows only when each input has a unique output under $T$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This reverses the required truth values: P must be true, Q false."
+          "explanation": "Set-valued transductions still compose; unary choices can be encoded together."
         },
         {
           "id": "distractor-9",
-          "text": "$\\neg(P\\land Q)$",
+          "text": "Dependence follows only when $T$ has quantifier-free formulas.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Not both being true is weaker than P true and Q false; it also allows P false."
+          "explanation": "Fixed first-order formulas are closed under the substitutions used in composition."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Propositional Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+          "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+          "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
+        },
+        {
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
+        },
+        {
+          "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
+          "url": "https://arxiv.org/html/2611.06804v1"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-08-not-both",
-      "topic": "logic-basics",
+      "id": "dense-08-twin-name",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Which formula expresses “It is not the case that both $P$ and $Q$ are true”?",
+      "prompt": "Merge two parts at each step, from singletons to $\\{V(G)\\}$. Join distinct parts by a red edge exactly when their original adjacency is neither complete nor empty. Minimise the largest red degree over the entire sequence. Which parameter is this?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\neg P\\lor\\neg Q$",
+          "text": "Twin-width.",
           "correct": true,
-          "explanation": "This is De Morgan’s law: $\\neg(P\\land Q)$ holds when at least one part is false. Both parts may be false, but that is not required."
+          "explanation": "Red edges record non-homogeneous pairs of parts. The width is a maximum degree over all intermediate red graphs, minimised over binary merge sequences."
         },
         {
           "id": "distractor-1",
-          "text": "$P\\land Q$",
+          "text": "Clique-width.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This says both are true, which is the statement being denied."
+          "explanation": "Clique-width minimises labels in a graph-building expression, not red degree during contractions."
         },
         {
           "id": "distractor-2",
-          "text": "$P\\lor Q$",
+          "text": "Treewidth.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This says at least one is true, not at least one is false."
+          "explanation": "Treewidth uses bags in a tree decomposition; it is not defined by this merging process."
         },
         {
           "id": "distractor-3",
-          "text": "$\\neg P\\land\\neg Q$",
+          "text": "Shrubdepth.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This says neither is true. “Not both” also allows exactly one to be true."
+          "explanation": "Shrubdepth concerns bounded-height, bounded-colour tree-models for a class."
         },
         {
           "id": "distractor-4",
-          "text": "$P\\to Q$",
+          "text": "Rank-width.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This remains true when both P and Q are true, whereas “not both” is false."
+          "explanation": "Rank-width minimises the maximum binary rank of adjacency matrices across decomposition cuts."
         },
         {
           "id": "distractor-5",
-          "text": "$P\\leftrightarrow Q$",
+          "text": "Neighbourhood diversity.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This also permits both statements to be true."
+          "explanation": "Neighbourhood diversity counts twin classes in one partition; it does not optimise an entire contraction sequence."
         },
         {
           "id": "distractor-6",
-          "text": "$\\neg(P\\lor Q)$",
+          "text": "Radius-1 merge-width.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This means neither P nor Q, which is stronger than “not both”."
+          "explanation": "Merge-width counts parts reached through resolved pairs of original vertices, not red degree between current parts."
         },
         {
           "id": "distractor-7",
-          "text": "$P\\land\\neg Q$",
+          "text": "Component twin-width.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This captures one permitted case but misses P false with Q either true or false."
+          "explanation": "Component twin-width bounds the size of red connected components, rather than their maximum degree."
         },
         {
           "id": "distractor-8",
-          "text": "$\\neg P\\land Q$",
+          "text": "Linear clique-width.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This captures one permitted case but misses Q false with P either true or false."
+          "explanation": "Linear clique-width restricts labelled construction expressions to adding one vertex at a time."
         },
         {
           "id": "distractor-9",
-          "text": "$(P\\lor Q)\\land\\neg(P\\land Q)$",
+          "text": "Radius-infinity merge-width.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This is exclusive “or” and wrongly excludes the case where both are false."
+          "explanation": "That parameter counts reachable parts in resolved-pair components and is equivalent in boundedness to clique-width."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Propositional Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
+        },
+        {
+          "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+          "url": "https://arxiv.org/html/2502.18065v2"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-09-neither-nor",
-      "topic": "logic-basics",
+      "id": "dense-09-twin-definition",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Which formula expresses “Neither $P$ nor $Q$ is true”, equivalently $\\neg(P\\lor Q)$?",
+      "prompt": "Let $R_i$ be the red graph at step $i$ of a valid contraction sequence $\\sigma$ from a finite nonempty graph $G$ to one vertex. Which formula defines $\\operatorname{tww}(G)$? Here $\\Delta$ is maximum degree.",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\neg P\\land\\neg Q$",
+          "text": "$\\min_{\\sigma}\\max_i\\Delta(R_i)$.",
           "correct": true,
-          "explanation": "Negating an inclusive “or” means each statement must be false. De Morgan’s law therefore changes or to and and negates both parts."
+          "explanation": "Choose the best sequence, but control the worst red degree at every stage and every current vertex."
         },
         {
           "id": "distractor-1",
-          "text": "$P\\lor Q$",
+          "text": "$\\max_{\\sigma}\\max_i\\Delta(R_i)$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This asserts that at least one statement is true."
+          "explanation": "Twin-width optimises over the choice of sequence; it does not use the worst possible sequence."
         },
         {
           "id": "distractor-2",
-          "text": "$P\\land Q$",
+          "text": "$\\min_{\\sigma}\\min_i\\Delta(R_i)$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This asserts that both statements are true."
+          "explanation": "The first and last red graphs are edgeless, so this would always be zero."
         },
         {
           "id": "distractor-3",
-          "text": "$\\neg P\\lor\\neg Q$",
+          "text": "$\\min_{\\sigma}\\sum_i\\Delta(R_i)$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This requires only one part to be false, while “neither” requires both to be false."
+          "explanation": "The definition bounds the peak, not the sum of red degrees over time."
         },
         {
           "id": "distractor-4",
-          "text": "$P\\to Q$",
+          "text": "$\\min_{\\sigma}\\max_i|E(R_i)|$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "An implication can be true with Q true; “neither” cannot."
+          "explanation": "Total red-edge count can be large while every red degree stays small."
         },
         {
           "id": "distractor-5",
-          "text": "$P\\leftrightarrow Q$",
+          "text": "$\\min_{\\sigma}\\max_i|V(R_i)|$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This permits both statements to be true as well as both false."
+          "explanation": "The initial graph already has all input vertices; counting them measures input size rather than contraction errors."
         },
         {
           "id": "distractor-6",
-          "text": "$\\neg(P\\land Q)$",
+          "text": "$\\min_{\\sigma}\\max_i\\Delta(B_i)$, where $B_i$ contains only black edges.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This says “not both”, which still permits exactly one true statement."
+          "explanation": "Twin-width bounds red uncertainty. Black adjacency can be arbitrarily dense, as in a clique."
         },
         {
           "id": "distractor-7",
-          "text": "$P\\land\\neg Q$",
+          "text": "$\\min_{\\sigma}\\max_i\\operatorname{avgdeg}(R_i)$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This wrongly requires P to be true."
+          "explanation": "An average can hide a vertex with large red degree. The bound must hold at every vertex."
         },
         {
           "id": "distractor-8",
-          "text": "$\\neg P\\land Q$",
+          "text": "$\\min_{\\sigma}\\max_i\\max\\{|C|:C\\text{ is a component of }R_i\\}$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This wrongly requires Q to be true."
+          "explanation": "This bounds red component size, a stronger and different width measure."
         },
         {
           "id": "distractor-9",
-          "text": "$\\neg(P\\leftrightarrow Q)$",
+          "text": "$\\min_{\\sigma}\\max_i\\Delta(R_i)$, with $\\sigma$ restricted to merging adjacent vertices.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This requires different truth values, not two false values."
+          "explanation": "Standard twin-width allows identification of nonadjacent vertices too; an edgeless graph must still admit a sequence."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Propositional Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-10-double-negation",
-      "topic": "logic-basics",
+      "id": "dense-10-twin-red-update",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "In classical two-valued logic, what is $\\neg\\neg P$ equivalent to? Here $Q$ is a separate, independent statement.",
+      "prompt": "In a trigraph contraction, merge $u,v$ into $w$ and consider another vertex $x$. Write $B,N,R$ for black edge, non-edge, and red edge. What is the status of $wx$?",
       "answers": [
         {
           "id": "correct",
-          "text": "$P$",
+          "text": "$BB\\mapsto B$, $NN\\mapsto N$; every other pair of statuses maps to $R$.",
           "correct": true,
-          "explanation": "Negation flips a truth value. Flipping it twice restores the original value, so $\\neg\\neg P$ and P agree in both cases."
+          "explanation": "Both parts must agree definitely to yield a definite edge or non-edge. Any disagreement or inherited uncertainty stays red."
         },
         {
           "id": "distractor-1",
-          "text": "$\\neg P$",
+          "text": "$BB\\mapsto B$, $NN\\mapsto N$, $BN\\mapsto N$; inherited red edges stay red.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "One negation flips the value; two restore it."
+          "explanation": "An edge/non-edge disagreement must become red; choosing non-edge loses the discrepancy."
         },
         {
           "id": "distractor-2",
-          "text": "$Q$",
+          "text": "$BB\\mapsto B$, $NN\\mapsto N$, $BN\\mapsto B$; inherited red edges stay red.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "The truth of an unrelated statement Q does not determine P."
+          "explanation": "Taking the union of neighbourhoods hides an edge/non-edge disagreement instead of recording it."
         },
         {
           "id": "distractor-3",
-          "text": "$\\neg Q$",
+          "text": "Every status pair maps to $R$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Negating an unrelated statement cannot express double negation of P."
+          "explanation": "Agreement of two black edges stays black, and agreement of two non-edges stays a non-edge."
         },
         {
           "id": "distractor-4",
-          "text": "$P\\land Q$",
+          "text": "$BB\\mapsto B$, $NN\\mapsto N$, $BN\\mapsto R$; $RR\\mapsto N$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This adds a condition on Q that double negation does not impose."
+          "explanation": "Two red incidences do not cancel their inherited uncertainty."
         },
         {
           "id": "distractor-5",
-          "text": "$P\\lor Q$",
+          "text": "$BB\\mapsto B$, $NN\\mapsto N$, $BN\\mapsto R$; $BR\\mapsto B$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This can be true because of Q even when P is false."
+          "explanation": "A black edge does not resolve the uncertainty inherited from the red edge."
         },
         {
           "id": "distractor-6",
-          "text": "$P\\to Q$",
+          "text": "$BB\\mapsto B$, $NN\\mapsto N$, $BN\\mapsto R$; $NR\\mapsto N$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This can be true when P is false, unlike double negation of P."
+          "explanation": "A definite non-edge does not resolve uncertainty from a red incidence."
         },
         {
           "id": "distractor-7",
-          "text": "$P\\lor\\neg P$",
+          "text": "$BB\\mapsto R$, $NN\\mapsto N$; every remaining pair maps to $R$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This is always true, while double negation has P’s value and can be false."
+          "explanation": "Two complete adjacency relations combine into another complete relation, so black plus black is black."
         },
         {
           "id": "distractor-8",
-          "text": "$P\\land\\neg P$",
+          "text": "$BB\\mapsto B$, $NN\\mapsto R$; every remaining pair maps to $R$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This is always false, while double negation can be true."
+          "explanation": "Two empty adjacency relations combine into an empty relation, so non-edge plus non-edge stays a non-edge."
         },
         {
           "id": "distractor-9",
-          "text": "$P\\leftrightarrow Q$",
+          "text": "Equal statuses are preserved; unequal statuses map to the status of $ux$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This tests whether P matches Q, not whether P itself is true."
+          "explanation": "The merge is symmetric in its two inputs. Different definite statuses must produce red, independent of order."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Propositional Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-11-tautology",
-      "topic": "logic-basics",
+      "id": "dense-11-clique-name",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Which formula is a tautology: true for every assignment of truth values to $P$ and $Q$?",
+      "prompt": "Which parameter is the minimum number of labels needed to build $G$ using labelled single vertices, disjoint union, complete joins between two distinct labels, and global relabelling?",
       "answers": [
         {
           "id": "correct",
-          "text": "$P\\lor\\neg P$",
+          "text": "Clique-width.",
           "correct": true,
-          "explanation": "If P is true, the left part is true. If P is false, not P is true. The disjunction is therefore true in every case."
+          "explanation": "Labels are reusable construction states. The parameter counts how many labels suffice for an expression, not the size of a clique."
         },
         {
           "id": "distractor-1",
-          "text": "$P\\land\\neg P$",
+          "text": "Clique number.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This is a contradiction: P and not P cannot both be true."
+          "explanation": "Clique number is the size of a largest complete subgraph; it does not count construction labels."
         },
         {
           "id": "distractor-2",
-          "text": "$P$",
+          "text": "Chromatic number.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "P is false in assignments where P is false."
+          "explanation": "Construction labels need not form independent sets and are not a proper colouring."
         },
         {
           "id": "distractor-3",
-          "text": "$\\neg P$",
+          "text": "Twin-width.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Not P is false when P is true."
+          "explanation": "Twin-width is measured by red degrees along contractions."
         },
         {
           "id": "distractor-4",
-          "text": "$P\\lor Q$",
+          "text": "Treewidth.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This is false when both P and Q are false."
+          "explanation": "Treewidth counts bag size minus one in a tree decomposition."
         },
         {
           "id": "distractor-5",
-          "text": "$P\\to Q$",
+          "text": "Shrubdepth.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This is false when P is true and Q is false."
+          "explanation": "Shrubdepth also constrains depth through a tree-model; unrestricted expression height is allowed here."
         },
         {
           "id": "distractor-6",
-          "text": "$P\\leftrightarrow Q$",
+          "text": "Neighbourhood diversity.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This is false when the two truth values differ."
+          "explanation": "Construction labels can be reused and changed; final twin classes need not correspond to one fixed global labelling."
         },
         {
           "id": "distractor-7",
-          "text": "$(P\\to Q)\\land P$",
+          "text": "Linear clique-width.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This requires P and Q to be true and fails on other assignments."
+          "explanation": "Linear clique-width additionally restricts disjoint union so that only one vertex is added at a time."
         },
         {
           "id": "distractor-8",
-          "text": "$(P\\lor Q)\\land\\neg(P\\land Q)$",
+          "text": "NLC-width.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Exclusive or is false when both truth values agree."
+          "explanation": "NLC-width uses a different join-and-union operation, with edges added between the two operands according to a label-pair relation."
         },
         {
           "id": "distractor-9",
-          "text": "$(P\\to Q)\\land(Q\\to\\neg P)$",
+          "text": "Rank-width.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "When both P and Q are true, the second implication is false."
+          "explanation": "Rank-width uses binary adjacency-matrix ranks across cuts, rather than this expression syntax."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Propositional Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+          "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+          "url": "https://arxiv.org/html/1707.00359v4"
+        },
+        {
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-12-valid-inference",
-      "topic": "logic-basics",
+      "id": "dense-12-clique-operations",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Which formula expresses an inference that is valid for every truth assignment? An implication $(A\\land B)\\to C$ means “from premises A and B, conclude C”.",
+      "prompt": "Which operation is permitted by a standard $k$-expression for clique-width?",
       "answers": [
         {
           "id": "correct",
-          "text": "$((P\\to Q)\\land P)\\to Q$",
+          "text": "For $i\\ne j$, add every missing edge between the current label-$i$ and label-$j$ vertices.",
           "correct": true,
-          "explanation": "This is modus ponens. When P implies Q and P holds, Q must hold. Thus the premises cannot both be true while the conclusion is false."
+          "explanation": "A join acts uniformly on two distinct label classes. It adds edges and leaves existing edges in place."
         },
         {
           "id": "distractor-1",
-          "text": "$P\\to\\neg P$",
+          "text": "Delete an arbitrary existing edge while preserving all labels.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "If P is true, the premise is true and the conclusion is false."
+          "explanation": "Edge deletion is not a primitive operation of a clique-width expression."
         },
         {
           "id": "distractor-2",
-          "text": "$Q\\to P$",
+          "text": "Identify any two vertices of the same label.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Q can be true while P is false; the inference has no connecting premise."
+          "explanation": "Clique-width expressions build graphs without contracting vertices."
         },
         {
           "id": "distractor-3",
-          "text": "$(P\\lor Q)\\to(P\\land Q)$",
+          "text": "Add just one chosen edge between two otherwise indistinguishable labelled vertices.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "One true disjunct does not establish both; take P true and Q false."
+          "explanation": "A join treats entire label classes uniformly, not chosen individual vertices within them."
         },
         {
           "id": "distractor-4",
-          "text": "$((P\\to Q)\\land Q)\\to P$",
+          "text": "Complement adjacency between two label classes in one primitive step.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This affirms the consequent. P false and Q true make both premises true but the conclusion false."
+          "explanation": "The join adds all missing edges; it does not toggle or remove existing edges."
         },
         {
           "id": "distractor-5",
-          "text": "$((P\\to Q)\\land\\neg P)\\to\\neg Q$",
+          "text": "Relabel one chosen vertex in a label class while leaving the others unchanged.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This denies the antecedent. P false and Q true are a counterexample."
+          "explanation": "The relabelling operation changes every vertex carrying the source label."
         },
         {
           "id": "distractor-6",
-          "text": "$((P\\lor Q)\\land P)\\to\\neg Q$",
+          "text": "Create an arbitrary nonempty labelled graph as a single atomic expression.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Inclusive or allows both to be true, so P does not rule out Q."
+          "explanation": "The atomic expressions create single labelled vertices."
         },
         {
           "id": "distractor-7",
-          "text": "$((P\\to Q)\\land P)\\to\\neg Q$",
+          "text": "Apply a same-label join $\\eta_{i,i}$ as a primitive operation.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "When P and Q are both true, the premises hold but the negated conclusion fails."
+          "explanation": "The standard definition requires distinct labels. Same-label joins belong to a modified convention."
         },
         {
           "id": "distractor-8",
-          "text": "$((P\\to Q)\\land\\neg Q)\\to P$",
+          "text": "Give one vertex several simultaneous construction labels.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "The premises justify not P, not P itself; take both P and Q false."
+          "explanation": "In the standard definition every vertex carries exactly one label at each stage."
         },
         {
           "id": "distractor-9",
-          "text": "$((P\\to Q)\\land(Q\\to P))\\to(P\\land Q)$",
+          "text": "Join only across the two operands of a union, using their origin as an extra test.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Both implications can hold when both P and Q are false; they do not establish that either is true."
+          "explanation": "A standard clique-width join sees current labels, not which union operand a vertex came from; that origin-sensitive primitive is NLC-style."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Propositional Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+          "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+          "url": "https://arxiv.org/html/1707.00359v4"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-13-negate-every",
-      "topic": "logic-basics",
+      "id": "dense-13-shrub-name",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Let $P(x)$ mean “$x$ is a program” and $T(x)$ mean “$x$ terminates”. Which formula negates “Every program terminates”, written $\\forall x\\,(P(x)\\to T(x))$?",
+      "prompt": "A class admits tree-models with a uniform height bound and a uniform finite number of leaf colours. Its graph vertices are the leaves; adjacency depends only on the two colours and their tree distance. What property is described?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\exists x\\,(P(x)\\land\\neg T(x))$",
+          "text": "Bounded shrubdepth.",
           "correct": true,
-          "explanation": "To refute “every program terminates”, one program that does not terminate is enough. The quantifier changes from every to some, and the implication fails when P holds but T does not."
+          "explanation": "Both height and colour count are uniform across the class. The tree is a model of adjacency, not a subgraph that must contain the graph."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\,(P(x)\\to T(x))$",
+          "text": "Bounded treewidth.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This is the original statement, not its negation."
+          "explanation": "Treewidth uses overlapping bags, not an adjacency interpretation on coloured leaves."
         },
         {
           "id": "distractor-2",
-          "text": "$\\exists x\\,(P(x)\\land T(x))$",
+          "text": "Bounded maximum degree.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "One terminating program does not show that any program fails to terminate."
+          "explanation": "A height-one model with one colour already represents arbitrarily large cliques."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\,(P(x)\\land T(x))$",
+          "text": "Bounded clique number.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This says every object is a terminating program, rather than exhibiting a counterexample."
+          "explanation": "The same height-one models can represent cliques of every size."
         },
         {
           "id": "distractor-4",
-          "text": "$\\forall x\\,(P(x)\\to\\neg T(x))$",
+          "text": "Bounded treedepth.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This says no program terminates. Negating “every program terminates” requires only one nonterminating program."
+          "explanation": "Treedepth uses containment in a forest closure and excludes arbitrarily large cliques at a fixed bound."
         },
         {
           "id": "distractor-5",
-          "text": "$\\exists x\\,(\\neg P(x)\\land\\neg T(x))$",
+          "text": "Bounded clique-width alone.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "A nonterminating object that is not a program cannot refute a claim about programs."
+          "explanation": "Bounded clique-width imposes no uniform tree-model height; paths separate the two properties."
         },
         {
           "id": "distractor-6",
-          "text": "$\\exists x\\,(T(x)\\land\\neg P(x))$",
+          "text": "Bounded twin-width alone.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "A terminating object that is not a program is irrelevant to the claim."
+          "explanation": "Twin-width controls red degree during contractions and does not impose this height condition."
         },
         {
           "id": "distractor-7",
-          "text": "$\\exists x\\,(P(x)\\to\\neg T(x))$",
+          "text": "Bounded neighbourhood diversity alone.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This implication is true for any nonprogram, so such an object could satisfy the formula without refuting the original."
+          "explanation": "Neighbourhood diversity corresponds to height-one tree-models; bounded shrubdepth permits larger fixed heights."
         },
         {
           "id": "distractor-8",
-          "text": "$\\exists x\\,P(x)\\land\\exists x\\,\\neg T(x)$",
+          "text": "Bounded linear clique-width alone.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "The witnesses may differ: a program could terminate while a different, nonprogram object does not. The counterexample must be the same object."
+          "explanation": "Paths have bounded linear clique-width but unbounded shrubdepth."
         },
         {
           "id": "distractor-9",
-          "text": "$\\forall x\\,(\\neg P(x)\\to\\neg T(x))$",
+          "text": "Bounded merge-width alone.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This concerns nonprograms; it does not assert that a program fails to terminate."
+          "explanation": "Merge-width controls local reachability of resolved pairs, not bounded-height leaf models."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Quantifiers and Predicate Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_quantifiers.html"
+          "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+          "url": "https://arxiv.org/html/1707.00359v4"
+        },
+        {
+          "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+          "url": "https://arxiv.org/html/2502.18065v2"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "logic-14-negate-some",
-      "topic": "logic-basics",
+      "id": "dense-14-shrub-quantifiers",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Let $E(x)$ mean “file $x$ is encrypted” and $R(x)$ mean “file $x$ is readable”. Which formula negates “Some file is both encrypted and readable”, written $\\exists x\\,(E(x)\\land R(x))$?",
+      "prompt": "Let $\\mathrm{TM}_m(d)$ denote graphs with an $m$-colour tree-model of height $d$. Which statement defines bounded shrubdepth of a class $\\mathcal C$?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\forall x\\,(\\neg E(x)\\lor\\neg R(x))$",
+          "text": "$\\exists d\\;\\exists m\\;\\forall G\\in\\mathcal C:\\ G\\in\\mathrm{TM}_m(d)$.",
           "correct": true,
-          "explanation": "The negation says no file has both properties. For each file, at least one property must fail; which property fails can differ between files."
+          "explanation": "A single height and a single finite colour bound must work for the whole class. The actual tree and adjacency signature may vary."
         },
         {
           "id": "distractor-1",
-          "text": "$\\exists x\\,(E(x)\\land R(x))$",
+          "text": "$\\forall G\\in\\mathcal C\\;\\exists d,m:\\ G\\in\\mathrm{TM}_m(d)$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This repeats the original claim."
+          "explanation": "Every finite graph has a height-one model using one colour per vertex. Per-graph bounds make the condition vacuous."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\,(E(x)\\land R(x))$",
+          "text": "$\\exists d\\;\\forall G\\in\\mathcal C\\;\\exists m:\\ G\\in\\mathrm{TM}_m(d)$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This says every file has both properties, strengthening rather than negating the original."
+          "explanation": "Choosing a different unbounded colour count for each graph again allows every graph at height one."
         },
         {
           "id": "distractor-3",
-          "text": "$\\exists x\\,(\\neg E(x)\\land\\neg R(x))$",
+          "text": "$\\forall d\\;\\exists m\\;\\forall G\\in\\mathcal C:\\ G\\in\\mathrm{TM}_m(d)$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "One file with neither property does not exclude another file with both."
+          "explanation": "This demands models at every height, including height one, and is stronger than bounded shrubdepth."
         },
         {
           "id": "distractor-4",
-          "text": "$\\forall x\\,(\\neg E(x)\\land\\neg R(x))$",
+          "text": "$\\exists m\\;\\forall G\\in\\mathcal C\\;\\exists d:\\ G\\in\\mathrm{TM}_m(d)$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This wrongly requires both properties to fail for every file; one failure per file is enough."
+          "explanation": "The height must also be uniform. Unbounded-height one-colour models already include all cographs, whose shrubdepth is unbounded."
         },
         {
           "id": "distractor-5",
-          "text": "$\\exists x\\,(\\neg E(x)\\lor\\neg R(x))$",
+          "text": "$\\exists d,m\\;\\exists G\\in\\mathcal C:\\ G\\in\\mathrm{TM}_m(d)$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This excludes both properties for only one file. A different file may still have both."
+          "explanation": "A model for one member gives no uniform control over the whole class."
         },
         {
           "id": "distractor-6",
-          "text": "$\\forall x\\,(E(x)\\lor R(x))$",
+          "text": "$\\forall d,m\\;\\forall G\\in\\mathcal C:\\ G\\in\\mathrm{TM}_m(d)$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This requires every file to have at least one property, rather than forbidding both."
+          "explanation": "The definition requires some sufficient bounds, not every possible choice of bounds."
         },
         {
           "id": "distractor-7",
-          "text": "$(\\forall x\\,\\neg E(x))\\lor(\\forall x\\,\\neg R(x))$",
+          "text": "$\\exists d,m\\;\\forall G\\in\\mathcal C:$ one fixed finite tree $T$ models every $G$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This wrongly chooses one property that must fail for all files. One file may be only encrypted and another only readable, with neither having both."
+          "explanation": "Tree size must be allowed to grow with the number of graph vertices."
         },
         {
           "id": "distractor-8",
-          "text": "$(\\exists x\\,\\neg E(x))\\land(\\exists x\\,\\neg R(x))$",
+          "text": "$\\exists d,m\\;\\forall G\\in\\mathcal C:$ the model has at most $m$ leaves and height $d$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Two witnesses missing properties do not rule out a third file that has both."
+          "explanation": "The bound is on leaf colours, not on leaf count; the class may contain arbitrarily large graphs."
         },
         {
           "id": "distractor-9",
-          "text": "$\\forall x\\,(E(x)\\to R(x))$",
+          "text": "$\\exists d,m\\;\\forall G\\in\\mathcal C:$ the model has height $d$ and maximum branching $m$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "This allows encrypted files to be readable; the negation must rule out that combination."
+          "explanation": "Bounding height and branching bounds the total number of leaves. Bounded shrubdepth does not bound graph order."
         }
       ],
       "sources": [
         {
-          "title": "Oscar Levin — Quantifiers and Predicate Logic",
-          "url": "https://discrete.openmathbooks.org/dmoi2/sec_quantifiers.html"
+          "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+          "url": "https://arxiv.org/html/1707.00359v4"
+        },
+        {
+          "title": "Brignall, Korpelainen & Vatter — Linear Clique-Width for Hereditary Classes of Cographs",
+          "url": "https://arxiv.org/abs/1305.0636"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "amortized-doubling",
-      "topic": "algorithms",
+      "id": "dense-15-shrub-adjacency",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "A dynamic array doubles its capacity whenever it fills. Starting empty, what is the amortized time per append over $n$ appends, assuming a copy or write costs $\\Theta(1)$?",
+      "prompt": "In an $m$-colour tree-model of height $d$, distinct leaves $u,v$ have colours $i,j$ and distance $2\\ell$. A symmetric signature $S\\subseteq[m]^2\\times[d]$ is given. How is adjacency defined?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\Theta(1)$",
+          "text": "$uv\\in E(G)\\iff(i,j,\\ell)\\in S$.",
           "correct": true,
-          "explanation": "The copied capacities form a geometric series $1+2+4+\\cdots=O(n)$. Together with $n$ writes, the total cost is $\\Theta(n)$, or $\\Theta(1)$ per append."
+          "explanation": "The signature uses the two leaf colours and half their tree distance. With all leaves at depth $d$, this is equivalent to using their least common ancestor’s depth."
         },
         {
           "id": "distractor-1",
-          "text": "$\\Theta(n^2)$",
+          "text": "$uv\\in E(G)\\iff\\{u,v\\}\\in E(T)$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "The total work is linear, not cubic as this per-operation bound would imply."
+          "explanation": "Distinct leaves are not joined by a tree edge in these models. Graph adjacency is interpreted from the signature."
         },
         {
           "id": "distractor-2",
-          "text": "$\\Theta(2^n)$",
+          "text": "$uv\\in E(G)\\iff i=j$, regardless of $S$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Doubling capacity makes resizing infrequent; it does not cause exponential total copying."
+          "explanation": "Equal-colour pairs can be adjacent or nonadjacent depending on the signature and distance."
         },
         {
           "id": "distractor-3",
-          "text": "There is no finite amortized bound.",
+          "text": "$uv\\in E(G)\\iff\\ell=1$, regardless of $S$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Summing the geometric series gives a finite linear total cost."
+          "explanation": "Sibling leaves need not be adjacent, and leaves farther apart may be adjacent."
         },
         {
           "id": "distractor-4",
-          "text": "$\\Theta(n)$",
+          "text": "$uv\\in E(G)\\iff(i,j,2\\ell)\\in S$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "A single resizing append can be linear, but that is a worst-case individual cost, not the amortized cost."
+          "explanation": "The third signature coordinate ranges over half-distances, not full tree distances."
         },
         {
           "id": "distractor-5",
-          "text": "$\\Theta(\\sqrt n)$",
+          "text": "$uv\\in E(G)\\iff(i,j,d-\\ell)\\in S$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "The total cost is linear, which yields a constant cost per append."
+          "explanation": "Here the signature was indexed by half-distance. Using least-common-ancestor depth requires translating the signature too."
         },
         {
           "id": "distractor-6",
-          "text": "$\\Theta(n\\log n)$",
+          "text": "$uv\\in E(G)\\iff(i,j,\\ell)\\notin S$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This overcounts copying: an old capacity is copied only when that capacity fills."
+          "explanation": "This uses the complementary signature and produces the complement graph."
         },
         {
           "id": "distractor-7",
-          "text": "$\\Theta(\\log n)$",
+          "text": "$uv\\in E(G)\\iff\\exists t\\in[d]:(i,j,t)\\in S$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "There are logarithmically many resizes, but the total copied elements form a geometric sum, not n times the number of resizes."
+          "explanation": "This forgets the actual distance and may add edges intended only for other levels."
         },
         {
           "id": "distractor-8",
-          "text": "$\\Theta(1/n)$",
+          "text": "$uv\\in E(G)\\iff\\forall t\\in[d]:(i,j,t)\\in S$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Every append performs at least one write; its amortized cost cannot decrease below a constant."
+          "explanation": "Adjacency at the actual level does not require adjacency at every possible level."
         },
         {
           "id": "distractor-9",
-          "text": "Constant amortized time only if the append values are random.",
+          "text": "$uv\\in E(G)\\iff(i,i,\\ell)\\in S\\land(j,j,\\ell)\\in S$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "The bound holds for every sequence of append values; it is not a distributional average."
+          "explanation": "Cross-colour adjacency is its own signature entry; it need not follow from either same-colour entry."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Analysis of Algorithms",
-          "url": "https://algs4.cs.princeton.edu/14analysis/"
-        },
-        {
-          "title": "Princeton Algorithms — Shortest Paths",
-          "url": "https://algs4.cs.princeton.edu/44sp/"
+          "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+          "url": "https://arxiv.org/html/1707.00359v4"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "bfs-shortest-path",
-      "topic": "algorithms",
+      "id": "dense-16-merge-sequence",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "In an unweighted graph, which property explains why breadth-first search finds a shortest path from its source to every reachable vertex?",
+      "prompt": "In the merge-sequence definition for a simple graph $G=(V,E)$, what conditions must $(\\mathcal P_i,R_i)$ satisfy? Write $AB=\\{\\{a,b\\}:a\\in A,b\\in B,a\\ne b\\}$.",
       "answers": [
         {
           "id": "correct",
-          "text": "It explores vertices in nondecreasing distance from the source.",
+          "text": "The partitions coarsen from singletons to $\\{V\\}$; $R_i\\subseteq R_{i+1}$; for every $A,B\\in\\mathcal P_i$, including $A=B$, all pairs in $AB\\setminus R_i$ are edges or all are non-edges.",
           "correct": true,
-          "explanation": "BFS finishes distance layer k before exploring layer k+1. The first discovery of a vertex therefore uses a minimum number of edges."
+          "explanation": "Resolved pairs are exceptions to a uniform default on each pair of parts. Both edges and non-edges may be resolved, and resolved pairs remain resolved."
         },
         {
           "id": "distractor-1",
-          "text": "It explores every possible path.",
+          "text": "The partitions refine from singletons to $\\{V\\}$, with increasing $R_i$ and homogeneous unresolved pairs.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "BFS need not enumerate paths; it visits each reachable vertex once."
+          "explanation": "Refinement goes towards smaller parts. Going from singletons to one part requires coarsening."
         },
         {
           "id": "distractor-2",
-          "text": "It always chooses the smallest-numbered vertex.",
+          "text": "The partitions coarsen, but every resolved pair must belong to $E$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Vertex labels have no bearing on shortest-path distances."
+          "explanation": "Resolved pairs may also be non-edges; otherwise one cannot represent arbitrary exceptions to a complete default."
         },
         {
           "id": "distractor-3",
-          "text": "It sorts edges by weight.",
+          "text": "The partitions coarsen and $R_i$ decreases; unresolved pairs are homogeneous.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This graph is unweighted; BFS uses a FIFO queue, not edge sorting."
+          "explanation": "Resolution is cumulative: the sets of resolved pairs must increase, not decrease."
         },
         {
           "id": "distractor-4",
-          "text": "It explores one branch fully before backtracking.",
+          "text": "The partitions coarsen and $R_i$ increases; every pair of parts must be homogeneous in the original graph, including resolved pairs.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "That describes depth-first search, which does not generally give shortest paths."
+          "explanation": "Only unresolved pairs must share a default. Resolved pairs are precisely the allowed exceptions."
         },
         {
           "id": "distractor-5",
-          "text": "It chooses a neighbor with the largest degree.",
+          "text": "The partitions coarsen and $R_i$ increases; homogeneous unresolved pairs are required only for distinct parts.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Degree is unrelated to the minimum number of edges from the source."
+          "explanation": "The condition also applies inside a part. Otherwise the final single part could hide arbitrary unresolved structure."
         },
         {
           "id": "distractor-6",
-          "text": "It keeps vertices in a last-in, first-out stack.",
+          "text": "The partitions coarsen and $R_i$ increases; every $AB\\setminus R_i$ must consist only of edges.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "A stack gives depth-first behavior. BFS relies on a first-in, first-out queue."
+          "explanation": "An empty-adjacency default is also allowed; the default may differ between pairs of parts."
         },
         {
           "id": "distractor-7",
-          "text": "It finalizes a vertex only after exploring all paths to it.",
+          "text": "The partitions coarsen and $R_i$ increases; every $AB\\setminus R_i$ must consist only of non-edges.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "The first discovery is sufficient because BFS explores distance layers in order."
+          "explanation": "Complete-adjacency defaults are allowed too; resolved pairs are not just the graph’s edges."
         },
         {
           "id": "distractor-8",
-          "text": "It visits vertices in nondecreasing degree.",
+          "text": "The partitions coarsen and unresolved pairs are homogeneous; a pair can leave $R_i$ when its endpoints merge.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "The invariant concerns distance from the source, not degree."
+          "explanation": "Resolved pairs are original vertex pairs and remain resolved even after their parts are merged."
         },
         {
           "id": "distractor-9",
-          "text": "It guarantees that every discovered edge lies on a shortest path from the source.",
+          "text": "The partitions coarsen and $R_i$ increases; every $AB\\cap R_i$ must be homogeneous, with no restriction on $AB\\setminus R_i$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "BFS tree edges give shortest paths, but other graph edges can connect vertices in the same layer."
+          "explanation": "The uniformity condition is on unresolved pairs, not the resolved exceptions."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Analysis of Algorithms",
-          "url": "https://algs4.cs.princeton.edu/14analysis/"
-        },
-        {
-          "title": "Princeton Algorithms — Shortest Paths",
-          "url": "https://algs4.cs.princeton.edu/44sp/"
+          "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+          "url": "https://arxiv.org/html/2502.18065v2"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "binary-search",
-      "topic": "algorithms",
+      "id": "dense-17-merge-radius",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "A sorted array contains $n$ distinct values. What is the tight worst-case time bound for ordinary binary search, assuming constant-time array access?",
+      "prompt": "Let $B_r^{R_i}(v)$ be the radius-$r$ ball in $(V,R_i)$. In the merge-sequence convention allowing several merges per step, which quantity is the sequence’s radius-$r$ width?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\Theta(\\log n)$",
+          "text": "$\\displaystyle\\max_{i\\ge2}\\max_{v\\in V}\\bigl|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}\\bigr|$.",
           "correct": true,
-          "explanation": "Each comparison discards roughly half of the remaining interval. After $k$ comparisons its size is about $n/2^k$, so $k=\\Theta(\\log n)$."
+          "explanation": "Count parts reached through resolved pairs, not vertices. Use the previous partition with the current resolved-pair set; the index offset prevents a large merge from hiding its cost."
         },
         {
           "id": "distractor-1",
-          "text": "$\\Theta(n)$",
+          "text": "$\\displaystyle\\max_{i\\ge2}\\max_{v\\in V}|B_r^{R_i}(v)|$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "That is the worst-case bound for a linear scan. Binary search halves the search interval."
+          "explanation": "A ball may contain many vertices in one part. Width counts intersected parts instead of vertices."
         },
         {
           "id": "distractor-2",
-          "text": "$\\Theta(n^2)$",
+          "text": "$\\displaystyle\\max_{i\\ge2}|\\mathcal P_{i-1}|$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Binary search does not compare every pair of entries."
+          "explanation": "Only parts reached from a vertex within the radius count, not every current part."
         },
         {
           "id": "distractor-3",
-          "text": "$\\Theta(1)$",
+          "text": "$\\displaystyle\\max_{i\\ge2}|R_i|$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "One comparison is enough in some cases, but not in the worst case as the array grows."
+          "explanation": "The number of resolved pairs is not the local reachability width."
         },
         {
           "id": "distractor-4",
-          "text": "$\\Theta(\\sqrt n)$",
+          "text": "$\\displaystyle\\max_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_i:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}|$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Halving the interval produces logarithmic, not square-root, growth."
+          "explanation": "Using the new partition omits the required offset. A single large merge could collapse the measured count to one."
         },
         {
           "id": "distractor-5",
-          "text": "$\\Theta(n\\log n)$",
+          "text": "$\\displaystyle\\max_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_{i-1}}(v)\\ne\\varnothing\\}|$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "That is a typical comparison-sorting bound; the array is already sorted."
+          "explanation": "This measures the old resolved set and ignores pairs resolved immediately before the merge."
         },
         {
           "id": "distractor-6",
-          "text": "$\\Theta(2^n)$",
+          "text": "$\\displaystyle\\max_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^G(v)\\ne\\varnothing\\}|$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "The algorithm follows one shrinking interval, not an exponential search tree."
+          "explanation": "Reachability is in the resolved-pair graph, which includes resolved non-edges, not in the original graph."
         },
         {
           "id": "distractor-7",
-          "text": "$\\Theta(\\log\\log n)$",
+          "text": "$\\displaystyle\\max_{i\\ge2}\\min_v|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}|$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Repeated halving gives a logarithm. A double logarithm would require a much faster reduction."
+          "explanation": "Every vertex must satisfy the width bound; the best vertex cannot witness the maximum local complexity."
         },
         {
           "id": "distractor-8",
-          "text": "$\\Theta((\\log n)^2)$",
+          "text": "$\\displaystyle\\min_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}|$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Each of the logarithmically many comparisons costs constant time; there is no second logarithmic factor."
+          "explanation": "The sequence width is the worst stage, not the easiest stage."
         },
         {
           "id": "distractor-9",
-          "text": "$\\Theta(n/\\log n)$",
+          "text": "$\\displaystyle\\max_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_{i-1}:A\\subseteq B_r^{R_i}(v)\\}|$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "The relevant equation is the remaining interval size after repeated halving, not a linear scan divided by a logarithm."
+          "explanation": "Reaching one vertex of a part suffices. The ball need not contain the entire part."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Analysis of Algorithms",
-          "url": "https://algs4.cs.princeton.edu/14analysis/"
-        },
-        {
-          "title": "Princeton Algorithms — Shortest Paths",
-          "url": "https://algs4.cs.princeton.edu/44sp/"
+          "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+          "url": "https://arxiv.org/html/2502.18065v2"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "dijkstra-condition",
-      "topic": "algorithms",
+      "id": "dense-18-merge-name",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Which edge-weight assumption guarantees correctness of standard Dijkstra’s algorithm on every finite directed graph, using permanent finalization when a vertex is extracted?",
+      "prompt": "Fix $r$. Over valid merge sequences, minimise the maximum number of previous-partition parts reached from one original vertex by at most $r$ resolved pairs. Which graph parameter is defined?",
       "answers": [
         {
           "id": "correct",
-          "text": "All edge weights are nonnegative.",
+          "text": "Radius-$r$ merge-width, $\\operatorname{mw}_r(G)$.",
           "correct": true,
-          "explanation": "With nonnegative weights, extending a path cannot lower its weight. This makes it safe to finalize the unsettled vertex with smallest tentative distance."
+          "explanation": "The radius is measured in the resolved-pair graph on original vertices. Optimising this local part count over merge sequences defines the parameter."
         },
         {
           "id": "distractor-1",
-          "text": "All edge weights are negative.",
+          "text": "Clique-width.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Negative edges can invalidate an already finalized distance."
+          "explanation": "Clique-width counts construction labels. It corresponds in boundedness to radius-infinity merge-width, not a fixed finite radius."
         },
         {
           "id": "distractor-2",
-          "text": "The graph has at least one positive edge.",
+          "text": "Twin-width.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "One positive edge gives no guarantee about the remaining edges."
+          "explanation": "Twin-width counts non-homogeneous neighbouring parts during binary contractions, rather than resolved-pair reachability."
         },
         {
           "id": "distractor-3",
-          "text": "All vertices have equal degree.",
+          "text": "Shrubdepth.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Degrees do not make the greedy distance invariant valid."
+          "explanation": "Shrubdepth is a uniform height condition on coloured tree-models for a graph class."
         },
         {
           "id": "distractor-4",
-          "text": "The sum of all edge weights is nonnegative.",
+          "text": "Radius-$r$ weak colouring number.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "A nonnegative total does not rule out a negative edge that breaks finalization."
+          "explanation": "Weak colouring numbers use an order on vertices and paths in the original graph, not merge sequences and resolved pairs."
         },
         {
           "id": "distractor-5",
-          "text": "There are no negative-weight cycles.",
+          "text": "Radius-$r$ flip-width.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This suffices for finite shortest-path distances, but standard Dijkstra can still fail with a negative edge."
+          "explanation": "Flip-width uses a pursuit game with adjacency flips; this is a decomposition-based definition."
         },
         {
           "id": "distractor-6",
-          "text": "Every edge weight is an integer.",
+          "text": "Rank-width.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Negative integers can break the algorithm just as negative real weights can."
+          "explanation": "Rank-width uses binary matrix ranks across cuts, not local balls of resolved pairs."
         },
         {
           "id": "distractor-7",
-          "text": "Every directed cycle has strictly positive total weight.",
+          "text": "The radius-$r$ width of one specified merge sequence.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Even an acyclic graph with a negative edge can break permanent finalization."
+          "explanation": "The minimum over all valid sequences is a graph parameter; a specified sequence has its own possibly larger width."
         },
         {
           "id": "distractor-8",
-          "text": "All edges leaving the source are nonnegative.",
+          "text": "Radius-$r$ neighbourhood complexity.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "A later negative edge can still produce a shorter path to an already finalized vertex."
+          "explanation": "Neighbourhood complexity counts distinct neighbourhood traces, not parts encountered during a construction."
         },
         {
           "id": "distractor-9",
-          "text": "There is at most one negative edge.",
+          "text": "Component twin-width.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "A single negative edge is enough to defeat the correctness guarantee."
+          "explanation": "Component twin-width measures red components of contraction trigraphs, not bounded-radius reachability of original vertices."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Analysis of Algorithms",
-          "url": "https://algs4.cs.princeton.edu/14analysis/"
-        },
-        {
-          "title": "Princeton Algorithms — Shortest Paths",
-          "url": "https://algs4.cs.princeton.edu/44sp/"
+          "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+          "url": "https://arxiv.org/html/2502.18065v2"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "merge-recurrence",
-      "topic": "algorithms",
+      "id": "dense-19-merge-bounded",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "For powers of two, let $T(n)=2T(n/2)+n$ with $T(1)=1$. What is the tight asymptotic bound?",
+      "prompt": "What does it mean for a graph class $\\mathcal C$ to have bounded merge-width, using the finite-radius parameters $\\operatorname{mw}_r$?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\Theta(n\\log n)$",
+          "text": "$\\forall r\\ge1\\;\\exists k_r\\;\\forall G\\in\\mathcal C:\\ \\operatorname{mw}_r(G)\\le k_r$.",
           "correct": true,
-          "explanation": "Each of the $\\log_2 n$ internal recursion levels costs $n$ in total. The leaves add $n$, giving $\\Theta(n\\log n)$."
+          "explanation": "Each fixed radius has a class-wide constant bound. That constant may depend on the radius, but not on graph order."
         },
         {
           "id": "distractor-1",
-          "text": "$\\Theta(1)$",
+          "text": "$\\forall G\\in\\mathcal C\\;\\forall r\\ge1\\;\\exists k:\\ \\operatorname{mw}_r(G)\\le k$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "The top-level work alone grows linearly."
+          "explanation": "Every finite graph has finite width. Bounds chosen after the graph give no uniform class property."
         },
         {
           "id": "distractor-2",
-          "text": "$\\Theta(2^n)$",
+          "text": "$\\exists r\\ge1\\;\\exists k\\;\\forall G\\in\\mathcal C:\\ \\operatorname{mw}_r(G)\\le k$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "The subproblem sizes halve; the recurrence does not generate exponentially many leaves in n."
+          "explanation": "The definition requires a bound for every fixed radius, not just one radius."
         },
         {
           "id": "distractor-3",
-          "text": "$\\Theta(\\log n)$",
+          "text": "$\\exists k\\;\\forall r\\ge1\\;\\forall G\\in\\mathcal C:\\ \\operatorname{mw}_r(G)\\le k$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "There are logarithmically many levels, but each costs linear total work."
+          "explanation": "A single constant for all radii is stronger; it bounds radius-infinity merge-width and hence clique-width."
         },
         {
           "id": "distractor-4",
-          "text": "$\\Theta(n)$",
+          "text": "$\\forall r\\ge1\\;\\exists c_r\\;\\forall G\\in\\mathcal C:\\ \\operatorname{mw}_r(G)\\le c_r|V(G)|$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This misses the linear work repeated at every internal level."
+          "explanation": "A linear bound in graph order is not a constant bound; indeed width is trivially at most the number of vertices."
         },
         {
           "id": "distractor-5",
-          "text": "$\\Theta(n^2)$",
+          "text": "$\\forall r\\ge1\\;\\exists c_r\\;\\forall G\\in\\mathcal C:\\ \\operatorname{mw}_r(G)\\le c_r\\sqrt{|V(G)|}$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "The per-level cost is n and the depth is logarithmic, not linear."
+          "explanation": "A bound growing with graph order does not express bounded merge-width."
         },
         {
           "id": "distractor-6",
-          "text": "$\\Theta(\\sqrt n)$",
+          "text": "$\\forall r\\ge1\\;\\exists k_r\\;\\exists G\\in\\mathcal C:\\ \\operatorname{mw}_r(G)\\le k_r$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Even the root contributes more work than this."
+          "explanation": "The bound must hold for every graph in the class, not just a chosen graph."
         },
         {
           "id": "distractor-7",
-          "text": "$\\Theta(n(\\log n)^2)$",
+          "text": "$\\forall r\\ge1\\;\\exists k_r\\;\\forall G\\in\\mathcal C:$ every merge sequence has radius-$r$ width at most $k_r$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "There is one logarithmic factor for the depth; the per-level work contributes no second logarithm."
+          "explanation": "The graph parameter minimises over sequences. Bad sequences may have large width even for a simple graph."
         },
         {
           "id": "distractor-8",
-          "text": "$\\Theta(n\\log\\log n)$",
+          "text": "$\\forall r\\ge1\\;\\exists k_r\\;\\forall G\\in\\mathcal C:$ every radius-$r$ ball in $G$ has at most $k_r$ vertices.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Halving gives logarithmic depth, not double-logarithmic depth."
+          "explanation": "This bounds original graph balls, excluding large cliques, although cliques have bounded merge-width."
         },
         {
           "id": "distractor-9",
-          "text": "$\\Theta(n^{\\log_2 3})$",
+          "text": "$\\forall r\\ge1\\;\\exists k_r\\;\\forall G\\in\\mathcal C:$ some merge sequence uses at most $k_r$ singleton parts initially.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "That exponent corresponds to three half-size recursive subproblems; this recurrence has two."
+          "explanation": "The initial singleton count is graph order. Bounded merge-width allows arbitrarily large graphs."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Analysis of Algorithms",
-          "url": "https://algs4.cs.princeton.edu/14analysis/"
-        },
-        {
-          "title": "Princeton Algorithms — Shortest Paths",
-          "url": "https://algs4.cs.princeton.edu/44sp/"
+          "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+          "url": "https://arxiv.org/html/2502.18065v2"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "stable-sort",
-      "topic": "algorithms",
+      "id": "dense-20-merge-almost",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "What does it mean for a sorting algorithm to be stable?",
+      "prompt": "For nonempty graphs in $\\mathcal C$, which bound expresses almost bounded merge-width?",
       "answers": [
         {
           "id": "correct",
-          "text": "Items with equal keys keep their original relative order.",
+          "text": "For every fixed $r\\ge1$ and $\\varepsilon>0$, some $c_{r,\\varepsilon}$ satisfies $\\operatorname{mw}_r(G)\\le c_{r,\\varepsilon}|V(G)|^\\varepsilon$ for all $G\\in\\mathcal C$.",
           "correct": true,
-          "explanation": "Stability preserves input order within each group of equal keys. It says nothing by itself about time or extra space."
+          "explanation": "This is subpolynomial growth uniformly over the class at each fixed radius. The constant may depend on the class, radius and exponent."
         },
         {
           "id": "distractor-1",
-          "text": "It never uses extra memory.",
+          "text": "For every fixed $r$, some $c_r$ satisfies $\\operatorname{mw}_r(G)\\le c_r$ for all $G\\in\\mathcal C$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "That is a space property, not stability."
+          "explanation": "That defines bounded merge-width, which is stronger than almost bounded merge-width."
         },
         {
           "id": "distractor-2",
-          "text": "Its output is always in descending order.",
+          "text": "For every fixed $r$, some $c_r$ satisfies $\\operatorname{mw}_r(G)\\le c_r|V(G)|$ for all $G\\in\\mathcal C$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Either ascending or descending sorting can be stable."
+          "explanation": "Linear growth is not subpolynomial. Every graph already has width at most its order."
         },
         {
           "id": "distractor-3",
-          "text": "It always runs in constant time.",
+          "text": "For some $\\varepsilon>0$ and every $r$, $\\operatorname{mw}_r(G)=O(|V(G)|^\\varepsilon)$ uniformly over $\\mathcal C$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Stability concerns equal keys, not running time."
+          "explanation": "Almost boundedness requires every positive exponent, not one sufficiently large exponent."
         },
         {
           "id": "distractor-4",
-          "text": "It preserves the original order of all items.",
+          "text": "For every fixed $r$, $\\operatorname{mw}_r(G)=O(\\sqrt{|V(G)|})$ uniformly over $\\mathcal C$.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Items with different keys generally need to move relative to one another."
+          "explanation": "One fixed power bound does not imply bounds for all smaller positive powers."
         },
         {
           "id": "distractor-5",
-          "text": "It never moves an item whose key is duplicated.",
+          "text": "For every fixed $r$ and $\\varepsilon>0$, each graph may choose its own constant in the bound.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Equal-key items may move; only their relative order must remain."
+          "explanation": "Allowing the constant to depend on the individual graph makes the condition vacuous."
         },
         {
           "id": "distractor-6",
-          "text": "Its running time is the same on every input.",
+          "text": "Only $\\operatorname{mw}_1(G)$ must satisfy every positive-power bound.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Input-dependent running time and stability are separate properties."
+          "explanation": "Almost bounded merge-width requires this at every fixed radius, not just radius one."
         },
         {
           "id": "distractor-7",
-          "text": "Items with equal keys end up in their original array positions.",
+          "text": "For every fixed $r$, the definition requires $\\operatorname{mw}_r(G)=O(\\log |V(G)|)$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Positions may change when smaller or larger keys move around them."
+          "explanation": "Logarithmic growth is a particular subpolynomial bound; it is not the defining bound in general."
         },
         {
           "id": "distractor-8",
-          "text": "Items with unequal keys keep their original relative order.",
+          "text": "There is a single constant $c$ such that $\\operatorname{mw}_r(G)\\le c|V(G)|^\\varepsilon$ for every $r,\\varepsilon>0,G$.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "The requirement applies to equal keys; unequal keys must follow the sort order."
+          "explanation": "The constants may depend on radius and exponent. Requiring one constant imposes a much stronger condition."
         },
         {
           "id": "distractor-9",
-          "text": "It breaks equal-key ties by sorting a second field.",
+          "text": "For each fixed $r$, it is enough that the average width of graphs of each order in $\\mathcal C$ is subpolynomial.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "An arbitrary second-field ordering may reverse the original order and violate stability."
+          "explanation": "The bound must hold for every member, not merely on average over graphs of an order."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Analysis of Algorithms",
-          "url": "https://algs4.cs.princeton.edu/14analysis/"
+          "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+          "url": "https://arxiv.org/html/2502.18065v2"
         },
         {
-          "title": "Princeton Algorithms — Shortest Paths",
-          "url": "https://algs4.cs.princeton.edu/44sp/"
+          "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
+          "url": "https://arxiv.org/html/2611.06804v1"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "bst-inorder",
-      "topic": "data-structures",
+      "id": "dense-21-shrub-clique-separation",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "For a binary search tree with distinct keys, what order does an in-order traversal (left subtree, root, right subtree) produce?",
+      "prompt": "Bounded shrubdepth implies bounded clique-width. Which class witnesses that the converse fails?",
       "answers": [
         {
           "id": "correct",
-          "text": "Increasing key order.",
+          "text": "All finite paths $\\{P_n:n\\ge1\\}$.",
           "correct": true,
-          "explanation": "Every key in the left subtree is smaller than the root, and every key in the right is larger. Applying this recursively yields sorted order."
+          "explanation": "Paths have clique-width at most three, but no fixed tree-model height and fixed colour count can represent paths of every length."
         },
         {
           "id": "distractor-1",
-          "text": "Decreasing key order.",
+          "text": "All cliques $\\{K_n:n\\ge1\\}$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "That would follow from right-root-left traversal."
+          "explanation": "Cliques have height-one, one-colour tree-models, so their shrubdepth is bounded."
         },
         {
           "id": "distractor-2",
-          "text": "Insertion order.",
+          "text": "All edgeless graphs.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "The traversal does not track the chronology of insertion."
+          "explanation": "Use height one, one colour, and an empty adjacency signature."
         },
         {
           "id": "distractor-3",
-          "text": "Random order.",
+          "text": "All complete bipartite graphs $K_{a,b}$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "The search-tree invariant determines the ordering."
+          "explanation": "Two colours on a height-one tree distinguish the sides; the signature joins exactly different colours."
         },
         {
           "id": "distractor-4",
-          "text": "Order by increasing depth.",
+          "text": "All stars.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "That is breadth-first traversal, not in-order traversal."
+          "explanation": "Stars are complete bipartite graphs with one side of size one, so height one and two colours suffice."
         },
         {
           "id": "distractor-5",
-          "text": "Root first, then all remaining keys sorted.",
+          "text": "All disjoint unions of edges and isolated vertices.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "In-order visits the left subtree before the root."
+          "explanation": "A height-two model groups the two endpoints of each edge; one colour and adjacency only within a group suffice."
         },
         {
           "id": "distractor-6",
-          "text": "Leaves first, then internal vertices.",
+          "text": "All disjoint unions of cliques.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "In-order can visit an internal vertex before some leaves."
+          "explanation": "A height-two model groups vertices by clique; use one colour and join exactly leaves in the same group."
         },
         {
           "id": "distractor-7",
-          "text": "Increasing order only if the tree is balanced.",
+          "text": "All complements of matchings.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Balance affects performance and height, not the in-order ordering guarantee."
+          "explanation": "A height-two model groups matched pairs; its signature joins leaves from different groups."
         },
         {
           "id": "distractor-8",
-          "text": "Increasing order only if the tree is complete.",
+          "text": "All disjoint unions of stars.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "The BST ordering invariant suffices; completeness is unnecessary."
+          "explanation": "Use height-two groups for components and two colours for centres and leaves; join unlike colours only inside a group."
         },
         {
           "id": "distractor-9",
-          "text": "Increasing order separately within each depth level.",
+          "text": "All complete multipartite graphs.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "The result is globally sorted across all levels, and vertices are not grouped by depth."
+          "explanation": "A height-two, one-colour model groups each independent part and joins leaves exactly across different groups."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Stacks and Queues",
-          "url": "https://algs4.cs.princeton.edu/13stacks/"
-        },
-        {
-          "title": "Princeton Algorithms — Priority Queues",
-          "url": "https://algs4.cs.princeton.edu/24pq/"
-        },
-        {
-          "title": "Princeton Algorithms — Hash Tables",
-          "url": "https://algs4.cs.princeton.edu/34hash/"
+          "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+          "url": "https://arxiv.org/html/1707.00359v4"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "hash-worst-case",
-      "topic": "data-structures",
+      "id": "dense-22-clique-twin-relation",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "In a hash table with separate chaining and $n$ stored keys, what is the worst-case time to search for a key, if hashing and each key comparison take $\\Theta(1)$?",
+      "prompt": "For classes of finite simple graphs, what is the relation between bounded clique-width and bounded twin-width?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\Theta(n)$",
+          "text": "Bounded clique-width implies bounded twin-width; the converse fails, for example on square grids.",
           "correct": true,
-          "explanation": "All $n$ keys can collide into one bucket. Searching that chain can require $n$ comparisons. Expected constant time requires assumptions about hashing and load."
+          "explanation": "Clique-width bounds yield twin-width bounds. Square grids have uniformly bounded twin-width but unbounded clique-width."
         },
         {
           "id": "distractor-1",
-          "text": "$\\Theta(2^n)$",
+          "text": "Bounded twin-width implies bounded clique-width, but not conversely.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "A search examines at most the stored chain, not exponentially many candidates."
+          "explanation": "The implication is in the other direction; square grids refute the proposed implication."
         },
         {
           "id": "distractor-2",
-          "text": "$\\Theta(n^2)$",
+          "text": "The two boundedness properties are equivalent.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Each key in a chain needs at most one comparison during an ordinary search."
+          "explanation": "Square grids have bounded twin-width and unbounded clique-width."
         },
         {
           "id": "distractor-3",
-          "text": "$\\Theta(1/n)$",
+          "text": "Neither boundedness property implies the other.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Even computing the hash requires constant time."
+          "explanation": "Every class of bounded clique-width has bounded twin-width."
         },
         {
           "id": "distractor-4",
-          "text": "$\\Theta(1)$",
+          "text": "Bounded clique-width implies bounded twin-width only for sparse classes.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This confuses expected performance under suitable assumptions with the worst case."
+          "explanation": "The implication holds also for dense graphs; no sparsity hypothesis is needed."
         },
         {
           "id": "distractor-5",
-          "text": "$\\Theta(\\log n)$",
+          "text": "Bounded clique-width implies bounded twin-width only for hereditary classes.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "A chain is not a balanced search tree; it can contain every key."
+          "explanation": "The parameter bound applies to individual graphs and hence to any class, without a closure hypothesis."
         },
         {
           "id": "distractor-6",
-          "text": "$\\Theta(\\sqrt n)$",
+          "text": "Bounded twin-width implies bounded clique-width for all bipartite classes.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "There is no worst-case guarantee that chains stop at square-root length."
+          "explanation": "Square grids are bipartite and still have unbounded clique-width."
         },
         {
           "id": "distractor-7",
-          "text": "Constant time whenever the load factor is at most 1.",
+          "text": "Bounded twin-width implies bounded clique-width for all planar classes.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "A small average bucket size does not prevent all keys from colliding into a single bucket."
+          "explanation": "The square-grid counterexample is already planar."
         },
         {
           "id": "distractor-8",
-          "text": "Logarithmic time if all stored keys are distinct.",
+          "text": "Bounded twin-width implies bounded clique-width for all classes of maximum degree at most four.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Distinct keys can have identical hash values."
+          "explanation": "Square grids have maximum degree at most four."
         },
         {
           "id": "distractor-9",
-          "text": "Constant time if the hash function is deterministic.",
+          "text": "The parameters are numerically equal on every graph.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Determinism does not prevent collisions; the worst case may still scan all keys."
+          "explanation": "Even a clique with at least two vertices has twin-width zero and clique-width two."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Stacks and Queues",
-          "url": "https://algs4.cs.princeton.edu/13stacks/"
-        },
-        {
-          "title": "Princeton Algorithms — Priority Queues",
-          "url": "https://algs4.cs.princeton.edu/24pq/"
-        },
-        {
-          "title": "Princeton Algorithms — Hash Tables",
-          "url": "https://algs4.cs.princeton.edu/34hash/"
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "heap-minimum",
-      "topic": "data-structures",
+      "id": "dense-23-twin-merge-relation",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "In a nonempty binary min-heap with distinct keys, which position is guaranteed to contain the minimum key?",
+      "prompt": "For unordered finite simple graph classes, what is the relation between bounded twin-width and bounded merge-width?",
       "answers": [
         {
           "id": "correct",
-          "text": "The root.",
+          "text": "Bounded twin-width implies bounded merge-width; the converse fails even for the class of graphs of maximum degree at most three.",
           "correct": true,
-          "explanation": "Every parent has a smaller key than its children. Following parent links shows that the root is no greater than any other key."
+          "explanation": "A bounded-red-degree contraction sequence gives bounds at each finite radius. Bounded-degree classes have bounded merge-width, while subcubic graphs have unbounded twin-width."
         },
         {
           "id": "distractor-1",
-          "text": "The last leaf.",
+          "text": "Bounded merge-width implies bounded twin-width, but not conversely.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "A leaf has no minimum guarantee."
+          "explanation": "The direction is reversed; the class of subcubic graphs refutes this implication."
         },
         {
           "id": "distractor-2",
-          "text": "The deepest vertex.",
+          "text": "The two properties are equivalent for all unordered graph classes.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Depth does not determine the minimum; the root is minimum."
+          "explanation": "Subcubic graphs give a counterexample to equivalence."
         },
         {
           "id": "distractor-3",
-          "text": "Any vertex with two children.",
+          "text": "The properties are incomparable.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Only the root is guaranteed to dominate every other key."
+          "explanation": "Bounded twin-width always implies bounded merge-width."
         },
         {
           "id": "distractor-4",
-          "text": "The leftmost leaf.",
+          "text": "The implication from twin-width to merge-width requires bounded clique-width as well.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "A heap does not have the in-order sorting property of a binary search tree."
+          "explanation": "A bounded twin-width sequence suffices; no clique-width bound is needed."
         },
         {
           "id": "distractor-5",
-          "text": "The rightmost leaf.",
+          "text": "Bounded merge-width implies bounded twin-width whenever the class is hereditary.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Left-to-right position does not sort heap keys."
+          "explanation": "The class of all graphs of maximum degree at most three is hereditary and refutes this."
         },
         {
           "id": "distractor-6",
-          "text": "The first child of the root.",
+          "text": "Bounded merge-width implies bounded twin-width whenever the class has bounded maximum degree.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "The root has a smaller key than that child."
+          "explanation": "Subcubic graphs have a fixed maximum-degree bound but unbounded twin-width."
         },
         {
           "id": "distractor-7",
-          "text": "The root’s smaller child.",
+          "text": "Bounded twin-width supplies one constant that bounds merge-width simultaneously at every radius, including infinity.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "That child is minimum only among the two child roots, not the entire heap."
+          "explanation": "A uniform infinity-radius bound would imply bounded clique-width, which square grids refute."
         },
         {
           "id": "distractor-8",
-          "text": "The median position in the array representation.",
+          "text": "Bounded twin-width supplies finite-radius merge-width bounds only after choosing an order as an extra input relation.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Heap array order describes the complete tree, not sorted key order."
+          "explanation": "The implication already holds for unordered graphs. An order is not required."
         },
         {
           "id": "distractor-9",
-          "text": "The last position before the leaves begin.",
+          "text": "The ordered-graph equivalence proves equivalence after simply forgetting the order on any bounded-merge-width graph.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Internal positions below the root can still have larger keys than their ancestors."
+          "explanation": "One must control the width of the ordered expansion. An unordered bound alone does not supply such an expansion."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Stacks and Queues",
-          "url": "https://algs4.cs.princeton.edu/13stacks/"
+          "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+          "url": "https://arxiv.org/html/2502.18065v2"
         },
         {
-          "title": "Princeton Algorithms — Priority Queues",
-          "url": "https://algs4.cs.princeton.edu/24pq/"
-        },
-        {
-          "title": "Princeton Algorithms — Hash Tables",
-          "url": "https://algs4.cs.princeton.edu/34hash/"
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "linked-list-delete",
-      "topic": "data-structures",
+      "id": "dense-24-infinite-merge",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "In a doubly linked list, you already hold a reference to a node. What is the worst-case time to unlink it, including updating head or tail if necessary, but excluding searching for it and freeing memory?",
+      "prompt": "Extend resolved-pair reachability to $r=\\infty$, so an entire connected component can be reached. Which class property is equivalent to $\\sup_{G\\in\\mathcal C}\\operatorname{mw}_\\infty(G)<\\infty$?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\Theta(1)$",
+          "text": "Bounded clique-width.",
           "correct": true,
-          "explanation": "Only a fixed number of neighboring links and possibly the head or tail references need to change."
+          "explanation": "The infinity-radius parameter is functionally equivalent to clique-width. Bounds at each fixed finite radius are weaker than one bound on whole resolved components."
         },
         {
           "id": "distractor-1",
-          "text": "$\\Theta(n^2)$",
+          "text": "Bounded maximum degree.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Unlinking does not compare pairs of nodes."
+          "explanation": "Cliques have bounded clique-width and infinity-radius merge-width but unbounded maximum degree."
         },
         {
           "id": "distractor-2",
-          "text": "$\\Theta(2^n)$",
+          "text": "Bounded clique number.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Only local pointer changes are required."
+          "explanation": "Cliques again have bounded infinity-radius merge-width but unbounded clique number."
         },
         {
           "id": "distractor-3",
-          "text": "It is impossible without copying the list.",
+          "text": "Bounded treewidth.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "The predecessor and successor links allow local removal."
+          "explanation": "Cliques have bounded clique-width but unbounded treewidth."
         },
         {
           "id": "distractor-4",
-          "text": "$\\Theta(n)$",
+          "text": "Bounded twin-width.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Searching could be linear, but the question supplies the node reference."
+          "explanation": "Square grids have bounded twin-width but unbounded clique-width, and therefore unbounded infinity-radius merge-width."
         },
         {
           "id": "distractor-5",
-          "text": "$\\Theta(\\log n)$",
+          "text": "Bounded merge-width at each fixed finite radius.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "No tree search or logarithmic walk is needed."
+          "explanation": "Square grids have bounded merge-width at every fixed finite radius but unbounded clique-width."
         },
         {
           "id": "distractor-6",
-          "text": "$\\Theta(\\sqrt n)$",
+          "text": "Monadic dependence.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "The number of changed pointers is independent of list length."
+          "explanation": "Monadic dependence includes square grids and many classes of unbounded clique-width."
         },
         {
           "id": "distractor-7",
-          "text": "Constant time only for nodes at the head.",
+          "text": "Bounded shrubdepth.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "An interior node has predecessor and successor pointers, so it also takes constant time."
+          "explanation": "Paths have bounded clique-width, hence bounded infinity-radius merge-width, but unbounded shrubdepth."
         },
         {
           "id": "distractor-8",
-          "text": "Constant time only if the list is circular.",
+          "text": "Bounded linear clique-width.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Ordinary head and tail boundary cases still require only a fixed number of changes."
+          "explanation": "This is stronger than bounded clique-width; for example cographs have bounded clique-width but unbounded linear clique-width."
         },
         {
           "id": "distractor-9",
-          "text": "Linear time because all later nodes change index.",
+          "text": "Bounded neighbourhood diversity.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "A linked list does not store a contiguous array of indices that must be shifted."
+          "explanation": "Paths have bounded clique-width and unbounded neighbourhood diversity."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Stacks and Queues",
-          "url": "https://algs4.cs.princeton.edu/13stacks/"
+          "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+          "url": "https://arxiv.org/html/2502.18065v2"
         },
         {
-          "title": "Princeton Algorithms — Priority Queues",
-          "url": "https://algs4.cs.princeton.edu/24pq/"
+          "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+          "url": "https://arxiv.org/html/1707.00359v4"
         },
         {
-          "title": "Princeton Algorithms — Hash Tables",
-          "url": "https://algs4.cs.princeton.edu/34hash/"
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
+        },
+        {
+          "title": "Brignall, Korpelainen & Vatter — Linear Clique-Width for Hereditary Classes of Cographs",
+          "url": "https://arxiv.org/abs/1305.0636"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "queue-choice",
-      "topic": "data-structures",
+      "id": "dense-25-monadic-merge-relation",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Which abstract data type directly provides first-in, first-out removal?",
+      "prompt": "For a hereditary class $\\mathcal C$ (closed under induced subgraphs), what relationship follows from the merge-width results, including the 4 November 2026 preprint?",
       "answers": [
         {
           "id": "correct",
-          "text": "A queue.",
+          "text": "$\\mathcal C$ is monadically dependent if and only if it has almost bounded merge-width.",
           "correct": true,
-          "explanation": "A queue removes the earliest inserted item that has not yet been removed."
+          "explanation": "The November preprint proves dependence implies almost bounded merge-width. The reverse implication for hereditary classes was already known. “Almost bounded” means subpolynomial at every fixed radius."
         },
         {
           "id": "distractor-1",
-          "text": "A stack.",
+          "text": "$\\mathcal C$ is monadically dependent if and only if it has bounded clique-width.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "A stack is last in, first out."
+          "explanation": "Square grids and their induced subgraphs are monadically dependent but have unbounded clique-width."
         },
         {
           "id": "distractor-2",
-          "text": "A set.",
+          "text": "$\\mathcal C$ is monadically dependent if and only if it has bounded twin-width.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "A set describes membership and does not require insertion-order removal."
+          "explanation": "The hereditary class of all subcubic graphs is dependent but has unbounded twin-width."
         },
         {
           "id": "distractor-3",
-          "text": "A binary search tree.",
+          "text": "$\\mathcal C$ is monadically dependent if and only if it has bounded shrubdepth.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "A search tree is organized by keys, not arrival times."
+          "explanation": "All linear forests form a hereditary dependent class containing arbitrarily long paths, so shrubdepth is unbounded."
         },
         {
           "id": "distractor-4",
-          "text": "A min-priority queue ordered by task size.",
+          "text": "$\\mathcal C$ is monadically dependent if and only if it has bounded merge-width.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "That removes the smallest task, which need not be the oldest."
+          "explanation": "Dependence permits unbounded merge-width: nowhere dense classes with unbounded expansion are examples."
         },
         {
           "id": "distractor-5",
-          "text": "A max-priority queue ordered by task size.",
+          "text": "The implication from dependence to almost bounded merge-width remains conjectural at every radius.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "That removes the largest task, which need not be the oldest."
+          "explanation": "The cited November 2026 preprint states and proves it for every fixed radius."
         },
         {
           "id": "distractor-6",
-          "text": "A hash map.",
+          "text": "The November result proves the implication only at radius one.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "The map interface provides key-value access, not FIFO removal."
+          "explanation": "The earlier July 2026 result handled radius one; the November theorem handles every fixed radius."
         },
         {
           "id": "distractor-7",
-          "text": "A deque restricted to insertions and removals at the same end.",
+          "text": "The result replaces “every positive exponent” with “one fixed positive exponent” in the width bound.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Using the same end gives LIFO behavior. Opposite ends can implement FIFO."
+          "explanation": "Almost boundedness means every positive exponent, with constants allowed to depend on that exponent."
         },
         {
           "id": "distractor-8",
-          "text": "A stack with constant-time operations.",
+          "text": "The result gives one subpolynomial bound uniform over all radii simultaneously.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Operation speed does not change LIFO ordering into FIFO."
+          "explanation": "The subpolynomial function may depend on the fixed radius. Uniform control of arbitrarily large radii is not asserted."
         },
         {
           "id": "distractor-9",
-          "text": "A sorted set ordered by item value.",
+          "text": "The result says that every merge sequence of every graph in the class has subpolynomial width.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Value order need not match insertion order."
+          "explanation": "It asserts existence of suitable sequences and gives an algorithm to find them. Bad sequences may still have large width."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Stacks and Queues",
-          "url": "https://algs4.cs.princeton.edu/13stacks/"
+          "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
+          "url": "https://arxiv.org/html/2611.06804v1"
         },
         {
-          "title": "Princeton Algorithms — Priority Queues",
-          "url": "https://algs4.cs.princeton.edu/24pq/"
+          "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+          "url": "https://arxiv.org/html/2502.18065v2"
         },
         {
-          "title": "Princeton Algorithms — Hash Tables",
-          "url": "https://algs4.cs.princeton.edu/34hash/"
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
+        },
+        {
+          "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+          "url": "https://arxiv.org/html/1707.00359v4"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "stack-order",
-      "topic": "data-structures",
+      "id": "dense-26-shrub-transduction",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "An initially empty stack receives push(A), push(B), push(C), then two pop operations. Which values do the pops return, in order?",
+      "prompt": "Which condition characterises bounded shrubdepth using first-order transductions?",
       "answers": [
         {
           "id": "correct",
-          "text": "C, then B.",
+          "text": "The class is contained in the outputs of one fixed FO transduction of finite rooted trees whose height has a uniform bound.",
           "correct": true,
-          "explanation": "A stack is last in, first out. C is on top, and B is immediately beneath it."
+          "explanation": "A bounded-height tree-model gives such a transduction using finitely many colours. Conversely, fixed FO interpretations of bounded-height coloured trees have bounded shrubdepth."
         },
         {
           "id": "distractor-1",
-          "text": "A, then B.",
+          "text": "The class is contained in the outputs of fixed FO transductions of arbitrary finite graphs.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "That is the order a FIFO queue would return."
+          "explanation": "This is vacuous: the identity transduction already covers every graph class."
         },
         {
           "id": "distractor-2",
-          "text": "A, then C.",
+          "text": "Every member is a subgraph of some rooted tree of bounded height.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "The oldest item is not popped first from a stack."
+          "explanation": "This excludes dense examples such as cliques. A transduction can create adjacency between leaves."
         },
         {
           "id": "distractor-3",
-          "text": "B, then A.",
+          "text": "Every member is a minor of some rooted tree of bounded height.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "C remains above B after the three pushes."
+          "explanation": "Minors of trees are forests, so this cannot cover bounded-shrubdepth classes containing triangles."
         },
         {
           "id": "distractor-4",
-          "text": "C, then A.",
+          "text": "The class is transducible from finite rooted trees of arbitrary height, with no other restriction.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "After popping C, B is still on top of A."
+          "explanation": "The identity on all paths already gives an unbounded-shrubdepth output class. A uniform height bound is essential."
         },
         {
           "id": "distractor-5",
-          "text": "B, then C.",
+          "text": "The class transduces some bounded-height trees.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "B cannot be popped while C remains above it."
+          "explanation": "This reverses the direction and is too weak: even very complicated classes can output an edgeless graph or one vertex."
         },
         {
           "id": "distractor-6",
-          "text": "A, then A.",
+          "text": "Each output graph has its own FO transduction from a height-one tree, with no uniform formula bound.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Each pop removes the returned item; A was inserted only once."
+          "explanation": "Any fixed finite graph can be encoded with sufficiently many specially chosen colours. The recipe must be uniform across the class."
         },
         {
           "id": "distractor-7",
-          "text": "C, then C.",
+          "text": "The class is transducible from trees of bounded degree, allowing unbounded height.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Pop removes C, so the second operation returns B."
+          "explanation": "Paths have bounded degree but unbounded shrubdepth, and the identity transduction preserves them."
         },
         {
           "id": "distractor-8",
-          "text": "B, then B.",
+          "text": "A fixed FO transduction from bounded-height trees must preserve the original tree edges on its output vertices.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "The first pop must return C, and removed elements cannot be popped again."
+          "explanation": "The interpretation may completely redefine adjacency. Requiring inherited tree edges would rule out dense examples."
         },
         {
           "id": "distractor-9",
-          "text": "C, then nothing.",
+          "text": "One fixed finite rooted tree must supply all outputs, although their vertex counts can be unbounded.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "After removing C, the stack still contains A and B."
+          "explanation": "Fixed finite copying and interpretation cannot produce arbitrarily large outputs from one fixed finite input."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Stacks and Queues",
-          "url": "https://algs4.cs.princeton.edu/13stacks/"
+          "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+          "url": "https://arxiv.org/html/1707.00359v4"
         },
         {
-          "title": "Princeton Algorithms — Priority Queues",
-          "url": "https://algs4.cs.princeton.edu/24pq/"
-        },
-        {
-          "title": "Princeton Algorithms — Hash Tables",
-          "url": "https://algs4.cs.princeton.edu/34hash/"
+          "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+          "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "bipartite-cycle",
-      "topic": "graph-theory",
+      "id": "dense-27-dependent-stable",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "Which condition is equivalent to a finite undirected simple graph being bipartite?",
+      "prompt": "Let $H_n$ be the half-graph with sides $a_1,\\ldots,a_n$ and $b_1,\\ldots,b_n$, with $a_i b_j$ an edge iff $i\\le j$. Which distinction between monadic dependence and monadic stability is correct?",
       "answers": [
         {
           "id": "correct",
-          "text": "It has no cycle of odd length.",
+          "text": "Dependence forbids transducing all finite graphs; stability forbids transducing all half-graphs and is the stronger condition.",
           "correct": true,
-          "explanation": "A two-coloring alternates colors around each cycle, so all cycles must be even. Conversely, if there are no odd cycles, distance parity gives a consistent two-coloring in each component."
+          "explanation": "A recipe for all graphs would also produce all half-graphs. Half-graphs themselves have bounded clique-width and are dependent, but are not monadically stable."
         },
         {
           "id": "distractor-1",
-          "text": "Every vertex has even degree.",
+          "text": "Dependence forbids all half-graphs; stability forbids all finite graphs and is weaker.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "A triangle has all degrees even but is not bipartite."
+          "explanation": "The two forbidden target families are exchanged."
         },
         {
           "id": "distractor-2",
-          "text": "The graph is connected.",
+          "text": "Dependence and stability both forbid only arbitrarily large cliques.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "A connected graph may contain an odd cycle."
+          "explanation": "Cliques can have both properties; the obstructions concern logical encodings of graphs or half-graphs."
         },
         {
           "id": "distractor-3",
-          "text": "It has no edges.",
+          "text": "Dependence and stability are the same property on every graph class.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Edgeless graphs are bipartite, but many graphs with edges are too."
+          "explanation": "The class of all half-graphs is dependent but fails stability via the identity transduction."
         },
         {
           "id": "distractor-4",
-          "text": "It has no cycle of even length.",
+          "text": "Stability merely forbids half-graphs as non-induced subgraphs.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "A triangle has no even cycle but is not bipartite."
+          "explanation": "The condition concerns FO transductions, not ordinary subgraph containment."
         },
         {
           "id": "distractor-5",
-          "text": "It has no cycles of any length.",
+          "text": "Stability merely forbids half-graphs as induced subgraphs.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Acyclicity is sufficient but not necessary; an even cycle is bipartite."
+          "explanation": "Absence as induced subgraphs alone does not exclude half-graphs obtainable through a logical encoding."
         },
         {
           "id": "distractor-6",
-          "text": "It has an even number of vertices.",
+          "text": "Monadic dependence implies monadic stability, with half-graphs as a witness.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "A triangle plus an isolated vertex has even order but is not bipartite."
+          "explanation": "Half-graphs show the opposite: they are dependent but not stable."
         },
         {
           "id": "distractor-7",
-          "text": "It has no triangles.",
+          "text": "The half-graph class is monadically independent because its adjacency encodes an order.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "A five-cycle is triangle-free but not bipartite."
+          "explanation": "An order pattern witnesses instability, not the independence needed to encode all finite graphs."
         },
         {
           "id": "distractor-8",
-          "text": "Every connected component has an even number of vertices.",
+          "text": "Stability forbids each half-graph separately, even when a different transduction is chosen for each size.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "A component can have odd order and still be bipartite, such as a three-vertex path."
+          "explanation": "The obstruction is one uniform transduction producing half-graphs of every size, not separate recipes for each size."
         },
         {
           "id": "distractor-9",
-          "text": "Every vertex belongs to at most one odd cycle.",
+          "text": "Only transductions without added unary predicates count in either definition.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Even one odd cycle prevents a two-coloring."
+          "explanation": "Both monadic notions allow arbitrary finite unary expansions."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Undirected Graphs",
-          "url": "https://algs4.cs.princeton.edu/41graph/"
+          "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+          "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
         },
         {
-          "title": "Princeton Algorithms — Directed Graphs",
-          "url": "https://algs4.cs.princeton.edu/42digraph/"
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
+        },
+        {
+          "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+          "url": "https://arxiv.org/html/1707.00359v4"
         }
       ]
     },
     {
       "schemaVersion": 1,
-      "id": "complete-graph-edges",
-      "topic": "graph-theory",
+      "id": "dense-28-twin-complement",
+      "topic": "dense-graph-classes",
       "revision": 1,
       "status": "active",
-      "prompt": "How many edges does the complete undirected simple graph $K_n$ have?",
+      "prompt": "What happens to twin-width under complementation of a finite simple graph $G$?",
       "answers": [
         {
           "id": "correct",
-          "text": "$n(n-1)/2$",
+          "text": "$\\operatorname{tww}(\\overline G)=\\operatorname{tww}(G)$: the same partition sequence has the same red graphs.",
           "correct": true,
-          "explanation": "Each unordered pair of distinct vertices contributes one edge. There are n choose 2 such pairs."
+          "explanation": "Complementation swaps complete and empty pairs of parts, while mixed pairs remain mixed. Thus every sequence keeps exactly the same red degrees."
         },
         {
           "id": "distractor-1",
-          "text": "$n$",
+          "text": "$\\operatorname{tww}(\\overline G)=\\operatorname{tww}(G)+1$ for every nonempty $G$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "Each vertex connects to every other vertex, so the count is generally quadratic."
+          "explanation": "Complementing twice would increase the value by two while returning to the original graph."
         },
         {
           "id": "distractor-2",
-          "text": "$n-1$",
+          "text": "$\\operatorname{tww}(\\overline G)=|V(G)|-1-\\operatorname{tww}(G)$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "That is a tree’s edge count, not a complete graph’s."
+          "explanation": "A clique and an edgeless graph both have twin-width zero, refuting this formula."
         },
         {
           "id": "distractor-3",
-          "text": "$n^2$",
+          "text": "$\\operatorname{tww}(\\overline G)=0$ for every $G$.",
           "correct": false,
           "difficulty": 1,
-          "explanation": "This counts ordered pairs and includes pairs of a vertex with itself."
+          "explanation": "Complementation is an involution, so this would incorrectly give twin-width zero to every graph."
         },
         {
           "id": "distractor-4",
-          "text": "$n(n-1)$",
+          "text": "A red pair becomes black because a mixed adjacency relation becomes complete.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This counts every undirected edge in both directions."
+          "explanation": "Complementing a mixture of edges and non-edges leaves another mixture, not a complete relation."
         },
         {
           "id": "distractor-5",
-          "text": "$n(n+1)/2$",
+          "text": "Every black pair becomes red because all its adjacencies change.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "This includes n extra diagonal pairs, corresponding to forbidden loops."
+          "explanation": "Changing a complete pair to an empty pair preserves homogeneity; it creates no red edge."
         },
         {
           "id": "distractor-6",
-          "text": "$2n$",
+          "text": "Every non-edge pair becomes red because new edges are introduced.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Complete graphs generally have quadratic rather than linear edge counts."
+          "explanation": "An empty pair becomes complete and remains homogeneous."
         },
         {
           "id": "distractor-7",
-          "text": "$(n-1)(n-2)/2$",
+          "text": "Equality is guaranteed only for graphs of bounded maximum degree.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "That counts a complete graph on n−1 vertices."
+          "explanation": "The homogeneity argument applies to every finite simple graph, irrespective of degree."
         },
         {
           "id": "distractor-8",
-          "text": "$n(n-2)/2$",
+          "text": "Equality requires a different contraction sequence and fails for the original optimal sequence.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "Every vertex has n−1 neighbors, not n−2."
+          "explanation": "The same sequence preserves exactly which pairs of parts are mixed."
         },
         {
           "id": "distractor-9",
-          "text": "$n(n-1)/2+1$",
+          "text": "Complementation preserves only the total red-edge count; individual red degrees can change along the same partition sequence.",
           "correct": false,
           "difficulty": 3,
-          "explanation": "The binomial count already includes every allowed edge; there is no extra edge."
+          "explanation": "The whole red graph is unchanged at each partition, so every individual red degree is unchanged too."
         }
       ],
       "sources": [
         {
-          "title": "Princeton Algorithms — Undirected Graphs",
-          "url": "https://algs4.cs.princeton.edu/41graph/"
-        },
-        {
-          "title": "Princeton Algorithms — Directed Graphs",
-          "url": "https://algs4.cs.princeton.edu/42digraph/"
-        }
-      ]
-    },
-    {
-      "schemaVersion": 1,
-      "id": "connected-components-forest",
-      "topic": "graph-theory",
-      "revision": 1,
-      "status": "active",
-      "prompt": "An undirected forest has $n$ vertices and $c$ connected components. How many edges does it have?",
-      "answers": [
-        {
-          "id": "correct",
-          "text": "$n-c$",
-          "correct": true,
-          "explanation": "Each component is a tree. If component $i$ has $n_i$ vertices, it has $n_i-1$ edges. Summing gives $n-c$."
-        },
-        {
-          "id": "distractor-1",
-          "text": "$n+c$",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "Each component contributes one fewer edge than vertices, not one more."
-        },
-        {
-          "id": "distractor-2",
-          "text": "$nc$",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "Components contribute additively, not multiplicatively."
-        },
-        {
-          "id": "distractor-3",
-          "text": "$n^2-c$",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "A forest has only linearly many edges."
-        },
-        {
-          "id": "distractor-4",
-          "text": "$n-1$ for every value of $c$.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "This is the connected case c=1; every additional component reduces the edge count by one."
-        },
-        {
-          "id": "distractor-5",
-          "text": "$n-2c$",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "A tree contributes one fewer edge than vertices, not two fewer."
-        },
-        {
-          "id": "distractor-6",
-          "text": "$c-1$",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "The number of components alone does not determine the internal edges."
-        },
-        {
-          "id": "distractor-7",
-          "text": "$n-c+1$",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "The sum of c tree edge counts subtracts c, with no additional edge."
-        },
-        {
-          "id": "distractor-8",
-          "text": "$n-c-1$",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "This subtracts one too many; summing n_i−1 gives exactly n−c."
-        },
-        {
-          "id": "distractor-9",
-          "text": "$n-c$ only if no vertex is isolated.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "An isolated vertex is a one-vertex tree and contributes zero edges, so the formula still holds."
-        }
-      ],
-      "sources": [
-        {
-          "title": "Princeton Algorithms — Undirected Graphs",
-          "url": "https://algs4.cs.princeton.edu/41graph/"
-        },
-        {
-          "title": "Princeton Algorithms — Directed Graphs",
-          "url": "https://algs4.cs.princeton.edu/42digraph/"
-        }
-      ]
-    },
-    {
-      "schemaVersion": 1,
-      "id": "dag-topological",
-      "topic": "graph-theory",
-      "revision": 1,
-      "status": "active",
-      "prompt": "A finite directed graph has a topological ordering exactly when it satisfies which condition?",
-      "answers": [
-        {
-          "id": "correct",
-          "text": "It has no directed cycle.",
-          "correct": true,
-          "explanation": "A topological ordering places the tail of every edge before its head. A directed cycle makes this impossible; repeatedly removing an indegree-zero vertex orders any DAG."
-        },
-        {
-          "id": "distractor-1",
-          "text": "Every vertex has the same outdegree.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "Equal outdegrees neither prevent directed cycles nor ensure an ordering."
-        },
-        {
-          "id": "distractor-2",
-          "text": "It is strongly connected.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "Strong connectivity with multiple vertices entails directed cycles."
-        },
-        {
-          "id": "distractor-3",
-          "text": "It has more edges than vertices.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "The edge count alone does not characterize topological orderability."
-        },
-        {
-          "id": "distractor-4",
-          "text": "Its underlying undirected graph has no cycle.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "That is sufficient but unnecessary: an acyclic orientation of a triangle admits an ordering."
-        },
-        {
-          "id": "distractor-5",
-          "text": "It has no isolated vertices.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "Isolated vertices can appear anywhere in a topological ordering."
-        },
-        {
-          "id": "distractor-6",
-          "text": "Every vertex has positive indegree.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "A nonempty finite DAG must have an indegree-zero vertex."
-        },
-        {
-          "id": "distractor-7",
-          "text": "It has at least one vertex of indegree zero.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "Another component can still contain a directed cycle."
-        },
-        {
-          "id": "distractor-8",
-          "text": "It has no directed cycle of length two.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "Longer directed cycles also prevent topological ordering."
-        },
-        {
-          "id": "distractor-9",
-          "text": "Its vertices can be ordered by nondecreasing indegree.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "Sorting by indegree does not necessarily place every tail before its head."
-        }
-      ],
-      "sources": [
-        {
-          "title": "Princeton Algorithms — Undirected Graphs",
-          "url": "https://algs4.cs.princeton.edu/41graph/"
-        },
-        {
-          "title": "Princeton Algorithms — Directed Graphs",
-          "url": "https://algs4.cs.princeton.edu/42digraph/"
-        }
-      ]
-    },
-    {
-      "schemaVersion": 1,
-      "id": "handshake",
-      "topic": "graph-theory",
-      "revision": 1,
-      "status": "active",
-      "prompt": "For a finite undirected simple graph $G=(V,E)$, what is $\\sum_{v\\in V}\\deg(v)$?",
-      "answers": [
-        {
-          "id": "correct",
-          "text": "$2|E|$",
-          "correct": true,
-          "explanation": "Every edge has two endpoints, so summing degrees counts each edge twice."
-        },
-        {
-          "id": "distractor-1",
-          "text": "$|V|$",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "The number of vertices does not determine the degree sum."
-        },
-        {
-          "id": "distractor-2",
-          "text": "$|E|$",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "This counts each edge only once, but it contributes at both endpoints."
-        },
-        {
-          "id": "distractor-3",
-          "text": "$|V|+|E|$",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "The degree sum counts edge endpoints, not vertices plus edges."
-        },
-        {
-          "id": "distractor-4",
-          "text": "$|E|/2$",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "The degree sum is twice the edge count, not half."
-        },
-        {
-          "id": "distractor-5",
-          "text": "$|V|\\cdot|E|$",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "An edge contributes exactly two, regardless of the number of vertices."
-        },
-        {
-          "id": "distractor-6",
-          "text": "$2|V|$",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "This happens in some graphs, such as cycles, but is not the general identity."
-        },
-        {
-          "id": "distractor-7",
-          "text": "$2|E|-|V|$",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "No vertex term should be subtracted; isolated vertices simply contribute zero."
-        },
-        {
-          "id": "distractor-8",
-          "text": "$2|E|$ only if the graph is connected.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "Each edge still has two endpoints in a disconnected graph."
-        },
-        {
-          "id": "distractor-9",
-          "text": "$2|E|$ only if every degree is even.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "The identity is unconditional; individual degrees may be odd."
-        }
-      ],
-      "sources": [
-        {
-          "title": "Princeton Algorithms — Undirected Graphs",
-          "url": "https://algs4.cs.princeton.edu/41graph/"
-        },
-        {
-          "title": "Princeton Algorithms — Directed Graphs",
-          "url": "https://algs4.cs.princeton.edu/42digraph/"
-        }
-      ]
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tree-edge-count",
-      "topic": "graph-theory",
-      "revision": 1,
-      "status": "active",
-      "prompt": "How many edges does a finite undirected tree with $n\\geq 1$ vertices have?",
-      "answers": [
-        {
-          "id": "correct",
-          "text": "$n-1$",
-          "correct": true,
-          "explanation": "A tree is connected and acyclic. Removing a leaf and its one edge gives an induction proving $|E|=|V|-1$."
-        },
-        {
-          "id": "distractor-1",
-          "text": "$n$",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "That is one edge too many for a tree; a connected graph with n edges has a cycle."
-        },
-        {
-          "id": "distractor-2",
-          "text": "$2n$",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "A tree has far fewer edges; each added leaf contributes one edge."
-        },
-        {
-          "id": "distractor-3",
-          "text": "$n^2$",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "Trees are sparse and contain exactly n−1 edges."
-        },
-        {
-          "id": "distractor-4",
-          "text": "$n+1$",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "Two more edges than a tree can have would create cycles in a connected graph."
-        },
-        {
-          "id": "distractor-5",
-          "text": "$n/2$",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "For example, a tree on four vertices has three edges, not two."
-        },
-        {
-          "id": "distractor-6",
-          "text": "$2n-2$",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "That is the sum of degrees, which counts each edge twice."
-        },
-        {
-          "id": "distractor-7",
-          "text": "$n-2$",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "A connected graph on n vertices needs at least n−1 edges."
-        },
-        {
-          "id": "distractor-8",
-          "text": "$\\binom{n}{2}$",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "That counts edges in a complete simple graph, which is generally not a tree."
-        },
-        {
-          "id": "distractor-9",
-          "text": "$n-1$ only when the tree is binary.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "The edge-count identity holds for every finite undirected tree, regardless of degrees."
-        }
-      ],
-      "sources": [
-        {
-          "title": "Princeton Algorithms — Undirected Graphs",
-          "url": "https://algs4.cs.princeton.edu/41graph/"
-        },
-        {
-          "title": "Princeton Algorithms — Directed Graphs",
-          "url": "https://algs4.cs.princeton.edu/42digraph/"
-        }
-      ]
-    },
-    {
-      "schemaVersion": 1,
-      "id": "class-np",
-      "topic": "complexity",
-      "revision": 1,
-      "status": "active",
-      "prompt": "Which statement defines membership of a decision problem in NP?",
-      "answers": [
-        {
-          "id": "correct",
-          "text": "Every yes-instance has a polynomial-size certificate verifiable in deterministic polynomial time.",
-          "correct": true,
-          "explanation": "NP concerns efficient verification of yes-certificates. It does not require efficient deterministic search for those certificates."
-        },
-        {
-          "id": "distractor-1",
-          "text": "It cannot be solved by any algorithm.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "NP problems are decidable; exhaustive certificate search is possible."
-        },
-        {
-          "id": "distractor-2",
-          "text": "It requires non-polynomial time on every input.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "NP does not mean non-polynomial, and P is contained in NP."
-        },
-        {
-          "id": "distractor-3",
-          "text": "Its output must be a number.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "A decision problem has a yes/no output."
-        },
-        {
-          "id": "distractor-4",
-          "text": "Both yes- and no-instances must have polynomial-time verifiable certificates.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "This describes membership in NP intersect coNP, a stronger requirement than NP alone."
-        },
-        {
-          "id": "distractor-5",
-          "text": "A deterministic algorithm solves it in polynomial time.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "That defines P and is sufficient, but is not the definition of all NP problems."
-        },
-        {
-          "id": "distractor-6",
-          "text": "A polynomial-time verifier may use certificates of unbounded length.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "NP bounds certificate length polynomially in input size."
-        },
-        {
-          "id": "distractor-7",
-          "text": "Every no-instance has a polynomial-size certificate verifiable in polynomial time.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "That is the certificate characterization of coNP."
-        },
-        {
-          "id": "distractor-8",
-          "text": "At least one yes-instance has an efficiently verifiable certificate.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "The guarantee must cover every yes-instance and reject every certificate for each no-instance."
-        },
-        {
-          "id": "distractor-9",
-          "text": "A polynomial-time verifier accepts every certificate for a yes-instance.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "Only the existence of an accepting certificate is required; invalid certificates may be rejected."
-        }
-      ],
-      "sources": [
-        {
-          "title": "MIT 6.045 — Automata, Computability, and Complexity",
-          "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
-        }
-      ]
-    },
-    {
-      "schemaVersion": 1,
-      "id": "halting-problem",
-      "topic": "complexity",
-      "revision": 1,
-      "status": "active",
-      "prompt": "What does undecidability of the general halting problem mean?",
-      "answers": [
-        {
-          "id": "correct",
-          "text": "No algorithm always terminates and correctly decides, for every program and input, whether that program halts.",
-          "correct": true,
-          "explanation": "Undecidability rules out a total, universally correct decider. Particular programs can still be analyzed, and simulation recognizes halting when it occurs."
-        },
-        {
-          "id": "distractor-1",
-          "text": "No program ever halts.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "Many programs halt; the obstacle is a universal decision procedure."
-        },
-        {
-          "id": "distractor-2",
-          "text": "No specific program can be proved to halt.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "Termination can be proved for many particular programs."
-        },
-        {
-          "id": "distractor-3",
-          "text": "Computers cannot simulate other programs.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "Simulation is possible, but it may itself run forever when the simulated program does."
-        },
-        {
-          "id": "distractor-4",
-          "text": "Every halting question requires exponential time.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "Undecidability is stronger than an exponential lower bound: no total decider exists."
-        },
-        {
-          "id": "distractor-5",
-          "text": "There is no algorithm that recognizes halting cases.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "Simulation recognizes a halting case by eventually observing termination."
-        },
-        {
-          "id": "distractor-6",
-          "text": "Only very large programs can fail to halt.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "Even a tiny unconditional infinite loop need not halt."
-        },
-        {
-          "id": "distractor-7",
-          "text": "A decider exists if it may take arbitrarily long but finite time on every input.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "That would still be a total decision algorithm, which undecidability rules out."
-        },
-        {
-          "id": "distractor-8",
-          "text": "No restricted programming language has a decidable halting problem.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "Some restricted languages or finite-state systems do have decidable halting problems."
-        },
-        {
-          "id": "distractor-9",
-          "text": "Simulation decides both halting and nonhalting by waiting long enough.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "Any finite wait is inconclusive when a program has not halted yet; it may halt later."
-        }
-      ],
-      "sources": [
-        {
-          "title": "MIT 6.045 — Automata, Computability, and Complexity",
-          "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
-        }
-      ]
-    },
-    {
-      "schemaVersion": 1,
-      "id": "np-complete",
-      "topic": "complexity",
-      "revision": 1,
-      "status": "active",
-      "prompt": "Under polynomial-time many-one reductions, what two conditions make a decision problem NP-complete?",
-      "answers": [
-        {
-          "id": "correct",
-          "text": "It is in NP, and every problem in NP reduces to it in polynomial time.",
-          "correct": true,
-          "explanation": "Membership supplies efficiently verifiable yes-certificates. NP-hardness says that solving this problem efficiently would solve every problem in NP efficiently."
-        },
-        {
-          "id": "distractor-1",
-          "text": "It is impossible to solve and impossible to verify.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "NP-complete problems are decidable and have polynomial-time verifiable yes-certificates."
-        },
-        {
-          "id": "distractor-2",
-          "text": "It uses polynomial space and has a numeric output.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "Those conditions do not define NP-completeness."
-        },
-        {
-          "id": "distractor-3",
-          "text": "It takes exponential time on at least one particular machine.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "A slow implementation does not establish a complexity lower bound or completeness."
-        },
-        {
-          "id": "distractor-4",
-          "text": "It is in P, and it reduces to an NP problem.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "These conditions do not establish NP-hardness."
-        },
-        {
-          "id": "distractor-5",
-          "text": "It is in NP, and it reduces to every problem in NP.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "The hardness direction is reversed: every NP problem must reduce to it."
-        },
-        {
-          "id": "distractor-6",
-          "text": "It is NP-hard, with no membership requirement.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "NP-hardness alone does not imply membership in NP."
-        },
-        {
-          "id": "distractor-7",
-          "text": "It is in NP, and some problem in NP reduces to it.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "An arbitrary easy NP problem can reduce to it; hardness requires all NP problems or a known NP-hard one."
-        },
-        {
-          "id": "distractor-8",
-          "text": "It is in coNP, and every NP problem reduces to it.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "This gives NP-hardness and coNP membership, but does not establish the required NP membership."
-        },
-        {
-          "id": "distractor-9",
-          "text": "It is in NP, and it is not known to have a polynomial-time algorithm.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "Lack of a known algorithm is not proof of NP-hardness."
-        }
-      ],
-      "sources": [
-        {
-          "title": "MIT 6.045 — Automata, Computability, and Complexity",
-          "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
-        }
-      ]
-    },
-    {
-      "schemaVersion": 1,
-      "id": "p-subset-np",
-      "topic": "complexity",
-      "revision": 1,
-      "status": "active",
-      "prompt": "Why does $\\mathrm{P}\\subseteq\\mathrm{NP}$ hold?",
-      "answers": [
-        {
-          "id": "correct",
-          "text": "A polynomial-time decider can act as a verifier that ignores the certificate.",
-          "correct": true,
-          "explanation": "For a problem in P, run its deterministic polynomial-time algorithm. It accepts exactly the yes-instances, regardless of the supplied certificate."
-        },
-        {
-          "id": "distractor-1",
-          "text": "NP means problems outside polynomial time.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "NP means nondeterministic polynomial time; it does not exclude P."
-        },
-        {
-          "id": "distractor-2",
-          "text": "Every problem can be solved in polynomial time.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "This is false; decidable problems exist outside P."
-        },
-        {
-          "id": "distractor-3",
-          "text": "All NP problems are already known to be in P.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "Whether P equals NP is unresolved."
-        },
-        {
-          "id": "distractor-4",
-          "text": "A verifier is allowed exponential time.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "An NP verifier must run in polynomial time."
-        },
-        {
-          "id": "distractor-5",
-          "text": "Every input is a yes-instance.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "P includes decision problems with both yes- and no-instances."
-        },
-        {
-          "id": "distractor-6",
-          "text": "The certificate may contain an arbitrarily long computation.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "NP certificates must have polynomial length."
-        },
-        {
-          "id": "distractor-7",
-          "text": "The verifier can accept without inspecting the input.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "It must still distinguish yes- and no-instances; running the decider does that."
-        },
-        {
-          "id": "distractor-8",
-          "text": "Each P problem is NP-complete.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "Membership in P does not imply NP-hardness."
-        },
-        {
-          "id": "distractor-9",
-          "text": "Deterministic and nondeterministic polynomial time are proven equal.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "Only containment is known in general; equality is an open question."
-        }
-      ],
-      "sources": [
-        {
-          "title": "MIT 6.045 — Automata, Computability, and Complexity",
-          "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
-        }
-      ]
-    },
-    {
-      "schemaVersion": 1,
-      "id": "polynomial-input-length",
-      "topic": "complexity",
-      "revision": 1,
-      "status": "active",
-      "prompt": "A positive integer $N$ is encoded in binary. An algorithm takes $\\Theta(N)$ steps. In terms of the bit length $b=\\lfloor\\log_2 N\\rfloor+1$, how does its running time grow?",
-      "answers": [
-        {
-          "id": "correct",
-          "text": "$\\Theta(2^b)$",
-          "correct": true,
-          "explanation": "For a $b$-bit positive integer, $2^{b-1}\\leq N<2^b$. Thus linear time in the numeric value is exponential in the input length."
-        },
-        {
-          "id": "distractor-1",
-          "text": "$\\Theta(1)$",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "The numeric value grows with the bit length."
-        },
-        {
-          "id": "distractor-2",
-          "text": "$\\Theta(b)$",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "This confuses the numeric value N with the number of bits used to write it."
-        },
-        {
-          "id": "distractor-3",
-          "text": "$\\Theta(\\log b)$",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "The relationship is exponential in b, not logarithmic."
-        },
-        {
-          "id": "distractor-4",
-          "text": "$\\Theta(b^2)$",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "The encoded value can be exponentially larger than the square of its bit length."
-        },
-        {
-          "id": "distractor-5",
-          "text": "$\\Theta(b\\log b)$",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "That is nearly linear in bit length and much smaller than N."
-        },
-        {
-          "id": "distractor-6",
-          "text": "$\\Theta(\\sqrt b)$",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "N is exponential, not sublinear, in its bit length."
-        },
-        {
-          "id": "distractor-7",
-          "text": "$\\Theta(2^{b/2})$",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "That scales like the square root of N, whereas the algorithm takes linear time in N."
-        },
-        {
-          "id": "distractor-8",
-          "text": "$\\Theta(b\\,2^b)$",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "The given cost is already Θ(N) steps; there is no additional factor of b in this statement."
-        },
-        {
-          "id": "distractor-9",
-          "text": "$\\Theta(2^{2b})$",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "That scales like N squared, rather than N."
-        }
-      ],
-      "sources": [
-        {
-          "title": "MIT 6.045 — Automata, Computability, and Complexity",
-          "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
-        }
-      ]
-    },
-    {
-      "schemaVersion": 1,
-      "id": "reduction-direction",
-      "topic": "complexity",
-      "revision": 1,
-      "status": "active",
-      "prompt": "Suppose $A\\leq_p B$ via a polynomial-time many-one reduction. Which consequence is guaranteed?",
-      "answers": [
-        {
-          "id": "correct",
-          "text": "If $B\\in\\mathrm{P}$, then $A\\in\\mathrm{P}$.",
-          "correct": true,
-          "explanation": "To decide A, transform its input into an equivalent B-instance in polynomial time, then run the polynomial-time decider for B."
-        },
-        {
-          "id": "distractor-1",
-          "text": "$A$ and $B$ must be the same language.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "A reduction can map between different languages."
-        },
-        {
-          "id": "distractor-2",
-          "text": "$A$ has no algorithm.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "Reducibility alone says nothing of that sort."
-        },
-        {
-          "id": "distractor-3",
-          "text": "$B$ has no yes-instances.",
-          "correct": false,
-          "difficulty": 1,
-          "explanation": "A reduction imposes no such requirement."
-        },
-        {
-          "id": "distractor-4",
-          "text": "If $A\\in\\mathrm{P}$, then $B\\in\\mathrm{P}$.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "An easy problem can reduce to a harder one; the implication goes the other way."
-        },
-        {
-          "id": "distractor-5",
-          "text": "If $A\\in\\mathrm{NP}$, then $B\\in\\mathrm{NP}$.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "Reducing an NP problem to B does not give a verifier for all of B."
-        },
-        {
-          "id": "distractor-6",
-          "text": "$B$ is always NP-complete.",
-          "correct": false,
-          "difficulty": 2,
-          "explanation": "A reduction from an arbitrary A does not establish NP-hardness or membership in NP."
-        },
-        {
-          "id": "distractor-7",
-          "text": "If $B$ is NP-hard, then $A$ is NP-hard.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "Hardness transfers from the source to the target, not generally from the target to the source."
-        },
-        {
-          "id": "distractor-8",
-          "text": "If $B\\notin\\mathrm{P}$, then $A\\notin\\mathrm{P}$.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "A can be easy even when B is hard."
-        },
-        {
-          "id": "distractor-9",
-          "text": "The reduction must be invertible in polynomial time.",
-          "correct": false,
-          "difficulty": 3,
-          "explanation": "Many-one reductions need preserve the yes/no answer, not be invertible."
-        }
-      ],
-      "sources": [
-        {
-          "title": "MIT 6.045 — Automata, Computability, and Complexity",
-          "url": "https://ocw.mit.edu/courses/6-045j-automata-computability-and-complexity-spring-2011/pages/lecture-notes/"
+          "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+          "url": "https://arxiv.org/html/2004.14789v3"
         }
       ]
     }

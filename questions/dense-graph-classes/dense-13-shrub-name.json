@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-13-shrub-name",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "A class admits tree-models with a uniform height bound and a uniform finite number of leaf colours. Its graph vertices are the leaves; adjacency depends only on the two colours and their tree distance. What property is described?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Bounded shrubdepth.",
+      "correct": true,
+      "explanation": "Both height and colour count are uniform across the class. The tree is a model of adjacency, not a subgraph that must contain the graph."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Bounded treewidth.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Treewidth uses overlapping bags, not an adjacency interpretation on coloured leaves."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Bounded maximum degree.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A height-one model with one colour already represents arbitrarily large cliques."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Bounded clique number.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The same height-one models can represent cliques of every size."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Bounded treedepth.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Treedepth uses containment in a forest closure and excludes arbitrarily large cliques at a fixed bound."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Bounded clique-width alone.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Bounded clique-width imposes no uniform tree-model height; paths separate the two properties."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Bounded twin-width alone.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Twin-width controls red degree during contractions and does not impose this height condition."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Bounded neighbourhood diversity alone.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Neighbourhood diversity corresponds to height-one tree-models; bounded shrubdepth permits larger fixed heights."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Bounded linear clique-width alone.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Paths have bounded linear clique-width but unbounded shrubdepth."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Bounded merge-width alone.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Merge-width controls local reachability of resolved pairs, not bounded-height leaf models."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+      "url": "https://arxiv.org/html/1707.00359v4"
+    },
+    {
+      "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
+      "url": "https://arxiv.org/html/2502.18065v2"
+    }
+  ]
+}

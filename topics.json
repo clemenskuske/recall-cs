@@ -1,11 +1,19 @@
 [
   {
+    "id": "dense-graph-classes",
+    "title": "Dense graph classes",
+    "description": "Transductions, monadic dependence, and the definitions and relationships of graph widths.",
+    "symbol": "graph",
+    "color": "lavender",
+    "defaultSelected": true
+  },
+  {
     "id": "logic-basics",
     "title": "Logic basics",
     "description": "Start with and, or, if…then, and clear reasoning.",
     "symbol": "braces",
     "color": "sage",
-    "defaultSelected": true
+    "defaultSelected": false
   },
   {
     "id": "algorithms",

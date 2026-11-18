@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-05-monadic-name",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "A class $\\mathcal C$ cannot produce every finite simple graph by any one fixed FO transduction, even with arbitrary finitely many unary vertex predicates. What is this property called?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Monadic dependence (monadic NIP).",
+      "correct": true,
+      "explanation": "The forbidden encoding is a single uniform recipe for all finite graphs. Unary expansions account for the word “monadic”."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Bounded clique-width.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Bounded clique-width implies this property, but its definition uses labelled graph expressions and is stronger."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Bounded twin-width.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Twin-width is defined by contraction sequences. Monadic dependence also includes classes with unbounded twin-width."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Bounded shrubdepth.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Shrubdepth requires uniformly bounded tree-model height and colour count, a stronger condition."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Monadic independence.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Independence is the opposite: some fixed transduction does encode all finite graphs."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Monadic stability.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Stability forbids transducing all half-graphs, not merely all finite graphs; it is stronger."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Nowhere denseness.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Nowhere denseness is a sparse structural property; monadic dependence also permits arbitrarily large cliques."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Bounded merge-width.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Bounded merge-width controls each radius by a constant. Monadic dependence need only yield almost bounded merge-width."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Bounded VC-dimension of the adjacency relation alone.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Monadic dependence controls every fixed FO encoding after unary expansions, not only raw adjacency."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Exclusion of one finite graph as an induced subgraph.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "An induced-subgraph exclusion alone does not prevent logical encodings of all graphs."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
+    },
+    {
+      "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
+      "url": "https://arxiv.org/html/2611.06804v1"
+    }
+  ]
+}

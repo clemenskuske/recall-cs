@@ -41,8 +41,12 @@ export async function compileBank(root = process.cwd()) {
   }
   const dirs = await readdir(`${root}/questions`,{withFileTypes:true});
   for (const dir of dirs) if (dir.isDirectory() && !topics.some(t => t.id === dir.name)) throw new Error(`Unregistered topic ${dir.name}`);
-  const version = createHash('sha256').update(JSON.stringify({topics,questions})).digest('hex').slice(0,16);
-  return {schemaVersion:1,version,topics,questions};
+  // Validate retired source records too, but ship only the current curriculum.
+  // Their files and feedback remain in Git; local review history is untouched.
+  const activeQuestions = questions.filter(q => q.status === 'active');
+  const activeTopics = topics.filter(t => activeQuestions.some(q => q.topic === t.id));
+  const version = createHash('sha256').update(JSON.stringify({topics:activeTopics,questions:activeQuestions})).digest('hex').slice(0,16);
+  return {schemaVersion:1,version,topics:activeTopics,questions:activeQuestions};
 }
 if (process.argv[1]?.endsWith('/content.mjs')) {
   const bank = await compileBank();

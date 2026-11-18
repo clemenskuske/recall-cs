@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { freshState, choicesFor, queueFor, reviewQuestion, stateFor, difficultyFor, validateState, dayKey, streak, selectedTopicIds } from '../src/learning.js';
 import { compileBank, validateQuestion } from '../scripts/content.mjs';
 const bank=await compileBank();
@@ -22,15 +22,37 @@ test('new question allowance is shared across sessions and respects topic select
 });
 test('successive new questions rotate across topics rather than restarting the first topic',()=>{
   const s=freshState(), now=new Date('2026-11-18T12:00:00Z');const seen=[];
-  s.settings.selectedTopics=bank.topics.map(t=>t.id);
-  for(let i=0;i<4;i++){const q=queueFor(bank,s,now).fresh[0];seen.push(q.topic);reviewQuestion(q,s,q.answers[0],false,now);}
+  const topics=Array.from({length:4},(_,i)=>({id:`fixture-${i}`}));
+  const fixture={topics,questions:topics.flatMap(t=>[0,1].map(i=>({...q,id:`${t.id}-${i}`,topic:t.id,status:'active'})))};
+  s.settings.selectedTopics=topics.map(t=>t.id);
+  for(let i=0;i<4;i++){const q=queueFor(fixture,s,now).fresh[0];seen.push(q.topic);reviewQuestion(q,s,q.answers[0],false,now);}
   assert.equal(new Set(seen).size,4);
 });
-test('starter selection is logic while explicit topic selections are preserved',()=>{
-  const s=freshState();assert.deepEqual(selectedTopicIds(bank,s),['logic-basics']);
-  assert.ok(queueFor(bank,s).fresh.every(q=>q.topic==='logic-basics'));
-  s.settings.selectedTopics=['algorithms'];assert.deepEqual(selectedTopicIds(bank,s),['algorithms']);
+test('current topic replaces retired selections, while active choices and deselect-all are preserved',()=>{
+  const s=freshState();assert.deepEqual(selectedTopicIds(bank,s),['dense-graph-classes']);
+  assert.ok(queueFor(bank,s).fresh.every(q=>q.topic==='dense-graph-classes'));
+  s.settings.selectedTopics=['logic-basics'];assert.deepEqual(selectedTopicIds(bank,s),['dense-graph-classes']);
+  const expanded={...bank,topics:[...bank.topics,{id:'another-topic'}]};
+  s.settings.selectedTopics=['logic-basics','another-topic'];assert.deepEqual(selectedTopicIds(expanded,s),['another-topic']);
   s.settings.selectedTopics=[];assert.equal(queueFor(bank,s).fresh.length,0);
+});
+test('retired starter records stay in source and leave the downloadable curriculum',async()=>{
+  const sourceTopics=JSON.parse(await readFile(new URL('../topics.json',import.meta.url),'utf8'));
+  const retired=[];
+  for(const topic of sourceTopics.filter(t=>t.id!=='dense-graph-classes')){
+    const dir=new URL(`../questions/${topic.id}/`,import.meta.url);
+    for(const file of await readdir(dir))if(file.endsWith('.json'))retired.push(JSON.parse(await readFile(new URL(file,dir),'utf8')));
+  }
+  assert.equal(retired.length,38);
+  assert.ok(retired.every(q=>q.status==='retired'&&q.revision===2));
+  assert.ok(bank.questions.every(q=>!retired.some(r=>r.id===q.id)));
+  assert.deepEqual(bank.topics.map(t=>t.id),['dense-graph-classes']);
+  const s=freshState();s.settings.selectedTopics=['logic-basics'];s.settings.newPerDay=30;
+  // Even previously learned and due starter cards must stay retired.
+  reviewQuestion(retired[0],s,retired[0].answers.find(a=>!a.correct),false,new Date('2026-11-01T00:00:00Z'));
+  const queue=queueFor(bank,s,new Date('2026-11-18T12:00:00Z'));
+  assert.ok([...queue.due,...queue.fresh].every(q=>q.status==='active'&&q.topic==='dense-graph-classes'));
+  assert.equal(queue.fresh.length,28);
 });
 test('missed and guessed cards return after one minute, never immediately',()=>{
   for(const guessed of [false,true]){

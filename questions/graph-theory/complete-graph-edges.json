@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "complete-graph-edges",
   "topic": "graph-theory",
-  "revision": 1,
-  "status": "active",
+  "revision": 2,
+  "status": "retired",
   "prompt": "How many edges does the complete undirected simple graph $K_n$ have?",
   "answers": [
     {
@@ -85,5 +85,6 @@
       "title": "Princeton Algorithms — Directed Graphs",
       "url": "https://algs4.cs.princeton.edu/42digraph/"
     }
-  ]
+  ],
+  "retirementReason": "Retired at the learner’s request on 2026-11-18: the starter bank was too elementary. Only add questions on topics explicitly requested by the learner."
 }

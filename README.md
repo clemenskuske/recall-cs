@@ -8,7 +8,9 @@ A small computer science practice app for iPhone, hosted on GitHub Pages. Public
 
 Open the app in Safari → Share → Add to Home Screen → enable Open as Web App if shown → Add. Open the installed app online once to cache the app, questions, TeX renderer, and fonts. Thereafter quizzes work offline; content updates and sending feedback require a connection. Safari and a home-screen install may have separate storage, so use Settings → Export/Import backup if switching.
 
-Logic basics is selected by default: 14 questions introduce connectives, implication, converse, contraposition, negation, tautologies, valid inference, and quantifiers. Another 24 questions across algorithms, data structures, graph theory, and complexity are available in Topics. Each question has one correct answer and nine tiered distractors.
+Dense graph classes is selected by default: 28 advanced questions cover first-order transductions, monadic dependence, merge-width, twin-width, clique-width, shrubdepth, and their relationships. Questions include terminology recognition and definitions in both directions. Each has one correct answer and nine explained, tiered distractors. The original 38 starter questions were retired at the learner’s request as too elementary; their source records and feedback remain in Git but are excluded from the downloaded bank. A selection containing only retired topics falls back to the current default; explicitly selecting no topics is respected.
+
+The set states its conventions (including copying versus non-copying FO transductions) and distinguishes bounded from almost bounded merge-width. The recent dependence/merge-width equivalence is labelled with its November 2026 preprint source and the hereditary-class hypothesis. See [the content audit](docs/dense-graph-classes-audit.md) for sources, conventions, and verification limits.
 
 Start a short daily session, choose one of four shuffled answers, and read the explanation. A correct answer gets a small celebration; an incorrect answer explains both the misconception and the right idea. If you guessed correctly, mark “I guessed” to revisit sooner.
 
@@ -16,15 +18,15 @@ Settings control daily minutes, new questions per day, desired retention, distra
 
 ## Add or improve questions with an LLM
 
-The `recall-cs-questions` skill is installed locally in `~/.codex/skills/recall-cs-questions`. Its portable source is in `skills/recall-cs-questions`. Example:
+The `recall-cs-questions` skill is installed locally in `~/.codex/skills/recall-cs-questions`. Its portable source is in `skills/recall-cs-questions`. Create new questions only when the learner explicitly supplies a topic. Their preference is advanced content, especially names, mathematical definitions in both directions, and relationships. Example:
 
-> Use $recall-cs-questions to add 12 questions about dynamic programming, with worked counterexamples and three levels of plausible wrong answers.
+> Use $recall-cs-questions to add questions about dense graph classes, testing definitions in both directions and the relationships between the width notions.
 
 Or:
 
 > Use $recall-cs-questions to review unresolved feedback, repair or retire bad questions, and derive narrowly scoped rules from confirmed mistakes.
 
-Each topic has a folder and each question its own JSON file. `topics.json` holds names, descriptions, one of four colors (`sage`, `clay`, `lavender`, `sand`), an icon name (`route`, `layers`, `graph`, `braces`, or `book`), and optional `defaultSelected`. Default selection applies to people who have not explicitly chosen topics; explicit choices are preserved. Use an existing question as the schema example. Required fields: `schemaVersion: 1`, globally unique kebab-case `id`, matching `topic`, positive integer `revision`, `status` (`active`/`retired`), `prompt`, `answers`, and `sources` (title and HTTPS URL).
+Each topic has a folder and each question its own JSON file. `topics.json` holds names, descriptions, one of four colors (`sage`, `clay`, `lavender`, `sand`), an icon name (`route`, `layers`, `graph`, `braces`, or `book`), and optional `defaultSelected`. Default selection applies to people who have not explicitly chosen topics, or whose entire nonempty selection was retired; valid explicit choices are preserved. The build validates every source question, then publishes only active questions and topics with active questions. Use an existing question as the schema example. Required fields: `schemaVersion: 1`, globally unique kebab-case `id`, matching `topic`, positive integer `revision`, `status` (`active`/`retired`), `prompt`, `answers`, and `sources` (title and HTTPS URL).
 
 Each answer has a stable `id`, `text`, `correct` boolean, and `explanation`. Exactly one is correct. Incorrect answers also have `difficulty: 1|2|3`, at least three per tier. Inline math uses `$...$`; display math uses `$$...$$`. Double backslashes in JSON. Do not write raw HTML.
 

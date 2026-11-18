@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-03-transduction-uniformity",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "For graph classes $\\mathcal C,\\mathcal D$, what does $\\mathcal D\\subseteq T(\\mathcal C)$ require of a single fixed FO transduction $T$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "One fixed finite vocabulary and fixed formulas work for every $H\\in\\mathcal D$; the chosen $G\\in\\mathcal C$ and its colouring may depend on $H$.",
+      "correct": true,
+      "explanation": "Uniformity concerns the recipe, not the input graph or colouring. Every target must occur among the outputs of that one recipe."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Every $G\\in\\mathcal C$ must produce every $H\\in\\mathcal D$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Class transducibility only requires some suitable input for each target."
+    },
+    {
+      "id": "distractor-2",
+      "text": "One finite $G\\in\\mathcal C$ must produce all graphs of every order in $\\mathcal D$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A fixed finite input has bounded output size. The input is allowed to vary with the target."
+    },
+    {
+      "id": "distractor-3",
+      "text": "The defining formula may be chosen separately for each target $H$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "That discards the fixed-recipe requirement."
+    },
+    {
+      "id": "distractor-4",
+      "text": "The formulas are fixed, but the number of unary predicates may grow with the target.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The finite predicate vocabulary is also part of the fixed transduction."
+    },
+    {
+      "id": "distractor-5",
+      "text": "The vocabulary is fixed, but quantifier rank may grow through a new formula for each target.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A fixed transduction uses fixed formulas, hence a fixed quantifier rank."
+    },
+    {
+      "id": "distractor-6",
+      "text": "The recipe must generate exactly $\\mathcal D$ and no additional outputs.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The definition asks for containment in the outputs, not equality."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Each target uses one recipe for vertices and unrelated input graphs for its individual edges.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The whole output is interpreted in a single expanded input graph."
+    },
+    {
+      "id": "distractor-8",
+      "text": "The unary predicates must be FO-definable in the uncoloured input.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "They are arbitrary unary parameters, not predicates required to be definable without parameters."
+    },
+    {
+      "id": "distractor-9",
+      "text": "The formulas and one fixed colouring assignment must work unchanged on all input graphs.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The formulas are uniform, but colour assignments are chosen separately on each input vertex set."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
+    }
+  ]
+}

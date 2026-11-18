@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-06-monadic-definition",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $\\mathcal G$ be all finite simple graphs and $T$ range over fixed FO transductions with unary parameters. Which condition defines monadic dependence of $\\mathcal C$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\forall T\\;\\exists H\\in\\mathcal G:\\ H\\notin T(\\mathcal C)$.",
+      "correct": true,
+      "explanation": "Every fixed recipe misses at least one finite graph. The graph it misses may depend on the recipe."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\exists T\\;\\forall H\\in\\mathcal G:\\ H\\in T(\\mathcal C)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This is monadic independence, the negation of dependence."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\forall T\\;\\forall H\\in\\mathcal G:\\ H\\notin T(\\mathcal C)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This forbids even trivial outputs; dependence only requires each recipe to miss some graph."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\exists T\\;\\exists H\\in\\mathcal G:\\ H\\notin T(\\mathcal C)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "One weak transduction missing a graph says nothing about another transduction encoding all graphs."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\exists H\\in\\mathcal G\\;\\forall T:\\ H\\notin T(\\mathcal C)$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This swaps the quantifiers. For example, large cliques can encode any one fixed finite graph using finitely many colours tailored to that graph."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\forall H\\in\\mathcal G\\;\\exists T:\\ H\\notin T(\\mathcal C)$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Choosing a deliberately unhelpful transduction separately for each target does not rule out a universal encoding."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\forall T\\;\\exists G\\in\\mathcal C\\;\\exists H\\in\\mathcal G:\\ H\\notin T(G)$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Failure on one input is insufficient: the target might be produced from another input in the class."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\forall T\\;\\exists H\\in\\mathcal G:\\ H\\notin T(\\mathcal C)$, but only for transductions without unary parameters.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Removing unary parameters weakens the test. Monadic dependence explicitly allows arbitrary finite unary expansions."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\forall T\\;\\exists H\\in\\mathcal G:\\ H\\notin T(\\mathcal C)$, but only for quantifier-free edge formulas.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "All first-order formulas must be considered, not just quantifier-free ones."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\forall G\\in\\mathcal C\\;\\forall T\\;\\exists H\\in\\mathcal G:\\ H\\notin T(G)$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Every fixed finite input has bounded output size. This holds even for the class of all finite graphs."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
+    },
+    {
+      "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
+      "url": "https://arxiv.org/html/2611.06804v1"
+    }
+  ]
+}

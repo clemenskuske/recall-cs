@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { compileBank } from '../scripts/content.mjs';
+import { readdir, readFile } from 'node:fs/promises';
 
 // Parse the displayed TeX, independently of the question's marked answer.
 // No eval: only this small, explicit language of classical formulas is accepted.
@@ -53,7 +53,9 @@ const targets={
   'logic-11-tautology':()=>true,
   'logic-12-valid-inference':()=>true,
 };
-const bank=await compileBank();
+// Retired questions are archived in source, no longer downloaded by the app.
+const dir=new URL('../questions/logic-basics/',import.meta.url);
+const bank={questions:await Promise.all((await readdir(dir)).filter(f=>f.endsWith('.json')).map(async f=>JSON.parse(await readFile(new URL(f,dir),'utf8'))))};
 test('all propositional answer keys and distractors agree with exhaustive truth tables',()=>{
   for(const [id,target] of Object.entries(targets)){
     const q=bank.questions.find(q=>q.id===id);assert.ok(q);

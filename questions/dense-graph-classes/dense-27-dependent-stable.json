@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-27-dependent-stable",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $H_n$ be the half-graph with sides $a_1,\\ldots,a_n$ and $b_1,\\ldots,b_n$, with $a_i b_j$ an edge iff $i\\le j$. Which distinction between monadic dependence and monadic stability is correct?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Dependence forbids transducing all finite graphs; stability forbids transducing all half-graphs and is the stronger condition.",
+      "correct": true,
+      "explanation": "A recipe for all graphs would also produce all half-graphs. Half-graphs themselves have bounded clique-width and are dependent, but are not monadically stable."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Dependence forbids all half-graphs; stability forbids all finite graphs and is weaker.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The two forbidden target families are exchanged."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Dependence and stability both forbid only arbitrarily large cliques.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Cliques can have both properties; the obstructions concern logical encodings of graphs or half-graphs."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Dependence and stability are the same property on every graph class.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The class of all half-graphs is dependent but fails stability via the identity transduction."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Stability merely forbids half-graphs as non-induced subgraphs.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The condition concerns FO transductions, not ordinary subgraph containment."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Stability merely forbids half-graphs as induced subgraphs.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Absence as induced subgraphs alone does not exclude half-graphs obtainable through a logical encoding."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Monadic dependence implies monadic stability, with half-graphs as a witness.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Half-graphs show the opposite: they are dependent but not stable."
+    },
+    {
+      "id": "distractor-7",
+      "text": "The half-graph class is monadically independent because its adjacency encodes an order.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "An order pattern witnesses instability, not the independence needed to encode all finite graphs."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Stability forbids each half-graph separately, even when a different transduction is chosen for each size.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The obstruction is one uniform transduction producing half-graphs of every size, not separate recipes for each size."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Only transductions without added unary predicates count in either definition.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Both monadic notions allow arbitrary finite unary expansions."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
+    },
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    },
+    {
+      "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+      "url": "https://arxiv.org/html/1707.00359v4"
+    }
+  ]
+}

@@ -11,7 +11,7 @@ Use the current checkout if it has this origin; the usual local location is `/Us
 
 ## Create or revise questions
 
-Use the user's chosen topics, level, and scope. When unspecified, favor a small coherent set with a mix of conceptual distinctions, applications, and counterexamples over trivia. LLM generation happens during authoring; the app does not call an LLM at runtime.
+Create new questions only on topics explicitly supplied by the user. If a request to add questions has no topic, inspect the conversation for an established topic and otherwise ask for one; do not invent a curriculum. Maintenance of existing questions may proceed within the user's requested scope. This learner rejected the original starter bank as too elementary and prefers advanced content, terminology recognition, mathematical definitions in both directions (name to definition and definition to name), and relationships between concepts. Choose a coherent set and use counterexamples to distinguish nearby notions. LLM generation happens during authoring; the app does not call an LLM at runtime.
 
 Read an existing JSON question as the schema example. Keep one file at `questions/<topic-id>/<question-id>.json`. Register new topics in `topics.json`; preserve its supported color and icon conventions. Each question needs a stable globally unique ID, a positive revision, status, a focused prompt, authoritative source links, and answers:
 

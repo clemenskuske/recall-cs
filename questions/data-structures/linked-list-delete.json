@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "linked-list-delete",
   "topic": "data-structures",
-  "revision": 1,
-  "status": "active",
+  "revision": 2,
+  "status": "retired",
   "prompt": "In a doubly linked list, you already hold a reference to a node. What is the worst-case time to unlink it, including updating head or tail if necessary, but excluding searching for it and freeing memory?",
   "answers": [
     {
@@ -89,5 +89,6 @@
       "title": "Princeton Algorithms — Hash Tables",
       "url": "https://algs4.cs.princeton.edu/34hash/"
     }
-  ]
+  ],
+  "retirementReason": "Retired at the learner’s request on 2026-11-18: the starter bank was too elementary. Only add questions on topics explicitly requested by the learner."
 }

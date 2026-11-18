@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "dijkstra-condition",
   "topic": "algorithms",
-  "revision": 1,
-  "status": "active",
+  "revision": 2,
+  "status": "retired",
   "prompt": "Which edge-weight assumption guarantees correctness of standard Dijkstra’s algorithm on every finite directed graph, using permanent finalization when a vertex is extracted?",
   "answers": [
     {
@@ -85,5 +85,6 @@
       "title": "Princeton Algorithms — Shortest Paths",
       "url": "https://algs4.cs.princeton.edu/44sp/"
     }
-  ]
+  ],
+  "retirementReason": "Retired at the learner’s request on 2026-11-18: the starter bank was too elementary. Only add questions on topics explicitly requested by the learner."
 }

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-12-clique-operations",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which operation is permitted by a standard $k$-expression for clique-width?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "For $i\\ne j$, add every missing edge between the current label-$i$ and label-$j$ vertices.",
+      "correct": true,
+      "explanation": "A join acts uniformly on two distinct label classes. It adds edges and leaves existing edges in place."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Delete an arbitrary existing edge while preserving all labels.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Edge deletion is not a primitive operation of a clique-width expression."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Identify any two vertices of the same label.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Clique-width expressions build graphs without contracting vertices."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Add just one chosen edge between two otherwise indistinguishable labelled vertices.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A join treats entire label classes uniformly, not chosen individual vertices within them."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Complement adjacency between two label classes in one primitive step.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The join adds all missing edges; it does not toggle or remove existing edges."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Relabel one chosen vertex in a label class while leaving the others unchanged.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The relabelling operation changes every vertex carrying the source label."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Create an arbitrary nonempty labelled graph as a single atomic expression.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The atomic expressions create single labelled vertices."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Apply a same-label join $\\eta_{i,i}$ as a primitive operation.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The standard definition requires distinct labels. Same-label joins belong to a modified convention."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Give one vertex several simultaneous construction labels.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "In the standard definition every vertex carries exactly one label at each stage."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Join only across the two operands of a union, using their origin as an extra test.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A standard clique-width join sees current labels, not which union operand a vertex came from; that origin-sensitive primitive is NLC-style."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+      "url": "https://arxiv.org/html/1707.00359v4"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-11-clique-name",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which parameter is the minimum number of labels needed to build $G$ using labelled single vertices, disjoint union, complete joins between two distinct labels, and global relabelling?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Clique-width.",
+      "correct": true,
+      "explanation": "Labels are reusable construction states. The parameter counts how many labels suffice for an expression, not the size of a clique."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Clique number.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Clique number is the size of a largest complete subgraph; it does not count construction labels."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Chromatic number.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Construction labels need not form independent sets and are not a proper colouring."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Twin-width.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Twin-width is measured by red degrees along contractions."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Treewidth.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Treewidth counts bag size minus one in a tree decomposition."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Shrubdepth.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Shrubdepth also constrains depth through a tree-model; unrestricted expression height is allowed here."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Neighbourhood diversity.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Construction labels can be reused and changed; final twin classes need not correspond to one fixed global labelling."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Linear clique-width.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Linear clique-width additionally restricts disjoint union so that only one vertex is added at a time."
+    },
+    {
+      "id": "distractor-8",
+      "text": "NLC-width.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "NLC-width uses a different join-and-union operation, with edges added between the two operands according to a label-pair relation."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Rank-width.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Rank-width uses binary adjacency-matrix ranks across cuts, rather than this expression syntax."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
+      "url": "https://arxiv.org/html/1707.00359v4"
+    },
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    }
+  ]
+}

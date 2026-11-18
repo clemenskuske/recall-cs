@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-07-monadic-closure",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $\\mathcal C$ be monadically dependent and let $\\mathcal D\\subseteq T(\\mathcal C)$ for a fixed FO transduction $T$. What follows?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\mathcal D$ is monadically dependent: a universal encoding from $\\mathcal D$ would compose with $T$ to give one from $\\mathcal C$.",
+      "correct": true,
+      "explanation": "FO transductions compose. If a transduction of the output class encoded all graphs, the composition would contradict dependence of the input class."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\mathcal D$ must be monadically independent, because a transduction adds arbitrary colours.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Arbitrary colours are already allowed in the definition of monadic dependence."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\mathcal D$ must have bounded shrubdepth, regardless of $\\mathcal C$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The identity transduction on all paths disproves this: paths are monadically dependent but have unbounded shrubdepth."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\mathcal D$ must have bounded clique-width, regardless of $\\mathcal C$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The identity on planar grids disproves this: they are dependent but have unbounded clique-width."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Dependence follows only when $T$ is injective on isomorphism classes.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The composition argument needs no injectivity."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Dependence follows only when $T$ never changes adjacency.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Composition works for arbitrary allowed edge formulas, including complementation."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Dependence follows only when $\\mathcal D=T(\\mathcal C)$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A subclass of a dependent class is dependent; containment is sufficient."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Dependence follows only when $\\mathcal C$ is closed under arbitrary subgraphs.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The composition argument requires no subgraph-closure assumption."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Dependence follows only when each input has a unique output under $T$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Set-valued transductions still compose; unary choices can be encoded together."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Dependence follows only when $T$ has quantifier-free formulas.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Fixed first-order formulas are closed under the substitutions used in composition."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
+    },
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    },
+    {
+      "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
+      "url": "https://arxiv.org/html/2611.06804v1"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-04-transduction-copying",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "In the convention allowing copying, how is a $k$-copy operation used in an FO transduction?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Use a fixed $k$, distinguish the copies, and link corresponding copies of each original vertex before the fixed FO interpretation.",
+      "correct": true,
+      "explanation": "Copying supplies finitely many tagged copies and a correspondence relation. The constant and interpretation belong to the transduction, not to individual inputs."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Take $|V(G)|$ copies and choose new defining formulas for each input.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Both an input-dependent copy number and input-dependent formulas violate the fixed-transduction convention."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Replace every vertex by all subsets of the input vertex set.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A fixed-copy operation gives only a constant-factor increase, not a powerset domain."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Contract every connected component before interpreting the graph.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Copying duplicates vertices; it is not a component quotient."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Take a fixed number of untagged copies and erase which vertices correspond.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The standard copying structure supplies copy tags and the correspondence relation for the formulas to use."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Allow arbitrarily many copies as long as the edge formula is fixed.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The copy number itself must also be fixed."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Use a fixed number of copies, but require the output to contain every copied vertex.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The subsequent interpretation may select a smaller domain."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Use a fixed number of copies, but forbid formulas from relating different copies.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The correspondence relation and copy tags are supplied precisely so cross-copy relationships can be defined."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Use a fixed number of copies, identified into one equivalence class per original vertex before any formula is evaluated.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "That collapses the copies before interpretation. Standard copying retains the distinct copies as available elements."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Use a fixed number of copies only when all unary parameters are already definable in the original graph.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Arbitrary finitely many unary parameters are allowed; definability in the original graph is not required."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    }
+  ]
+}

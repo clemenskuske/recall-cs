@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "dense-01-transduction-name",
+  "topic": "dense-graph-classes",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Fix finitely many unary predicates and FO formulas $\\delta(x),\\varphi(x,y)$, with $\\varphi$ symmetric and irreflexive. Arbitrarily interpret the predicates on $G$, select vertices by $\\delta$, and define adjacency by $\\varphi$. What is this set-valued operation, with no copying?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "A non-copying first-order transduction.",
+      "correct": true,
+      "explanation": "The formulas and predicate vocabulary are fixed; the unary expansions vary. Each expansion yields an interpreted graph, so one input can have several outputs."
+    },
+    {
+      "id": "distractor-1",
+      "text": "A graph homomorphism.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A homomorphism maps vertices while preserving edges; it does not redefine adjacency by arbitrary FO formulas."
+    },
+    {
+      "id": "distractor-2",
+      "text": "A graph minor operation.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Minor operations delete or contract edges and vertices; an FO transduction can also create edges."
+    },
+    {
+      "id": "distractor-3",
+      "text": "A graph isomorphism.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "An isomorphism preserves the whole adjacency relation bijectively. Here both the domain and adjacency may change."
+    },
+    {
+      "id": "distractor-4",
+      "text": "A deterministic interpretation of the uncoloured graph alone.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The arbitrary unary expansions are extra choices, so the output is not determined by the uncoloured input alone."
+    },
+    {
+      "id": "distractor-5",
+      "text": "A vertex-colouring operation with adjacency unchanged.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Colouring is only the preparatory step; the formulas can also change edges and select a domain."
+    },
+    {
+      "id": "distractor-6",
+      "text": "An arbitrary MSO transduction requiring vertex-set quantifiers in its defining formulas.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The defining formulas here are first-order. Unary parameters do not make their quantifiers second-order."
+    },
+    {
+      "id": "distractor-7",
+      "text": "A quotient interpretation whose output vertices must be equivalence classes.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The selected vertices are individual input vertices; this convention includes no quotient operation."
+    },
+    {
+      "id": "distractor-8",
+      "text": "A two-dimensional interpretation whose output vertices must be ordered pairs.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Here the domain formula has one free variable. Output vertices are not pairs of input vertices."
+    },
+    {
+      "id": "distractor-9",
+      "text": "A copying transduction with an unbounded input-dependent number of copies.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "No copies occur here; even in the copying convention the copy number is a fixed constant."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
+    },
+    {
+      "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
+      "url": "https://arxiv.org/html/2004.14789v3"
+    }
+  ]
+}
