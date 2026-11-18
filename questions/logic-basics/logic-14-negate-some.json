@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-14-negate-some",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $E(x)$ mean “file $x$ is encrypted” and $R(x)$ mean “file $x$ is readable”. Which formula negates “Some file is both encrypted and readable”, written $\\exists x\\,(E(x)\\land R(x))$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\forall x\\,(\\neg E(x)\\lor\\neg R(x))$",
+      "correct": true,
+      "explanation": "The negation says no file has both properties. For each file, at least one property must fail; which property fails can differ between files."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\exists x\\,(E(x)\\land R(x))$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This repeats the original claim."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\forall x\\,(E(x)\\land R(x))$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This says every file has both properties, strengthening rather than negating the original."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\exists x\\,(\\neg E(x)\\land\\neg R(x))$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "One file with neither property does not exclude another file with both."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\forall x\\,(\\neg E(x)\\land\\neg R(x))$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This wrongly requires both properties to fail for every file; one failure per file is enough."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\exists x\\,(\\neg E(x)\\lor\\neg R(x))$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This excludes both properties for only one file. A different file may still have both."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\forall x\\,(E(x)\\lor R(x))$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This requires every file to have at least one property, rather than forbidding both."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$(\\forall x\\,\\neg E(x))\\lor(\\forall x\\,\\neg R(x))$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This wrongly chooses one property that must fail for all files. One file may be only encrypted and another only readable, with neither having both."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$(\\exists x\\,\\neg E(x))\\land(\\exists x\\,\\neg R(x))$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Two witnesses missing properties do not rule out a third file that has both."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\forall x\\,(E(x)\\to R(x))$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This allows encrypted files to be readable; the negation must rule out that combination."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Quantifiers and Predicate Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_quantifiers.html"
+    }
+  ]
+}

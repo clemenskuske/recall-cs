@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-06-contrapositive",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which formula is the contrapositive of $P\\to Q$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\neg Q\\to\\neg P$",
+      "correct": true,
+      "explanation": "The contrapositive reverses the direction and negates both statements. It is equivalent to the original: if Q is false, P must also be false for the implication to hold."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$P\\land Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Conjoining the statements neither reverses nor negates them."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$Q\\to P$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This is the converse: it reverses direction but does not negate either statement."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\neg P\\land\\neg Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The contrapositive is an implication; it does not assert that both statements are false."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\neg P\\to\\neg Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This is the inverse: it negates both statements but keeps the original direction."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$Q\\to\\neg P$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The premise needs to be not Q, not Q itself."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\neg Q\\to P$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The conclusion needs to be not P, not P itself."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\neg(Q\\to P)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Negating the whole converse gives Q and not P; that is not contraposition."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\neg P\\lor\\neg Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is false when both statements are true; the original and its contrapositive are true then."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$P\\leftrightarrow Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A biconditional additionally requires the converse, which contraposition does not."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    }
+  ]
+}

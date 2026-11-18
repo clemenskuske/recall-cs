@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-11-tautology",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which formula is a tautology: true for every assignment of truth values to $P$ and $Q$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$P\\lor\\neg P$",
+      "correct": true,
+      "explanation": "If P is true, the left part is true. If P is false, not P is true. The disjunction is therefore true in every case."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$P\\land\\neg P$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This is a contradiction: P and not P cannot both be true."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$P$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "P is false in assignments where P is false."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\neg P$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Not P is false when P is true."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$P\\lor Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This is false when both P and Q are false."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$P\\to Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This is false when P is true and Q is false."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$P\\leftrightarrow Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This is false when the two truth values differ."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$(P\\to Q)\\land P$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This requires P and Q to be true and fails on other assignments."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$(P\\lor Q)\\land\\neg(P\\land Q)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Exclusive or is false when both truth values agree."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$(P\\to Q)\\land(Q\\to\\neg P)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "When both P and Q are true, the second implication is false."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    }
+  ]
+}

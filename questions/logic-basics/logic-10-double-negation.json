@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-10-double-negation",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "In classical two-valued logic, what is $\\neg\\neg P$ equivalent to? Here $Q$ is a separate, independent statement.",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$P$",
+      "correct": true,
+      "explanation": "Negation flips a truth value. Flipping it twice restores the original value, so $\\neg\\neg P$ and P agree in both cases."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\neg P$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "One negation flips the value; two restore it."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The truth of an unrelated statement Q does not determine P."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\neg Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Negating an unrelated statement cannot express double negation of P."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$P\\land Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This adds a condition on Q that double negation does not impose."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$P\\lor Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This can be true because of Q even when P is false."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$P\\to Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This can be true when P is false, unlike double negation of P."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$P\\lor\\neg P$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is always true, while double negation has P’s value and can be false."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$P\\land\\neg P$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is always false, while double negation can be true."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$P\\leftrightarrow Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This tests whether P matches Q, not whether P itself is true."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    }
+  ]
+}

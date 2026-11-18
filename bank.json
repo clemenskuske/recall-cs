@@ -1,37 +1,1239 @@
 {
   "schemaVersion": 1,
-  "version": "c9079697af6c6ed1",
+  "version": "b67bb60721ce60ba",
   "topics": [
+    {
+      "id": "logic-basics",
+      "title": "Logic basics",
+      "description": "Start with and, or, if…then, and clear reasoning.",
+      "symbol": "braces",
+      "color": "sage",
+      "defaultSelected": true
+    },
     {
       "id": "algorithms",
       "title": "Algorithms",
       "description": "Think in steps. Find a better way.",
       "symbol": "route",
-      "color": "sage"
+      "color": "sage",
+      "defaultSelected": false
     },
     {
       "id": "data-structures",
       "title": "Data structures",
       "description": "The right shape for your information.",
       "symbol": "layers",
-      "color": "clay"
+      "color": "clay",
+      "defaultSelected": false
     },
     {
       "id": "graph-theory",
       "title": "Graph theory",
       "description": "Explore the mathematics of connections.",
       "symbol": "graph",
-      "color": "lavender"
+      "color": "lavender",
+      "defaultSelected": false
     },
     {
       "id": "complexity",
       "title": "Complexity",
       "description": "Understand the limits of computation.",
       "symbol": "braces",
-      "color": "sand"
+      "color": "sand",
+      "defaultSelected": false
     }
   ],
   "questions": [
+    {
+      "schemaVersion": 1,
+      "id": "logic-01-and",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P$ mean “the lamp is on” and $Q$ mean “the door is open”. Which formula says that both are true?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$P\\land Q$",
+          "correct": true,
+          "explanation": "$\\land$ means “and”. The conjunction is true only when $P$ and $Q$ are both true."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$P\\lor Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "“Or” permits just one statement to be true; both are not required."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\neg P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This says the lamp is not on and says nothing about the door."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This says the door is not open and says nothing about the lamp."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$P\\to Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "An implication can be true when the lamp is off. It does not assert that both statements hold."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$P\\leftrightarrow Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This also holds when both statements are false, whereas “both are true” does not."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\neg P\\land\\neg Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This says that both statements are false."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$P\\land\\neg Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This gets the lamp right but requires the door to be closed."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\neg P\\land Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This gets the door right but requires the lamp to be off."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\neg(P\\land Q)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This denies that both are true; it is the negation of the requested statement."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-02-inclusive-or",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P$ mean “I use a keyboard” and $Q$ mean “I use a mouse”. Which formula means “I use at least one of them, possibly both”?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$P\\lor Q$",
+          "correct": true,
+          "explanation": "The logical $\\lor$ is inclusive “or”: either statement, or both, may be true."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$P\\land Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This requires both devices; the original permits using only one."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\neg P\\land\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This says neither device is used."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\neg(P\\lor Q)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is true only when neither statement is true."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$P\\to Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This can be true when neither device is used, which fails the “at least one” requirement."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$P\\leftrightarrow Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This permits neither device and excludes using just one."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\neg P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This says at least one device is not used, rather than at least one is used."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$(P\\lor Q)\\land\\neg(P\\land Q)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is exclusive “or”: it wrongly excludes using both."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$P\\land\\neg Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This permits only the keyboard, excluding the mouse-only and both-device cases."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\neg P\\land Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This permits only the mouse, excluding the keyboard-only and both-device cases."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-03-implication",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "In classical two-valued logic, which formula is equivalent to $P\\to Q$ (“if $P$, then $Q$”)?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\neg P\\lor Q$",
+          "correct": true,
+          "explanation": "An implication is false only when $P$ is true and $Q$ is false. Both $P\\to Q$ and $\\neg P\\lor Q$ have exactly that one false case."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$P\\land Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "An implication can be true when its premise is false; a conjunction cannot."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\neg P\\land\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "An implication is also true when both statements are true, but this formula is false then."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$P\\land\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This describes precisely the case in which the implication is false."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$P\\lor Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "When both statements are false, the implication is true but this disjunction is false."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$Q\\to P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is the converse. If P is false and Q is true, the original is true but the converse is false."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$P\\leftrightarrow Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The biconditional also requires the converse; it is false when P is false and Q is true."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This reverses the implication: it is false when P is false and Q is true."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\neg P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is false when P and Q are both true, although the original implication is true."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\neg(P\\lor Q)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This requires both statements to be false; the implication also allows Q to be true."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-04-if-and-only-if",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which formula expresses $P\\leftrightarrow Q$ (“$P$ if and only if $Q$”) as two implications?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$(P\\to Q)\\land(Q\\to P)$",
+          "correct": true,
+          "explanation": "“If and only if” requires both directions. Equivalently, P and Q must have the same truth value, including the case where both are false."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$P\\land Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This excludes the case where both are false, which satisfies a biconditional."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$P\\lor Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This permits one true and one false, which violates a biconditional."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\neg P\\land\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This excludes the case where both are true."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$P\\to Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This gives only one direction and allows P false with Q true."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$Q\\to P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This gives only the converse and allows Q false with P true."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\neg(P\\leftrightarrow Q)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This requires different truth values, the opposite of a biconditional."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$(P\\to Q)\\lor(Q\\to P)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "At least one of these implications is always true. Their disjunction does not require matching truth values."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$(P\\to Q)\\land(P\\to\\neg Q)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is equivalent to not P; it does not require Q to match P."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$(P\\to Q)\\land(\\neg P\\to Q)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This forces Q to be true, whereas a biconditional also allows both statements to be false."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-05-converse",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "What is the converse of $P\\to Q$? Choose a formula with the converse’s truth conditions.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$Q\\to P$",
+          "correct": true,
+          "explanation": "The converse swaps the premise and conclusion. It need not be equivalent to the original implication."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$P\\to Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is the original implication; its direction has not changed."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$P\\land Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The converse is an implication and does not assert both statements."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$P\\lor Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This disjunction is not the converse; it fails when both statements are false."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$P\\to\\neg Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This changes the conclusion to not Q rather than swapping the original premise and conclusion."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$P\\leftrightarrow Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This requires both the original and its converse, which is stronger than just the converse."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$Q\\land\\neg P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This describes the one case in which the converse is false."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\neg Q\\to\\neg P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is the contrapositive of the original, equivalent to the original rather than its converse."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\neg(P\\to Q)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This says P is true and Q false, rather than expressing the converse."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\neg P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This fails when both P and Q are true, but the converse is true then."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-06-contrapositive",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which formula is the contrapositive of $P\\to Q$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\neg Q\\to\\neg P$",
+          "correct": true,
+          "explanation": "The contrapositive reverses the direction and negates both statements. It is equivalent to the original: if Q is false, P must also be false for the implication to hold."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$P\\land Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Conjoining the statements neither reverses nor negates them."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$Q\\to P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is the converse: it reverses direction but does not negate either statement."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\neg P\\land\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The contrapositive is an implication; it does not assert that both statements are false."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\neg P\\to\\neg Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is the inverse: it negates both statements but keeps the original direction."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$Q\\to\\neg P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The premise needs to be not Q, not Q itself."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\neg Q\\to P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The conclusion needs to be not P, not P itself."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\neg(Q\\to P)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Negating the whole converse gives Q and not P; that is not contraposition."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\neg P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is false when both statements are true; the original and its contrapositive are true then."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$P\\leftrightarrow Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A biconditional additionally requires the converse, which contraposition does not."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-07-negate-implication",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which formula is equivalent to $\\neg(P\\to Q)$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$P\\land\\neg Q$",
+          "correct": true,
+          "explanation": "To make “if P, then Q” false, its premise P must hold while its conclusion Q fails."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$P\\to Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This repeats the implication instead of negating it."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$P\\land Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "When both are true, the implication is true rather than false."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\neg P\\land\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A false premise makes the implication true, so this does not negate it."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\neg P\\to\\neg Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Negating both parts of an implication is not the same as negating the implication."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$Q\\to P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is the converse, which is true in many cases where the original is also true."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\neg P\\lor Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is equivalent to the original implication, not its negation."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "“Or” allows cases such as both statements true; falsifying the implication requires both P and not Q."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\neg P\\land Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This reverses the required truth values: P must be true, Q false."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\neg(P\\land Q)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Not both being true is weaker than P true and Q false; it also allows P false."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-08-not-both",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which formula expresses “It is not the case that both $P$ and $Q$ are true”?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\neg P\\lor\\neg Q$",
+          "correct": true,
+          "explanation": "This is De Morgan’s law: $\\neg(P\\land Q)$ holds when at least one part is false. Both parts may be false, but that is not required."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$P\\land Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This says both are true, which is the statement being denied."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$P\\lor Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This says at least one is true, not at least one is false."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\neg P\\land\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This says neither is true. “Not both” also allows exactly one to be true."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$P\\to Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This remains true when both P and Q are true, whereas “not both” is false."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$P\\leftrightarrow Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This also permits both statements to be true."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\neg(P\\lor Q)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This means neither P nor Q, which is stronger than “not both”."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$P\\land\\neg Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This captures one permitted case but misses P false with Q either true or false."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\neg P\\land Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This captures one permitted case but misses Q false with P either true or false."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$(P\\lor Q)\\land\\neg(P\\land Q)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is exclusive “or” and wrongly excludes the case where both are false."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-09-neither-nor",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which formula expresses “Neither $P$ nor $Q$ is true”, equivalently $\\neg(P\\lor Q)$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\neg P\\land\\neg Q$",
+          "correct": true,
+          "explanation": "Negating an inclusive “or” means each statement must be false. De Morgan’s law therefore changes or to and and negates both parts."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$P\\lor Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This asserts that at least one statement is true."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$P\\land Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This asserts that both statements are true."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\neg P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This requires only one part to be false, while “neither” requires both to be false."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$P\\to Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "An implication can be true with Q true; “neither” cannot."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$P\\leftrightarrow Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This permits both statements to be true as well as both false."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\neg(P\\land Q)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This says “not both”, which still permits exactly one true statement."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$P\\land\\neg Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This wrongly requires P to be true."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\neg P\\land Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This wrongly requires Q to be true."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\neg(P\\leftrightarrow Q)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This requires different truth values, not two false values."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-10-double-negation",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "In classical two-valued logic, what is $\\neg\\neg P$ equivalent to? Here $Q$ is a separate, independent statement.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$P$",
+          "correct": true,
+          "explanation": "Negation flips a truth value. Flipping it twice restores the original value, so $\\neg\\neg P$ and P agree in both cases."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\neg P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "One negation flips the value; two restore it."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The truth of an unrelated statement Q does not determine P."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Negating an unrelated statement cannot express double negation of P."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$P\\land Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This adds a condition on Q that double negation does not impose."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$P\\lor Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This can be true because of Q even when P is false."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$P\\to Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This can be true when P is false, unlike double negation of P."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$P\\lor\\neg P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is always true, while double negation has P’s value and can be false."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$P\\land\\neg P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is always false, while double negation can be true."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$P\\leftrightarrow Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This tests whether P matches Q, not whether P itself is true."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-11-tautology",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which formula is a tautology: true for every assignment of truth values to $P$ and $Q$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$P\\lor\\neg P$",
+          "correct": true,
+          "explanation": "If P is true, the left part is true. If P is false, not P is true. The disjunction is therefore true in every case."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$P\\land\\neg P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is a contradiction: P and not P cannot both be true."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "P is false in assignments where P is false."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\neg P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Not P is false when P is true."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$P\\lor Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is false when both P and Q are false."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$P\\to Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is false when P is true and Q is false."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$P\\leftrightarrow Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is false when the two truth values differ."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$(P\\to Q)\\land P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This requires P and Q to be true and fails on other assignments."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$(P\\lor Q)\\land\\neg(P\\land Q)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Exclusive or is false when both truth values agree."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$(P\\to Q)\\land(Q\\to\\neg P)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "When both P and Q are true, the second implication is false."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-12-valid-inference",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which formula expresses an inference that is valid for every truth assignment? An implication $(A\\land B)\\to C$ means “from premises A and B, conclude C”.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$((P\\to Q)\\land P)\\to Q$",
+          "correct": true,
+          "explanation": "This is modus ponens. When P implies Q and P holds, Q must hold. Thus the premises cannot both be true while the conclusion is false."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$P\\to\\neg P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "If P is true, the premise is true and the conclusion is false."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$Q\\to P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Q can be true while P is false; the inference has no connecting premise."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$(P\\lor Q)\\to(P\\land Q)$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "One true disjunct does not establish both; take P true and Q false."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$((P\\to Q)\\land Q)\\to P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This affirms the consequent. P false and Q true make both premises true but the conclusion false."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$((P\\to Q)\\land\\neg P)\\to\\neg Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This denies the antecedent. P false and Q true are a counterexample."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$((P\\lor Q)\\land P)\\to\\neg Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Inclusive or allows both to be true, so P does not rule out Q."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$((P\\to Q)\\land P)\\to\\neg Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "When P and Q are both true, the premises hold but the negated conclusion fails."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$((P\\to Q)\\land\\neg Q)\\to P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The premises justify not P, not P itself; take both P and Q false."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$((P\\to Q)\\land(Q\\to P))\\to(P\\land Q)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Both implications can hold when both P and Q are false; they do not establish that either is true."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-13-negate-every",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P(x)$ mean “$x$ is a program” and $T(x)$ mean “$x$ terminates”. Which formula negates “Every program terminates”, written $\\forall x\\,(P(x)\\to T(x))$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\exists x\\,(P(x)\\land\\neg T(x))$",
+          "correct": true,
+          "explanation": "To refute “every program terminates”, one program that does not terminate is enough. The quantifier changes from every to some, and the implication fails when P holds but T does not."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\,(P(x)\\to T(x))$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is the original statement, not its negation."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\exists x\\,(P(x)\\land T(x))$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "One terminating program does not show that any program fails to terminate."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\,(P(x)\\land T(x))$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This says every object is a terminating program, rather than exhibiting a counterexample."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\forall x\\,(P(x)\\to\\neg T(x))$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This says no program terminates. Negating “every program terminates” requires only one nonterminating program."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\exists x\\,(\\neg P(x)\\land\\neg T(x))$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A nonterminating object that is not a program cannot refute a claim about programs."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\exists x\\,(T(x)\\land\\neg P(x))$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A terminating object that is not a program is irrelevant to the claim."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\exists x\\,(P(x)\\to\\neg T(x))$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This implication is true for any nonprogram, so such an object could satisfy the formula without refuting the original."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\exists x\\,P(x)\\land\\exists x\\,\\neg T(x)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The witnesses may differ: a program could terminate while a different, nonprogram object does not. The counterexample must be the same object."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\forall x\\,(\\neg P(x)\\to\\neg T(x))$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This concerns nonprograms; it does not assert that a program fails to terminate."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Quantifiers and Predicate Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_quantifiers.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-14-negate-some",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $E(x)$ mean “file $x$ is encrypted” and $R(x)$ mean “file $x$ is readable”. Which formula negates “Some file is both encrypted and readable”, written $\\exists x\\,(E(x)\\land R(x))$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\forall x\\,(\\neg E(x)\\lor\\neg R(x))$",
+          "correct": true,
+          "explanation": "The negation says no file has both properties. For each file, at least one property must fail; which property fails can differ between files."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\exists x\\,(E(x)\\land R(x))$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This repeats the original claim."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\,(E(x)\\land R(x))$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This says every file has both properties, strengthening rather than negating the original."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\exists x\\,(\\neg E(x)\\land\\neg R(x))$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "One file with neither property does not exclude another file with both."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\forall x\\,(\\neg E(x)\\land\\neg R(x))$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This wrongly requires both properties to fail for every file; one failure per file is enough."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\exists x\\,(\\neg E(x)\\lor\\neg R(x))$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This excludes both properties for only one file. A different file may still have both."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\forall x\\,(E(x)\\lor R(x))$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This requires every file to have at least one property, rather than forbidding both."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$(\\forall x\\,\\neg E(x))\\lor(\\forall x\\,\\neg R(x))$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This wrongly chooses one property that must fail for all files. One file may be only encrypted and another only readable, with neither having both."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$(\\exists x\\,\\neg E(x))\\land(\\exists x\\,\\neg R(x))$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Two witnesses missing properties do not rule out a third file that has both."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\forall x\\,(E(x)\\to R(x))$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This allows encrypted files to be readable; the negation must rule out that combination."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Quantifiers and Predicate Logic",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_quantifiers.html"
+        }
+      ]
+    },
     {
       "schemaVersion": 1,
       "id": "amortized-doubling",

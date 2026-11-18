@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { freshState, choicesFor, queueFor, reviewQuestion, stateFor, difficultyFor, validateState, dayKey, streak } from '../src/learning.js';
+import { freshState, choicesFor, queueFor, reviewQuestion, stateFor, difficultyFor, validateState, dayKey, streak, selectedTopicIds } from '../src/learning.js';
 import { compileBank, validateQuestion } from '../scripts/content.mjs';
 const bank=await compileBank();
 const q=bank.questions[0];
@@ -22,8 +22,15 @@ test('new question allowance is shared across sessions and respects topic select
 });
 test('successive new questions rotate across topics rather than restarting the first topic',()=>{
   const s=freshState(), now=new Date('2026-11-18T12:00:00Z');const seen=[];
+  s.settings.selectedTopics=bank.topics.map(t=>t.id);
   for(let i=0;i<4;i++){const q=queueFor(bank,s,now).fresh[0];seen.push(q.topic);reviewQuestion(q,s,q.answers[0],false,now);}
   assert.equal(new Set(seen).size,4);
+});
+test('starter selection is logic while explicit topic selections are preserved',()=>{
+  const s=freshState();assert.deepEqual(selectedTopicIds(bank,s),['logic-basics']);
+  assert.ok(queueFor(bank,s).fresh.every(q=>q.topic==='logic-basics'));
+  s.settings.selectedTopics=['algorithms'];assert.deepEqual(selectedTopicIds(bank,s),['algorithms']);
+  s.settings.selectedTopics=[];assert.equal(queueFor(bank,s).fresh.length,0);
 });
 test('missed and guessed cards return after one minute, never immediately',()=>{
   for(const guessed of [false,true]){

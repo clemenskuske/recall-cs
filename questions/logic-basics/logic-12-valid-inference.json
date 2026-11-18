@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-12-valid-inference",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which formula expresses an inference that is valid for every truth assignment? An implication $(A\\land B)\\to C$ means “from premises A and B, conclude C”.",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$((P\\to Q)\\land P)\\to Q$",
+      "correct": true,
+      "explanation": "This is modus ponens. When P implies Q and P holds, Q must hold. Thus the premises cannot both be true while the conclusion is false."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$P\\to\\neg P$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "If P is true, the premise is true and the conclusion is false."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$Q\\to P$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Q can be true while P is false; the inference has no connecting premise."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$(P\\lor Q)\\to(P\\land Q)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "One true disjunct does not establish both; take P true and Q false."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$((P\\to Q)\\land Q)\\to P$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This affirms the consequent. P false and Q true make both premises true but the conclusion false."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$((P\\to Q)\\land\\neg P)\\to\\neg Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This denies the antecedent. P false and Q true are a counterexample."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$((P\\lor Q)\\land P)\\to\\neg Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Inclusive or allows both to be true, so P does not rule out Q."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$((P\\to Q)\\land P)\\to\\neg Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "When P and Q are both true, the premises hold but the negated conclusion fails."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$((P\\to Q)\\land\\neg Q)\\to P$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The premises justify not P, not P itself; take both P and Q false."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$((P\\to Q)\\land(Q\\to P))\\to(P\\land Q)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Both implications can hold when both P and Q are false; they do not establish that either is true."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    }
+  ]
+}

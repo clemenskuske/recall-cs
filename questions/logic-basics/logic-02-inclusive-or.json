@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-02-inclusive-or",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $P$ mean “I use a keyboard” and $Q$ mean “I use a mouse”. Which formula means “I use at least one of them, possibly both”?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$P\\lor Q$",
+      "correct": true,
+      "explanation": "The logical $\\lor$ is inclusive “or”: either statement, or both, may be true."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$P\\land Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This requires both devices; the original permits using only one."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\neg P\\land\\neg Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This says neither device is used."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\neg(P\\lor Q)$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This is true only when neither statement is true."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$P\\to Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This can be true when neither device is used, which fails the “at least one” requirement."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$P\\leftrightarrow Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This permits neither device and excludes using just one."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\neg P\\lor\\neg Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This says at least one device is not used, rather than at least one is used."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$(P\\lor Q)\\land\\neg(P\\land Q)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is exclusive “or”: it wrongly excludes using both."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$P\\land\\neg Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This permits only the keyboard, excluding the mouse-only and both-device cases."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\neg P\\land Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This permits only the mouse, excluding the keyboard-only and both-device cases."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    }
+  ]
+}

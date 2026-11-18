@@ -31,7 +31,7 @@ export async function compileBank(root = process.cwd()) {
   const questions = []; const ids = new Set();
   if (!Array.isArray(topics) || !topics.length || new Set(topics.map(t=>t.id)).size !== topics.length) throw new Error('Topics must be nonempty and unique.');
   for (const topic of topics) {
-    if (!slug.test(topic.id) || typeof topic.title !== 'string' || typeof topic.description !== 'string' || !['sage','clay','lavender','sand'].includes(topic.color)) throw new Error('Invalid topic metadata');
+    if (!slug.test(topic.id) || typeof topic.title !== 'string' || typeof topic.description !== 'string' || !['sage','clay','lavender','sand'].includes(topic.color) || (topic.defaultSelected !== undefined && typeof topic.defaultSelected !== 'boolean')) throw new Error('Invalid topic metadata');
     for (const file of (await readdir(`${root}/questions/${topic.id}`)).sort()) {
       if (!file.endsWith('.json')) continue;
       const question = validateQuestion(JSON.parse(await readFile(`${root}/questions/${topic.id}/${file}`,'utf8')),topic.id,file);

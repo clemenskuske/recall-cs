@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-03-implication",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "In classical two-valued logic, which formula is equivalent to $P\\to Q$ (“if $P$, then $Q$”)?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\neg P\\lor Q$",
+      "correct": true,
+      "explanation": "An implication is false only when $P$ is true and $Q$ is false. Both $P\\to Q$ and $\\neg P\\lor Q$ have exactly that one false case."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$P\\land Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "An implication can be true when its premise is false; a conjunction cannot."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\neg P\\land\\neg Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "An implication is also true when both statements are true, but this formula is false then."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$P\\land\\neg Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This describes precisely the case in which the implication is false."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$P\\lor Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "When both statements are false, the implication is true but this disjunction is false."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$Q\\to P$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This is the converse. If P is false and Q is true, the original is true but the converse is false."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$P\\leftrightarrow Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The biconditional also requires the converse; it is false when P is false and Q is true."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$P\\lor\\neg Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This reverses the implication: it is false when P is false and Q is true."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\neg P\\lor\\neg Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is false when P and Q are both true, although the original implication is true."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\neg(P\\lor Q)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This requires both statements to be false; the implication also allows Q to be true."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    }
+  ]
+}

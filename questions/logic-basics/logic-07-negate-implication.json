@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-07-negate-implication",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which formula is equivalent to $\\neg(P\\to Q)$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$P\\land\\neg Q$",
+      "correct": true,
+      "explanation": "To make “if P, then Q” false, its premise P must hold while its conclusion Q fails."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$P\\to Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This repeats the implication instead of negating it."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$P\\land Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "When both are true, the implication is true rather than false."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\neg P\\land\\neg Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A false premise makes the implication true, so this does not negate it."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\neg P\\to\\neg Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Negating both parts of an implication is not the same as negating the implication."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$Q\\to P$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This is the converse, which is true in many cases where the original is also true."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\neg P\\lor Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This is equivalent to the original implication, not its negation."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$P\\lor\\neg Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "“Or” allows cases such as both statements true; falsifying the implication requires both P and not Q."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\neg P\\land Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This reverses the required truth values: P must be true, Q false."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\neg(P\\land Q)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Not both being true is weaker than P true and Q false; it also allows P false."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    }
+  ]
+}

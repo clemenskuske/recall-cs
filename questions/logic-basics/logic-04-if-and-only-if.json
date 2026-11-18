@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-04-if-and-only-if",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which formula expresses $P\\leftrightarrow Q$ (“$P$ if and only if $Q$”) as two implications?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$(P\\to Q)\\land(Q\\to P)$",
+      "correct": true,
+      "explanation": "“If and only if” requires both directions. Equivalently, P and Q must have the same truth value, including the case where both are false."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$P\\land Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This excludes the case where both are false, which satisfies a biconditional."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$P\\lor Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This permits one true and one false, which violates a biconditional."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\neg P\\land\\neg Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This excludes the case where both are true."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$P\\to Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This gives only one direction and allows P false with Q true."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$Q\\to P$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This gives only the converse and allows Q false with P true."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\neg(P\\leftrightarrow Q)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This requires different truth values, the opposite of a biconditional."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$(P\\to Q)\\lor(Q\\to P)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "At least one of these implications is always true. Their disjunction does not require matching truth values."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$(P\\to Q)\\land(P\\to\\neg Q)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is equivalent to not P; it does not require Q to match P."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$(P\\to Q)\\land(\\neg P\\to Q)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This forces Q to be true, whereas a biconditional also allows both statements to be false."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    }
+  ]
+}

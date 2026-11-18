@@ -48,8 +48,13 @@ export function choicesFor(question, state, random = Math.random) {
   return shuffle([question.answers.find(a => a.correct), ...wrong.slice(0,3)], random);
 }
 export function eligibleQuestions(bank, state) {
-  const selected = state.settings.selectedTopics ?? bank.topics.map(t => t.id);
+  const selected = selectedTopicIds(bank, state);
   return bank.questions.filter(q => selected.includes(q.topic) && q.status !== 'retired' && state.suspended[q.id] !== q.revision);
+}
+export function selectedTopicIds(bank, state) {
+  if (state.settings.selectedTopics !== null) return state.settings.selectedTopics;
+  const preferred = bank.topics.filter(t => t.defaultSelected === true);
+  return (preferred.length ? preferred : bank.topics).map(t => t.id);
 }
 export function queueFor(bank, state, now = new Date()) {
   const questions = eligibleQuestions(bank, state);

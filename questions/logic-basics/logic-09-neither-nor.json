@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-09-neither-nor",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which formula expresses “Neither $P$ nor $Q$ is true”, equivalently $\\neg(P\\lor Q)$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\neg P\\land\\neg Q$",
+      "correct": true,
+      "explanation": "Negating an inclusive “or” means each statement must be false. De Morgan’s law therefore changes or to and and negates both parts."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$P\\lor Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This asserts that at least one statement is true."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$P\\land Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This asserts that both statements are true."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\neg P\\lor\\neg Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This requires only one part to be false, while “neither” requires both to be false."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$P\\to Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "An implication can be true with Q true; “neither” cannot."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$P\\leftrightarrow Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This permits both statements to be true as well as both false."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\neg(P\\land Q)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This says “not both”, which still permits exactly one true statement."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$P\\land\\neg Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This wrongly requires P to be true."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\neg P\\land Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This wrongly requires Q to be true."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\neg(P\\leftrightarrow Q)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This requires different truth values, not two false values."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    }
+  ]
+}

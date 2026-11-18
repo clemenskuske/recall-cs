@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-08-not-both",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which formula expresses “It is not the case that both $P$ and $Q$ are true”?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\neg P\\lor\\neg Q$",
+      "correct": true,
+      "explanation": "This is De Morgan’s law: $\\neg(P\\land Q)$ holds when at least one part is false. Both parts may be false, but that is not required."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$P\\land Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This says both are true, which is the statement being denied."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$P\\lor Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This says at least one is true, not at least one is false."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\neg P\\land\\neg Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This says neither is true. “Not both” also allows exactly one to be true."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$P\\to Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This remains true when both P and Q are true, whereas “not both” is false."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$P\\leftrightarrow Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This also permits both statements to be true."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\neg(P\\lor Q)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This means neither P nor Q, which is stronger than “not both”."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$P\\land\\neg Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This captures one permitted case but misses P false with Q either true or false."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\neg P\\land Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This captures one permitted case but misses Q false with P either true or false."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$(P\\lor Q)\\land\\neg(P\\land Q)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is exclusive “or” and wrongly excludes the case where both are false."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    }
+  ]
+}

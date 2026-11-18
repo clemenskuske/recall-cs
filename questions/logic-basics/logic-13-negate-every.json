@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-13-negate-every",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $P(x)$ mean “$x$ is a program” and $T(x)$ mean “$x$ terminates”. Which formula negates “Every program terminates”, written $\\forall x\\,(P(x)\\to T(x))$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\exists x\\,(P(x)\\land\\neg T(x))$",
+      "correct": true,
+      "explanation": "To refute “every program terminates”, one program that does not terminate is enough. The quantifier changes from every to some, and the implication fails when P holds but T does not."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\forall x\\,(P(x)\\to T(x))$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This is the original statement, not its negation."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\exists x\\,(P(x)\\land T(x))$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "One terminating program does not show that any program fails to terminate."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\forall x\\,(P(x)\\land T(x))$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This says every object is a terminating program, rather than exhibiting a counterexample."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\forall x\\,(P(x)\\to\\neg T(x))$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This says no program terminates. Negating “every program terminates” requires only one nonterminating program."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\exists x\\,(\\neg P(x)\\land\\neg T(x))$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A nonterminating object that is not a program cannot refute a claim about programs."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\exists x\\,(T(x)\\land\\neg P(x))$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A terminating object that is not a program is irrelevant to the claim."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\exists x\\,(P(x)\\to\\neg T(x))$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This implication is true for any nonprogram, so such an object could satisfy the formula without refuting the original."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\exists x\\,P(x)\\land\\exists x\\,\\neg T(x)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The witnesses may differ: a program could terminate while a different, nonprogram object does not. The counterexample must be the same object."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\forall x\\,(\\neg P(x)\\to\\neg T(x))$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This concerns nonprograms; it does not assert that a program fails to terminate."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Quantifiers and Predicate Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_quantifiers.html"
+    }
+  ]
+}

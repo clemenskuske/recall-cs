@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-01-and",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $P$ mean “the lamp is on” and $Q$ mean “the door is open”. Which formula says that both are true?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$P\\land Q$",
+      "correct": true,
+      "explanation": "$\\land$ means “and”. The conjunction is true only when $P$ and $Q$ are both true."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$P\\lor Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "“Or” permits just one statement to be true; both are not required."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\neg P$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This says the lamp is not on and says nothing about the door."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\neg Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This says the door is not open and says nothing about the lamp."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$P\\to Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "An implication can be true when the lamp is off. It does not assert that both statements hold."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$P\\leftrightarrow Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This also holds when both statements are false, whereas “both are true” does not."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\neg P\\land\\neg Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This says that both statements are false."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$P\\land\\neg Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This gets the lamp right but requires the door to be closed."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\neg P\\land Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This gets the door right but requires the lamp to be off."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\neg(P\\land Q)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This denies that both are true; it is the negation of the requested statement."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    }
+  ]
+}

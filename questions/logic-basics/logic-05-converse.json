@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-05-converse",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "What is the converse of $P\\to Q$? Choose a formula with the converse’s truth conditions.",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$Q\\to P$",
+      "correct": true,
+      "explanation": "The converse swaps the premise and conclusion. It need not be equivalent to the original implication."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$P\\to Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This is the original implication; its direction has not changed."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$P\\land Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The converse is an implication and does not assert both statements."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$P\\lor Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This disjunction is not the converse; it fails when both statements are false."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$P\\to\\neg Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This changes the conclusion to not Q rather than swapping the original premise and conclusion."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$P\\leftrightarrow Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This requires both the original and its converse, which is stronger than just the converse."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$Q\\land\\neg P$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This describes the one case in which the converse is false."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\neg Q\\to\\neg P$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is the contrapositive of the original, equivalent to the original rather than its converse."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\neg(P\\to Q)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This says P is true and Q false, rather than expressing the converse."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\neg P\\lor\\neg Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This fails when both P and Q are true, but the converse is true then."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    }
+  ]
+}
