@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "7a49d1ec2310b1c8",
+  "version": "6f8135ba48525d3b",
   "topics": [
     {
       "id": "dense-graph-classes",
@@ -200,6 +200,9 @@
           "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
           "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
         }
+      ],
+      "prerequisites": [
+        "dense-01-transduction-name"
       ]
     },
     {
@@ -285,6 +288,9 @@
           "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
           "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
         }
+      ],
+      "prerequisites": [
+        "dense-02-transduction-definition"
       ]
     },
     {
@@ -370,6 +376,9 @@
           "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
           "url": "https://arxiv.org/html/2004.14789v3"
         }
+      ],
+      "prerequisites": [
+        "dense-02-transduction-definition"
       ]
     },
     {
@@ -459,6 +468,9 @@
           "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
           "url": "https://arxiv.org/html/2611.06804v1"
         }
+      ],
+      "prerequisites": [
+        "dense-02-transduction-definition"
       ]
     },
     {
@@ -548,6 +560,9 @@
           "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
           "url": "https://arxiv.org/html/2611.06804v1"
         }
+      ],
+      "prerequisites": [
+        "dense-05-monadic-name"
       ]
     },
     {
@@ -641,6 +656,10 @@
           "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
           "url": "https://arxiv.org/html/2611.06804v1"
         }
+      ],
+      "prerequisites": [
+        "dense-06-monadic-definition",
+        "dense-03-transduction-uniformity"
       ]
     },
     {
@@ -815,6 +834,9 @@
           "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
           "url": "https://arxiv.org/html/2004.14789v3"
         }
+      ],
+      "prerequisites": [
+        "dense-08-twin-name"
       ]
     },
     {
@@ -900,6 +922,9 @@
           "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
           "url": "https://arxiv.org/html/2004.14789v3"
         }
+      ],
+      "prerequisites": [
+        "dense-09-twin-definition"
       ]
     },
     {
@@ -1074,6 +1099,9 @@
           "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
           "url": "https://arxiv.org/html/1707.00359v4"
         }
+      ],
+      "prerequisites": [
+        "dense-11-clique-name"
       ]
     },
     {
@@ -1252,6 +1280,9 @@
           "title": "Brignall, Korpelainen & Vatter — Linear Clique-Width for Hereditary Classes of Cographs",
           "url": "https://arxiv.org/abs/1305.0636"
         }
+      ],
+      "prerequisites": [
+        "dense-13-shrub-name"
       ]
     },
     {
@@ -1337,6 +1368,9 @@
           "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
           "url": "https://arxiv.org/html/1707.00359v4"
         }
+      ],
+      "prerequisites": [
+        "dense-14-shrub-quantifiers"
       ]
     },
     {
@@ -1422,6 +1456,9 @@
           "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
           "url": "https://arxiv.org/html/2502.18065v2"
         }
+      ],
+      "prerequisites": [
+        "dense-18-merge-name"
       ]
     },
     {
@@ -1507,6 +1544,9 @@
           "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
           "url": "https://arxiv.org/html/2502.18065v2"
         }
+      ],
+      "prerequisites": [
+        "dense-16-merge-sequence"
       ]
     },
     {
@@ -1677,6 +1717,9 @@
           "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
           "url": "https://arxiv.org/html/2502.18065v2"
         }
+      ],
+      "prerequisites": [
+        "dense-17-merge-radius"
       ]
     },
     {
@@ -1766,6 +1809,9 @@
           "title": "Dreier et al. — Monadically Dependent Graph Classes Have Almost Bounded Merge-Width, Theorem 1.1 (4 November 2026 preprint)",
           "url": "https://arxiv.org/html/2611.06804v1"
         }
+      ],
+      "prerequisites": [
+        "dense-19-merge-bounded"
       ]
     },
     {
@@ -1851,6 +1897,10 @@
           "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
           "url": "https://arxiv.org/html/1707.00359v4"
         }
+      ],
+      "prerequisites": [
+        "dense-14-shrub-quantifiers",
+        "dense-12-clique-operations"
       ]
     },
     {
@@ -1936,6 +1986,10 @@
           "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
           "url": "https://arxiv.org/html/2004.14789v3"
         }
+      ],
+      "prerequisites": [
+        "dense-12-clique-operations",
+        "dense-09-twin-definition"
       ]
     },
     {
@@ -2025,6 +2079,10 @@
           "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
           "url": "https://arxiv.org/html/2004.14789v3"
         }
+      ],
+      "prerequisites": [
+        "dense-09-twin-definition",
+        "dense-19-merge-bounded"
       ]
     },
     {
@@ -2122,6 +2180,10 @@
           "title": "Brignall, Korpelainen & Vatter — Linear Clique-Width for Hereditary Classes of Cographs",
           "url": "https://arxiv.org/abs/1305.0636"
         }
+      ],
+      "prerequisites": [
+        "dense-17-merge-radius",
+        "dense-12-clique-operations"
       ]
     },
     {
@@ -2219,6 +2281,10 @@
           "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
           "url": "https://arxiv.org/html/1707.00359v4"
         }
+      ],
+      "prerequisites": [
+        "dense-06-monadic-definition",
+        "dense-20-merge-almost"
       ]
     },
     {
@@ -2308,6 +2374,10 @@
           "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
           "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
         }
+      ],
+      "prerequisites": [
+        "dense-02-transduction-definition",
+        "dense-14-shrub-quantifiers"
       ]
     },
     {
@@ -2401,6 +2471,9 @@
           "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
           "url": "https://arxiv.org/html/1707.00359v4"
         }
+      ],
+      "prerequisites": [
+        "dense-06-monadic-definition"
       ]
     },
     {
@@ -2486,6 +2559,9 @@
           "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
           "url": "https://arxiv.org/html/2004.14789v3"
         }
+      ],
+      "prerequisites": [
+        "dense-09-twin-definition"
       ]
     },
     {
@@ -2664,6 +2740,9 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-01-reflexive-name"
       ]
     },
     {
@@ -2842,6 +2921,9 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-03-irreflexive-name"
       ]
     },
     {
@@ -3020,6 +3102,9 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-05-symmetric-name"
       ]
     },
     {
@@ -3198,6 +3283,9 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-07-antisymmetric-name"
       ]
     },
     {
@@ -3376,6 +3464,9 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-09-asymmetric-name"
       ]
     },
     {
@@ -3554,6 +3645,9 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-11-transitive-name"
       ]
     },
     {
@@ -3732,6 +3826,9 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-13-connex-name"
       ]
     },
     {
@@ -3910,6 +4007,9 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-15-serial-name"
       ]
     },
     {
@@ -4088,6 +4188,9 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-17-antitransitive-name"
       ]
     },
     {
@@ -4177,6 +4280,11 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-02-reflexive-definition",
+        "relations-06-symmetric-definition",
+        "relations-12-transitive-definition"
       ]
     },
     {
@@ -4266,6 +4374,10 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-02-reflexive-definition",
+        "relations-12-transitive-definition"
       ]
     },
     {
@@ -4355,6 +4467,10 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-20-preorder",
+        "relations-08-antisymmetric-definition"
       ]
     },
     {
@@ -4444,6 +4560,10 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-04-irreflexive-definition",
+        "relations-12-transitive-definition"
       ]
     },
     {
@@ -4533,6 +4653,10 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-21-partial-order",
+        "relations-14-connex-definition"
       ]
     },
     {
@@ -4622,6 +4746,10 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-22-strict-partial-order",
+        "relations-14-connex-definition"
       ]
     },
     {
@@ -4711,6 +4839,10 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-02-reflexive-definition",
+        "relations-04-irreflexive-definition"
       ]
     },
     {
@@ -4800,6 +4932,10 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-08-antisymmetric-definition",
+        "relations-10-asymmetric-definition"
       ]
     },
     {
@@ -4889,6 +5025,10 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-06-symmetric-definition",
+        "relations-08-antisymmetric-definition"
       ]
     },
     {
@@ -4978,6 +5118,10 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-06-symmetric-definition",
+        "relations-04-irreflexive-definition"
       ]
     },
     {
@@ -5067,6 +5211,10 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-02-reflexive-definition",
+        "relations-04-irreflexive-definition"
       ]
     },
     {
@@ -5156,6 +5304,10 @@
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
+      ],
+      "prerequisites": [
+        "relations-12-transitive-definition",
+        "relations-18-antitransitive-definition"
       ]
     },
     {
@@ -5334,6 +5486,9 @@
           "title": "University of Rochester — Algebraic Laws for Logical Expressions",
           "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
         }
+      ],
+      "prerequisites": [
+        "logic-15-commutativity-name"
       ]
     },
     {
@@ -5512,6 +5667,9 @@
           "title": "University of Rochester — Algebraic Laws for Logical Expressions",
           "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
         }
+      ],
+      "prerequisites": [
+        "logic-17-associativity-name"
       ]
     },
     {
@@ -5690,6 +5848,9 @@
           "title": "University of Rochester — Algebraic Laws for Logical Expressions",
           "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
         }
+      ],
+      "prerequisites": [
+        "logic-19-distributivity-name"
       ]
     },
     {
@@ -5868,6 +6029,9 @@
           "title": "University of Rochester — Algebraic Laws for Logical Expressions",
           "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
         }
+      ],
+      "prerequisites": [
+        "logic-21-idempotence-name"
       ]
     },
     {
@@ -6046,6 +6210,9 @@
           "title": "University of Rochester — Algebraic Laws for Logical Expressions",
           "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
         }
+      ],
+      "prerequisites": [
+        "logic-23-absorption-name"
       ]
     },
     {
@@ -6135,6 +6302,9 @@
           "title": "University of Rochester — Algebraic Laws for Logical Expressions",
           "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
         }
+      ],
+      "prerequisites": [
+        "logic-22-idempotence-law"
       ]
     },
     {
@@ -6313,6 +6483,9 @@
           "title": "University of Rochester — Algebraic Laws for Logical Expressions",
           "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
         }
+      ],
+      "prerequisites": [
+        "logic-16-commutativity-law"
       ]
     },
     {
@@ -6398,6 +6571,10 @@
           "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
           "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
         }
+      ],
+      "prerequisites": [
+        "logic-20-distributivity-law",
+        "logic-25-neutral-and-absorbing"
       ]
     }
   ]

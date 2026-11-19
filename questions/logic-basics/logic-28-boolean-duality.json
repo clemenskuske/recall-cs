@@ -81,5 +81,9 @@
       "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
       "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
     }
+  ],
+  "prerequisites": [
+    "logic-20-distributivity-law",
+    "logic-25-neutral-and-absorbing"
   ]
 }

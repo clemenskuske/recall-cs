@@ -81,5 +81,8 @@
       "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
       "url": "https://arxiv.org/html/2004.14789v3"
     }
+  ],
+  "prerequisites": [
+    "dense-08-twin-name"
   ]
 }

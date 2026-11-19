@@ -96,7 +96,7 @@ test('retired starter records stay in source and leave the downloadable curricul
   reviewQuestion(retired[0],s,retired[0].answers.find(a=>!a.correct),false,new Date('2026-11-01T00:00:00Z'));
   const queue=queueFor(bank,s,new Date('2026-11-18T12:00:00Z'));
   assert.ok([...queue.due,...queue.fresh].every(q=>q.status==='active'&&q.topic==='logic-basics'&&!retired.some(r=>r.id===q.id)));
-  assert.equal(queue.fresh.length,bank.questions.filter(q=>q.topic==='logic-basics').length);
+  assert.equal(queue.fresh.length+queue.locked.length,bank.questions.filter(q=>q.topic==='logic-basics').length);
   assert.ok(queue.fresh.length>0);
 });
 test('missed and guessed cards return after one minute, never immediately',()=>{

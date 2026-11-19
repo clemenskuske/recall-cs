@@ -1,4 +1,5 @@
 import { createEmptyCard, fsrs, Rating } from 'ts-fsrs';
+import { questionUnlocked, successfulReviewCounts } from './prerequisites.js';
 
 export const defaults = { minutes: 5, newPerDay: 8, retention: 0.9, difficulty: 'adaptive', celebrations: true, selectedTopics: null };
 export const dayKey = (time = new Date()) => {
@@ -62,7 +63,9 @@ export function selectedTopicIds(bank, state) {
   return (preferred.length ? preferred : bank.topics).map(t => t.id);
 }
 export function queueFor(bank, state, now = new Date(), random = Math.random) {
-  const questions = eligibleQuestions(bank, state);
+  const candidates = eligibleQuestions(bank, state), counts = successfulReviewCounts(bank,state);
+  const questions = candidates.filter(q => questionUnlocked(q,bank,state,counts));
+  const locked = candidates.filter(q => !questionUnlocked(q,bank,state,counts));
   const daily = state.daily[dayKey(now)];
   const newLeft = Math.max(0, state.settings.newPerDay - (daily?.newIds.length || 0));
   const due = shuffle(questions.filter(q => { const s = stateFor(q,state); return s && new Date(s.card.due) <= now; }), random);
@@ -77,7 +80,7 @@ export function queueFor(bank, state, now = new Date(), random = Math.random) {
   const orderedTopics = [...bank.topics.slice(start), ...bank.topics.slice(0,start)];
   const groups = orderedTopics.map(t => unseen.filter(q => q.topic === t.id));
   while (groups.some(g => g.length)) for (const group of groups) if (group.length) interleaved.push(group.shift());
-  return { due, fresh: interleaved.slice(0,newLeft), unseen: unseen.length };
+  return { due, fresh: interleaved.slice(0,newLeft), unseen: unseen.length, locked };
 }
 export function reviewQuestion(question, state, answer, guessed = false, now = new Date(), shownIds = []) {
   const previous = stateFor(question, state);

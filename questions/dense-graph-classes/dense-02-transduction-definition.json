@@ -81,5 +81,8 @@
       "title": "Ghasemi et al. — CSL 2026, §2: first-order transductions and monadic dependence",
       "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.41/LIPIcs.CSL.2026.41.html"
     }
+  ],
+  "prerequisites": [
+    "dense-01-transduction-name"
   ]
 }

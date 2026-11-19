@@ -93,5 +93,9 @@
       "title": "Ganian et al. — Shrub-depth: Capturing Height of Dense Graphs, §§2–4",
       "url": "https://arxiv.org/html/1707.00359v4"
     }
+  ],
+  "prerequisites": [
+    "dense-06-monadic-definition",
+    "dense-20-merge-almost"
   ]
 }

@@ -85,5 +85,8 @@
       "title": "Brignall, Korpelainen & Vatter — Linear Clique-Width for Hereditary Classes of Cographs",
       "url": "https://arxiv.org/abs/1305.0636"
     }
+  ],
+  "prerequisites": [
+    "dense-13-shrub-name"
   ]
 }

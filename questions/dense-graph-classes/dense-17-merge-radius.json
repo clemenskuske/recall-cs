@@ -81,5 +81,8 @@
       "title": "Dreier & Toruńczyk — Merge-width and First-Order Model Checking, Definitions 3.1–3.2 and §7 (June 2026 version)",
       "url": "https://arxiv.org/html/2502.18065v2"
     }
+  ],
+  "prerequisites": [
+    "dense-16-merge-sequence"
   ]
 }

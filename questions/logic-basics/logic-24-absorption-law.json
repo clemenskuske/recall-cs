@@ -85,5 +85,8 @@
       "title": "University of Rochester — Algebraic Laws for Logical Expressions",
       "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
     }
+  ],
+  "prerequisites": [
+    "logic-23-absorption-name"
   ]
 }

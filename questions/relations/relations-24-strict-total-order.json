@@ -85,5 +85,9 @@
       "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
       "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
     }
+  ],
+  "prerequisites": [
+    "relations-22-strict-partial-order",
+    "relations-14-connex-definition"
   ]
 }

@@ -1,6 +1,7 @@
 import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import katex from 'katex';
+import { validatePrerequisites } from '../src/prerequisites.js';
 const slug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export function validateQuestion(q, topic, filename) {
   const fail = message => { throw new Error(`${filename}: ${message}`); };
@@ -41,6 +42,7 @@ export async function compileBank(root = process.cwd()) {
   }
   const dirs = await readdir(`${root}/questions`,{withFileTypes:true});
   for (const dir of dirs) if (dir.isDirectory() && !topics.some(t => t.id === dir.name)) throw new Error(`Unregistered topic ${dir.name}`);
+  validatePrerequisites(questions);
   // Validate retired source records too, but ship only the current curriculum.
   // Their files and feedback remain in Git; local review history is untouched.
   const activeQuestions = questions.filter(q => q.status === 'active');
