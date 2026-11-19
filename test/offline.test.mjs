@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
 import vm from 'node:vm';
-test('offline cache serves a coherent shell and module assets under a Pages subpath despite Vary: Origin',async()=>{
+test('offline updates replace stale HTTP-cached shells and serve coherent assets despite Vary: Origin',async()=>{
   const root=await mkdtemp(join(tmpdir(),'recall-offline-'));
   try{
     await mkdir(join(root,'dist/assets'),{recursive:true});
@@ -15,8 +15,9 @@ test('offline cache serves a coherent shell and module assets under a Pages subp
     const source=await readFile(join(root,'dist/sw.js'),'utf8');
     const scope='https://example.test/recall-cs/';
     const events={},entries=new Map();let networkCalls=0;
-    const cache={addAll:async paths=>{for(const path of paths)entries.set(new URL(path,scope).href,path.endsWith('index.html')?'SHELL':'APP');},match:async(request,options)=>{const url=request.url||String(request);if(request.headers?.Origin&&!options?.ignoreVary)return undefined;return entries.get(url);}};
-    vm.runInNewContext(source,{URL,caches:{open:async()=>cache,keys:async()=>[],delete:async()=>true},self:{location:{origin:'https://example.test'},registration:{scope},clients:{claim:async()=>{}},skipWaiting:async()=>{},addEventListener:(name,handler)=>events[name]=handler},fetch:async()=>{networkCalls++;throw new Error('offline');}});
+    // A normal fetch can reuse an older index.html that points to removed assets.
+    const cache={addAll:async requests=>{for(const request of requests){const url=new URL(request.url||request,scope);entries.set(url.href,url.pathname.endsWith('/index.html')?(request.cache==='reload'?'SHELL':'STALE SHELL'):'APP');}},match:async(request,options)=>{const url=request.url||String(request);if(request.headers?.Origin&&!options?.ignoreVary)return undefined;return entries.get(url);}};
+    vm.runInNewContext(source,{URL,Request,caches:{open:async()=>cache,keys:async()=>[],delete:async()=>true},self:{location:{origin:'https://example.test'},registration:{scope},clients:{claim:async()=>{}},skipWaiting:async()=>{},addEventListener:(name,handler)=>events[name]=handler},fetch:async()=>{networkCalls++;throw new Error('offline');}});
     let installed;events.install({waitUntil:promise=>installed=promise});await installed;
     let response;events.fetch({request:{method:'GET',mode:'navigate',url:scope},respondWith:promise=>response=promise});assert.equal(await response,'SHELL');
     events.fetch({request:{method:'GET',mode:'cors',url:scope+'assets/app.js',headers:{Origin:'https://example.test'}},respondWith:promise=>response=promise});assert.equal(await response,'APP');assert.equal(networkCalls,0);
