@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-24-absorption-law",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $P,Q,R$ be classical propositions; $\\top$ means true, $\\bot$ means false, and $\\equiv$ means equal truth values under every assignment. Which identity is the standard absorption law with an outer disjunction?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$P\\lor(P\\land Q)\\equiv P$",
+      "correct": true,
+      "explanation": "The conjunction can only be true when the repeated proposition already makes the outer disjunction true."
+    },
+    {
+      "id": "law-involution",
+      "text": "$\\neg\\neg P\\equiv P$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This is double negation (involution). Applying negation twice restores the original truth value."
+    },
+    {
+      "id": "law-de-morgan",
+      "text": "$\\neg(P\\land Q)\\equiv\\neg P\\lor\\neg Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This is de morgan’s law. Moving negation through a conjunction negates both operands and changes conjunction to disjunction."
+    },
+    {
+      "id": "law-complement",
+      "text": "$P\\lor\\neg P\\equiv\\top$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This is complement law (excluded middle). A proposition and its negation cover both possible truth values."
+    },
+    {
+      "id": "law-commutativity",
+      "text": "$P\\land Q\\equiv Q\\land P$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This is commutativity. The two operands exchange places while the connective stays the same."
+    },
+    {
+      "id": "law-associativity",
+      "text": "$(P\\land Q)\\land R\\equiv P\\land(Q\\land R)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This is associativity. Only the grouping changes; the order of the operands and the connective stay fixed."
+    },
+    {
+      "id": "law-distributivity",
+      "text": "$P\\lor(Q\\land R)\\equiv(P\\lor Q)\\land(P\\lor R)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This is distributivity. Disjunction distributes over conjunction, repeating the outside operand in both resulting disjunctions."
+    },
+    {
+      "id": "law-identity",
+      "text": "$P\\land\\top\\equiv P$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is identity law (neutral element). A neutral constant leaves the other operand unchanged."
+    },
+    {
+      "id": "law-domination",
+      "text": "$P\\land\\bot\\equiv\\bot$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is domination law (absorbing element). An absorbing constant fixes the result regardless of the other operand."
+    },
+    {
+      "id": "law-idempotence",
+      "text": "$P\\land P\\equiv P$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is idempotence. Combining a proposition with itself using conjunction adds no new requirement."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+      "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+    },
+    {
+      "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+      "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+    }
+  ]
+}

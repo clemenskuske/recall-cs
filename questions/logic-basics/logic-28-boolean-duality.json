@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-28-boolean-duality",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $P,Q,R$ be classical propositions; $\\top$ means true, $\\bot$ means false, and $\\equiv$ means equal truth values under every assignment. What is the exact dual of $P\\lor(Q\\land\\top)\\equiv P\\lor Q$? Exchange $\\land/\\lor$ and $\\top/\\bot$ throughout, preserving variable positions, negations, and parentheses.",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$P\\land(Q\\lor\\bot)\\equiv P\\land Q$",
+      "correct": true,
+      "explanation": "Duality exchanges both connectives and both constants throughout the identity. Here the inner conjunction becomes disjunction, true becomes false, and both outer disjunctions become conjunctions."
+    },
+    {
+      "id": "only-connectives",
+      "text": "$P\\land(Q\\lor\\top)\\equiv P\\land Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The connectives were exchanged, but true was not exchanged with false. This proposed identity even fails when the first input is true and the second false."
+    },
+    {
+      "id": "only-constants",
+      "text": "$P\\lor(Q\\land\\bot)\\equiv P\\lor Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The constant was exchanged, but the connectives were not. This proposed identity fails when the first input is false and the second true."
+    },
+    {
+      "id": "only-outer",
+      "text": "$P\\land(Q\\land\\bot)\\equiv P\\land Q$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The inner conjunction also needs to become disjunction. As written, the left side is always false, while the right side need not be."
+    },
+    {
+      "id": "renaming",
+      "text": "$Q\\lor(P\\land\\top)\\equiv Q\\lor P$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This consistently renames the two variables. Renaming preserves validity, but it is not the specified duality operation."
+    },
+    {
+      "id": "reversing",
+      "text": "$P\\lor Q\\equiv P\\lor(Q\\land\\top)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This reverses the two sides of the original identity. It does not exchange any connectives or constants."
+    },
+    {
+      "id": "complement-inputs",
+      "text": "$\\neg P\\lor(\\neg Q\\land\\top)\\equiv\\neg P\\lor\\neg Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This substitutes the negation of each variable into the original law. The dual instead keeps variables unchanged and exchanges connectives and constants."
+    },
+    {
+      "id": "negate-sides",
+      "text": "$\\neg(P\\lor(Q\\land\\top))\\equiv\\neg(P\\lor Q)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Negating both sides preserves an equivalence, but it is a different transformation from the specified structural dual."
+    },
+    {
+      "id": "simplified-dual",
+      "text": "$P\\land Q\\equiv P\\land Q$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This can result after simplifying the dual, but it is not the displayed formula obtained by the specified exchanges while preserving parentheses."
+    },
+    {
+      "id": "commuted-dual",
+      "text": "$(Q\\lor\\bot)\\land P\\equiv Q\\land P$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This is equivalent to the dual after additional commutative rewrites. The specified duality operation preserves variable positions and does not perform those rewrites."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+      "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+    }
+  ]
+}

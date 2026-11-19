@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-27-implication-not-commutative",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $P,Q,R$ be classical propositions; $\\top$ means true, $\\bot$ means false, and $\\equiv$ means equal truth values under every assignment. Which proposed identity fails for some truth assignment, showing that the commutative law cannot be used for every binary connective?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$P\\to Q\\equiv Q\\to P$",
+      "correct": true,
+      "explanation": "Take the first proposition true and the second false. The forward implication is false, but the reversed implication is true. Swapping antecedent and consequent is therefore not a valid equivalence."
+    },
+    {
+      "id": "and-swap",
+      "text": "$P\\land Q\\equiv Q\\land P$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Conjunction is true exactly when both inputs are true, regardless of their order. This identity holds for every assignment."
+    },
+    {
+      "id": "or-swap",
+      "text": "$P\\lor Q\\equiv Q\\lor P$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Inclusive disjunction is true exactly when at least one input is true, regardless of order. This identity always holds."
+    },
+    {
+      "id": "iff-swap",
+      "text": "$P\\leftrightarrow Q\\equiv Q\\leftrightarrow P$",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A biconditional tests equality of the input truth values. Equality is unaffected by swapping them, so this identity always holds."
+    },
+    {
+      "id": "and-group",
+      "text": "$(P\\land Q)\\land R\\equiv P\\land(Q\\land R)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Both sides require all three inputs to be true. This associative law always holds."
+    },
+    {
+      "id": "or-group",
+      "text": "$(P\\lor Q)\\lor R\\equiv P\\lor(Q\\lor R)$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Both sides require at least one of the three inputs to be true. This associative law always holds."
+    },
+    {
+      "id": "implication-elimination",
+      "text": "$P\\to Q\\equiv\\neg P\\lor Q$",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Both sides are false exactly when the antecedent is true and the consequent false. This identity always holds."
+    },
+    {
+      "id": "contraposition",
+      "text": "$P\\to Q\\equiv\\neg Q\\to\\neg P$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Reversing the direction and negating both inputs gives contraposition, which is valid. It does not justify reversing the direction alone."
+    },
+    {
+      "id": "disjoin-consequents",
+      "text": "$P\\to(Q\\lor R)\\equiv(P\\to Q)\\lor(P\\to R)$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Both sides are false exactly when the antecedent is true and both possible consequents are false. The identity holds for every assignment."
+    },
+    {
+      "id": "swap-conjoined-antecedent",
+      "text": "$(P\\land Q)\\to R\\equiv(Q\\land P)\\to R$",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Only the conjunction inside the antecedent is reordered. Its truth value is unchanged, so the complete implication is unchanged too."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Oscar Levin — Propositional Logic: truth tables and logical equivalence",
+      "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+    },
+    {
+      "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+      "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+    }
+  ]
+}

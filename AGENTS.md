@@ -8,6 +8,8 @@ Run `npm test` and `npm run build` for app, scheduler, content, or ingestion cha
 
 Create questions only for topics explicitly requested by the user. The 38 original starter questions were retired as too elementary on 2026-11-18; do not restore them or add unsolicited basics. Requested topics are dense graph classes (first-order transductions, monadic dependence, merge-width, twin-width, clique-width, shrubdepth, and their relationships) and binary relations (properties such as symmetry and irreflexivity, their definitions, and combinations). Prefer conceptual questions, terminology recognition, and definitions in both directions (name to mathematical definition and definition to name). Follow the requested level; this is a personal curriculum preference, not a claim that elementary questions are generally bad. Dense graph classes remains the default; Relations is available in Topics. Retired source records remain validated and versioned, but the compiled bank includes only active questions and their topics.
 
+On 2026-11-19 the learner also requested commutativity and related concepts in Logic. The 14 new Boolean-law questions use the existing `logic-basics` topic ID, now titled Logic. The original logic starter cards remain retired. This request authorizes the named laws and their relationships, not restoration of the starter curriculum.
+
 Repository: https://github.com/clemenskuske/recall-cs
 App: https://clemenskuske.github.io/recall-cs/
 

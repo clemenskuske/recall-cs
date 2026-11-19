@@ -73,9 +73,10 @@ test('due reviews are randomized without admitting future, paused, retired, or u
 test('current topic replaces retired selections, while active choices and deselect-all are preserved',()=>{
   const s=freshState();assert.deepEqual(selectedTopicIds(bank,s),['dense-graph-classes']);
   assert.ok(queueFor(bank,s).fresh.every(q=>q.topic==='dense-graph-classes'));
-  s.settings.selectedTopics=['logic-basics'];assert.deepEqual(selectedTopicIds(bank,s),['dense-graph-classes']);
+  s.settings.selectedTopics=['algorithms'];assert.deepEqual(selectedTopicIds(bank,s),['dense-graph-classes']);
+  s.settings.selectedTopics=['logic-basics'];assert.deepEqual(selectedTopicIds(bank,s),['logic-basics']);
   const expanded={...bank,topics:[...bank.topics,{id:'another-topic'}]};
-  s.settings.selectedTopics=['logic-basics','another-topic'];assert.deepEqual(selectedTopicIds(expanded,s),['another-topic']);
+  s.settings.selectedTopics=['algorithms','another-topic'];assert.deepEqual(selectedTopicIds(expanded,s),['another-topic']);
   s.settings.selectedTopics=[];assert.equal(queueFor(bank,s).fresh.length,0);
 });
 test('retired starter records stay in source and leave the downloadable curriculum',async()=>{
@@ -84,18 +85,19 @@ test('retired starter records stay in source and leave the downloadable curricul
   const starterIds=['logic-basics','algorithms','data-structures','graph-theory','complexity'];
   for(const topic of sourceTopics.filter(t=>starterIds.includes(t.id))){
     const dir=new URL(`../questions/${topic.id}/`,import.meta.url);
-    for(const file of await readdir(dir))if(file.endsWith('.json'))retired.push(JSON.parse(await readFile(new URL(file,dir),'utf8')));
+    for(const file of await readdir(dir))if(file.endsWith('.json')&&(topic.id!=='logic-basics'||/^logic-(0[1-9]|1[0-4])-/.test(file)))retired.push(JSON.parse(await readFile(new URL(file,dir),'utf8')));
   }
   assert.equal(retired.length,38);
   assert.ok(retired.every(q=>q.status==='retired'&&q.revision===2));
   assert.ok(bank.questions.every(q=>!retired.some(r=>r.id===q.id)));
-  assert.ok(bank.topics.every(t=>!starterIds.includes(t.id)));
+  assert.ok(bank.topics.every(t=>t.id==='logic-basics'||!starterIds.includes(t.id)));
   const s=freshState();s.settings.selectedTopics=['logic-basics'];s.settings.newPerDay=30;
   // Even previously learned and due starter cards must stay retired.
   reviewQuestion(retired[0],s,retired[0].answers.find(a=>!a.correct),false,new Date('2026-11-01T00:00:00Z'));
   const queue=queueFor(bank,s,new Date('2026-11-18T12:00:00Z'));
-  assert.ok([...queue.due,...queue.fresh].every(q=>q.status==='active'&&q.topic==='dense-graph-classes'));
-  assert.equal(queue.fresh.length,28);
+  assert.ok([...queue.due,...queue.fresh].every(q=>q.status==='active'&&q.topic==='logic-basics'&&!retired.some(r=>r.id===q.id)));
+  assert.equal(queue.fresh.length,bank.questions.filter(q=>q.topic==='logic-basics').length);
+  assert.ok(queue.fresh.length>0);
 });
 test('missed and guessed cards return after one minute, never immediately',()=>{
   for(const guessed of [false,true]){

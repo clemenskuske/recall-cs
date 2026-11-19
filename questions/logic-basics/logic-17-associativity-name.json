@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "logic-17-associativity-name",
+  "topic": "logic-basics",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $P,Q,R$ be classical propositions, with $\\equiv$ meaning equal truth values under every assignment. Which law names this pattern?\n$(P\\lor Q)\\lor R\\equiv P\\lor(Q\\lor R)$",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Associativity",
+      "correct": true,
+      "explanation": "Regrouping a chain of disjunctions leaves its value unchanged. This law preserves operand order; swapping operands is a separate property."
+    },
+    {
+      "id": "law-involution",
+      "text": "Double negation (involution)",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Applying negation twice restores the original truth value. That is a different pattern from the displayed law."
+    },
+    {
+      "id": "law-de-morgan",
+      "text": "De Morgan’s law",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Moving negation through a conjunction negates both operands and changes conjunction to disjunction. That is a different pattern from the displayed law."
+    },
+    {
+      "id": "law-complement",
+      "text": "Complement law (excluded middle)",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A proposition and its negation cover both possible truth values. That is a different pattern from the displayed law."
+    },
+    {
+      "id": "law-identity",
+      "text": "Identity law (neutral element)",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A neutral constant leaves the other operand unchanged. That is a different pattern from the displayed law."
+    },
+    {
+      "id": "law-domination",
+      "text": "Domination law (absorbing element)",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "An absorbing constant fixes the result regardless of the other operand. That is a different pattern from the displayed law."
+    },
+    {
+      "id": "law-idempotence",
+      "text": "Idempotence",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Combining a proposition with itself using conjunction adds no new requirement. That is a different pattern from the displayed law."
+    },
+    {
+      "id": "law-commutativity",
+      "text": "Commutativity",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The two operands exchange places while the connective stays the same. That is a different pattern from the displayed law."
+    },
+    {
+      "id": "law-distributivity",
+      "text": "Distributivity",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Disjunction distributes over conjunction, repeating the outside operand in both resulting disjunctions. That is a different pattern from the displayed law."
+    },
+    {
+      "id": "law-absorption",
+      "text": "Absorption",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The conjunction can only be true when the repeated proposition already makes the outer disjunction true. That is a different pattern from the displayed law."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+      "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+    },
+    {
+      "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+      "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+    }
+  ]
+}

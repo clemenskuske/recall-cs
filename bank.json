@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2c48238a78e88a54",
+  "version": "7a49d1ec2310b1c8",
   "topics": [
     {
       "id": "dense-graph-classes",
@@ -14,6 +14,14 @@
       "id": "relations",
       "title": "Relations",
       "description": "Symmetry, irreflexivity, transitivity, and the properties that define equivalence and order.",
+      "symbol": "braces",
+      "color": "sage",
+      "defaultSelected": false
+    },
+    {
+      "id": "logic-basics",
+      "title": "Logic",
+      "description": "Commutativity, associativity, distributivity, and the laws of Boolean logic.",
       "symbol": "braces",
       "color": "sage",
       "defaultSelected": false
@@ -5147,6 +5155,1248 @@
         {
           "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
           "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-15-commutativity-name",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions, with $\\equiv$ meaning equal truth values under every assignment. Which law names this pattern?\n$P\\lor Q\\equiv Q\\lor P$",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Commutativity",
+          "correct": true,
+          "explanation": "Changing the order of two disjuncts leaves the result unchanged. The same operand-swap law holds for conjunction."
+        },
+        {
+          "id": "law-involution",
+          "text": "Double negation (involution)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Applying negation twice restores the original truth value. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-de-morgan",
+          "text": "De Morgan’s law",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Moving negation through a conjunction negates both operands and changes conjunction to disjunction. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-complement",
+          "text": "Complement law (excluded middle)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A proposition and its negation cover both possible truth values. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-identity",
+          "text": "Identity law (neutral element)",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A neutral constant leaves the other operand unchanged. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-domination",
+          "text": "Domination law (absorbing element)",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "An absorbing constant fixes the result regardless of the other operand. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-idempotence",
+          "text": "Idempotence",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Combining a proposition with itself using conjunction adds no new requirement. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-associativity",
+          "text": "Associativity",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Only the grouping changes; the order of the operands and the connective stay fixed. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-distributivity",
+          "text": "Distributivity",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Disjunction distributes over conjunction, repeating the outside operand in both resulting disjunctions. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-absorption",
+          "text": "Absorption",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The conjunction can only be true when the repeated proposition already makes the outer disjunction true. That is a different pattern from the displayed law."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-16-commutativity-law",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions; $\\top$ means true, $\\bot$ means false, and $\\equiv$ means equal truth values under every assignment. Which identity is the standard commutative law for conjunction?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$P\\land Q\\equiv Q\\land P$",
+          "correct": true,
+          "explanation": "The two operands exchange places while the connective stays the same."
+        },
+        {
+          "id": "law-involution",
+          "text": "$\\neg\\neg P\\equiv P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is double negation (involution). Applying negation twice restores the original truth value."
+        },
+        {
+          "id": "law-de-morgan",
+          "text": "$\\neg(P\\land Q)\\equiv\\neg P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is de morgan’s law. Moving negation through a conjunction negates both operands and changes conjunction to disjunction."
+        },
+        {
+          "id": "law-complement",
+          "text": "$P\\lor\\neg P\\equiv\\top$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is complement law (excluded middle). A proposition and its negation cover both possible truth values."
+        },
+        {
+          "id": "law-identity",
+          "text": "$P\\land\\top\\equiv P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is identity law (neutral element). A neutral constant leaves the other operand unchanged."
+        },
+        {
+          "id": "law-domination",
+          "text": "$P\\land\\bot\\equiv\\bot$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is domination law (absorbing element). An absorbing constant fixes the result regardless of the other operand."
+        },
+        {
+          "id": "law-idempotence",
+          "text": "$P\\land P\\equiv P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is idempotence. Combining a proposition with itself using conjunction adds no new requirement."
+        },
+        {
+          "id": "law-associativity",
+          "text": "$(P\\land Q)\\land R\\equiv P\\land(Q\\land R)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is associativity. Only the grouping changes; the order of the operands and the connective stay fixed."
+        },
+        {
+          "id": "law-distributivity",
+          "text": "$P\\lor(Q\\land R)\\equiv(P\\lor Q)\\land(P\\lor R)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is distributivity. Disjunction distributes over conjunction, repeating the outside operand in both resulting disjunctions."
+        },
+        {
+          "id": "law-absorption",
+          "text": "$P\\lor(P\\land Q)\\equiv P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is absorption. The conjunction can only be true when the repeated proposition already makes the outer disjunction true."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-17-associativity-name",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions, with $\\equiv$ meaning equal truth values under every assignment. Which law names this pattern?\n$(P\\lor Q)\\lor R\\equiv P\\lor(Q\\lor R)$",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Associativity",
+          "correct": true,
+          "explanation": "Regrouping a chain of disjunctions leaves its value unchanged. This law preserves operand order; swapping operands is a separate property."
+        },
+        {
+          "id": "law-involution",
+          "text": "Double negation (involution)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Applying negation twice restores the original truth value. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-de-morgan",
+          "text": "De Morgan’s law",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Moving negation through a conjunction negates both operands and changes conjunction to disjunction. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-complement",
+          "text": "Complement law (excluded middle)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A proposition and its negation cover both possible truth values. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-identity",
+          "text": "Identity law (neutral element)",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A neutral constant leaves the other operand unchanged. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-domination",
+          "text": "Domination law (absorbing element)",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "An absorbing constant fixes the result regardless of the other operand. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-idempotence",
+          "text": "Idempotence",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Combining a proposition with itself using conjunction adds no new requirement. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-commutativity",
+          "text": "Commutativity",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The two operands exchange places while the connective stays the same. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-distributivity",
+          "text": "Distributivity",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Disjunction distributes over conjunction, repeating the outside operand in both resulting disjunctions. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-absorption",
+          "text": "Absorption",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The conjunction can only be true when the repeated proposition already makes the outer disjunction true. That is a different pattern from the displayed law."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-18-associativity-law",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions; $\\top$ means true, $\\bot$ means false, and $\\equiv$ means equal truth values under every assignment. Which identity is the standard associative law for conjunction?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$(P\\land Q)\\land R\\equiv P\\land(Q\\land R)$",
+          "correct": true,
+          "explanation": "Only the grouping changes; the order of the operands and the connective stay fixed."
+        },
+        {
+          "id": "law-involution",
+          "text": "$\\neg\\neg P\\equiv P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is double negation (involution). Applying negation twice restores the original truth value."
+        },
+        {
+          "id": "law-de-morgan",
+          "text": "$\\neg(P\\land Q)\\equiv\\neg P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is de morgan’s law. Moving negation through a conjunction negates both operands and changes conjunction to disjunction."
+        },
+        {
+          "id": "law-complement",
+          "text": "$P\\lor\\neg P\\equiv\\top$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is complement law (excluded middle). A proposition and its negation cover both possible truth values."
+        },
+        {
+          "id": "law-identity",
+          "text": "$P\\land\\top\\equiv P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is identity law (neutral element). A neutral constant leaves the other operand unchanged."
+        },
+        {
+          "id": "law-domination",
+          "text": "$P\\land\\bot\\equiv\\bot$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is domination law (absorbing element). An absorbing constant fixes the result regardless of the other operand."
+        },
+        {
+          "id": "law-idempotence",
+          "text": "$P\\land P\\equiv P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is idempotence. Combining a proposition with itself using conjunction adds no new requirement."
+        },
+        {
+          "id": "law-commutativity",
+          "text": "$P\\land Q\\equiv Q\\land P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is commutativity. The two operands exchange places while the connective stays the same."
+        },
+        {
+          "id": "law-distributivity",
+          "text": "$P\\lor(Q\\land R)\\equiv(P\\lor Q)\\land(P\\lor R)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is distributivity. Disjunction distributes over conjunction, repeating the outside operand in both resulting disjunctions."
+        },
+        {
+          "id": "law-absorption",
+          "text": "$P\\lor(P\\land Q)\\equiv P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is absorption. The conjunction can only be true when the repeated proposition already makes the outer disjunction true."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-19-distributivity-name",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions, with $\\equiv$ meaning equal truth values under every assignment. Which law names this pattern?\n$P\\land(Q\\lor R)\\equiv(P\\land Q)\\lor(P\\land R)$",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Distributivity",
+          "correct": true,
+          "explanation": "Conjunction distributes over disjunction by repeating the outside operand. In Boolean logic the reverse direction of distribution, disjunction over conjunction, also holds."
+        },
+        {
+          "id": "law-involution",
+          "text": "Double negation (involution)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Applying negation twice restores the original truth value. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-complement",
+          "text": "Complement law (excluded middle)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A proposition and its negation cover both possible truth values. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-domination",
+          "text": "Domination law (absorbing element)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "An absorbing constant fixes the result regardless of the other operand. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-identity",
+          "text": "Identity law (neutral element)",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A neutral constant leaves the other operand unchanged. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-idempotence",
+          "text": "Idempotence",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Combining a proposition with itself using conjunction adds no new requirement. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-de-morgan",
+          "text": "De Morgan’s law",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Moving negation through a conjunction negates both operands and changes conjunction to disjunction. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-commutativity",
+          "text": "Commutativity",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The two operands exchange places while the connective stays the same. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-associativity",
+          "text": "Associativity",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Only the grouping changes; the order of the operands and the connective stay fixed. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-absorption",
+          "text": "Absorption",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The conjunction can only be true when the repeated proposition already makes the outer disjunction true. That is a different pattern from the displayed law."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-20-distributivity-law",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions; $\\top$ means true, $\\bot$ means false, and $\\equiv$ means equal truth values under every assignment. Which identity states that disjunction distributes over conjunction?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$P\\lor(Q\\land R)\\equiv(P\\lor Q)\\land(P\\lor R)$",
+          "correct": true,
+          "explanation": "Disjunction distributes over conjunction, repeating the outside operand in both resulting disjunctions."
+        },
+        {
+          "id": "law-involution",
+          "text": "$\\neg\\neg P\\equiv P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is double negation (involution). Applying negation twice restores the original truth value."
+        },
+        {
+          "id": "law-complement",
+          "text": "$P\\lor\\neg P\\equiv\\top$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is complement law (excluded middle). A proposition and its negation cover both possible truth values."
+        },
+        {
+          "id": "law-domination",
+          "text": "$P\\land\\bot\\equiv\\bot$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is domination law (absorbing element). An absorbing constant fixes the result regardless of the other operand."
+        },
+        {
+          "id": "law-identity",
+          "text": "$P\\land\\top\\equiv P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is identity law (neutral element). A neutral constant leaves the other operand unchanged."
+        },
+        {
+          "id": "law-idempotence",
+          "text": "$P\\land P\\equiv P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is idempotence. Combining a proposition with itself using conjunction adds no new requirement."
+        },
+        {
+          "id": "law-de-morgan",
+          "text": "$\\neg(P\\land Q)\\equiv\\neg P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is de morgan’s law. Moving negation through a conjunction negates both operands and changes conjunction to disjunction."
+        },
+        {
+          "id": "law-commutativity",
+          "text": "$P\\land Q\\equiv Q\\land P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is commutativity. The two operands exchange places while the connective stays the same."
+        },
+        {
+          "id": "law-associativity",
+          "text": "$(P\\land Q)\\land R\\equiv P\\land(Q\\land R)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is associativity. Only the grouping changes; the order of the operands and the connective stay fixed."
+        },
+        {
+          "id": "law-absorption",
+          "text": "$P\\lor(P\\land Q)\\equiv P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is absorption. The conjunction can only be true when the repeated proposition already makes the outer disjunction true."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-21-idempotence-name",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions, with $\\equiv$ meaning equal truth values under every assignment. Which law names this pattern?\n$P\\lor P\\equiv P$",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Idempotence",
+          "correct": true,
+          "explanation": "Repeating the same proposition in a disjunction gives the same result as using it once. Conjunction also has this property."
+        },
+        {
+          "id": "law-involution",
+          "text": "Double negation (involution)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Applying negation twice restores the original truth value. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-de-morgan",
+          "text": "De Morgan’s law",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Moving negation through a conjunction negates both operands and changes conjunction to disjunction. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-complement",
+          "text": "Complement law (excluded middle)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A proposition and its negation cover both possible truth values. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-commutativity",
+          "text": "Commutativity",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The two operands exchange places while the connective stays the same. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-associativity",
+          "text": "Associativity",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Only the grouping changes; the order of the operands and the connective stay fixed. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-distributivity",
+          "text": "Distributivity",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Disjunction distributes over conjunction, repeating the outside operand in both resulting disjunctions. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-identity",
+          "text": "Identity law (neutral element)",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A neutral constant leaves the other operand unchanged. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-domination",
+          "text": "Domination law (absorbing element)",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An absorbing constant fixes the result regardless of the other operand. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-absorption",
+          "text": "Absorption",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The conjunction can only be true when the repeated proposition already makes the outer disjunction true. That is a different pattern from the displayed law."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-22-idempotence-law",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions; $\\top$ means true, $\\bot$ means false, and $\\equiv$ means equal truth values under every assignment. Which identity is the standard idempotent law for conjunction?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$P\\land P\\equiv P$",
+          "correct": true,
+          "explanation": "Combining a proposition with itself using conjunction adds no new requirement."
+        },
+        {
+          "id": "law-involution",
+          "text": "$\\neg\\neg P\\equiv P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is double negation (involution). Applying negation twice restores the original truth value."
+        },
+        {
+          "id": "law-de-morgan",
+          "text": "$\\neg(P\\land Q)\\equiv\\neg P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is de morgan’s law. Moving negation through a conjunction negates both operands and changes conjunction to disjunction."
+        },
+        {
+          "id": "law-complement",
+          "text": "$P\\lor\\neg P\\equiv\\top$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is complement law (excluded middle). A proposition and its negation cover both possible truth values."
+        },
+        {
+          "id": "law-commutativity",
+          "text": "$P\\land Q\\equiv Q\\land P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is commutativity. The two operands exchange places while the connective stays the same."
+        },
+        {
+          "id": "law-associativity",
+          "text": "$(P\\land Q)\\land R\\equiv P\\land(Q\\land R)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is associativity. Only the grouping changes; the order of the operands and the connective stay fixed."
+        },
+        {
+          "id": "law-distributivity",
+          "text": "$P\\lor(Q\\land R)\\equiv(P\\lor Q)\\land(P\\lor R)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is distributivity. Disjunction distributes over conjunction, repeating the outside operand in both resulting disjunctions."
+        },
+        {
+          "id": "law-identity",
+          "text": "$P\\land\\top\\equiv P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is identity law (neutral element). A neutral constant leaves the other operand unchanged."
+        },
+        {
+          "id": "law-domination",
+          "text": "$P\\land\\bot\\equiv\\bot$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is domination law (absorbing element). An absorbing constant fixes the result regardless of the other operand."
+        },
+        {
+          "id": "law-absorption",
+          "text": "$P\\lor(P\\land Q)\\equiv P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is absorption. The conjunction can only be true when the repeated proposition already makes the outer disjunction true."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-23-absorption-name",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions, with $\\equiv$ meaning equal truth values under every assignment. Which law names this pattern?\n$P\\land(P\\lor Q)\\equiv P$",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Absorption",
+          "correct": true,
+          "explanation": "If the repeated proposition is false, the whole conjunction is false; if it is true, the inner disjunction is true. The other proposition therefore cannot affect the result."
+        },
+        {
+          "id": "law-involution",
+          "text": "Double negation (involution)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Applying negation twice restores the original truth value. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-de-morgan",
+          "text": "De Morgan’s law",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Moving negation through a conjunction negates both operands and changes conjunction to disjunction. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-complement",
+          "text": "Complement law (excluded middle)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A proposition and its negation cover both possible truth values. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-commutativity",
+          "text": "Commutativity",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The two operands exchange places while the connective stays the same. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-associativity",
+          "text": "Associativity",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Only the grouping changes; the order of the operands and the connective stay fixed. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-distributivity",
+          "text": "Distributivity",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Disjunction distributes over conjunction, repeating the outside operand in both resulting disjunctions. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-identity",
+          "text": "Identity law (neutral element)",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A neutral constant leaves the other operand unchanged. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-domination",
+          "text": "Domination law (absorbing element)",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An absorbing constant fixes the result regardless of the other operand. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-idempotence",
+          "text": "Idempotence",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Combining a proposition with itself using conjunction adds no new requirement. That is a different pattern from the displayed law."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-24-absorption-law",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions; $\\top$ means true, $\\bot$ means false, and $\\equiv$ means equal truth values under every assignment. Which identity is the standard absorption law with an outer disjunction?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$P\\lor(P\\land Q)\\equiv P$",
+          "correct": true,
+          "explanation": "The conjunction can only be true when the repeated proposition already makes the outer disjunction true."
+        },
+        {
+          "id": "law-involution",
+          "text": "$\\neg\\neg P\\equiv P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is double negation (involution). Applying negation twice restores the original truth value."
+        },
+        {
+          "id": "law-de-morgan",
+          "text": "$\\neg(P\\land Q)\\equiv\\neg P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is de morgan’s law. Moving negation through a conjunction negates both operands and changes conjunction to disjunction."
+        },
+        {
+          "id": "law-complement",
+          "text": "$P\\lor\\neg P\\equiv\\top$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is complement law (excluded middle). A proposition and its negation cover both possible truth values."
+        },
+        {
+          "id": "law-commutativity",
+          "text": "$P\\land Q\\equiv Q\\land P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is commutativity. The two operands exchange places while the connective stays the same."
+        },
+        {
+          "id": "law-associativity",
+          "text": "$(P\\land Q)\\land R\\equiv P\\land(Q\\land R)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is associativity. Only the grouping changes; the order of the operands and the connective stay fixed."
+        },
+        {
+          "id": "law-distributivity",
+          "text": "$P\\lor(Q\\land R)\\equiv(P\\lor Q)\\land(P\\lor R)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is distributivity. Disjunction distributes over conjunction, repeating the outside operand in both resulting disjunctions."
+        },
+        {
+          "id": "law-identity",
+          "text": "$P\\land\\top\\equiv P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is identity law (neutral element). A neutral constant leaves the other operand unchanged."
+        },
+        {
+          "id": "law-domination",
+          "text": "$P\\land\\bot\\equiv\\bot$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is domination law (absorbing element). An absorbing constant fixes the result regardless of the other operand."
+        },
+        {
+          "id": "law-idempotence",
+          "text": "$P\\land P\\equiv P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is idempotence. Combining a proposition with itself using conjunction adds no new requirement."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-25-neutral-and-absorbing",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions; $\\top$ means true, $\\bot$ means false, and $\\equiv$ means equal truth values under every assignment. Which pair states that true is neutral for conjunction, while false is absorbing for conjunction?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$P\\land\\top\\equiv P$; $P\\land\\bot\\equiv\\bot$",
+          "correct": true,
+          "explanation": "A neutral element preserves the other input. An absorbing element determines the output. Conjunction with true preserves the input, while conjunction with false forces false."
+        },
+        {
+          "id": "constants-swapped",
+          "text": "$P\\land\\bot\\equiv P$; $P\\land\\top\\equiv\\top$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The roles are reversed: conjunction with false forces false, and conjunction with true need not be true."
+        },
+        {
+          "id": "both-neutral",
+          "text": "$P\\land\\top\\equiv P$; $P\\land\\bot\\equiv P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Only true is neutral for conjunction. The second identity fails when the proposition is true."
+        },
+        {
+          "id": "both-absorbing",
+          "text": "$P\\land\\top\\equiv\\top$; $P\\land\\bot\\equiv\\bot$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Only false is absorbing for conjunction. The first identity fails when the proposition is false."
+        },
+        {
+          "id": "disjunction-roles",
+          "text": "$P\\lor\\bot\\equiv P$; $P\\lor\\top\\equiv\\top$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "These are the correct neutral and absorbing laws for disjunction. The question asks for conjunction, where the constants have opposite roles."
+        },
+        {
+          "id": "two-neutral-laws",
+          "text": "$P\\land\\top\\equiv P$; $P\\lor\\bot\\equiv P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Both constants preserve the other input for their respective connectives. Neither formula states an absorbing law for conjunction."
+        },
+        {
+          "id": "two-absorbing-laws",
+          "text": "$P\\lor\\top\\equiv\\top$; $P\\land\\bot\\equiv\\bot$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Both formulas describe absorbing elements. The first does not say that true preserves an input under conjunction."
+        },
+        {
+          "id": "idempotence-and-zero",
+          "text": "$P\\land P\\equiv P$; $P\\land\\bot\\equiv\\bot$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The first formula is idempotence: it repeats a variable input instead of combining it with a fixed neutral element."
+        },
+        {
+          "id": "identity-and-complement",
+          "text": "$P\\land\\top\\equiv P$; $P\\land\\neg P\\equiv\\bot$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The second formula uses the complement of the input. It does not combine an arbitrary input with one fixed absorbing element."
+        },
+        {
+          "id": "absorption-and-zero",
+          "text": "$P\\land(P\\lor Q)\\equiv P$; $P\\land\\bot\\equiv\\bot$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The first formula is the absorption law involving two connectives. Its inner expression depends on the inputs; it is not a fixed neutral element."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-26-de-morgan-name",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions, with $\\equiv$ meaning equal truth values under every assignment. Which law names this pattern?\n$\\neg(P\\lor Q)\\equiv\\neg P\\land\\neg Q$",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "De Morgan’s law",
+          "correct": true,
+          "explanation": "A disjunction is false exactly when both disjuncts are false. Moving the negation inside therefore negates both operands and changes disjunction to conjunction."
+        },
+        {
+          "id": "law-identity",
+          "text": "Identity law (neutral element)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A neutral constant leaves the other operand unchanged. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-domination",
+          "text": "Domination law (absorbing element)",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "An absorbing constant fixes the result regardless of the other operand. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-idempotence",
+          "text": "Idempotence",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Combining a proposition with itself using conjunction adds no new requirement. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-commutativity",
+          "text": "Commutativity",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The two operands exchange places while the connective stays the same. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-associativity",
+          "text": "Associativity",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Only the grouping changes; the order of the operands and the connective stay fixed. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-absorption",
+          "text": "Absorption",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The conjunction can only be true when the repeated proposition already makes the outer disjunction true. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-distributivity",
+          "text": "Distributivity",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Disjunction distributes over conjunction, repeating the outside operand in both resulting disjunctions. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-complement",
+          "text": "Complement law (excluded middle)",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A proposition and its negation cover both possible truth values. That is a different pattern from the displayed law."
+        },
+        {
+          "id": "law-involution",
+          "text": "Double negation (involution)",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Applying negation twice restores the original truth value. That is a different pattern from the displayed law."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-27-implication-not-commutative",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions; $\\top$ means true, $\\bot$ means false, and $\\equiv$ means equal truth values under every assignment. Which proposed identity fails for some truth assignment, showing that the commutative law cannot be used for every binary connective?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$P\\to Q\\equiv Q\\to P$",
+          "correct": true,
+          "explanation": "Take the first proposition true and the second false. The forward implication is false, but the reversed implication is true. Swapping antecedent and consequent is therefore not a valid equivalence."
+        },
+        {
+          "id": "and-swap",
+          "text": "$P\\land Q\\equiv Q\\land P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Conjunction is true exactly when both inputs are true, regardless of their order. This identity holds for every assignment."
+        },
+        {
+          "id": "or-swap",
+          "text": "$P\\lor Q\\equiv Q\\lor P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Inclusive disjunction is true exactly when at least one input is true, regardless of order. This identity always holds."
+        },
+        {
+          "id": "iff-swap",
+          "text": "$P\\leftrightarrow Q\\equiv Q\\leftrightarrow P$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A biconditional tests equality of the input truth values. Equality is unaffected by swapping them, so this identity always holds."
+        },
+        {
+          "id": "and-group",
+          "text": "$(P\\land Q)\\land R\\equiv P\\land(Q\\land R)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Both sides require all three inputs to be true. This associative law always holds."
+        },
+        {
+          "id": "or-group",
+          "text": "$(P\\lor Q)\\lor R\\equiv P\\lor(Q\\lor R)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Both sides require at least one of the three inputs to be true. This associative law always holds."
+        },
+        {
+          "id": "implication-elimination",
+          "text": "$P\\to Q\\equiv\\neg P\\lor Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Both sides are false exactly when the antecedent is true and the consequent false. This identity always holds."
+        },
+        {
+          "id": "contraposition",
+          "text": "$P\\to Q\\equiv\\neg Q\\to\\neg P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Reversing the direction and negating both inputs gives contraposition, which is valid. It does not justify reversing the direction alone."
+        },
+        {
+          "id": "disjoin-consequents",
+          "text": "$P\\to(Q\\lor R)\\equiv(P\\to Q)\\lor(P\\to R)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Both sides are false exactly when the antecedent is true and both possible consequents are false. The identity holds for every assignment."
+        },
+        {
+          "id": "swap-conjoined-antecedent",
+          "text": "$(P\\land Q)\\to R\\equiv(Q\\land P)\\to R$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Only the conjunction inside the antecedent is reordered. Its truth value is unchanged, so the complete implication is unchanged too."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oscar Levin — Propositional Logic: truth tables and logical equivalence",
+          "url": "https://discrete.openmathbooks.org/dmoi2/sec_propositional.html"
+        },
+        {
+          "title": "University of Rochester — Algebraic Laws for Logical Expressions",
+          "url": "https://www.cs.rochester.edu/users/faculty/nelson/courses/csc_173/proplogic/laws.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "logic-28-boolean-duality",
+      "topic": "logic-basics",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $P,Q,R$ be classical propositions; $\\top$ means true, $\\bot$ means false, and $\\equiv$ means equal truth values under every assignment. What is the exact dual of $P\\lor(Q\\land\\top)\\equiv P\\lor Q$? Exchange $\\land/\\lor$ and $\\top/\\bot$ throughout, preserving variable positions, negations, and parentheses.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$P\\land(Q\\lor\\bot)\\equiv P\\land Q$",
+          "correct": true,
+          "explanation": "Duality exchanges both connectives and both constants throughout the identity. Here the inner conjunction becomes disjunction, true becomes false, and both outer disjunctions become conjunctions."
+        },
+        {
+          "id": "only-connectives",
+          "text": "$P\\land(Q\\lor\\top)\\equiv P\\land Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The connectives were exchanged, but true was not exchanged with false. This proposed identity even fails when the first input is true and the second false."
+        },
+        {
+          "id": "only-constants",
+          "text": "$P\\lor(Q\\land\\bot)\\equiv P\\lor Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The constant was exchanged, but the connectives were not. This proposed identity fails when the first input is false and the second true."
+        },
+        {
+          "id": "only-outer",
+          "text": "$P\\land(Q\\land\\bot)\\equiv P\\land Q$",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The inner conjunction also needs to become disjunction. As written, the left side is always false, while the right side need not be."
+        },
+        {
+          "id": "renaming",
+          "text": "$Q\\lor(P\\land\\top)\\equiv Q\\lor P$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This consistently renames the two variables. Renaming preserves validity, but it is not the specified duality operation."
+        },
+        {
+          "id": "reversing",
+          "text": "$P\\lor Q\\equiv P\\lor(Q\\land\\top)$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This reverses the two sides of the original identity. It does not exchange any connectives or constants."
+        },
+        {
+          "id": "complement-inputs",
+          "text": "$\\neg P\\lor(\\neg Q\\land\\top)\\equiv\\neg P\\lor\\neg Q$",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This substitutes the negation of each variable into the original law. The dual instead keeps variables unchanged and exchanges connectives and constants."
+        },
+        {
+          "id": "negate-sides",
+          "text": "$\\neg(P\\lor(Q\\land\\top))\\equiv\\neg(P\\lor Q)$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Negating both sides preserves an equivalence, but it is a different transformation from the specified structural dual."
+        },
+        {
+          "id": "simplified-dual",
+          "text": "$P\\land Q\\equiv P\\land Q$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This can result after simplifying the dual, but it is not the displayed formula obtained by the specified exchanges while preserving parentheses."
+        },
+        {
+          "id": "commuted-dual",
+          "text": "$(Q\\lor\\bot)\\land P\\equiv Q\\land P$",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This is equivalent to the dual after additional commutative rewrites. The specified duality operation preserves variable positions and does not perform those rewrites."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Martin J. Dürst — Discrete Mathematics I: Laws for Logical Operations",
+          "url": "https://sw.it.aoyama.ac.jp/2024/Math1/lecture4.html"
         }
       ]
     }

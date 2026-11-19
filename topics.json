@@ -17,8 +17,8 @@
   },
   {
     "id": "logic-basics",
-    "title": "Logic basics",
-    "description": "Start with and, or, if…then, and clear reasoning.",
+    "title": "Logic",
+    "description": "Commutativity, associativity, distributivity, and the laws of Boolean logic.",
     "symbol": "braces",
     "color": "sage",
     "defaultSelected": false

@@ -6,17 +6,19 @@ import { readdir, readFile } from 'node:fs/promises';
 // No eval: only this small, explicit language of classical formulas is accepted.
 function parse(tex) {
   const source=tex.replace(/\$/g,'').replace(/\\,/g,'');
-  const tokens=source.match(/\\(?:neg|land|lor|to|leftrightarrow|forall|exists)|[A-Zx()]/g)||[];
+  const tokens=source.match(/\\(?:neg|land|lor|top|bot|to|leftrightarrow|equiv|forall|exists)|[A-Zx()]/g)||[];
   assert.equal(tokens.join(''),source.replace(/\s/g,''),'unsupported formula syntax');
   let pos=0;
   const take=token=>{if(tokens[pos]===token){pos++;return true;}return false;};
   const need=token=>assert.ok(take(token),`expected ${token} in ${tex}`);
   const unary=()=>{
     if(take('\\neg'))return {op:'not',a:unary()};
+    if(take('\\top'))return {op:'constant',value:true};
+    if(take('\\bot'))return {op:'constant',value:false};
     if(tokens[pos]==='\\forall'||tokens[pos]==='\\exists'){
       const op=tokens[pos++];need('x');return {op,a:unary()};
     }
-    if(take('(')){const node=iff();need(')');return node;}
+    if(take('(')){const node=equivalence();need(')');return node;}
     const name=tokens[pos++];assert.match(name||'',/^[A-Z]$/);
     if(take('(')){need('x');need(')');return {op:'predicate',name};}
     return {op:'variable',name};
@@ -25,9 +27,11 @@ function parse(tex) {
   const or=()=>{let a=and();while(take('\\lor'))a={op:'or',a,b:and()};return a;};
   const implies=()=>{const a=or();return take('\\to')?{op:'implies',a,b:implies()}:a;};
   const iff=()=>{let a=implies();while(take('\\leftrightarrow'))a={op:'iff',a,b:implies()};return a;};
-  const result=iff();assert.equal(pos,tokens.length);return result;
+  const equivalence=()=>{const a=iff();return take('\\equiv')?{op:'iff',a,b:iff()}:a;};
+  const result=equivalence();assert.equal(pos,tokens.length);return result;
 }
 function evaluate(n,env){
+  if(n.op==='constant')return n.value;
   if(n.op==='variable')return env[n.name];
   if(n.op==='predicate')return env.object[n.name];
   if(n.op==='not')return !evaluate(n.a,env);
@@ -53,7 +57,7 @@ const targets={
   'logic-11-tautology':()=>true,
   'logic-12-valid-inference':()=>true,
 };
-// Retired questions are archived in source, no longer downloaded by the app.
+// Read source so the original retired cards remain checked alongside new ones.
 const dir=new URL('../questions/logic-basics/',import.meta.url);
 const bank={questions:await Promise.all((await readdir(dir)).filter(f=>f.endsWith('.json')).map(async f=>JSON.parse(await readFile(new URL(f,dir),'utf8'))))};
 test('all propositional answer keys and distractors agree with exhaustive truth tables',()=>{
@@ -65,6 +69,54 @@ test('all propositional answer keys and distractors agree with exhaustive truth 
       assert.equal(answer.correct,equivalent,`${id}: ${answer.text}`);
     }
   }
+});
+
+const assignments=[false,true].flatMap(P=>[false,true].flatMap(Q=>[false,true].map(R=>({P,Q,R}))));
+const mathSpans=text=>text.match(/\$[^$\n]+\$/g)||[];
+const tautology=tex=>{const ast=parse(tex);return assignments.every(env=>evaluate(ast,env));};
+
+test('named Boolean laws and all law-recognition alternatives are valid identities',()=>{
+  const cards=bank.questions.filter(q=>q.status==='active'&&(/-(name|law)$/.test(q.id)));
+  assert.ok(cards.length>0);
+  for(const q of cards){
+    // These cards ask which NAME or STANDARD PATTERN applies. Their distractors
+    // deliberately show other valid laws; falsity is not the selection rule.
+    const identities=[q.prompt,...q.answers.map(a=>a.text)].flatMap(mathSpans).filter(tex=>tex.includes('\\equiv')&&tex!=='$\\equiv$');
+    assert.ok(identities.length>0,q.id);
+    for(const tex of identities)assert.ok(tautology(tex),`${q.id}: ${tex}`);
+  }
+});
+
+test('only the selected implication identity has a truth-table counterexample',()=>{
+  const q=bank.questions.find(q=>q.id==='logic-27-implication-not-commutative');assert.ok(q);
+  for(const a of q.answers)assert.equal(a.correct,!tautology(a.text),a.id);
+});
+
+test('neutral and absorbing roles use fixed constants, with every displayed claim checked',()=>{
+  const q=bank.questions.find(q=>q.id==='logic-25-neutral-and-absorbing');assert.ok(q);
+  for(const a of q.answers){
+    const formulas=mathSpans(a.text);assert.equal(formulas.length,2);
+    const [neutral,absorbing]=formulas.map(parse);
+    const isConjunctionWithConstant=n=>n.op==='iff'&&n.a.op==='and'&&n.a.a.op==='variable'&&n.a.a.name==='P'&&n.a.b.op==='constant';
+    const matchesRoles=isConjunctionWithConstant(neutral)&&isConjunctionWithConstant(absorbing)&&neutral.b.op==='variable'&&neutral.b.name==='P'&&absorbing.b.op==='constant'&&absorbing.a.b.value===absorbing.b.value&&formulas.every(tautology);
+    assert.equal(a.correct,matchesRoles,a.id);
+    // The three introductory distractors contain a false identity; later ones
+    // contrast valid laws with the requested roles of fixed constants.
+    assert.equal(formulas.every(tautology),a.correct||a.difficulty>1,a.id);
+  }
+});
+
+test('Boolean duality preserves structure while exchanging both connectives and constants',()=>{
+  const q=bank.questions.find(q=>q.id==='logic-28-boolean-duality');assert.ok(q);
+  const original=parse(mathSpans(q.prompt).find(tex=>tex.includes('\\equiv')&&tex!=='$\\equiv$'));
+  const dual=n=>n.op==='constant'?{...n,value:!n.value}:{...n,op:({and:'or',or:'and'})[n.op]||n.op,...(n.a?{a:dual(n.a)}:{}),...(n.b?{b:dual(n.b)}:{})};
+  const expected=dual(original);
+  for(const a of q.answers){
+    const actual=parse(a.text);
+    assert.equal(a.correct,JSON.stringify(actual)===JSON.stringify(expected),a.id);
+    assert.equal(tautology(a.text),a.correct||a.difficulty>1,a.id);
+  }
+  assert.ok(assignments.every(env=>evaluate(expected,env)));
 });
 test('quantifier distractors have concrete countermodels; correct formulas agree on all small models',()=>{
   for(const [id,names,target] of [
