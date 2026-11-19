@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "6ca6e4d4ba909ec1",
+  "version": "dfc4b55232a46921",
   "topics": [
     {
       "id": "dense-graph-classes",
@@ -9,6 +9,14 @@
       "symbol": "graph",
       "color": "lavender",
       "defaultSelected": true
+    },
+    {
+      "id": "relations",
+      "title": "Relations",
+      "description": "Symmetry, irreflexivity, transitivity, and the properties that define equivalence and order.",
+      "symbol": "braces",
+      "color": "sage",
+      "defaultSelected": false
     }
   ],
   "questions": [
@@ -2469,6 +2477,2676 @@
         {
           "title": "Bonnet et al. — Twin-width I, §§2–4 (2021 version)",
           "url": "https://arxiv.org/html/2004.14789v3"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-01-reflexive-name",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\; R(x,x)$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Reflexivity.",
+          "correct": true,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Irreflexivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Symmetry.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Transitivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Existence of a self-loop.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Only one element needs to relate to itself. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Seriality.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Each element has at least one outgoing related element, which may be itself. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Equality as the entire relation.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "All diagonal pairs and no off-diagonal pairs are present. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Comparability including equal elements.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every pair is comparable, including an element with itself, so all loops are required. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Universality.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every ordered pair is present, including every loop. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Coreflexivity.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every related pair is diagonal; some or all loops may be missing. That is a different condition from the displayed formula."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-02-reflexive-definition",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For $R\\subseteq A\\times A$, which condition defines reflexivity? All quantified variables range over $A$.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\forall x\\; R(x,x)$.",
+          "correct": true,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This defines irreflexivity, not reflexivity."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not reflexivity."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not reflexivity."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\exists x\\; R(x,x)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Only one element needs to relate to itself. This defines existence of a self-loop, not reflexivity."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\forall x\\exists y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Each element has at least one outgoing related element, which may be itself. This defines seriality, not reflexivity."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Leftrightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "All diagonal pairs and no off-diagonal pairs are present. This defines equality as the entire relation, not reflexivity."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\lor R(y,x))$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every pair is comparable, including an element with itself, so all loops are required. This defines comparability including equal elements, not reflexivity."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\forall x\\forall y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every ordered pair is present, including every loop. This defines universality, not reflexivity."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every related pair is diagonal; some or all loops may be missing. This defines coreflexivity, not reflexivity."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-03-irreflexive-name",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\; \\neg R(x,x)$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Irreflexivity.",
+          "correct": true,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Reflexivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Symmetry.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Transitivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Failure of reflexivity.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "At least one self-loop is absent; other self-loops may be present. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Emptiness.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "No ordered pair is present, including between distinct elements. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Asymmetry.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Antisymmetry.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Mutual relatedness forces equality. Self-loops are allowed. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Failure of symmetry.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Some related pair lacks its reverse; this is an existential violation. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Coreflexivity.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every related pair is diagonal; some or all loops may be missing. That is a different condition from the displayed formula."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-04-irreflexive-definition",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For $R\\subseteq A\\times A$, which condition defines irreflexivity? All quantified variables range over $A$.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "correct": true,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\; R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not irreflexivity."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not irreflexivity."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not irreflexivity."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\exists x\\; \\neg R(x,x)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "At least one self-loop is absent; other self-loops may be present. This defines failure of reflexivity, not irreflexivity."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\forall x\\forall y\\; \\neg R(x,y)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "No ordered pair is present, including between distinct elements. This defines emptiness, not irreflexivity."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This defines asymmetry, not irreflexivity."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Mutual relatedness forces equality. Self-loops are allowed. This defines antisymmetry, not irreflexivity."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Some related pair lacks its reverse; this is an existential violation. This defines failure of symmetry, not irreflexivity."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every related pair is diagonal; some or all loops may be missing. This defines coreflexivity, not irreflexivity."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-05-symmetric-name",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Symmetry.",
+          "correct": true,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Reflexivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Irreflexivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Transitivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Antisymmetry.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Mutual relatedness forces equality. Self-loops are allowed. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Asymmetry.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Connexity on distinct elements.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every pair of distinct elements is comparable in at least one direction. This convention imposes no condition on loops. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-7",
+          "text": "The right-Euclidean property.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Two outgoing neighbours of the same element must be related in the indicated direction. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Coreflexivity.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every related pair is diagonal; some or all loops may be missing. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Failure of symmetry.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Some related pair lacks its reverse; this is an existential violation. That is a different condition from the displayed formula."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-06-symmetric-definition",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For $R\\subseteq A\\times A$, which condition defines symmetry? All quantified variables range over $A$.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "correct": true,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\; R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not symmetry."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This defines irreflexivity, not symmetry."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not symmetry."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Mutual relatedness forces equality. Self-loops are allowed. This defines antisymmetry, not symmetry."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This defines asymmetry, not symmetry."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every pair of distinct elements is comparable in at least one direction. This convention imposes no condition on loops. This defines connexity on distinct elements, not symmetry."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow R(y,z))$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Two outgoing neighbours of the same element must be related in the indicated direction. This defines the right-euclidean property, not symmetry."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every related pair is diagonal; some or all loops may be missing. This defines coreflexivity, not symmetry."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Some related pair lacks its reverse; this is an existential violation. This defines failure of symmetry, not symmetry."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-07-antisymmetric-name",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Antisymmetry.",
+          "correct": true,
+          "explanation": "Mutual relatedness forces equality. Self-loops are allowed."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Symmetry.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Reflexivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Transitivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Asymmetry.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Irreflexivity.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Failure of symmetry.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Some related pair lacks its reverse; this is an existential violation. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Coreflexivity.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every related pair is diagonal; some or all loops may be missing. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Right-uniqueness.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An element has at most one outgoing related element; it need not have any. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Equality as the entire relation.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "All diagonal pairs and no off-diagonal pairs are present. That is a different condition from the displayed formula."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-08-antisymmetric-definition",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For $R\\subseteq A\\times A$, which condition defines antisymmetry? All quantified variables range over $A$.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "correct": true,
+          "explanation": "Mutual relatedness forces equality. Self-loops are allowed."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not antisymmetry."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\; R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not antisymmetry."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not antisymmetry."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This defines asymmetry, not antisymmetry."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This defines irreflexivity, not antisymmetry."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Some related pair lacks its reverse; this is an existential violation. This defines failure of symmetry, not antisymmetry."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every related pair is diagonal; some or all loops may be missing. This defines coreflexivity, not antisymmetry."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not antisymmetry."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Leftrightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "All diagonal pairs and no off-diagonal pairs are present. This defines equality as the entire relation, not antisymmetry."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-09-asymmetric-name",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Asymmetry.",
+          "correct": true,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Symmetry.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Reflexivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Transitivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Antisymmetry.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Mutual relatedness forces equality. Self-loops are allowed. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Irreflexivity.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Failure of symmetry.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Some related pair lacks its reverse; this is an existential violation. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Emptiness.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "No ordered pair is present, including between distinct elements. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Antitransitivity.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every two-step chain lacks its direct shortcut. Failure of transitivity instead requires at least one chain without its shortcut. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Right-uniqueness.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An element has at most one outgoing related element; it need not have any. That is a different condition from the displayed formula."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-10-asymmetric-definition",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For $R\\subseteq A\\times A$, which condition defines asymmetry? All quantified variables range over $A$.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "correct": true,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not asymmetry."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\; R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not asymmetry."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not asymmetry."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Mutual relatedness forces equality. Self-loops are allowed. This defines antisymmetry, not asymmetry."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This defines irreflexivity, not asymmetry."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Some related pair lacks its reverse; this is an existential violation. This defines failure of symmetry, not asymmetry."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\forall x\\forall y\\; \\neg R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "No ordered pair is present, including between distinct elements. This defines emptiness, not asymmetry."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every two-step chain lacks its direct shortcut. Failure of transitivity instead requires at least one chain without its shortcut. This defines antitransitivity, not asymmetry."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not asymmetry."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-11-transitive-name",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Transitivity.",
+          "correct": true,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Reflexivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Symmetry.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Antisymmetry.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Mutual relatedness forces equality. Self-loops are allowed. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Antitransitivity.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every two-step chain lacks its direct shortcut. Failure of transitivity instead requires at least one chain without its shortcut. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-5",
+          "text": "The right-Euclidean property.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Two outgoing neighbours of the same element must be related in the indicated direction. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Connexity on distinct elements.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every pair of distinct elements is comparable in at least one direction. This convention imposes no condition on loops. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Failure of transitivity.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Some two-step chain lacks its shortcut; other chains may have shortcuts. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Right-uniqueness.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An element has at most one outgoing related element; it need not have any. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Seriality.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Each element has at least one outgoing related element, which may be itself. That is a different condition from the displayed formula."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-12-transitive-definition",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For $R\\subseteq A\\times A$, which condition defines transitivity? All quantified variables range over $A$.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "correct": true,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\; R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not transitivity."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not transitivity."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Mutual relatedness forces equality. Self-loops are allowed. This defines antisymmetry, not transitivity."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every two-step chain lacks its direct shortcut. Failure of transitivity instead requires at least one chain without its shortcut. This defines antitransitivity, not transitivity."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow R(y,z))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Two outgoing neighbours of the same element must be related in the indicated direction. This defines the right-euclidean property, not transitivity."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every pair of distinct elements is comparable in at least one direction. This convention imposes no condition on loops. This defines connexity on distinct elements, not transitivity."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Some two-step chain lacks its shortcut; other chains may have shortcuts. This defines failure of transitivity, not transitivity."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not transitivity."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\forall x\\exists y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Each element has at least one outgoing related element, which may be itself. This defines seriality, not transitivity."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-13-connex-name",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Connexity on distinct elements.",
+          "correct": true,
+          "explanation": "Every pair of distinct elements is comparable in at least one direction. This convention imposes no condition on loops."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Symmetry.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Antisymmetry.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Mutual relatedness forces equality. Self-loops are allowed. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Transitivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Seriality.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Each element has at least one outgoing related element, which may be itself. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Universality.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every ordered pair is present, including every loop. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Asymmetry.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Comparability including equal elements.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every pair is comparable, including an element with itself, so all loops are required. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Right-uniqueness.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An element has at most one outgoing related element; it need not have any. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Nonemptiness.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "One related pair suffices; the other elements may be isolated. That is a different condition from the displayed formula."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-14-connex-definition",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For $R\\subseteq A\\times A$, which condition defines connexity on distinct elements? All quantified variables range over $A$. Here connexity only compares distinct elements.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+          "correct": true,
+          "explanation": "Every pair of distinct elements is comparable in at least one direction. This convention imposes no condition on loops."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not connexity on distinct elements."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Mutual relatedness forces equality. Self-loops are allowed. This defines antisymmetry, not connexity on distinct elements."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not connexity on distinct elements."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\forall x\\exists y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Each element has at least one outgoing related element, which may be itself. This defines seriality, not connexity on distinct elements."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\forall x\\forall y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every ordered pair is present, including every loop. This defines universality, not connexity on distinct elements."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This defines asymmetry, not connexity on distinct elements."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\lor R(y,x))$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every pair is comparable, including an element with itself, so all loops are required. This defines comparability including equal elements, not connexity on distinct elements."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not connexity on distinct elements."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\exists x\\exists y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "One related pair suffices; the other elements may be isolated. This defines nonemptiness, not connexity on distinct elements."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-15-serial-name",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\exists y\\; R(x,y)$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Seriality.",
+          "correct": true,
+          "explanation": "Each element has at least one outgoing related element, which may be itself."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Reflexivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Symmetry.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Transitivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Nonemptiness.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "One related pair suffices; the other elements may be isolated. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Right-uniqueness.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "An element has at most one outgoing related element; it need not have any. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Connexity on distinct elements.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every pair of distinct elements is comparable in at least one direction. This convention imposes no condition on loops. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Existence of an incoming neighbour for every element.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every element has a predecessor; this does not ensure that every element has a successor. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Existence of one common outgoing target.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "One element must be a successor of every element; seriality can use different successors. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Universality.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every ordered pair is present, including every loop. That is a different condition from the displayed formula."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-16-serial-definition",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For $R\\subseteq A\\times A$, which condition defines seriality? All quantified variables range over $A$.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\forall x\\exists y\\; R(x,y)$.",
+          "correct": true,
+          "explanation": "Each element has at least one outgoing related element, which may be itself."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\; R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not seriality."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not seriality."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not seriality."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\exists x\\exists y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "One related pair suffices; the other elements may be isolated. This defines nonemptiness, not seriality."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not seriality."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every pair of distinct elements is comparable in at least one direction. This convention imposes no condition on loops. This defines connexity on distinct elements, not seriality."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\forall y\\exists x\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every element has a predecessor; this does not ensure that every element has a successor. This defines existence of an incoming neighbour for every element, not seriality."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\exists y\\forall x\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "One element must be a successor of every element; seriality can use different successors. This defines existence of one common outgoing target, not seriality."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\forall x\\forall y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every ordered pair is present, including every loop. This defines universality, not seriality."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-17-antitransitive-name",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Antitransitivity.",
+          "correct": true,
+          "explanation": "Every two-step chain lacks its direct shortcut. Failure of transitivity instead requires at least one chain without its shortcut."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Transitivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Symmetry.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Reflexivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Failure of transitivity.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Some two-step chain lacks its shortcut; other chains may have shortcuts. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Irreflexivity.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Asymmetry.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Emptiness.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "No ordered pair is present, including between distinct elements. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Failure of symmetry.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Some related pair lacks its reverse; this is an existential violation. That is a different condition from the displayed formula."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Right-uniqueness.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An element has at most one outgoing related element; it need not have any. That is a different condition from the displayed formula."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-18-antitransitive-definition",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For $R\\subseteq A\\times A$, which condition defines antitransitivity? All quantified variables range over $A$. Here antitransitive means that every two-step chain lacks its shortcut.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
+          "correct": true,
+          "explanation": "Every two-step chain lacks its direct shortcut. Failure of transitivity instead requires at least one chain without its shortcut."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not antitransitivity."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not antitransitivity."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\; R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not antitransitivity."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Some two-step chain lacks its shortcut; other chains may have shortcuts. This defines failure of transitivity, not antitransitivity."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This defines irreflexivity, not antitransitivity."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This defines asymmetry, not antitransitivity."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\forall x\\forall y\\; \\neg R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "No ordered pair is present, including between distinct elements. This defines emptiness, not antitransitivity."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Some related pair lacks its reverse; this is an existential violation. This defines failure of symmetry, not antitransitivity."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not antitransitivity."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-19-equivalence",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which conditions on $R\\subseteq A\\times A$ are necessary and sufficient for $R$ to be an equivalence relation?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Reflexive, symmetric, and transitive.",
+          "correct": true,
+          "explanation": "The relation groups elements into classes: every element is in its own class, and class membership is reversible and transitive."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Reflexive, antisymmetric, and transitive.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "These define a partial order. A nontrivial equivalence class violates antisymmetry."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Irreflexive, symmetric, and transitive.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Reflexivity is required. On a nonempty domain, this combination cannot be an equivalence relation."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Reflexive, asymmetric, and transitive.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Asymmetry forbids loops, contradicting reflexivity on a nonempty domain."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Reflexive and symmetric.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Transitivity is missing: symmetric links from 1 to 2 and 2 to 3 need not link 1 to 3."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Symmetric and transitive.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Elements with no incident pairs may lack their required self-loop."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Reflexive and transitive.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This defines a preorder; reversibility is not guaranteed."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Reflexive, symmetric, transitive, and connex.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Connexity additionally forces all elements into one class; equivalence relations may have several classes."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Reflexive, symmetric, transitive, and antisymmetric.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Antisymmetry restricts every equivalence class to a singleton, giving only equality."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Symmetric, transitive, and nonempty.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Nonemptiness does not supply a loop for every element; one loop on a two-element domain is a counterexample."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-20-preorder",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "A binary relation is required to be reflexive and transitive, with no symmetry or antisymmetry requirement. What is this class of relations called?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Preorders (quasi-orders).",
+          "correct": true,
+          "explanation": "A preorder permits distinct elements to relate in both directions and permits incomparable pairs."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Equivalence relations.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Equivalence relations additionally require symmetry."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Strict partial orders.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Strict partial orders are irreflexive and transitive."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Symmetric relations.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Symmetry does not impose either reflexivity or transitivity."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Partial orders.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Partial orders additionally require antisymmetry."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Total orders.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Total orders additionally require antisymmetry and comparability."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Total preorders.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Total preorders additionally compare every distinct pair."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Tolerance relations.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Tolerance relations are reflexive and symmetric, without requiring transitivity."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Partial equivalence relations.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Partial equivalence relations are symmetric and transitive; they can omit loops."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Strict weak orders.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Strict weak orders are irreflexive, unlike preorders on a nonempty domain."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-21-partial-order",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which conditions define a non-strict partial order $R$ on a set $A$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Reflexive, antisymmetric, and transitive.",
+          "correct": true,
+          "explanation": "Antisymmetry makes mutual comparison imply equality; unlike a total order, incomparable elements are allowed."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Reflexive, symmetric, and transitive.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This defines an equivalence relation."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Irreflexive and transitive.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This defines a strict partial order."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Symmetric and antisymmetric.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This allows only diagonal pairs but need not include all of them."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Reflexive and transitive.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A preorder may relate two distinct elements in both directions."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Antisymmetric and transitive.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Reflexivity is missing; an empty relation on a nonempty set satisfies both."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Reflexive and antisymmetric.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Transitivity is missing; a two-step chain may lack its shortcut."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Reflexive, antisymmetric, transitive, and connex.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This additionally requires totality, excluding partial orders with incomparable elements."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Reflexive, symmetric, antisymmetric, and transitive.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Adding symmetry restricts the relation to equality."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Asymmetric and transitive.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Asymmetry forbids self-loops and thus gives the strict, not non-strict, notion."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-22-strict-partial-order",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which conditions define a strict partial order $R\\subseteq A\\times A$?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Irreflexive and transitive.",
+          "correct": true,
+          "explanation": "These conditions also imply asymmetry: a two-way pair would force a forbidden self-loop."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Reflexive and transitive.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This defines a preorder."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Irreflexive and symmetric.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Two-way pairs are allowed, whereas a strict order is asymmetric."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Reflexive, antisymmetric, and transitive.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This defines a non-strict partial order."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Asymmetric.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "An asymmetric relation may contain a two-step chain with no shortcut."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Antisymmetric and transitive.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Loops remain allowed; equality is a counterexample."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Irreflexive and antisymmetric.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Transitivity is still missing."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Irreflexive, transitive, and connex.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Connexity imposes a strict total order; strict partial orders can have incomparable elements."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Irreflexive and antitransitive.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Antitransitivity forbids the shortcuts that transitivity requires."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Transitive and not reflexive.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Missing at least one loop does not forbid every loop."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-23-total-order",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $R$ already be a non-strict partial order on $A$. Which extra condition is necessary and sufficient for it to be a total (linear) order? All variables range over $A$.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+          "correct": true,
+          "explanation": "Every pair of distinct elements must be comparable. Reflexivity already handles equal elements."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Symmetry would reduce a partial order to equality, which is not total on a set of size at least two."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This contradicts reflexivity on a nonempty domain."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Transitivity already holds and does not force comparability."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\forall x\\exists y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Reflexivity already makes the relation serial, even when some distinct elements are incomparable."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Antisymmetry already holds in a partial order."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\forall x\\; R(x,x)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Reflexivity already holds in a partial order."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\forall x\\forall y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This requires both directions between distinct elements and conflicts with antisymmetry."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Together with reflexivity this permits only equality, not general total orders."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\exists y\\forall x\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A greatest element need not make all other elements comparable."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-24-strict-total-order",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Let $R$ be a strict partial order. Which extra condition is necessary and sufficient for it to be a strict total order? All variables range over its domain.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+          "correct": true,
+          "explanation": "Together with asymmetry, comparability gives exactly one direction between any two distinct elements."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\; R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A strict order cannot have loops on a nonempty domain."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Symmetry and asymmetry together force an empty relation, which is not total on two elements."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This is already assumed; incomparable pairs may remain."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\lor R(y,x))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "For equal elements this demands a self-loop, contradicting strictness."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every strict partial order is already antisymmetric."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every strict partial order is already asymmetric."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\forall x\\exists y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Seriality excludes finite strict total orders with a greatest element and does not ensure comparability."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A strict total order on three elements can give the least element two successors."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\exists x\\exists y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "One related pair does not compare every other pair."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-25-not-reflexive",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "What does it mean for $R\\subseteq A\\times A$ to fail reflexivity? All variables range over $A$.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\exists x\\; \\neg R(x,x)$.",
+          "correct": true,
+          "explanation": "Negating a universal statement gives one missing self-loop; loops elsewhere may still be present."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This is not the negation of reflexivity."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\forall x\\; R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This is not the negation of reflexivity."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Every related pair has its reverse; loops are allowed but not required. This is not the negation of reflexivity."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\exists x\\; R(x,x)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Only one element needs to relate to itself. This is not the negation of reflexivity."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\forall x\\forall y\\; \\neg R(x,y)$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "No ordered pair is present, including between distinct elements. This is not the negation of reflexivity."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This is not the negation of reflexivity."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Some related pair lacks its reverse; this is an existential violation. This is not the negation of reflexivity."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow x=y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Every related pair is diagonal; some or all loops may be missing. This is not the negation of reflexivity."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\exists x\\exists y\\; R(x,y)$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "One related pair suffices; the other elements may be isolated. This is not the negation of reflexivity."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-26-asymmetry-equivalence",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which pair of properties is equivalent to asymmetry for every binary relation?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Antisymmetry and irreflexivity.",
+          "correct": true,
+          "explanation": "Antisymmetry forbids two-way pairs between distinct elements; irreflexivity also forbids the diagonal case."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Symmetry and irreflexivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A loopless two-way pair has these properties but is not asymmetric."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Antisymmetry and reflexivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Reflexivity creates loops, which violate asymmetry on a nonempty domain."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Symmetry and transitivity.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Equality has both properties and is not asymmetric on a nonempty domain."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Antisymmetry and transitivity.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Loops are allowed; equality is a counterexample."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Irreflexivity and transitivity.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This implies asymmetry but is stronger: an asymmetric two-step chain may lack its shortcut."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Irreflexivity and failure of symmetry.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "One one-way pair does not rule out a two-way pair elsewhere."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Antisymmetry and failure of reflexivity.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A loop may remain on one element while another element lacks its loop."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Irreflexivity and antitransitivity.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "A two-way pair with no loops is antitransitive but not asymmetric."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Antisymmetry and failure of symmetry.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This allows loops, and it also excludes the empty asymmetric relation."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-27-symmetric-antisymmetric",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Write $\\Delta_A=\\{(x,x):x\\in A\\}$. Which condition is equivalent to $R$ being both symmetric and antisymmetric?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$R\\subseteq\\Delta_A$.",
+          "correct": true,
+          "explanation": "Symmetry supplies the reverse of each pair; antisymmetry then makes its endpoints equal. Any subset of the diagonal satisfies both."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$R=\\varnothing$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The empty relation works, but nonempty subsets of the diagonal also work."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$R=A\\times A$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "On at least two elements, the universal relation violates antisymmetry."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$R\\cap\\Delta_A=\\varnothing$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Excluding loops does not exclude off-diagonal pairs."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$R=\\Delta_A$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "All loops are not required: a proper subset of the diagonal also works."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\Delta_A\\subseteq R$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Reflexivity permits off-diagonal pairs that can violate one of the required properties."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$R=R^{-1}$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This expresses only symmetry; two-way pairs between distinct elements may remain."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$R\\cap R^{-1}=\\varnothing$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This expresses asymmetry and permits one-way off-diagonal pairs."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$R\\cap R^{-1}\\subseteq\\Delta_A$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This expresses only antisymmetry; an off-diagonal one-way pair is permitted."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$R\\cup R^{-1}=\\Delta_A$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This forces every loop to be present as well; the requested condition allows missing loops."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-28-symmetric-irreflexive-graph",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "For finite $V$, which conditions are necessary and sufficient for $R\\subseteq V\\times V$ to represent simple undirected adjacency, using both ordered pairs for each edge?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Symmetric and irreflexive.",
+          "correct": true,
+          "explanation": "Symmetry makes adjacency undirected, and irreflexivity excludes loops. A set of pairs cannot encode parallel copies of an edge."
+        },
+        {
+          "id": "distractor-1",
+          "text": "Symmetric and reflexive.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Reflexivity adds a loop at every vertex."
+        },
+        {
+          "id": "distractor-2",
+          "text": "Asymmetric and irreflexive.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Asymmetry forbids the reverse pairs required for undirected edges."
+        },
+        {
+          "id": "distractor-3",
+          "text": "Antisymmetric and reflexive.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This permits only one direction between distinct vertices and requires loops."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Symmetric and transitive.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A nonempty undirected edge would force loops under transitivity."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Irreflexive and transitive.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "These define a strict partial order, not arbitrary undirected adjacency."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Antisymmetric and irreflexive.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "This is asymmetry, which excludes every undirected edge."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Symmetric and not reflexive.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Missing at least one loop still allows loops at other vertices."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Symmetric, irreflexive, and connex.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Connexity additionally forces every distinct pair to be adjacent, giving only complete graphs."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Symmetric, irreflexive, and antitransitive.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This additionally excludes triangles; a triangle is a valid simple undirected graph."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-29-empty-domain",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "When can a binary relation on $A$ be both reflexive and irreflexive?",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "Exactly when $A=\\varnothing$.",
+          "correct": true,
+          "explanation": "On the empty domain both universal conditions hold vacuously. Any element in a nonempty domain would require and forbid its loop."
+        },
+        {
+          "id": "distractor-1",
+          "text": "For every domain, by choosing the empty relation.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "On a nonempty domain the empty relation is not reflexive."
+        },
+        {
+          "id": "distractor-2",
+          "text": "For every domain, by choosing the identity relation.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Identity has loops on every element and is not irreflexive when the domain is nonempty."
+        },
+        {
+          "id": "distractor-3",
+          "text": "For no domain.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "The empty domain has no element that could violate either universal condition."
+        },
+        {
+          "id": "distractor-4",
+          "text": "Exactly when the relation has no off-diagonal pairs.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The conflict concerns loops, not off-diagonal pairs."
+        },
+        {
+          "id": "distractor-5",
+          "text": "Exactly when $A$ has one element.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "The sole loop would have to be both present and absent."
+        },
+        {
+          "id": "distractor-6",
+          "text": "Exactly when the relation is symmetric.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Symmetry says nothing about the required conflict on loops."
+        },
+        {
+          "id": "distractor-7",
+          "text": "Exactly when at least one element lacks a loop.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Irreflexivity requires every loop to be absent; reflexivity requires all of them."
+        },
+        {
+          "id": "distractor-8",
+          "text": "Exactly when the relation is antisymmetric.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "Antisymmetry allows loops; it does not make reflexivity compatible with irreflexivity."
+        },
+        {
+          "id": "distractor-9",
+          "text": "Exactly when all related elements are distinct.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "That condition is irreflexivity alone and can hold on nonempty domains."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "relations-30-transitivity-witness",
+      "topic": "relations",
+      "revision": 1,
+      "status": "active",
+      "prompt": "Which condition is necessary and sufficient for failure of transitivity of $R$? All variables range over its domain; they need not be distinct.",
+      "answers": [
+        {
+          "id": "correct",
+          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
+          "correct": true,
+          "explanation": "One two-step chain without its shortcut suffices. In particular, repeated endpoints can witness failure when a two-way pair lacks a loop."
+        },
+        {
+          "id": "distractor-1",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "This demands that every chain lacks a shortcut and can hold vacuously when no chain exists. Failure of transitivity requires at least one chain without its shortcut."
+        },
+        {
+          "id": "distractor-2",
+          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "A one-way pair concerns symmetry, not transitivity."
+        },
+        {
+          "id": "distractor-3",
+          "text": "$\\exists x\\; \\neg R(x,x)$.",
+          "correct": false,
+          "difficulty": 1,
+          "explanation": "Missing a loop alone does not violate transitivity."
+        },
+        {
+          "id": "distractor-4",
+          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land R(x,z))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "A chain with its shortcut is compatible with transitivity; a missing shortcut is needed."
+        },
+        {
+          "id": "distractor-5",
+          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\lor R(y,z))\\land\\neg R(x,z))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "One of the two edges does not form a two-step chain."
+        },
+        {
+          "id": "distractor-6",
+          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
+          "correct": false,
+          "difficulty": 2,
+          "explanation": "Failure needs one triple, not every triple; the universal condition is also vacuous on an empty domain."
+        },
+        {
+          "id": "distractor-7",
+          "text": "$\\exists x\\exists y\\exists z\\; ((x\\ne y\\land y\\ne z\\land x\\ne z)\\land R(x,y)\\land R(y,z)\\land\\neg R(x,z))$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "This misses repeated-endpoint violations: a loopless two-way pair on two elements is not transitive."
+        },
+        {
+          "id": "distractor-8",
+          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(z,y))\\land\\neg R(x,z))$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The two pairs converge at a common target rather than forming a chain."
+        },
+        {
+          "id": "distractor-9",
+          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(z,x))$.",
+          "correct": false,
+          "difficulty": 3,
+          "explanation": "The required shortcut runs from the first element to the third, not in reverse."
+        }
+      ],
+      "sources": [
+        {
+          "title": "ANU Logic Notes — Relations: properties and orderings",
+          "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+        },
+        {
+          "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+          "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
         }
       ]
     }

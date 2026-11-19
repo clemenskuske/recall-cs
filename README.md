@@ -12,6 +12,8 @@ Dense graph classes is selected by default: 28 advanced questions cover first-or
 
 The set states its conventions (including copying versus non-copying FO transductions) and distinguishes bounded from almost bounded merge-width. The recent dependence/merge-width equivalence is labelled with its November 2026 preprint source and the hereditary-class hypothesis. See [the content audit](docs/dense-graph-classes-audit.md) for sources, conventions, and verification limits.
 
+Relations is a second, selectable topic with 30 questions: reflexivity, irreflexivity, symmetry, antisymmetry, asymmetry, transitivity, antitransitivity, seriality, and connexity, plus equivalence relations, preorders, and partial/total orders. Definitions run in both directions, followed by distinctions and combinations such as symmetric, irreflexive graph adjacency. Connexity compares distinct elements; antitransitivity forbids every two-step shortcut, rather than merely failing transitivity. See [the relations audit](docs/relations-audit.md). There are 58 active questions across the two topics.
+
 Start a short daily session, choose one of four shuffled answers, and read the explanation. A correct answer gets a small celebration; an incorrect answer explains both the misconception and the right idea. If you guessed correctly, mark “I guessed” to revisit sooner.
 
 Settings control daily minutes, new questions per day, desired retention, distractor difficulty, and celebrations. FSRS-6 handles spaced review; progress and settings stay on the device. See [learning design and evidence](docs/learning-design.md) for the exact mapping and limitations. Export periodic backups; there is no automatic cross-device progress sync.

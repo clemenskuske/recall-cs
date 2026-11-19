@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "relations-26-asymmetry-equivalence",
+  "topic": "relations",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which pair of properties is equivalent to asymmetry for every binary relation?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Antisymmetry and irreflexivity.",
+      "correct": true,
+      "explanation": "Antisymmetry forbids two-way pairs between distinct elements; irreflexivity also forbids the diagonal case."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Symmetry and irreflexivity.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A loopless two-way pair has these properties but is not asymmetric."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Antisymmetry and reflexivity.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Reflexivity creates loops, which violate asymmetry on a nonempty domain."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Symmetry and transitivity.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Equality has both properties and is not asymmetric on a nonempty domain."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Antisymmetry and transitivity.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Loops are allowed; equality is a counterexample."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Irreflexivity and transitivity.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This implies asymmetry but is stronger: an asymmetric two-step chain may lack its shortcut."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Irreflexivity and failure of symmetry.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "One one-way pair does not rule out a two-way pair elsewhere."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Antisymmetry and failure of reflexivity.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A loop may remain on one element while another element lacks its loop."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Irreflexivity and antitransitivity.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A two-way pair with no loops is antitransitive but not asymmetric."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Antisymmetry and failure of symmetry.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This allows loops, and it also excludes the empty asymmetric relation."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ANU Logic Notes — Relations: properties and orderings",
+      "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+    },
+    {
+      "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+    }
+  ]
+}

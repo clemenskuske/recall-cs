@@ -39,14 +39,15 @@ test('current topic replaces retired selections, while active choices and desele
 test('retired starter records stay in source and leave the downloadable curriculum',async()=>{
   const sourceTopics=JSON.parse(await readFile(new URL('../topics.json',import.meta.url),'utf8'));
   const retired=[];
-  for(const topic of sourceTopics.filter(t=>t.id!=='dense-graph-classes')){
+  const starterIds=['logic-basics','algorithms','data-structures','graph-theory','complexity'];
+  for(const topic of sourceTopics.filter(t=>starterIds.includes(t.id))){
     const dir=new URL(`../questions/${topic.id}/`,import.meta.url);
     for(const file of await readdir(dir))if(file.endsWith('.json'))retired.push(JSON.parse(await readFile(new URL(file,dir),'utf8')));
   }
   assert.equal(retired.length,38);
   assert.ok(retired.every(q=>q.status==='retired'&&q.revision===2));
   assert.ok(bank.questions.every(q=>!retired.some(r=>r.id===q.id)));
-  assert.deepEqual(bank.topics.map(t=>t.id),['dense-graph-classes']);
+  assert.ok(bank.topics.every(t=>!starterIds.includes(t.id)));
   const s=freshState();s.settings.selectedTopics=['logic-basics'];s.settings.newPerDay=30;
   // Even previously learned and due starter cards must stay retired.
   reviewQuestion(retired[0],s,retired[0].answers.find(a=>!a.correct),false,new Date('2026-11-01T00:00:00Z'));

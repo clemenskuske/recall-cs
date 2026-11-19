@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "relations-24-strict-total-order",
+  "topic": "relations",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Let $R$ be a strict partial order. Which extra condition is necessary and sufficient for it to be a strict total order? All variables range over its domain.",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+      "correct": true,
+      "explanation": "Together with asymmetry, comparability gives exactly one direction between any two distinct elements."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\forall x\\; R(x,x)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A strict order cannot have loops on a nonempty domain."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Symmetry and asymmetry together force an empty relation, which is not total on two elements."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This is already assumed; incomparable pairs may remain."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\forall x\\forall y\\; (R(x,y)\\lor R(y,x))$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "For equal elements this demands a self-loop, contradicting strictness."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Every strict partial order is already antisymmetric."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Every strict partial order is already asymmetric."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\forall x\\exists y\\; R(x,y)$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Seriality excludes finite strict total orders with a greatest element and does not ensure comparability."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "A strict total order on three elements can give the least element two successors."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\exists x\\exists y\\; R(x,y)$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "One related pair does not compare every other pair."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ANU Logic Notes — Relations: properties and orderings",
+      "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+    },
+    {
+      "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+    }
+  ]
+}

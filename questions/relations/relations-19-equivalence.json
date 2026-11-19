@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "relations-19-equivalence",
+  "topic": "relations",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which conditions on $R\\subseteq A\\times A$ are necessary and sufficient for $R$ to be an equivalence relation?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Reflexive, symmetric, and transitive.",
+      "correct": true,
+      "explanation": "The relation groups elements into classes: every element is in its own class, and class membership is reversible and transitive."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Reflexive, antisymmetric, and transitive.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "These define a partial order. A nontrivial equivalence class violates antisymmetry."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Irreflexive, symmetric, and transitive.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Reflexivity is required. On a nonempty domain, this combination cannot be an equivalence relation."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Reflexive, asymmetric, and transitive.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Asymmetry forbids loops, contradicting reflexivity on a nonempty domain."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Reflexive and symmetric.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Transitivity is missing: symmetric links from 1 to 2 and 2 to 3 need not link 1 to 3."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Symmetric and transitive.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Elements with no incident pairs may lack their required self-loop."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Reflexive and transitive.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This defines a preorder; reversibility is not guaranteed."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Reflexive, symmetric, transitive, and connex.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Connexity additionally forces all elements into one class; equivalence relations may have several classes."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Reflexive, symmetric, transitive, and antisymmetric.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Antisymmetry restricts every equivalence class to a singleton, giving only equality."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Symmetric, transitive, and nonempty.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Nonemptiness does not supply a loop for every element; one loop on a two-element domain is a counterexample."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ANU Logic Notes — Relations: properties and orderings",
+      "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+    },
+    {
+      "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+    }
+  ]
+}

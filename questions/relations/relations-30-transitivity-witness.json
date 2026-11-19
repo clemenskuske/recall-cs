@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "relations-30-transitivity-witness",
+  "topic": "relations",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which condition is necessary and sufficient for failure of transitivity of $R$? All variables range over its domain; they need not be distinct.",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
+      "correct": true,
+      "explanation": "One two-step chain without its shortcut suffices. In particular, repeated endpoints can witness failure when a two-way pair lacks a loop."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This demands that every chain lacks a shortcut and can hold vacuously when no chain exists. Failure of transitivity requires at least one chain without its shortcut."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "A one-way pair concerns symmetry, not transitivity."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\exists x\\; \\neg R(x,x)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Missing a loop alone does not violate transitivity."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land R(x,z))$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A chain with its shortcut is compatible with transitivity; a missing shortcut is needed."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\lor R(y,z))\\land\\neg R(x,z))$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "One of the two edges does not form a two-step chain."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Failure needs one triple, not every triple; the universal condition is also vacuous on an empty domain."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\exists x\\exists y\\exists z\\; ((x\\ne y\\land y\\ne z\\land x\\ne z)\\land R(x,y)\\land R(y,z)\\land\\neg R(x,z))$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This misses repeated-endpoint violations: a loopless two-way pair on two elements is not transitive."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(z,y))\\land\\neg R(x,z))$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The two pairs converge at a common target rather than forming a chain."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(z,x))$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "The required shortcut runs from the first element to the third, not in reverse."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ANU Logic Notes — Relations: properties and orderings",
+      "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+    },
+    {
+      "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "relations-27-symmetric-antisymmetric",
+  "topic": "relations",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Write $\\Delta_A=\\{(x,x):x\\in A\\}$. Which condition is equivalent to $R$ being both symmetric and antisymmetric?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$R\\subseteq\\Delta_A$.",
+      "correct": true,
+      "explanation": "Symmetry supplies the reverse of each pair; antisymmetry then makes its endpoints equal. Any subset of the diagonal satisfies both."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$R=\\varnothing$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The empty relation works, but nonempty subsets of the diagonal also work."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$R=A\\times A$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "On at least two elements, the universal relation violates antisymmetry."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$R\\cap\\Delta_A=\\varnothing$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Excluding loops does not exclude off-diagonal pairs."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$R=\\Delta_A$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "All loops are not required: a proper subset of the diagonal also works."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\Delta_A\\subseteq R$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Reflexivity permits off-diagonal pairs that can violate one of the required properties."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$R=R^{-1}$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This expresses only symmetry; two-way pairs between distinct elements may remain."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$R\\cap R^{-1}=\\varnothing$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This expresses asymmetry and permits one-way off-diagonal pairs."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$R\\cap R^{-1}\\subseteq\\Delta_A$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This expresses only antisymmetry; an off-diagonal one-way pair is permitted."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$R\\cup R^{-1}=\\Delta_A$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This forces every loop to be present as well; the requested condition allows missing loops."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ANU Logic Notes — Relations: properties and orderings",
+      "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+    },
+    {
+      "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+    }
+  ]
+}

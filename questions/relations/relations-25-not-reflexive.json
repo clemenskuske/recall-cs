@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "relations-25-not-reflexive",
+  "topic": "relations",
+  "revision": 1,
+  "status": "active",
+  "prompt": "What does it mean for $R\\subseteq A\\times A$ to fail reflexivity? All variables range over $A$.",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "$\\exists x\\; \\neg R(x,x)$.",
+      "correct": true,
+      "explanation": "Negating a universal statement gives one missing self-loop; loops elsewhere may still be present."
+    },
+    {
+      "id": "distractor-1",
+      "text": "$\\forall x\\; \\neg R(x,x)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This is not the negation of reflexivity."
+    },
+    {
+      "id": "distractor-2",
+      "text": "$\\forall x\\; R(x,x)$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This is not the negation of reflexivity."
+    },
+    {
+      "id": "distractor-3",
+      "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Every related pair has its reverse; loops are allowed but not required. This is not the negation of reflexivity."
+    },
+    {
+      "id": "distractor-4",
+      "text": "$\\exists x\\; R(x,x)$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Only one element needs to relate to itself. This is not the negation of reflexivity."
+    },
+    {
+      "id": "distractor-5",
+      "text": "$\\forall x\\forall y\\; \\neg R(x,y)$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "No ordered pair is present, including between distinct elements. This is not the negation of reflexivity."
+    },
+    {
+      "id": "distractor-6",
+      "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This is not the negation of reflexivity."
+    },
+    {
+      "id": "distractor-7",
+      "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Some related pair lacks its reverse; this is an existential violation. This is not the negation of reflexivity."
+    },
+    {
+      "id": "distractor-8",
+      "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow x=y)$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Every related pair is diagonal; some or all loops may be missing. This is not the negation of reflexivity."
+    },
+    {
+      "id": "distractor-9",
+      "text": "$\\exists x\\exists y\\; R(x,y)$.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "One related pair suffices; the other elements may be isolated. This is not the negation of reflexivity."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ANU Logic Notes — Relations: properties and orderings",
+      "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+    },
+    {
+      "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+    }
+  ]
+}

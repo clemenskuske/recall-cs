@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "relations-20-preorder",
+  "topic": "relations",
+  "revision": 1,
+  "status": "active",
+  "prompt": "A binary relation is required to be reflexive and transitive, with no symmetry or antisymmetry requirement. What is this class of relations called?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Preorders (quasi-orders).",
+      "correct": true,
+      "explanation": "A preorder permits distinct elements to relate in both directions and permits incomparable pairs."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Equivalence relations.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Equivalence relations additionally require symmetry."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Strict partial orders.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Strict partial orders are irreflexive and transitive."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Symmetric relations.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Symmetry does not impose either reflexivity or transitivity."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Partial orders.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Partial orders additionally require antisymmetry."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Total orders.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Total orders additionally require antisymmetry and comparability."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Total preorders.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Total preorders additionally compare every distinct pair."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Tolerance relations.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Tolerance relations are reflexive and symmetric, without requiring transitivity."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Partial equivalence relations.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Partial equivalence relations are symmetric and transitive; they can omit loops."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Strict weak orders.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Strict weak orders are irreflexive, unlike preorders on a nonempty domain."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ANU Logic Notes — Relations: properties and orderings",
+      "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+    },
+    {
+      "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+    }
+  ]
+}

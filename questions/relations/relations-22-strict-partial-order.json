@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "relations-22-strict-partial-order",
+  "topic": "relations",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which conditions define a strict partial order $R\\subseteq A\\times A$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Irreflexive and transitive.",
+      "correct": true,
+      "explanation": "These conditions also imply asymmetry: a two-way pair would force a forbidden self-loop."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Reflexive and transitive.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This defines a preorder."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Irreflexive and symmetric.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Two-way pairs are allowed, whereas a strict order is asymmetric."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Reflexive, antisymmetric, and transitive.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This defines a non-strict partial order."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Asymmetric.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "An asymmetric relation may contain a two-step chain with no shortcut."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Antisymmetric and transitive.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Loops remain allowed; equality is a counterexample."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Irreflexive and antisymmetric.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Transitivity is still missing."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Irreflexive, transitive, and connex.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Connexity imposes a strict total order; strict partial orders can have incomparable elements."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Irreflexive and antitransitive.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Antitransitivity forbids the shortcuts that transitivity requires."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Transitive and not reflexive.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Missing at least one loop does not forbid every loop."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ANU Logic Notes — Relations: properties and orderings",
+      "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+    },
+    {
+      "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "relations-29-empty-domain",
+  "topic": "relations",
+  "revision": 1,
+  "status": "active",
+  "prompt": "When can a binary relation on $A$ be both reflexive and irreflexive?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Exactly when $A=\\varnothing$.",
+      "correct": true,
+      "explanation": "On the empty domain both universal conditions hold vacuously. Any element in a nonempty domain would require and forbid its loop."
+    },
+    {
+      "id": "distractor-1",
+      "text": "For every domain, by choosing the empty relation.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "On a nonempty domain the empty relation is not reflexive."
+    },
+    {
+      "id": "distractor-2",
+      "text": "For every domain, by choosing the identity relation.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Identity has loops on every element and is not irreflexive when the domain is nonempty."
+    },
+    {
+      "id": "distractor-3",
+      "text": "For no domain.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "The empty domain has no element that could violate either universal condition."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Exactly when the relation has no off-diagonal pairs.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The conflict concerns loops, not off-diagonal pairs."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Exactly when $A$ has one element.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "The sole loop would have to be both present and absent."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Exactly when the relation is symmetric.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Symmetry says nothing about the required conflict on loops."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Exactly when at least one element lacks a loop.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Irreflexivity requires every loop to be absent; reflexivity requires all of them."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Exactly when the relation is antisymmetric.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Antisymmetry allows loops; it does not make reflexivity compatible with irreflexivity."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Exactly when all related elements are distinct.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "That condition is irreflexivity alone and can hold on nonempty domains."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ANU Logic Notes — Relations: properties and orderings",
+      "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+    },
+    {
+      "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+    }
+  ]
+}

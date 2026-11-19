@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "relations-21-partial-order",
+  "topic": "relations",
+  "revision": 1,
+  "status": "active",
+  "prompt": "Which conditions define a non-strict partial order $R$ on a set $A$?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Reflexive, antisymmetric, and transitive.",
+      "correct": true,
+      "explanation": "Antisymmetry makes mutual comparison imply equality; unlike a total order, incomparable elements are allowed."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Reflexive, symmetric, and transitive.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This defines an equivalence relation."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Irreflexive and transitive.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This defines a strict partial order."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Symmetric and antisymmetric.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This allows only diagonal pairs but need not include all of them."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Reflexive and transitive.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A preorder may relate two distinct elements in both directions."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Antisymmetric and transitive.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Reflexivity is missing; an empty relation on a nonempty set satisfies both."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Reflexive and antisymmetric.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "Transitivity is missing; a two-step chain may lack its shortcut."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Reflexive, antisymmetric, transitive, and connex.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This additionally requires totality, excluding partial orders with incomparable elements."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Reflexive, symmetric, antisymmetric, and transitive.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Adding symmetry restricts the relation to equality."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Asymmetric and transitive.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Asymmetry forbids self-loops and thus gives the strict, not non-strict, notion."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ANU Logic Notes — Relations: properties and orderings",
+      "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+    },
+    {
+      "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+    }
+  ]
+}

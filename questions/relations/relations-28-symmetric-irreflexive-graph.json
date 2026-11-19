@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "relations-28-symmetric-irreflexive-graph",
+  "topic": "relations",
+  "revision": 1,
+  "status": "active",
+  "prompt": "For finite $V$, which conditions are necessary and sufficient for $R\\subseteq V\\times V$ to represent simple undirected adjacency, using both ordered pairs for each edge?",
+  "answers": [
+    {
+      "id": "correct",
+      "text": "Symmetric and irreflexive.",
+      "correct": true,
+      "explanation": "Symmetry makes adjacency undirected, and irreflexivity excludes loops. A set of pairs cannot encode parallel copies of an edge."
+    },
+    {
+      "id": "distractor-1",
+      "text": "Symmetric and reflexive.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Reflexivity adds a loop at every vertex."
+    },
+    {
+      "id": "distractor-2",
+      "text": "Asymmetric and irreflexive.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "Asymmetry forbids the reverse pairs required for undirected edges."
+    },
+    {
+      "id": "distractor-3",
+      "text": "Antisymmetric and reflexive.",
+      "correct": false,
+      "difficulty": 1,
+      "explanation": "This permits only one direction between distinct vertices and requires loops."
+    },
+    {
+      "id": "distractor-4",
+      "text": "Symmetric and transitive.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "A nonempty undirected edge would force loops under transitivity."
+    },
+    {
+      "id": "distractor-5",
+      "text": "Irreflexive and transitive.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "These define a strict partial order, not arbitrary undirected adjacency."
+    },
+    {
+      "id": "distractor-6",
+      "text": "Antisymmetric and irreflexive.",
+      "correct": false,
+      "difficulty": 2,
+      "explanation": "This is asymmetry, which excludes every undirected edge."
+    },
+    {
+      "id": "distractor-7",
+      "text": "Symmetric and not reflexive.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Missing at least one loop still allows loops at other vertices."
+    },
+    {
+      "id": "distractor-8",
+      "text": "Symmetric, irreflexive, and connex.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "Connexity additionally forces every distinct pair to be adjacent, giving only complete graphs."
+    },
+    {
+      "id": "distractor-9",
+      "text": "Symmetric, irreflexive, and antitransitive.",
+      "correct": false,
+      "difficulty": 3,
+      "explanation": "This additionally excludes triangles; a triangle is a valid simple undirected graph."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ANU Logic Notes — Relations: properties and orderings",
+      "url": "https://users.cecs.anu.edu.au/~jks/LogicNotes/relations.html"
+    },
+    {
+      "title": "Alexander Brandt — Discrete Structures for Computing, §2.2: Relations",
+      "url": "https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter2/relations.html"
+    }
+  ]
+}

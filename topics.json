@@ -8,6 +8,14 @@
     "defaultSelected": true
   },
   {
+    "id": "relations",
+    "title": "Relations",
+    "description": "Symmetry, irreflexivity, transitivity, and the properties that define equivalence and order.",
+    "symbol": "braces",
+    "color": "sage",
+    "defaultSelected": false
+  },
+  {
     "id": "logic-basics",
     "title": "Logic basics",
     "description": "Start with and, or, if…then, and clear reasoning.",
