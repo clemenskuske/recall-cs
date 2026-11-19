@@ -36,7 +36,7 @@ Each topic has a folder and each question its own JSON file. `topics.json` holds
 
 Each answer has a stable `id`, `text`, `correct` boolean, and `explanation`. Exactly one is correct. Incorrect answers also have `difficulty: 1|2|3`, at least three per tier. Inline math uses `$...$`; display math uses `$$...$$`. Double backslashes in JSON. Do not write raw HTML.
 
-After editing, run `npm test` and `npm run build`, then commit source plus generated `bank.json`. A push to main validates, builds, updates the compiled bank if needed, and deploys Pages. If you only add/edit question source on GitHub, Actions generates the bank for you. The app checks the latest `bank.json` on open and foreground; raw GitHub/CDN updates can take a short time. Feedback-only changes do not rebuild the site.
+After editing, run `npm test` and `npm run build`, then commit source plus generated `bank.json`. The learner has authorized automatic publication of requested new questions: push the validated changes to `main`, wait for the existing Pages workflow to finish, and verify the new questions in the live bank without asking for a separate push or deployment request. Honor an explicit request to keep a particular change local or as a draft. A push to main validates, builds, updates the compiled bank if needed, and deploys Pages. If you only add/edit question source on GitHub, Actions generates the bank for you. The app checks the latest `bank.json` on open and foreground; raw GitHub/CDN updates can take a short time. Feedback-only changes do not rebuild the site.
 
 ## Report a bad question or answer
 
