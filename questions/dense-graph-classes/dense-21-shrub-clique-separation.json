@@ -2,19 +2,19 @@
   "schemaVersion": 1,
   "id": "dense-21-shrub-clique-separation",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
   "prompt": "Bounded shrubdepth implies bounded clique-width. Which class witnesses that the converse fails?",
   "answers": [
     {
       "id": "correct",
-      "text": "All finite paths $\\{P_n:n\\ge1\\}$.",
+      "text": "All finite nonempty paths.",
       "correct": true,
       "explanation": "Paths have clique-width at most three, but no fixed tree-model height and fixed colour count can represent paths of every length."
     },
     {
       "id": "distractor-1",
-      "text": "All cliques $\\{K_n:n\\ge1\\}$.",
+      "text": "All finite nonempty cliques.",
       "correct": false,
       "difficulty": 1,
       "explanation": "Cliques have height-one, one-colour tree-models, so their shrubdepth is bounded."
@@ -28,7 +28,7 @@
     },
     {
       "id": "distractor-3",
-      "text": "All complete bipartite graphs $K_{a,b}$.",
+      "text": "All finite complete bipartite graphs.",
       "correct": false,
       "difficulty": 1,
       "explanation": "Two colours on a height-one tree distinguish the sides; the signature joins exactly different colours."

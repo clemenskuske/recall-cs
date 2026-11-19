@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-04-transduction-copying",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "In the convention allowing copying, how is a $k$-copy operation used in an FO transduction?",
+  "prompt": "For a finite simple input graph $G$, how is a $k$-copy operation, with $k$ a positive integer, used in an FO transduction?",
   "answers": [
     {
       "id": "correct",

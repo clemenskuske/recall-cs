@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-08-twin-name",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Merge two parts at each step, from singletons to $\\{V(G)\\}$. Join distinct parts by a red edge exactly when their original adjacency is neither complete nor empty. Minimise the largest red degree over the entire sequence. Which parameter is this?",
+  "prompt": "Let $G$ be a finite nonempty simple graph. Merge two parts at each step, from the singleton partition of $V(G)$ to $\\{V(G)\\}$. Join distinct parts by a red edge exactly when their original adjacency is neither complete nor empty. Minimise the largest red degree over the entire sequence. Which parameter is this?",
   "answers": [
     {
       "id": "correct",

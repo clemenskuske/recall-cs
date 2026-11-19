@@ -2,75 +2,75 @@
   "schemaVersion": 1,
   "id": "relations-23-total-order",
   "topic": "relations",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Let $R$ already be a non-strict partial order on $A$. Which extra condition is necessary and sufficient for it to be a total (linear) order? All variables range over $A$.",
+  "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Suppose $R$ is a non-strict partial order. Which extra condition is necessary and sufficient for it to be a total (linear) order?",
   "answers": [
     {
       "id": "correct",
-      "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
       "correct": true,
       "explanation": "Every pair of distinct elements must be comparable. Reflexivity already handles equal elements."
     },
     {
       "id": "distractor-1",
-      "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
       "correct": false,
       "difficulty": 1,
       "explanation": "Symmetry would reduce a partial order to equality, which is not total on a set of size at least two."
     },
     {
       "id": "distractor-2",
-      "text": "$\\forall x\\; \\neg R(x,x)$.",
+      "text": "$\\forall x\\in A\\; \\neg R(x,x)$.",
       "correct": false,
       "difficulty": 1,
       "explanation": "This contradicts reflexivity on a nonempty domain."
     },
     {
       "id": "distractor-3",
-      "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
       "correct": false,
       "difficulty": 1,
       "explanation": "Transitivity already holds and does not force comparability."
     },
     {
       "id": "distractor-4",
-      "text": "$\\forall x\\exists y\\; R(x,y)$.",
+      "text": "$\\forall x\\in A\\;\\exists y\\in A\\; R(x,y)$.",
       "correct": false,
       "difficulty": 2,
       "explanation": "Reflexivity already makes the relation serial, even when some distinct elements are incomparable."
     },
     {
       "id": "distractor-5",
-      "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
       "correct": false,
       "difficulty": 2,
       "explanation": "Antisymmetry already holds in a partial order."
     },
     {
       "id": "distractor-6",
-      "text": "$\\forall x\\; R(x,x)$.",
+      "text": "$\\forall x\\in A\\; R(x,x)$.",
       "correct": false,
       "difficulty": 2,
       "explanation": "Reflexivity already holds in a partial order."
     },
     {
       "id": "distractor-7",
-      "text": "$\\forall x\\forall y\\; R(x,y)$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\; R(x,y)$.",
       "correct": false,
       "difficulty": 3,
       "explanation": "This requires both directions between distinct elements and conflicts with antisymmetry."
     },
     {
       "id": "distractor-8",
-      "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
       "correct": false,
       "difficulty": 3,
       "explanation": "Together with reflexivity this permits only equality, not general total orders."
     },
     {
       "id": "distractor-9",
-      "text": "$\\exists y\\forall x\\; R(x,y)$.",
+      "text": "$\\exists y\\in A\\;\\forall x\\in A\\; R(x,y)$.",
       "correct": false,
       "difficulty": 3,
       "explanation": "A greatest element need not make all other elements comparable."

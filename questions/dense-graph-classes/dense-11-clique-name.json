@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-11-clique-name",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Which parameter is the minimum number of labels needed to build $G$ using labelled single vertices, disjoint union, complete joins between two distinct labels, and global relabelling?",
+  "prompt": "For a finite nonempty simple graph $G$, which parameter is the minimum number of labels needed to build $G$ using labelled single vertices, disjoint union, complete joins between two distinct labels, and global relabelling?",
   "answers": [
     {
       "id": "correct",

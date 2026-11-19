@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-10-twin-red-update",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "In a trigraph contraction, merge $u,v$ into $w$ and consider another vertex $x$. Write $B,N,R$ for black edge, non-edge, and red edge. What is the status of $wx$?",
+  "prompt": "In a trigraph, let $u,v,x$ be distinct vertices. Merge $u,v$ into a new vertex $w$. Write $B,N,R$ for black edge, non-edge, and red edge, respectively; a status pair records $ux$ and $vx$. What is the status of $wx$?",
   "answers": [
     {
       "id": "correct",

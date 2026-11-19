@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-12-clique-operations",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Which operation is permitted by a standard $k$-expression for clique-width?",
+  "prompt": "Fix an integer $k\\ge2$; label indices $i,j$ range over $\\{1,\\ldots,k\\}$. Which operation is permitted by a standard $k$-expression for clique-width?",
   "answers": [
     {
       "id": "correct",

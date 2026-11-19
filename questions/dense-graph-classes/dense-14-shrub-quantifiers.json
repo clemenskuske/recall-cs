@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-14-shrub-quantifiers",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Let $\\mathrm{TM}_m(d)$ denote graphs with an $m$-colour tree-model of height $d$. Which statement defines bounded shrubdepth of a class $\\mathcal C$?",
+  "prompt": "Let $\\mathcal C$ be a class of finite simple graphs. For positive integers $d,m$, let $\\mathrm{TM}_m(d)$ denote graphs with an $m$-colour tree-model of height $d$. All height and colour-count quantifiers below range over positive integers. Which statement defines bounded shrubdepth of $\\mathcal C$?",
   "answers": [
     {
       "id": "correct",
@@ -56,7 +56,7 @@
     },
     {
       "id": "distractor-7",
-      "text": "$\\exists d,m\\;\\forall G\\in\\mathcal C:$ one fixed finite tree $T$ models every $G$.",
+      "text": "There exist positive integers $d,m$ and one fixed finite rooted tree $T$ that models every $G\\in\\mathcal C$, with height $d$ and at most $m$ leaf colours.",
       "correct": false,
       "difficulty": 3,
       "explanation": "Tree size must be allowed to grow with the number of graph vertices."

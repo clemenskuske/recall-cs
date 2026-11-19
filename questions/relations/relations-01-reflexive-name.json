@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "relations-01-reflexive-name",
   "topic": "relations",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\; R(x,x)$?",
+  "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which property is defined exactly by $\\forall x\\in A\\; R(x,x)$?",
   "answers": [
     {
       "id": "correct",

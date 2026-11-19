@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "relations-27-symmetric-antisymmetric",
   "topic": "relations",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Write $\\Delta_A=\\{(x,x):x\\in A\\}$. Which condition is equivalent to $R$ being both symmetric and antisymmetric?",
+  "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. Define $\\Delta_A=\\{(x,x):x\\in A\\}$ and the inverse relation $R^{-1}=\\{(y,x):(x,y)\\in R\\}$. Which condition is equivalent to $R$ being both symmetric and antisymmetric?",
   "answers": [
     {
       "id": "correct",

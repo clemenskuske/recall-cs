@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-15-shrub-adjacency",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "In an $m$-colour tree-model of height $d$, distinct leaves $u,v$ have colours $i,j$ and distance $2\\ell$. A symmetric signature $S\\subseteq[m]^2\\times[d]$ is given. How is adjacency defined?",
+  "prompt": "Let $m,d$ be positive integers, with $[m]=\\{1,\\ldots,m\\}$ and $[d]=\\{1,\\ldots,d\\}$. A graph $G$ has a tree-model $(T,S)$: the leaves of the rooted tree $T$ are $V(G)$, all at depth $d$, and $S\\subseteq[m]^2\\times[d]$ is symmetric in its first two coordinates. Distinct leaves $u,v$ have colours $i,j\\in[m]$ and distance $2\\ell$, where $\\ell\\in[d]$. How is their adjacency defined?",
   "answers": [
     {
       "id": "correct",

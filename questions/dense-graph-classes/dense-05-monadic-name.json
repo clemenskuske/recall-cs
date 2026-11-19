@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-05-monadic-name",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "A class $\\mathcal C$ cannot produce every finite simple graph by any one fixed FO transduction, even with arbitrary finitely many unary vertex predicates. What is this property called?",
+  "prompt": "A class of finite simple graphs $\\mathcal C$ cannot produce every finite simple graph by any one fixed FO transduction, even with arbitrary finitely many unary vertex predicates. What is this property called?",
   "answers": [
     {
       "id": "correct",

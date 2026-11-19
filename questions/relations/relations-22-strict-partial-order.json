@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "relations-22-strict-partial-order",
   "topic": "relations",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Which conditions define a strict partial order $R\\subseteq A\\times A$?",
+  "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. Which conditions define a strict partial order?",
   "answers": [
     {
       "id": "correct",

@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-01-transduction-name",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Fix finitely many unary predicates and FO formulas $\\delta(x),\\varphi(x,y)$, with $\\varphi$ symmetric and irreflexive. Arbitrarily interpret the predicates on $G$, select vertices by $\\delta$, and define adjacency by $\\varphi$. What is this set-valued operation, with no copying?",
+  "prompt": "For finite simple input graphs $G$, fix finitely many unary predicates and FO formulas $\\delta(x),\\varphi(x,y)$, whose vertex variables range over $V(G)$, with $\\varphi$ symmetric and irreflexive. Arbitrarily interpret the predicates on $G$, select vertices by $\\delta$, and define adjacency by $\\varphi$. What is this set-valued operation, with no copying?",
   "answers": [
     {
       "id": "correct",

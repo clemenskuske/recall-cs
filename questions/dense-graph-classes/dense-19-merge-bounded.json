@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-19-merge-bounded",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "What does it mean for a graph class $\\mathcal C$ to have bounded merge-width, using the finite-radius parameters $\\operatorname{mw}_r$?",
+  "prompt": "Let $\\mathcal C$ be a class of finite simple graphs. Let $r$ range over positive integers, and let $k,k_r,c_r$ denote positive real bounds as quantified below. What defines bounded merge-width, using the radius-$r$ parameters $\\operatorname{mw}_r$?",
   "answers": [
     {
       "id": "correct",

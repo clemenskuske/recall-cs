@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "dense-03-transduction-uniformity",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
   "prompt": "For graph classes $\\mathcal C,\\mathcal D$, what does $\\mathcal D\\subseteq T(\\mathcal C)$ require of a single fixed FO transduction $T$?",
   "answers": [
@@ -28,7 +28,7 @@
     },
     {
       "id": "distractor-3",
-      "text": "The defining formula may be chosen separately for each target $H$.",
+      "text": "The defining formula may be chosen separately for each target $H\\in\\mathcal D$.",
       "correct": false,
       "difficulty": 1,
       "explanation": "That discards the fixed-recipe requirement."

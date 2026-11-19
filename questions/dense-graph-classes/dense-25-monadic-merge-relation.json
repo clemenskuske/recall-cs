@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-25-monadic-merge-relation",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "For a hereditary class $\\mathcal C$ (closed under induced subgraphs), what relationship follows from the merge-width results, including the 4 November 2026 preprint?",
+  "prompt": "For a hereditary class $\\mathcal C$ of finite simple graphs (closed under induced subgraphs), what relationship follows from the merge-width results, including the 4 November 2026 preprint?",
   "answers": [
     {
       "id": "correct",

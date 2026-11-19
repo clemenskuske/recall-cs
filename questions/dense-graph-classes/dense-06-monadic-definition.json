@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-06-monadic-definition",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Let $\\mathcal G$ be all finite simple graphs and $T$ range over fixed FO transductions with unary parameters. Which condition defines monadic dependence of $\\mathcal C$?",
+  "prompt": "Let $\\mathcal C$ be a class of finite simple graphs and $\\mathcal G$ the class of all such graphs. Let $T$ range over fixed FO transductions with unary parameters; $T(\\mathcal C)$ is the union of its outputs on members of $\\mathcal C$. Which condition defines monadic dependence of $\\mathcal C$?",
   "answers": [
     {
       "id": "correct",

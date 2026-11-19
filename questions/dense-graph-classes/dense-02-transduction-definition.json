@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "id": "dense-02-transduction-definition",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "How does a non-copying FO transduction with domain formula $\\delta$ and symmetric, irreflexive edge formula $\\varphi$ construct an output $H$ from a unary expansion $G^+$?",
+  "prompt": "Let $G$ be a finite simple graph and $G^+$ a unary expansion of $G$. How does a non-copying FO transduction with domain formula $\\delta$ and symmetric, irreflexive edge formula $\\varphi$ construct an output graph $H$?",
   "answers": [
     {
       "id": "correct",
-      "text": "$V(H)=\\{v:G^+\\models\\delta(v)\\}$; for $u,v\\in V(H)$, $uv\\in E(H)\\iff G^+\\models\\varphi(u,v)$.",
+      "text": "$V(H)=\\{v\\in V(G):G^+\\models\\delta(v)\\}$; for $u,v\\in V(H)$, $uv\\in E(H)\\iff G^+\\models\\varphi(u,v)$.",
       "correct": true,
       "explanation": "Evaluate both fixed formulas in the expanded input. The domain formula selects output vertices; the edge formula determines adjacency between them."
     },
@@ -21,7 +21,7 @@
     },
     {
       "id": "distractor-2",
-      "text": "$V(H)=\\{v:G^+\\models\\varphi(v,v)\\}$; adjacency is determined by $\\delta(u)\\land\\delta(v)$.",
+      "text": "$V(H)=\\{v\\in V(G):G^+\\models\\varphi(v,v)\\}$; for $u,v\\in V(H)$, adjacency is determined by $\\delta(u)\\land\\delta(v)$.",
       "correct": false,
       "difficulty": 1,
       "explanation": "The edge formula is irreflexive, so its diagonal is empty. The roles of the domain and edge formulas are reversed."
@@ -35,42 +35,42 @@
     },
     {
       "id": "distractor-4",
-      "text": "$V(H)=\\{v:G^+\\models\\delta(v)\\}$; keep only input edges that also satisfy $\\varphi$.",
+      "text": "$V(H)=\\{v\\in V(G):G^+\\models\\delta(v)\\}$; keep only input edges that also satisfy $\\varphi$.",
       "correct": false,
       "difficulty": 2,
       "explanation": "An FO edge formula may create an edge that was absent from the input. Intersecting with the old edge set is an extra restriction."
     },
     {
       "id": "distractor-5",
-      "text": "$V(H)=\\{v:G^+\\models\\delta(v)\\}$; test $\\varphi$ only in $G^+[V(H)]$.",
+      "text": "$V(H)=\\{v\\in V(G):G^+\\models\\delta(v)\\}$; test $\\varphi$ only in $G^+[V(H)]$.",
       "correct": false,
       "difficulty": 2,
       "explanation": "Quantified variables of the edge formula range over the input structure. Deleting unselected witnesses first can change its truth."
     },
     {
       "id": "distractor-6",
-      "text": "$V(H)=\\{v:G^+\\models\\delta(v)\\}$; evaluate $\\varphi$ after forgetting all added predicates.",
+      "text": "$V(H)=\\{v\\in V(G):G^+\\models\\delta(v)\\}$; evaluate $\\varphi$ after forgetting all added predicates.",
       "correct": false,
       "difficulty": 2,
       "explanation": "The edge formula is allowed to use those unary predicates."
     },
     {
       "id": "distractor-7",
-      "text": "Use the stated domain, but require $\\varphi(u,v)$ in every unary expansion of $G$.",
+      "text": "Select vertices by $\\delta$, but for $u,v\\in V(H)$ require $\\varphi(u,v)$ in every unary expansion of $G$.",
       "correct": false,
       "difficulty": 3,
       "explanation": "Each individual expansion can produce its own output. Taking the intersection over all expansions changes the operation."
     },
     {
       "id": "distractor-8",
-      "text": "Use the stated domain, but choose a separate unary expansion for each pair $u,v$.",
+      "text": "Select vertices by $\\delta$, but choose a separate unary expansion for each pair $u,v\\in V(H)$.",
       "correct": false,
       "difficulty": 3,
       "explanation": "One expansion must determine the entire output graph, not a different expansion for each potential edge."
     },
     {
       "id": "distractor-9",
-      "text": "Use the stated domain, but evaluate $\\varphi$ in the output graph $H$ itself.",
+      "text": "Select vertices by $\\delta$, but evaluate $\\varphi$ in the output graph $H$ itself.",
       "correct": false,
       "difficulty": 3,
       "explanation": "The formulas are evaluated in the input expansion. Evaluating them recursively in the output is not this definition."

@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "relations-19-equivalence",
   "topic": "relations",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Which conditions on $R\\subseteq A\\times A$ are necessary and sufficient for $R$ to be an equivalence relation?",
+  "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. Which conditions are necessary and sufficient for $R$ to be an equivalence relation?",
   "answers": [
     {
       "id": "correct",
@@ -38,7 +38,7 @@
       "text": "Reflexive and symmetric.",
       "correct": false,
       "difficulty": 2,
-      "explanation": "Transitivity is missing: symmetric links from 1 to 2 and 2 to 3 need not link 1 to 3."
+      "explanation": "Transitivity is missing: on the set $A=\\{1,2,3\\}$, all loops and the two-way pairs between 1 and 2 and between 2 and 3 can be present while both pairs between 1 and 3 are absent."
     },
     {
       "id": "distractor-5",

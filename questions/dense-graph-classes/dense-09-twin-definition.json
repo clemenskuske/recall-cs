@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-09-twin-definition",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Let $R_i$ be the red graph at step $i$ of a valid contraction sequence $\\sigma$ from a finite nonempty graph $G$ to one vertex. Which formula defines $\\operatorname{tww}(G)$? Here $\\Delta$ is maximum degree.",
+  "prompt": "Let $G$ be a finite nonempty simple graph. Let $\\sigma$ range over valid contraction sequences from $G$ to one vertex, with stages $i=1,\\ldots,|V(G)|$ and red graphs $R_i$. Which formula defines $\\operatorname{tww}(G)$? Here $\\Delta$ and $\\operatorname{avgdeg}$ denote maximum and average degree.",
   "answers": [
     {
       "id": "correct",

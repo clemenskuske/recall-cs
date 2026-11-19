@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "relations-28-symmetric-irreflexive-graph",
   "topic": "relations",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "For finite $V$, which conditions are necessary and sufficient for $R\\subseteq V\\times V$ to represent simple undirected adjacency, using both ordered pairs for each edge?",
+  "prompt": "For a finite set $V$, which conditions are necessary and sufficient for $R\\subseteq V\\times V$ to represent simple undirected adjacency, using both ordered pairs for each edge?",
   "answers": [
     {
       "id": "correct",

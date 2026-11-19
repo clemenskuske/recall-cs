@@ -22,6 +22,8 @@ Read an existing JSON question as the schema example. Keep one file at `question
 
 Verify that each alternative is true or false as labeled, using the cited source and independent reasoning. Check boundary cases, computational models, quantifiers, reduction directions, and whether multiple asymptotic bounds could qualify. The schema/TeX validator cannot check truth. Do not invent citations or claim external verification that did not happen. Use the live content rules to address known failure patterns.
 
+Make each card self-contained. Introduce every symbol and its type or domain before use, including the universe before a relation: “Let $A$ be a set and $R\subseteq A\times A$ a binary relation on $A$.” Bind element variables explicitly, for example $\forall x\in A\; (x,x)\in R$, and define any shorthand such as $R(x,y)$. Give graph parameters and sequence indices their ranges; check quantifier scope, variable coincidence, and empty domains. A choice may rely on the prompt but never on another shuffled choice or an earlier card. Distractors must be well-formed even when false. For definition questions, distinguish equivalence from a merely necessary or sufficient condition. Follow content rule R11, based on the learner's direct feedback of 2026-11-19.
+
 Keep IDs stable when editing. Increment `revision` for substantive changes to assumptions, correctness, answer choices, or explanations; the app restarts that card and lifts revision-specific pauses. Mark an unwanted question `status: "retired"` so the app stops presenting it while preserving the record. If the user explicitly requests deleting a file, preserve the reason and old IDs in the feedback resolution ledger and Git history.
 
 ## Resolve feedback and learn from it

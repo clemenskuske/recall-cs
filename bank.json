@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "dfc4b55232a46921",
+  "version": "2c48238a78e88a54",
   "topics": [
     {
       "id": "dense-graph-classes",
@@ -24,9 +24,9 @@
       "schemaVersion": 1,
       "id": "dense-01-transduction-name",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Fix finitely many unary predicates and FO formulas $\\delta(x),\\varphi(x,y)$, with $\\varphi$ symmetric and irreflexive. Arbitrarily interpret the predicates on $G$, select vertices by $\\delta$, and define adjacency by $\\varphi$. What is this set-valued operation, with no copying?",
+      "prompt": "For finite simple input graphs $G$, fix finitely many unary predicates and FO formulas $\\delta(x),\\varphi(x,y)$, whose vertex variables range over $V(G)$, with $\\varphi$ symmetric and irreflexive. Arbitrarily interpret the predicates on $G$, select vertices by $\\delta$, and define adjacency by $\\varphi$. What is this set-valued operation, with no copying?",
       "answers": [
         {
           "id": "correct",
@@ -113,13 +113,13 @@
       "schemaVersion": 1,
       "id": "dense-02-transduction-definition",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "How does a non-copying FO transduction with domain formula $\\delta$ and symmetric, irreflexive edge formula $\\varphi$ construct an output $H$ from a unary expansion $G^+$?",
+      "prompt": "Let $G$ be a finite simple graph and $G^+$ a unary expansion of $G$. How does a non-copying FO transduction with domain formula $\\delta$ and symmetric, irreflexive edge formula $\\varphi$ construct an output graph $H$?",
       "answers": [
         {
           "id": "correct",
-          "text": "$V(H)=\\{v:G^+\\models\\delta(v)\\}$; for $u,v\\in V(H)$, $uv\\in E(H)\\iff G^+\\models\\varphi(u,v)$.",
+          "text": "$V(H)=\\{v\\in V(G):G^+\\models\\delta(v)\\}$; for $u,v\\in V(H)$, $uv\\in E(H)\\iff G^+\\models\\varphi(u,v)$.",
           "correct": true,
           "explanation": "Evaluate both fixed formulas in the expanded input. The domain formula selects output vertices; the edge formula determines adjacency between them."
         },
@@ -132,7 +132,7 @@
         },
         {
           "id": "distractor-2",
-          "text": "$V(H)=\\{v:G^+\\models\\varphi(v,v)\\}$; adjacency is determined by $\\delta(u)\\land\\delta(v)$.",
+          "text": "$V(H)=\\{v\\in V(G):G^+\\models\\varphi(v,v)\\}$; for $u,v\\in V(H)$, adjacency is determined by $\\delta(u)\\land\\delta(v)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "The edge formula is irreflexive, so its diagonal is empty. The roles of the domain and edge formulas are reversed."
@@ -146,42 +146,42 @@
         },
         {
           "id": "distractor-4",
-          "text": "$V(H)=\\{v:G^+\\models\\delta(v)\\}$; keep only input edges that also satisfy $\\varphi$.",
+          "text": "$V(H)=\\{v\\in V(G):G^+\\models\\delta(v)\\}$; keep only input edges that also satisfy $\\varphi$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "An FO edge formula may create an edge that was absent from the input. Intersecting with the old edge set is an extra restriction."
         },
         {
           "id": "distractor-5",
-          "text": "$V(H)=\\{v:G^+\\models\\delta(v)\\}$; test $\\varphi$ only in $G^+[V(H)]$.",
+          "text": "$V(H)=\\{v\\in V(G):G^+\\models\\delta(v)\\}$; test $\\varphi$ only in $G^+[V(H)]$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Quantified variables of the edge formula range over the input structure. Deleting unselected witnesses first can change its truth."
         },
         {
           "id": "distractor-6",
-          "text": "$V(H)=\\{v:G^+\\models\\delta(v)\\}$; evaluate $\\varphi$ after forgetting all added predicates.",
+          "text": "$V(H)=\\{v\\in V(G):G^+\\models\\delta(v)\\}$; evaluate $\\varphi$ after forgetting all added predicates.",
           "correct": false,
           "difficulty": 2,
           "explanation": "The edge formula is allowed to use those unary predicates."
         },
         {
           "id": "distractor-7",
-          "text": "Use the stated domain, but require $\\varphi(u,v)$ in every unary expansion of $G$.",
+          "text": "Select vertices by $\\delta$, but for $u,v\\in V(H)$ require $\\varphi(u,v)$ in every unary expansion of $G$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Each individual expansion can produce its own output. Taking the intersection over all expansions changes the operation."
         },
         {
           "id": "distractor-8",
-          "text": "Use the stated domain, but choose a separate unary expansion for each pair $u,v$.",
+          "text": "Select vertices by $\\delta$, but choose a separate unary expansion for each pair $u,v\\in V(H)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "One expansion must determine the entire output graph, not a different expansion for each potential edge."
         },
         {
           "id": "distractor-9",
-          "text": "Use the stated domain, but evaluate $\\varphi$ in the output graph $H$ itself.",
+          "text": "Select vertices by $\\delta$, but evaluate $\\varphi$ in the output graph $H$ itself.",
           "correct": false,
           "difficulty": 3,
           "explanation": "The formulas are evaluated in the input expansion. Evaluating them recursively in the output is not this definition."
@@ -198,7 +198,7 @@
       "schemaVersion": 1,
       "id": "dense-03-transduction-uniformity",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
       "prompt": "For graph classes $\\mathcal C,\\mathcal D$, what does $\\mathcal D\\subseteq T(\\mathcal C)$ require of a single fixed FO transduction $T$?",
       "answers": [
@@ -224,7 +224,7 @@
         },
         {
           "id": "distractor-3",
-          "text": "The defining formula may be chosen separately for each target $H$.",
+          "text": "The defining formula may be chosen separately for each target $H\\in\\mathcal D$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "That discards the fixed-recipe requirement."
@@ -283,9 +283,9 @@
       "schemaVersion": 1,
       "id": "dense-04-transduction-copying",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "In the convention allowing copying, how is a $k$-copy operation used in an FO transduction?",
+      "prompt": "For a finite simple input graph $G$, how is a $k$-copy operation, with $k$ a positive integer, used in an FO transduction?",
       "answers": [
         {
           "id": "correct",
@@ -368,9 +368,9 @@
       "schemaVersion": 1,
       "id": "dense-05-monadic-name",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "A class $\\mathcal C$ cannot produce every finite simple graph by any one fixed FO transduction, even with arbitrary finitely many unary vertex predicates. What is this property called?",
+      "prompt": "A class of finite simple graphs $\\mathcal C$ cannot produce every finite simple graph by any one fixed FO transduction, even with arbitrary finitely many unary vertex predicates. What is this property called?",
       "answers": [
         {
           "id": "correct",
@@ -457,9 +457,9 @@
       "schemaVersion": 1,
       "id": "dense-06-monadic-definition",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $\\mathcal G$ be all finite simple graphs and $T$ range over fixed FO transductions with unary parameters. Which condition defines monadic dependence of $\\mathcal C$?",
+      "prompt": "Let $\\mathcal C$ be a class of finite simple graphs and $\\mathcal G$ the class of all such graphs. Let $T$ range over fixed FO transductions with unary parameters; $T(\\mathcal C)$ is the union of its outputs on members of $\\mathcal C$. Which condition defines monadic dependence of $\\mathcal C$?",
       "answers": [
         {
           "id": "correct",
@@ -546,9 +546,9 @@
       "schemaVersion": 1,
       "id": "dense-07-monadic-closure",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $\\mathcal C$ be monadically dependent and let $\\mathcal D\\subseteq T(\\mathcal C)$ for a fixed FO transduction $T$. What follows?",
+      "prompt": "Let $\\mathcal C,\\mathcal D$ be classes of finite simple graphs, with $\\mathcal C$ monadically dependent and $\\mathcal D\\subseteq T(\\mathcal C)$ for a fixed FO transduction $T$. What follows?",
       "answers": [
         {
           "id": "correct",
@@ -639,9 +639,9 @@
       "schemaVersion": 1,
       "id": "dense-08-twin-name",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Merge two parts at each step, from singletons to $\\{V(G)\\}$. Join distinct parts by a red edge exactly when their original adjacency is neither complete nor empty. Minimise the largest red degree over the entire sequence. Which parameter is this?",
+      "prompt": "Let $G$ be a finite nonempty simple graph. Merge two parts at each step, from the singleton partition of $V(G)$ to $\\{V(G)\\}$. Join distinct parts by a red edge exactly when their original adjacency is neither complete nor empty. Minimise the largest red degree over the entire sequence. Which parameter is this?",
       "answers": [
         {
           "id": "correct",
@@ -728,9 +728,9 @@
       "schemaVersion": 1,
       "id": "dense-09-twin-definition",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $R_i$ be the red graph at step $i$ of a valid contraction sequence $\\sigma$ from a finite nonempty graph $G$ to one vertex. Which formula defines $\\operatorname{tww}(G)$? Here $\\Delta$ is maximum degree.",
+      "prompt": "Let $G$ be a finite nonempty simple graph. Let $\\sigma$ range over valid contraction sequences from $G$ to one vertex, with stages $i=1,\\ldots,|V(G)|$ and red graphs $R_i$. Which formula defines $\\operatorname{tww}(G)$? Here $\\Delta$ and $\\operatorname{avgdeg}$ denote maximum and average degree.",
       "answers": [
         {
           "id": "correct",
@@ -813,9 +813,9 @@
       "schemaVersion": 1,
       "id": "dense-10-twin-red-update",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "In a trigraph contraction, merge $u,v$ into $w$ and consider another vertex $x$. Write $B,N,R$ for black edge, non-edge, and red edge. What is the status of $wx$?",
+      "prompt": "In a trigraph, let $u,v,x$ be distinct vertices. Merge $u,v$ into a new vertex $w$. Write $B,N,R$ for black edge, non-edge, and red edge, respectively; a status pair records $ux$ and $vx$. What is the status of $wx$?",
       "answers": [
         {
           "id": "correct",
@@ -898,9 +898,9 @@
       "schemaVersion": 1,
       "id": "dense-11-clique-name",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Which parameter is the minimum number of labels needed to build $G$ using labelled single vertices, disjoint union, complete joins between two distinct labels, and global relabelling?",
+      "prompt": "For a finite nonempty simple graph $G$, which parameter is the minimum number of labels needed to build $G$ using labelled single vertices, disjoint union, complete joins between two distinct labels, and global relabelling?",
       "answers": [
         {
           "id": "correct",
@@ -987,9 +987,9 @@
       "schemaVersion": 1,
       "id": "dense-12-clique-operations",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Which operation is permitted by a standard $k$-expression for clique-width?",
+      "prompt": "Fix an integer $k\\ge2$; label indices $i,j$ range over $\\{1,\\ldots,k\\}$. Which operation is permitted by a standard $k$-expression for clique-width?",
       "answers": [
         {
           "id": "correct",
@@ -1161,9 +1161,9 @@
       "schemaVersion": 1,
       "id": "dense-14-shrub-quantifiers",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $\\mathrm{TM}_m(d)$ denote graphs with an $m$-colour tree-model of height $d$. Which statement defines bounded shrubdepth of a class $\\mathcal C$?",
+      "prompt": "Let $\\mathcal C$ be a class of finite simple graphs. For positive integers $d,m$, let $\\mathrm{TM}_m(d)$ denote graphs with an $m$-colour tree-model of height $d$. All height and colour-count quantifiers below range over positive integers. Which statement defines bounded shrubdepth of $\\mathcal C$?",
       "answers": [
         {
           "id": "correct",
@@ -1215,7 +1215,7 @@
         },
         {
           "id": "distractor-7",
-          "text": "$\\exists d,m\\;\\forall G\\in\\mathcal C:$ one fixed finite tree $T$ models every $G$.",
+          "text": "There exist positive integers $d,m$ and one fixed finite rooted tree $T$ that models every $G\\in\\mathcal C$, with height $d$ and at most $m$ leaf colours.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Tree size must be allowed to grow with the number of graph vertices."
@@ -1250,9 +1250,9 @@
       "schemaVersion": 1,
       "id": "dense-15-shrub-adjacency",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "In an $m$-colour tree-model of height $d$, distinct leaves $u,v$ have colours $i,j$ and distance $2\\ell$. A symmetric signature $S\\subseteq[m]^2\\times[d]$ is given. How is adjacency defined?",
+      "prompt": "Let $m,d$ be positive integers, with $[m]=\\{1,\\ldots,m\\}$ and $[d]=\\{1,\\ldots,d\\}$. A graph $G$ has a tree-model $(T,S)$: the leaves of the rooted tree $T$ are $V(G)$, all at depth $d$, and $S\\subseteq[m]^2\\times[d]$ is symmetric in its first two coordinates. Distinct leaves $u,v$ have colours $i,j\\in[m]$ and distance $2\\ell$, where $\\ell\\in[d]$. How is their adjacency defined?",
       "answers": [
         {
           "id": "correct",
@@ -1335,13 +1335,13 @@
       "schemaVersion": 1,
       "id": "dense-16-merge-sequence",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "In the merge-sequence definition for a simple graph $G=(V,E)$, what conditions must $(\\mathcal P_i,R_i)$ satisfy? Write $AB=\\{\\{a,b\\}:a\\in A,b\\in B,a\\ne b\\}$.",
+      "prompt": "Let $G=(V,E)$ be a finite nonempty simple graph. Consider a sequence $(\\mathcal P_i,R_i)_{i=1}^m$ of partitions of $V$ and sets of unordered pairs of distinct vertices, with positive integer length $m$. For $A,B\\subseteq V$, write $AB=\\{\\{a,b\\}:a\\in A,b\\in B,a\\ne b\\}$. Which conditions define a merge sequence?",
       "answers": [
         {
           "id": "correct",
-          "text": "The partitions coarsen from singletons to $\\{V\\}$; $R_i\\subseteq R_{i+1}$; for every $A,B\\in\\mathcal P_i$, including $A=B$, all pairs in $AB\\setminus R_i$ are edges or all are non-edges.",
+          "text": "The partitions coarsen from singletons to $\\{V\\}$; $R_i\\subseteq R_{i+1}$ for $1\\le i<m$; for each $1\\le i\\le m$ and $A,B\\in\\mathcal P_i$, including $A=B$, all pairs in $AB\\setminus R_i$ are edges or all are non-edges.",
           "correct": true,
           "explanation": "Resolved pairs are exceptions to a uniform default on each pair of parts. Both edges and non-edges may be resolved, and resolved pairs remain resolved."
         },
@@ -1420,75 +1420,75 @@
       "schemaVersion": 1,
       "id": "dense-17-merge-radius",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $B_r^{R_i}(v)$ be the radius-$r$ ball in $(V,R_i)$. In the merge-sequence convention allowing several merges per step, which quantity is the sequence’s radius-$r$ width?",
+      "prompt": "Let $G=(V,E)$ be a finite nonempty simple graph with a merge sequence $(\\mathcal P_i,R_i)_{i=1}^m$ of length $m\\ge2$, and let $r$ be a positive integer. For $v\\in V$, write $B_r^{R_i}(v)$ for its radius-$r$ ball in $(V,R_i)$ and $B_r^G(v)$ for its ball in $G$. Allowing several merges per step, which quantity is the sequence's radius-$r$ width?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\displaystyle\\max_{i\\ge2}\\max_{v\\in V}\\bigl|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}\\bigr|$.",
+          "text": "$\\displaystyle\\max_{2\\le i\\le m}\\max_{v\\in V}\\bigl|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}\\bigr|$.",
           "correct": true,
           "explanation": "Count parts reached through resolved pairs, not vertices. Use the previous partition with the current resolved-pair set; the index offset prevents a large merge from hiding its cost."
         },
         {
           "id": "distractor-1",
-          "text": "$\\displaystyle\\max_{i\\ge2}\\max_{v\\in V}|B_r^{R_i}(v)|$.",
+          "text": "$\\displaystyle\\max_{2\\le i\\le m}\\max_{v\\in V}|B_r^{R_i}(v)|$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "A ball may contain many vertices in one part. Width counts intersected parts instead of vertices."
         },
         {
           "id": "distractor-2",
-          "text": "$\\displaystyle\\max_{i\\ge2}|\\mathcal P_{i-1}|$.",
+          "text": "$\\displaystyle\\max_{2\\le i\\le m}|\\mathcal P_{i-1}|$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Only parts reached from a vertex within the radius count, not every current part."
         },
         {
           "id": "distractor-3",
-          "text": "$\\displaystyle\\max_{i\\ge2}|R_i|$.",
+          "text": "$\\displaystyle\\max_{2\\le i\\le m}|R_i|$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "The number of resolved pairs is not the local reachability width."
         },
         {
           "id": "distractor-4",
-          "text": "$\\displaystyle\\max_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_i:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}|$.",
+          "text": "$\\displaystyle\\max_{2\\le i\\le m}\\max_{v\\in V}|\\{A\\in\\mathcal P_i:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}|$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Using the new partition omits the required offset. A single large merge could collapse the measured count to one."
         },
         {
           "id": "distractor-5",
-          "text": "$\\displaystyle\\max_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_{i-1}}(v)\\ne\\varnothing\\}|$.",
+          "text": "$\\displaystyle\\max_{2\\le i\\le m}\\max_{v\\in V}|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_{i-1}}(v)\\ne\\varnothing\\}|$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "This measures the old resolved set and ignores pairs resolved immediately before the merge."
         },
         {
           "id": "distractor-6",
-          "text": "$\\displaystyle\\max_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^G(v)\\ne\\varnothing\\}|$.",
+          "text": "$\\displaystyle\\max_{2\\le i\\le m}\\max_{v\\in V}|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^G(v)\\ne\\varnothing\\}|$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Reachability is in the resolved-pair graph, which includes resolved non-edges, not in the original graph."
         },
         {
           "id": "distractor-7",
-          "text": "$\\displaystyle\\max_{i\\ge2}\\min_v|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}|$.",
+          "text": "$\\displaystyle\\max_{2\\le i\\le m}\\min_{v\\in V}|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}|$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Every vertex must satisfy the width bound; the best vertex cannot witness the maximum local complexity."
         },
         {
           "id": "distractor-8",
-          "text": "$\\displaystyle\\min_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}|$.",
+          "text": "$\\displaystyle\\min_{2\\le i\\le m}\\max_{v\\in V}|\\{A\\in\\mathcal P_{i-1}:A\\cap B_r^{R_i}(v)\\ne\\varnothing\\}|$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "The sequence width is the worst stage, not the easiest stage."
         },
         {
           "id": "distractor-9",
-          "text": "$\\displaystyle\\max_{i\\ge2}\\max_v|\\{A\\in\\mathcal P_{i-1}:A\\subseteq B_r^{R_i}(v)\\}|$.",
+          "text": "$\\displaystyle\\max_{2\\le i\\le m}\\max_{v\\in V}|\\{A\\in\\mathcal P_{i-1}:A\\subseteq B_r^{R_i}(v)\\}|$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Reaching one vertex of a part suffices. The ball need not contain the entire part."
@@ -1505,9 +1505,9 @@
       "schemaVersion": 1,
       "id": "dense-18-merge-name",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Fix $r$. Over valid merge sequences, minimise the maximum number of previous-partition parts reached from one original vertex by at most $r$ resolved pairs. Which graph parameter is defined?",
+      "prompt": "Let $G$ be a finite nonempty simple graph and $r$ a positive integer. Over valid merge sequences of $G$, minimise the maximum number of previous-partition parts reached from one original vertex by at most $r$ resolved pairs. Which graph parameter is defined?",
       "answers": [
         {
           "id": "correct",
@@ -1590,9 +1590,9 @@
       "schemaVersion": 1,
       "id": "dense-19-merge-bounded",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "What does it mean for a graph class $\\mathcal C$ to have bounded merge-width, using the finite-radius parameters $\\operatorname{mw}_r$?",
+      "prompt": "Let $\\mathcal C$ be a class of finite simple graphs. Let $r$ range over positive integers, and let $k,k_r,c_r$ denote positive real bounds as quantified below. What defines bounded merge-width, using the radius-$r$ parameters $\\operatorname{mw}_r$?",
       "answers": [
         {
           "id": "correct",
@@ -1675,9 +1675,9 @@
       "schemaVersion": 1,
       "id": "dense-20-merge-almost",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "For nonempty graphs in $\\mathcal C$, which bound expresses almost bounded merge-width?",
+      "prompt": "Let $\\mathcal C$ be a class of finite nonempty simple graphs. In the proposed bounds, $G$ ranges over $\\mathcal C$, radii $r$ over positive integers, exponents $\\varepsilon$ over positive reals, and $c,c_r,c_{r,\\varepsilon}$ are positive real constants quantified in each choice. Which bound expresses almost bounded merge-width?",
       "answers": [
         {
           "id": "correct",
@@ -1736,7 +1736,7 @@
         },
         {
           "id": "distractor-8",
-          "text": "There is a single constant $c$ such that $\\operatorname{mw}_r(G)\\le c|V(G)|^\\varepsilon$ for every $r,\\varepsilon>0,G$.",
+          "text": "There is a single constant $c$ such that $\\operatorname{mw}_r(G)\\le c|V(G)|^\\varepsilon$ for every positive integer $r$, every $\\varepsilon>0$, and every $G\\in\\mathcal C$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "The constants may depend on radius and exponent. Requiring one constant imposes a much stronger condition."
@@ -1764,19 +1764,19 @@
       "schemaVersion": 1,
       "id": "dense-21-shrub-clique-separation",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
       "prompt": "Bounded shrubdepth implies bounded clique-width. Which class witnesses that the converse fails?",
       "answers": [
         {
           "id": "correct",
-          "text": "All finite paths $\\{P_n:n\\ge1\\}$.",
+          "text": "All finite nonempty paths.",
           "correct": true,
           "explanation": "Paths have clique-width at most three, but no fixed tree-model height and fixed colour count can represent paths of every length."
         },
         {
           "id": "distractor-1",
-          "text": "All cliques $\\{K_n:n\\ge1\\}$.",
+          "text": "All finite nonempty cliques.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Cliques have height-one, one-colour tree-models, so their shrubdepth is bounded."
@@ -1790,7 +1790,7 @@
         },
         {
           "id": "distractor-3",
-          "text": "All complete bipartite graphs $K_{a,b}$.",
+          "text": "All finite complete bipartite graphs.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Two colours on a height-one tree distinguish the sides; the signature joins exactly different colours."
@@ -2023,9 +2023,9 @@
       "schemaVersion": 1,
       "id": "dense-24-infinite-merge",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Extend resolved-pair reachability to $r=\\infty$, so an entire connected component can be reached. Which class property is equivalent to $\\sup_{G\\in\\mathcal C}\\operatorname{mw}_\\infty(G)<\\infty$?",
+      "prompt": "Let $\\mathcal C$ be a class of finite simple graphs. Extend the radius parameter to $r=\\infty$, so resolved-pair reachability covers an entire connected component. Which class property is equivalent to $\\sup_{G\\in\\mathcal C}\\operatorname{mw}_\\infty(G)<\\infty$?",
       "answers": [
         {
           "id": "correct",
@@ -2120,9 +2120,9 @@
       "schemaVersion": 1,
       "id": "dense-25-monadic-merge-relation",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "For a hereditary class $\\mathcal C$ (closed under induced subgraphs), what relationship follows from the merge-width results, including the 4 November 2026 preprint?",
+      "prompt": "For a hereditary class $\\mathcal C$ of finite simple graphs (closed under induced subgraphs), what relationship follows from the merge-width results, including the 4 November 2026 preprint?",
       "answers": [
         {
           "id": "correct",
@@ -2306,9 +2306,9 @@
       "schemaVersion": 1,
       "id": "dense-27-dependent-stable",
       "topic": "dense-graph-classes",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $H_n$ be the half-graph with sides $a_1,\\ldots,a_n$ and $b_1,\\ldots,b_n$, with $a_i b_j$ an edge iff $i\\le j$. Which distinction between monadic dependence and monadic stability is correct?",
+      "prompt": "For each positive integer $n$, let $H_n$ be the bipartite half-graph on disjoint sides $\\{a_1,\\ldots,a_n\\}$ and $\\{b_1,\\ldots,b_n\\}$. For $i,j\\in\\{1,\\ldots,n\\}$, the pair $a_i b_j$ is an edge exactly when $i\\le j$. Which distinction between monadic dependence and monadic stability is correct?",
       "answers": [
         {
           "id": "correct",
@@ -2484,9 +2484,9 @@
       "schemaVersion": 1,
       "id": "relations-01-reflexive-name",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\; R(x,x)$?",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which property is defined exactly by $\\forall x\\in A\\; R(x,x)$?",
       "answers": [
         {
           "id": "correct",
@@ -2573,75 +2573,75 @@
       "schemaVersion": 1,
       "id": "relations-02-reflexive-definition",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "For $R\\subseteq A\\times A$, which condition defines reflexivity? All quantified variables range over $A$.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which condition defines reflexivity?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\forall x\\; R(x,x)$.",
+          "text": "$\\forall x\\in A\\; R(x,x)$.",
           "correct": true,
           "explanation": "Every element has a self-loop; pairs of different elements are unrestricted."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "text": "$\\forall x\\in A\\; \\neg R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This defines irreflexivity, not reflexivity."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not reflexivity."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not reflexivity."
         },
         {
           "id": "distractor-4",
-          "text": "$\\exists x\\; R(x,x)$.",
+          "text": "$\\exists x\\in A\\; R(x,x)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Only one element needs to relate to itself. This defines existence of a self-loop, not reflexivity."
         },
         {
           "id": "distractor-5",
-          "text": "$\\forall x\\exists y\\; R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\exists y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Each element has at least one outgoing related element, which may be itself. This defines seriality, not reflexivity."
         },
         {
           "id": "distractor-6",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Leftrightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Leftrightarrow x=y)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "All diagonal pairs and no off-diagonal pairs are present. This defines equality as the entire relation, not reflexivity."
         },
         {
           "id": "distractor-7",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\lor R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\lor R(y,x))$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Every pair is comparable, including an element with itself, so all loops are required. This defines comparability including equal elements, not reflexivity."
         },
         {
           "id": "distractor-8",
-          "text": "$\\forall x\\forall y\\; R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Every ordered pair is present, including every loop. This defines universality, not reflexivity."
         },
         {
           "id": "distractor-9",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow x=y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Every related pair is diagonal; some or all loops may be missing. This defines coreflexivity, not reflexivity."
@@ -2662,9 +2662,9 @@
       "schemaVersion": 1,
       "id": "relations-03-irreflexive-name",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\; \\neg R(x,x)$?",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which property is defined exactly by $\\forall x\\in A\\; \\neg R(x,x)$?",
       "answers": [
         {
           "id": "correct",
@@ -2751,75 +2751,75 @@
       "schemaVersion": 1,
       "id": "relations-04-irreflexive-definition",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "For $R\\subseteq A\\times A$, which condition defines irreflexivity? All quantified variables range over $A$.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which condition defines irreflexivity?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "text": "$\\forall x\\in A\\; \\neg R(x,x)$.",
           "correct": true,
           "explanation": "No element has a self-loop; pairs of different elements are unrestricted."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\; R(x,x)$.",
+          "text": "$\\forall x\\in A\\; R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not irreflexivity."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not irreflexivity."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not irreflexivity."
         },
         {
           "id": "distractor-4",
-          "text": "$\\exists x\\; \\neg R(x,x)$.",
+          "text": "$\\exists x\\in A\\; \\neg R(x,x)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "At least one self-loop is absent; other self-loops may be present. This defines failure of reflexivity, not irreflexivity."
         },
         {
           "id": "distractor-5",
-          "text": "$\\forall x\\forall y\\; \\neg R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; \\neg R(x,y)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "No ordered pair is present, including between distinct elements. This defines emptiness, not irreflexivity."
         },
         {
           "id": "distractor-6",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This defines asymmetry, not irreflexivity."
         },
         {
           "id": "distractor-7",
-          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Mutual relatedness forces equality. Self-loops are allowed. This defines antisymmetry, not irreflexivity."
         },
         {
           "id": "distractor-8",
-          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\; (R(x,y)\\land\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Some related pair lacks its reverse; this is an existential violation. This defines failure of symmetry, not irreflexivity."
         },
         {
           "id": "distractor-9",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow x=y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Every related pair is diagonal; some or all loops may be missing. This defines coreflexivity, not irreflexivity."
@@ -2840,9 +2840,9 @@
       "schemaVersion": 1,
       "id": "relations-05-symmetric-name",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$?",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which property is defined exactly by $\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$?",
       "answers": [
         {
           "id": "correct",
@@ -2929,75 +2929,75 @@
       "schemaVersion": 1,
       "id": "relations-06-symmetric-definition",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "For $R\\subseteq A\\times A$, which condition defines symmetry? All quantified variables range over $A$.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which condition defines symmetry?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
           "correct": true,
           "explanation": "Every related pair has its reverse; loops are allowed but not required."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\; R(x,x)$.",
+          "text": "$\\forall x\\in A\\; R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not symmetry."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "text": "$\\forall x\\in A\\; \\neg R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This defines irreflexivity, not symmetry."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not symmetry."
         },
         {
           "id": "distractor-4",
-          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Mutual relatedness forces equality. Self-loops are allowed. This defines antisymmetry, not symmetry."
         },
         {
           "id": "distractor-5",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This defines asymmetry, not symmetry."
         },
         {
           "id": "distractor-6",
-          "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every pair of distinct elements is comparable in at least one direction. This convention imposes no condition on loops. This defines connexity on distinct elements, not symmetry."
         },
         {
           "id": "distractor-7",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow R(y,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(x,z))\\Rightarrow R(y,z))$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Two outgoing neighbours of the same element must be related in the indicated direction. This defines the right-euclidean property, not symmetry."
         },
         {
           "id": "distractor-8",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow x=y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Every related pair is diagonal; some or all loops may be missing. This defines coreflexivity, not symmetry."
         },
         {
           "id": "distractor-9",
-          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\; (R(x,y)\\land\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Some related pair lacks its reverse; this is an existential violation. This defines failure of symmetry, not symmetry."
@@ -3018,9 +3018,9 @@
       "schemaVersion": 1,
       "id": "relations-07-antisymmetric-name",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$?",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which property is defined exactly by $\\forall x\\in A\\;\\forall y\\in A\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$?",
       "answers": [
         {
           "id": "correct",
@@ -3107,75 +3107,75 @@
       "schemaVersion": 1,
       "id": "relations-08-antisymmetric-definition",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "For $R\\subseteq A\\times A$, which condition defines antisymmetry? All quantified variables range over $A$.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which condition defines antisymmetry?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
           "correct": true,
           "explanation": "Mutual relatedness forces equality. Self-loops are allowed."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not antisymmetry."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\; R(x,x)$.",
+          "text": "$\\forall x\\in A\\; R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not antisymmetry."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not antisymmetry."
         },
         {
           "id": "distractor-4",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This defines asymmetry, not antisymmetry."
         },
         {
           "id": "distractor-5",
-          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "text": "$\\forall x\\in A\\; \\neg R(x,x)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This defines irreflexivity, not antisymmetry."
         },
         {
           "id": "distractor-6",
-          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\; (R(x,y)\\land\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Some related pair lacks its reverse; this is an existential violation. This defines failure of symmetry, not antisymmetry."
         },
         {
           "id": "distractor-7",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow x=y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Every related pair is diagonal; some or all loops may be missing. This defines coreflexivity, not antisymmetry."
         },
         {
           "id": "distractor-8",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not antisymmetry."
         },
         {
           "id": "distractor-9",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Leftrightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Leftrightarrow x=y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "All diagonal pairs and no off-diagonal pairs are present. This defines equality as the entire relation, not antisymmetry."
@@ -3196,9 +3196,9 @@
       "schemaVersion": 1,
       "id": "relations-09-asymmetric-name",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$?",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which property is defined exactly by $\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow\\neg R(y,x))$?",
       "answers": [
         {
           "id": "correct",
@@ -3285,75 +3285,75 @@
       "schemaVersion": 1,
       "id": "relations-10-asymmetric-definition",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "For $R\\subseteq A\\times A$, which condition defines asymmetry? All quantified variables range over $A$.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which condition defines asymmetry?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
           "correct": true,
           "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not asymmetry."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\; R(x,x)$.",
+          "text": "$\\forall x\\in A\\; R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not asymmetry."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not asymmetry."
         },
         {
           "id": "distractor-4",
-          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Mutual relatedness forces equality. Self-loops are allowed. This defines antisymmetry, not asymmetry."
         },
         {
           "id": "distractor-5",
-          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "text": "$\\forall x\\in A\\; \\neg R(x,x)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This defines irreflexivity, not asymmetry."
         },
         {
           "id": "distractor-6",
-          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\; (R(x,y)\\land\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Some related pair lacks its reverse; this is an existential violation. This defines failure of symmetry, not asymmetry."
         },
         {
           "id": "distractor-7",
-          "text": "$\\forall x\\forall y\\; \\neg R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; \\neg R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "No ordered pair is present, including between distinct elements. This defines emptiness, not asymmetry."
         },
         {
           "id": "distractor-8",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Every two-step chain lacks its direct shortcut. Failure of transitivity instead requires at least one chain without its shortcut. This defines antitransitivity, not asymmetry."
         },
         {
           "id": "distractor-9",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not asymmetry."
@@ -3374,9 +3374,9 @@
       "schemaVersion": 1,
       "id": "relations-11-transitive-name",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$?",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which property is defined exactly by $\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$?",
       "answers": [
         {
           "id": "correct",
@@ -3463,75 +3463,75 @@
       "schemaVersion": 1,
       "id": "relations-12-transitive-definition",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "For $R\\subseteq A\\times A$, which condition defines transitivity? All quantified variables range over $A$.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which condition defines transitivity?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
           "correct": true,
           "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\; R(x,x)$.",
+          "text": "$\\forall x\\in A\\; R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not transitivity."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not transitivity."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Mutual relatedness forces equality. Self-loops are allowed. This defines antisymmetry, not transitivity."
         },
         {
           "id": "distractor-4",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every two-step chain lacks its direct shortcut. Failure of transitivity instead requires at least one chain without its shortcut. This defines antitransitivity, not transitivity."
         },
         {
           "id": "distractor-5",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow R(y,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(x,z))\\Rightarrow R(y,z))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Two outgoing neighbours of the same element must be related in the indicated direction. This defines the right-euclidean property, not transitivity."
         },
         {
           "id": "distractor-6",
-          "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every pair of distinct elements is comparable in at least one direction. This convention imposes no condition on loops. This defines connexity on distinct elements, not transitivity."
         },
         {
           "id": "distractor-7",
-          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\;\\exists z\\in A\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Some two-step chain lacks its shortcut; other chains may have shortcuts. This defines failure of transitivity, not transitivity."
         },
         {
           "id": "distractor-8",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not transitivity."
         },
         {
           "id": "distractor-9",
-          "text": "$\\forall x\\exists y\\; R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\exists y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Each element has at least one outgoing related element, which may be itself. This defines seriality, not transitivity."
@@ -3552,9 +3552,9 @@
       "schemaVersion": 1,
       "id": "relations-13-connex-name",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$?",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which property is defined exactly by $\\forall x\\in A\\;\\forall y\\in A\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$?",
       "answers": [
         {
           "id": "correct",
@@ -3641,75 +3641,75 @@
       "schemaVersion": 1,
       "id": "relations-14-connex-definition",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "For $R\\subseteq A\\times A$, which condition defines connexity on distinct elements? All quantified variables range over $A$. Here connexity only compares distinct elements.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which condition defines connexity on distinct elements? Here connexity only compares distinct elements.",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
           "correct": true,
           "explanation": "Every pair of distinct elements is comparable in at least one direction. This convention imposes no condition on loops."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not connexity on distinct elements."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Mutual relatedness forces equality. Self-loops are allowed. This defines antisymmetry, not connexity on distinct elements."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not connexity on distinct elements."
         },
         {
           "id": "distractor-4",
-          "text": "$\\forall x\\exists y\\; R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\exists y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Each element has at least one outgoing related element, which may be itself. This defines seriality, not connexity on distinct elements."
         },
         {
           "id": "distractor-5",
-          "text": "$\\forall x\\forall y\\; R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every ordered pair is present, including every loop. This defines universality, not connexity on distinct elements."
         },
         {
           "id": "distractor-6",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This defines asymmetry, not connexity on distinct elements."
         },
         {
           "id": "distractor-7",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\lor R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\lor R(y,x))$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Every pair is comparable, including an element with itself, so all loops are required. This defines comparability including equal elements, not connexity on distinct elements."
         },
         {
           "id": "distractor-8",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not connexity on distinct elements."
         },
         {
           "id": "distractor-9",
-          "text": "$\\exists x\\exists y\\; R(x,y)$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "One related pair suffices; the other elements may be isolated. This defines nonemptiness, not connexity on distinct elements."
@@ -3730,9 +3730,9 @@
       "schemaVersion": 1,
       "id": "relations-15-serial-name",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\exists y\\; R(x,y)$?",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which property is defined exactly by $\\forall x\\in A\\;\\exists y\\in A\\; R(x,y)$?",
       "answers": [
         {
           "id": "correct",
@@ -3819,75 +3819,75 @@
       "schemaVersion": 1,
       "id": "relations-16-serial-definition",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "For $R\\subseteq A\\times A$, which condition defines seriality? All quantified variables range over $A$.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which condition defines seriality?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\forall x\\exists y\\; R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\exists y\\in A\\; R(x,y)$.",
           "correct": true,
           "explanation": "Each element has at least one outgoing related element, which may be itself."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\; R(x,x)$.",
+          "text": "$\\forall x\\in A\\; R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not seriality."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not seriality."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not seriality."
         },
         {
           "id": "distractor-4",
-          "text": "$\\exists x\\exists y\\; R(x,y)$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "One related pair suffices; the other elements may be isolated. This defines nonemptiness, not seriality."
         },
         {
           "id": "distractor-5",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not seriality."
         },
         {
           "id": "distractor-6",
-          "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every pair of distinct elements is comparable in at least one direction. This convention imposes no condition on loops. This defines connexity on distinct elements, not seriality."
         },
         {
           "id": "distractor-7",
-          "text": "$\\forall y\\exists x\\; R(x,y)$.",
+          "text": "$\\forall y\\in A\\;\\exists x\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Every element has a predecessor; this does not ensure that every element has a successor. This defines existence of an incoming neighbour for every element, not seriality."
         },
         {
           "id": "distractor-8",
-          "text": "$\\exists y\\forall x\\; R(x,y)$.",
+          "text": "$\\exists y\\in A\\;\\forall x\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "One element must be a successor of every element; seriality can use different successors. This defines existence of one common outgoing target, not seriality."
         },
         {
           "id": "distractor-9",
-          "text": "$\\forall x\\forall y\\; R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Every ordered pair is present, including every loop. This defines universality, not seriality."
@@ -3908,9 +3908,9 @@
       "schemaVersion": 1,
       "id": "relations-17-antitransitive-name",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$?",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which property is defined exactly by $\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$?",
       "answers": [
         {
           "id": "correct",
@@ -3997,75 +3997,75 @@
       "schemaVersion": 1,
       "id": "relations-18-antitransitive-definition",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "For $R\\subseteq A\\times A$, which condition defines antitransitivity? All quantified variables range over $A$. Here antitransitive means that every two-step chain lacks its shortcut.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which condition defines antitransitivity? Here antitransitive means that every two-step chain lacks its shortcut.",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
           "correct": true,
           "explanation": "Every two-step chain lacks its direct shortcut. Failure of transitivity instead requires at least one chain without its shortcut."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not antitransitivity."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not antitransitivity."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\; R(x,x)$.",
+          "text": "$\\forall x\\in A\\; R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not antitransitivity."
         },
         {
           "id": "distractor-4",
-          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\;\\exists z\\in A\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Some two-step chain lacks its shortcut; other chains may have shortcuts. This defines failure of transitivity, not antitransitivity."
         },
         {
           "id": "distractor-5",
-          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "text": "$\\forall x\\in A\\; \\neg R(x,x)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This defines irreflexivity, not antitransitivity."
         },
         {
           "id": "distractor-6",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This defines asymmetry, not antitransitivity."
         },
         {
           "id": "distractor-7",
-          "text": "$\\forall x\\forall y\\; \\neg R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; \\neg R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "No ordered pair is present, including between distinct elements. This defines emptiness, not antitransitivity."
         },
         {
           "id": "distractor-8",
-          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\; (R(x,y)\\land\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Some related pair lacks its reverse; this is an existential violation. This defines failure of symmetry, not antitransitivity."
         },
         {
           "id": "distractor-9",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not antitransitivity."
@@ -4086,9 +4086,9 @@
       "schemaVersion": 1,
       "id": "relations-19-equivalence",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Which conditions on $R\\subseteq A\\times A$ are necessary and sufficient for $R$ to be an equivalence relation?",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. Which conditions are necessary and sufficient for $R$ to be an equivalence relation?",
       "answers": [
         {
           "id": "correct",
@@ -4122,7 +4122,7 @@
           "text": "Reflexive and symmetric.",
           "correct": false,
           "difficulty": 2,
-          "explanation": "Transitivity is missing: symmetric links from 1 to 2 and 2 to 3 need not link 1 to 3."
+          "explanation": "Transitivity is missing: on the set $A=\\{1,2,3\\}$, all loops and the two-way pairs between 1 and 2 and between 2 and 3 can be present while both pairs between 1 and 3 are absent."
         },
         {
           "id": "distractor-5",
@@ -4353,9 +4353,9 @@
       "schemaVersion": 1,
       "id": "relations-22-strict-partial-order",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Which conditions define a strict partial order $R\\subseteq A\\times A$?",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. Which conditions define a strict partial order?",
       "answers": [
         {
           "id": "correct",
@@ -4442,75 +4442,75 @@
       "schemaVersion": 1,
       "id": "relations-23-total-order",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $R$ already be a non-strict partial order on $A$. Which extra condition is necessary and sufficient for it to be a total (linear) order? All variables range over $A$.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Suppose $R$ is a non-strict partial order. Which extra condition is necessary and sufficient for it to be a total (linear) order?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
           "correct": true,
           "explanation": "Every pair of distinct elements must be comparable. Reflexivity already handles equal elements."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Symmetry would reduce a partial order to equality, which is not total on a set of size at least two."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "text": "$\\forall x\\in A\\; \\neg R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "This contradicts reflexivity on a nonempty domain."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Transitivity already holds and does not force comparability."
         },
         {
           "id": "distractor-4",
-          "text": "$\\forall x\\exists y\\; R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\exists y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Reflexivity already makes the relation serial, even when some distinct elements are incomparable."
         },
         {
           "id": "distractor-5",
-          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Antisymmetry already holds in a partial order."
         },
         {
           "id": "distractor-6",
-          "text": "$\\forall x\\; R(x,x)$.",
+          "text": "$\\forall x\\in A\\; R(x,x)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Reflexivity already holds in a partial order."
         },
         {
           "id": "distractor-7",
-          "text": "$\\forall x\\forall y\\; R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "This requires both directions between distinct elements and conflicts with antisymmetry."
         },
         {
           "id": "distractor-8",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Together with reflexivity this permits only equality, not general total orders."
         },
         {
           "id": "distractor-9",
-          "text": "$\\exists y\\forall x\\; R(x,y)$.",
+          "text": "$\\exists y\\in A\\;\\forall x\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "A greatest element need not make all other elements comparable."
@@ -4531,75 +4531,75 @@
       "schemaVersion": 1,
       "id": "relations-24-strict-total-order",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Let $R$ be a strict partial order. Which extra condition is necessary and sufficient for it to be a strict total order? All variables range over its domain.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Suppose $R$ is a strict partial order. Which extra condition is necessary and sufficient for it to be a strict total order?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\forall x\\forall y\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (x\\ne y\\Rightarrow (R(x,y)\\lor R(y,x)))$.",
           "correct": true,
           "explanation": "Together with asymmetry, comparability gives exactly one direction between any two distinct elements."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\; R(x,x)$.",
+          "text": "$\\forall x\\in A\\; R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "A strict order cannot have loops on a nonempty domain."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Symmetry and asymmetry together force an empty relation, which is not total on two elements."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "This is already assumed; incomparable pairs may remain."
         },
         {
           "id": "distractor-4",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\lor R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\lor R(y,x))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "For equal elements this demands a self-loop, contradicting strictness."
         },
         {
           "id": "distractor-5",
-          "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every strict partial order is already antisymmetric."
         },
         {
           "id": "distractor-6",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every strict partial order is already asymmetric."
         },
         {
           "id": "distractor-7",
-          "text": "$\\forall x\\exists y\\; R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\exists y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Seriality excludes finite strict total orders with a greatest element and does not ensure comparability."
         },
         {
           "id": "distractor-8",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "A strict total order on three elements can give the least element two successors."
         },
         {
           "id": "distractor-9",
-          "text": "$\\exists x\\exists y\\; R(x,y)$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "One related pair does not compare every other pair."
@@ -4620,75 +4620,75 @@
       "schemaVersion": 1,
       "id": "relations-25-not-reflexive",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "What does it mean for $R\\subseteq A\\times A$ to fail reflexivity? All variables range over $A$.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. What does it mean for $R$ to fail reflexivity?",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\exists x\\; \\neg R(x,x)$.",
+          "text": "$\\exists x\\in A\\; \\neg R(x,x)$.",
           "correct": true,
           "explanation": "Negating a universal statement gives one missing self-loop; loops elsewhere may still be present."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\; \\neg R(x,x)$.",
+          "text": "$\\forall x\\in A\\; \\neg R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This is not the negation of reflexivity."
         },
         {
           "id": "distractor-2",
-          "text": "$\\forall x\\; R(x,x)$.",
+          "text": "$\\forall x\\in A\\; R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This is not the negation of reflexivity."
         },
         {
           "id": "distractor-3",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Every related pair has its reverse; loops are allowed but not required. This is not the negation of reflexivity."
         },
         {
           "id": "distractor-4",
-          "text": "$\\exists x\\; R(x,x)$.",
+          "text": "$\\exists x\\in A\\; R(x,x)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Only one element needs to relate to itself. This is not the negation of reflexivity."
         },
         {
           "id": "distractor-5",
-          "text": "$\\forall x\\forall y\\; \\neg R(x,y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; \\neg R(x,y)$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "No ordered pair is present, including between distinct elements. This is not the negation of reflexivity."
         },
         {
           "id": "distractor-6",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This is not the negation of reflexivity."
         },
         {
           "id": "distractor-7",
-          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\; (R(x,y)\\land\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Some related pair lacks its reverse; this is an existential violation. This is not the negation of reflexivity."
         },
         {
           "id": "distractor-8",
-          "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow x=y)$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow x=y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "Every related pair is diagonal; some or all loops may be missing. This is not the negation of reflexivity."
         },
         {
           "id": "distractor-9",
-          "text": "$\\exists x\\exists y\\; R(x,y)$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\; R(x,y)$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "One related pair suffices; the other elements may be isolated. This is not the negation of reflexivity."
@@ -4798,9 +4798,9 @@
       "schemaVersion": 1,
       "id": "relations-27-symmetric-antisymmetric",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Write $\\Delta_A=\\{(x,x):x\\in A\\}$. Which condition is equivalent to $R$ being both symmetric and antisymmetric?",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. Define $\\Delta_A=\\{(x,x):x\\in A\\}$ and the inverse relation $R^{-1}=\\{(y,x):(x,y)\\in R\\}$. Which condition is equivalent to $R$ being both symmetric and antisymmetric?",
       "answers": [
         {
           "id": "correct",
@@ -4887,9 +4887,9 @@
       "schemaVersion": 1,
       "id": "relations-28-symmetric-irreflexive-graph",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "For finite $V$, which conditions are necessary and sufficient for $R\\subseteq V\\times V$ to represent simple undirected adjacency, using both ordered pairs for each edge?",
+      "prompt": "For a finite set $V$, which conditions are necessary and sufficient for $R\\subseteq V\\times V$ to represent simple undirected adjacency, using both ordered pairs for each edge?",
       "answers": [
         {
           "id": "correct",
@@ -4976,9 +4976,9 @@
       "schemaVersion": 1,
       "id": "relations-29-empty-domain",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "When can a binary relation on $A$ be both reflexive and irreflexive?",
+      "prompt": "When can a binary relation on a set $A$ be both reflexive and irreflexive?",
       "answers": [
         {
           "id": "correct",
@@ -5065,75 +5065,75 @@
       "schemaVersion": 1,
       "id": "relations-30-transitivity-witness",
       "topic": "relations",
-      "revision": 1,
+      "revision": 2,
       "status": "active",
-      "prompt": "Which condition is necessary and sufficient for failure of transitivity of $R$? All variables range over its domain; they need not be distinct.",
+      "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which condition is necessary and sufficient for failure of transitivity of $R$? Quantified variables need not be distinct.",
       "answers": [
         {
           "id": "correct",
-          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\;\\exists z\\in A\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
           "correct": true,
           "explanation": "One two-step chain without its shortcut suffices. In particular, repeated endpoints can witness failure when a two-way pair lacks a loop."
         },
         {
           "id": "distractor-1",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow\\neg R(x,z))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "This demands that every chain lacks a shortcut and can hold vacuously when no chain exists. Failure of transitivity requires at least one chain without its shortcut."
         },
         {
           "id": "distractor-2",
-          "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\; (R(x,y)\\land\\neg R(y,x))$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "A one-way pair concerns symmetry, not transitivity."
         },
         {
           "id": "distractor-3",
-          "text": "$\\exists x\\; \\neg R(x,x)$.",
+          "text": "$\\exists x\\in A\\; \\neg R(x,x)$.",
           "correct": false,
           "difficulty": 1,
           "explanation": "Missing a loop alone does not violate transitivity."
         },
         {
           "id": "distractor-4",
-          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land R(x,z))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\;\\exists z\\in A\\; ((R(x,y)\\land R(y,z))\\land R(x,z))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "A chain with its shortcut is compatible with transitivity; a missing shortcut is needed."
         },
         {
           "id": "distractor-5",
-          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\lor R(y,z))\\land\\neg R(x,z))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\;\\exists z\\in A\\; ((R(x,y)\\lor R(y,z))\\land\\neg R(x,z))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "One of the two edges does not form a two-step chain."
         },
         {
           "id": "distractor-6",
-          "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
+          "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\land\\neg R(x,z))$.",
           "correct": false,
           "difficulty": 2,
           "explanation": "Failure needs one triple, not every triple; the universal condition is also vacuous on an empty domain."
         },
         {
           "id": "distractor-7",
-          "text": "$\\exists x\\exists y\\exists z\\; ((x\\ne y\\land y\\ne z\\land x\\ne z)\\land R(x,y)\\land R(y,z)\\land\\neg R(x,z))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\;\\exists z\\in A\\; ((x\\ne y\\land y\\ne z\\land x\\ne z)\\land R(x,y)\\land R(y,z)\\land\\neg R(x,z))$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "This misses repeated-endpoint violations: a loopless two-way pair on two elements is not transitive."
         },
         {
           "id": "distractor-8",
-          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(z,y))\\land\\neg R(x,z))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\;\\exists z\\in A\\; ((R(x,y)\\land R(z,y))\\land\\neg R(x,z))$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "The two pairs converge at a common target rather than forming a chain."
         },
         {
           "id": "distractor-9",
-          "text": "$\\exists x\\exists y\\exists z\\; ((R(x,y)\\land R(y,z))\\land\\neg R(z,x))$.",
+          "text": "$\\exists x\\in A\\;\\exists y\\in A\\;\\exists z\\in A\\; ((R(x,y)\\land R(y,z))\\land\\neg R(z,x))$.",
           "correct": false,
           "difficulty": 3,
           "explanation": "The required shortcut runs from the first element to the third, not in reverse."

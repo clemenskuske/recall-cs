@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-20-merge-almost",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "For nonempty graphs in $\\mathcal C$, which bound expresses almost bounded merge-width?",
+  "prompt": "Let $\\mathcal C$ be a class of finite nonempty simple graphs. In the proposed bounds, $G$ ranges over $\\mathcal C$, radii $r$ over positive integers, exponents $\\varepsilon$ over positive reals, and $c,c_r,c_{r,\\varepsilon}$ are positive real constants quantified in each choice. Which bound expresses almost bounded merge-width?",
   "answers": [
     {
       "id": "correct",
@@ -63,7 +63,7 @@
     },
     {
       "id": "distractor-8",
-      "text": "There is a single constant $c$ such that $\\operatorname{mw}_r(G)\\le c|V(G)|^\\varepsilon$ for every $r,\\varepsilon>0,G$.",
+      "text": "There is a single constant $c$ such that $\\operatorname{mw}_r(G)\\le c|V(G)|^\\varepsilon$ for every positive integer $r$, every $\\varepsilon>0$, and every $G\\in\\mathcal C$.",
       "correct": false,
       "difficulty": 3,
       "explanation": "The constants may depend on radius and exponent. Requiring one constant imposes a much stronger condition."

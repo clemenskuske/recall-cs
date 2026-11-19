@@ -8,12 +8,15 @@ const questions=await Promise.all((await readdir(dir)).filter(f=>f.endsWith('.js
 // executable question metadata: a small parser accepts only this explicit syntax.
 function parseFormula(text){
   const source=[...text.matchAll(/\$([^$]+)\$/g)].at(-1)[1].replace(/\\;/g,'').replace(/\s/g,'');
-  const tokens=source.match(/\\(?:forall|exists|neg|land|lor|Rightarrow|Leftrightarrow|ne)|R|[xyz=(),]/g)||[];
+  const tokens=source.match(/\\(?:forall|exists|neg|land|lor|Rightarrow|Leftrightarrow|ne|in)|[RAxyz=(),]/g)||[];
   assert.equal(tokens.join(''),source,`unsupported formula: ${text}`);
   let at=0;const peek=()=>tokens[at];
   function primary(){
     if(peek()==='\\forall'||peek()==='\\exists'){
-      const op=tokens[at++],v=tokens[at++];assert.match(v,/^[xyz]$/);return {op,v,body:expression(0)};
+      const op=tokens[at++],v=tokens[at++];assert.match(v,/^[xyz]$/);
+      assert.equal(tokens[at++],'\\in','quantified variables must state their domain');
+      assert.equal(tokens[at++],'A','quantified variables must range over A');
+      return {op,v,body:expression(0)};
     }
     if(peek()==='\\neg'){at++;return {op:'not',body:primary()};}
     if(peek()==='('){at++;const v=expression(0);assert.equal(tokens[at++],')');return v;}
@@ -23,6 +26,18 @@ function parseFormula(text){
   const precedence={'\\Leftrightarrow':1,'\\Rightarrow':2,'\\lor':3,'\\land':4};
   function expression(min){let lhs=primary();while(precedence[peek()]>=min){const op=tokens[at++];lhs={op,lhs,rhs:expression(precedence[op]+1)};}return lhs;}
   const ast=expression(0);assert.equal(at,tokens.length);
+  // Check syntax scope before evaluation: an empty domain can otherwise hide
+  // an unbound variable, and undefined === undefined can look like equality.
+  function checkScope(t,bound=new Set()){
+    if(t.op==='\\forall'||t.op==='\\exists')return checkScope(t.body,new Set([...bound,t.v]));
+    if(t.op==='not')return checkScope(t.body,bound);
+    if(['R','=','\\ne'].includes(t.op)){
+      for(const v of [t.a,t.b])assert.ok(bound.has(v),`unbound variable ${v}: ${text}`);
+      return;
+    }
+    checkScope(t.lhs,bound);checkScope(t.rhs,bound);
+  }
+  checkScope(ast);
   function run(t,m,e){
     if(t.op==='\\forall')return m.A.every(v=>run(t.body,m,{...e,[t.v]:v}));
     if(t.op==='\\exists')return m.A.some(v=>run(t.body,m,{...e,[t.v]:v}));
@@ -37,6 +52,12 @@ function parseFormula(text){
   }
   return m=>run(ast,m,{});
 }
+test('formula checks reject unstated domains and variables outside their quantifier scope',()=>{
+  assert.throws(()=>parseFormula('$\\forall x\\; R(x,x)$'),/must state their domain/);
+  assert.throws(()=>parseFormula('$\\forall x\\in A\\; R(x,y)$'),/unbound variable y/);
+  assert.throws(()=>parseFormula('$(\\exists x\\in A\\; R(x,x))\\land R(x,x)$'),/unbound variable x/);
+  assert.throws(()=>parseFormula('$x=y$'),/unbound variable x/);
+});
 function model(n,bits){
  const A=Array.from({length:n},(_,i)=>i),r=(a,b)=>Boolean(bits&(1<<(a*n+b)));
  const pairs=A.flatMap(a=>A.map(b=>[a,b])),triples=pairs.flatMap(([a,b])=>A.map(c=>[a,b,c]));

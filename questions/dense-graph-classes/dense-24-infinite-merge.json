@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-24-infinite-merge",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Extend resolved-pair reachability to $r=\\infty$, so an entire connected component can be reached. Which class property is equivalent to $\\sup_{G\\in\\mathcal C}\\operatorname{mw}_\\infty(G)<\\infty$?",
+  "prompt": "Let $\\mathcal C$ be a class of finite simple graphs. Extend the radius parameter to $r=\\infty$, so resolved-pair reachability covers an entire connected component. Which class property is equivalent to $\\sup_{G\\in\\mathcal C}\\operatorname{mw}_\\infty(G)<\\infty$?",
   "answers": [
     {
       "id": "correct",

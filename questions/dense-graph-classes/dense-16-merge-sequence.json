@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "id": "dense-16-merge-sequence",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "In the merge-sequence definition for a simple graph $G=(V,E)$, what conditions must $(\\mathcal P_i,R_i)$ satisfy? Write $AB=\\{\\{a,b\\}:a\\in A,b\\in B,a\\ne b\\}$.",
+  "prompt": "Let $G=(V,E)$ be a finite nonempty simple graph. Consider a sequence $(\\mathcal P_i,R_i)_{i=1}^m$ of partitions of $V$ and sets of unordered pairs of distinct vertices, with positive integer length $m$. For $A,B\\subseteq V$, write $AB=\\{\\{a,b\\}:a\\in A,b\\in B,a\\ne b\\}$. Which conditions define a merge sequence?",
   "answers": [
     {
       "id": "correct",
-      "text": "The partitions coarsen from singletons to $\\{V\\}$; $R_i\\subseteq R_{i+1}$; for every $A,B\\in\\mathcal P_i$, including $A=B$, all pairs in $AB\\setminus R_i$ are edges or all are non-edges.",
+      "text": "The partitions coarsen from singletons to $\\{V\\}$; $R_i\\subseteq R_{i+1}$ for $1\\le i<m$; for each $1\\le i\\le m$ and $A,B\\in\\mathcal P_i$, including $A=B$, all pairs in $AB\\setminus R_i$ are edges or all are non-edges.",
       "correct": true,
       "explanation": "Resolved pairs are exceptions to a uniform default on each pair of parts. Both edges and non-edges may be resolved, and resolved pairs remain resolved."
     },

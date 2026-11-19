@@ -38,6 +38,10 @@ The answers were read against the above definitions and theorem statements. The 
 
 ## Verification limits
 
+A precision review on 19 November 2026 revised 23 cards without changing their answer keys. Prompts and choices now introduce previously implicit graph symbols, vertex domains, label and signature coordinates, positive integer radii, positive real bounds, and finite sequence index ranges. The merge-width formula assumes a nonempty vertex set and at least two stages, so its maxima are defined. Transduction domain comprehensions explicitly range over the input vertices, and each alternative supplies its own construction rather than referring to a separately displayed answer. Unnecessary indexed path/clique notation was replaced with the class names. These are scope and notation repairs; the source-based theorem qualifications above remain applicable.
+
+All 23 revised prompts and their 230 alternatives were rendered at a 390-pixel phone width with the app's renderer and styles: no TeX errors or horizontal overflow. The merge-width formula card was also visually inspected. The full 29-test suite and production build pass.
+
 `npm test` checks the sample constructions, red-status alternatives, source validation, retirement behaviour, topic migration, scheduler behaviour, and existing feedback/offline invariants. `npm run build` validates every active and retired source record, including all TeX, and emits only the active curriculum. The phone preview renders all 28 prompts and 280 alternatives with the app's renderer and styles.
 
 These checks do not formally verify the research papers or establish an infinite-class theorem by finite examples. The structural implications and separations rely on the cited primary results. No claim is made that the new preprint has completed peer review.

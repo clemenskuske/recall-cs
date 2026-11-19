@@ -25,6 +25,12 @@ The comparison cards follow directly from these definitions:
 
 ## Verification
 
+The precision review on 19 November 2026 revised 27 cards. Each formula card now introduces the set $A$ before the relation, defines predicate notation, and puts $\in A$ at every element quantifier. The diagonal card introduces both the relation and its inverse. Examples state their underlying set. The remaining three cards already introduce their sets or use no symbolic variables. Answer keys are unchanged; substantive wording changes increment the card revision.
+
 `test/relations-content.test.mjs` independently parses the displayed first-order formulas and checks them against direct adjacency-matrix predicates on every relation on domains of size zero through three (531 relations). It tests the terminology choices, the formula choices under their stated assumptions, property combinations, and the diagonal formulations. Every wrong alternative has a concrete finite counterexample to equivalence; correct choices agree throughout these models. The empty-domain prose alternatives are separately checked.
+
+The parser also requires an explicit quantifier domain and checks that every element variable is bound in its actual syntactic scope before evaluating any model. Regression cases cover missing domains, free variables, and a quantifier that does not extend to a later conjunct. This catches defects that vacuous evaluation on an empty domain could otherwise hide. It is a check of this card set's supported formula syntax, not a general verifier for mathematical prose.
+
+All 27 revised prompts and their 270 alternatives were rendered at a 390-pixel phone width with the app's renderer and styles: no TeX errors or horizontal overflow. The transitivity-definition card was also visually inspected. The full 29-test suite and production build pass.
 
 Finite enumeration is not a proof that two arbitrary formulas agree on all structures. The correct definitions and equivalences also require the source checks and arguments above. The parser accepts only the explicit logic syntax used in these cards; it does not execute question text. The build validates all source records and TeX, while the existing tests check answer sampling, retirement, selection, learning, feedback, and offline behaviour.

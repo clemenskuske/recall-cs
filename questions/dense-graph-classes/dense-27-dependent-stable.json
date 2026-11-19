@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-27-dependent-stable",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Let $H_n$ be the half-graph with sides $a_1,\\ldots,a_n$ and $b_1,\\ldots,b_n$, with $a_i b_j$ an edge iff $i\\le j$. Which distinction between monadic dependence and monadic stability is correct?",
+  "prompt": "For each positive integer $n$, let $H_n$ be the bipartite half-graph on disjoint sides $\\{a_1,\\ldots,a_n\\}$ and $\\{b_1,\\ldots,b_n\\}$. For $i,j\\in\\{1,\\ldots,n\\}$, the pair $a_i b_j$ is an edge exactly when $i\\le j$. Which distinction between monadic dependence and monadic stability is correct?",
   "answers": [
     {
       "id": "correct",

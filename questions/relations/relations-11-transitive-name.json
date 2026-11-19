@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "relations-11-transitive-name",
   "topic": "relations",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Let $R\\subseteq A\\times A$, with all quantified variables ranging over $A$. Which property is defined exactly by $\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$?",
+  "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which property is defined exactly by $\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$?",
   "answers": [
     {
       "id": "correct",

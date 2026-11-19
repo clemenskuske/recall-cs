@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-18-merge-name",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Fix $r$. Over valid merge sequences, minimise the maximum number of previous-partition parts reached from one original vertex by at most $r$ resolved pairs. Which graph parameter is defined?",
+  "prompt": "Let $G$ be a finite nonempty simple graph and $r$ a positive integer. Over valid merge sequences of $G$, minimise the maximum number of previous-partition parts reached from one original vertex by at most $r$ resolved pairs. Which graph parameter is defined?",
   "answers": [
     {
       "id": "correct",

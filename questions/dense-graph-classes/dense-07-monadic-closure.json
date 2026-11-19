@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "dense-07-monadic-closure",
   "topic": "dense-graph-classes",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "Let $\\mathcal C$ be monadically dependent and let $\\mathcal D\\subseteq T(\\mathcal C)$ for a fixed FO transduction $T$. What follows?",
+  "prompt": "Let $\\mathcal C,\\mathcal D$ be classes of finite simple graphs, with $\\mathcal C$ monadically dependent and $\\mathcal D\\subseteq T(\\mathcal C)$ for a fixed FO transduction $T$. What follows?",
   "answers": [
     {
       "id": "correct",

@@ -2,75 +2,75 @@
   "schemaVersion": 1,
   "id": "relations-08-antisymmetric-definition",
   "topic": "relations",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "For $R\\subseteq A\\times A$, which condition defines antisymmetry? All quantified variables range over $A$.",
+  "prompt": "Let $A$ be a set and $R\\subseteq A\\times A$ a binary relation on $A$. For $x,y\\in A$, write $R(x,y)$ for $(x,y)\\in R$. Which condition defines antisymmetry?",
   "answers": [
     {
       "id": "correct",
-      "text": "$\\forall x\\forall y\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\; ((R(x,y)\\land R(y,x))\\Rightarrow x=y)$.",
       "correct": true,
       "explanation": "Mutual relatedness forces equality. Self-loops are allowed."
     },
     {
       "id": "distractor-1",
-      "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow R(y,x))$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow R(y,x))$.",
       "correct": false,
       "difficulty": 1,
       "explanation": "Every related pair has its reverse; loops are allowed but not required. This defines symmetry, not antisymmetry."
     },
     {
       "id": "distractor-2",
-      "text": "$\\forall x\\; R(x,x)$.",
+      "text": "$\\forall x\\in A\\; R(x,x)$.",
       "correct": false,
       "difficulty": 1,
       "explanation": "Every element has a self-loop; pairs of different elements are unrestricted. This defines reflexivity, not antisymmetry."
     },
     {
       "id": "distractor-3",
-      "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(y,z))\\Rightarrow R(x,z))$.",
       "correct": false,
       "difficulty": 1,
       "explanation": "Every two-step chain has its direct shortcut, including chains with repeated vertices. This defines transitivity, not antisymmetry."
     },
     {
       "id": "distractor-4",
-      "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow\\neg R(y,x))$.",
       "correct": false,
       "difficulty": 2,
       "explanation": "Every related pair has no reverse. Taking the two elements equal also forbids loops. This defines asymmetry, not antisymmetry."
     },
     {
       "id": "distractor-5",
-      "text": "$\\forall x\\; \\neg R(x,x)$.",
+      "text": "$\\forall x\\in A\\; \\neg R(x,x)$.",
       "correct": false,
       "difficulty": 2,
       "explanation": "No element has a self-loop; pairs of different elements are unrestricted. This defines irreflexivity, not antisymmetry."
     },
     {
       "id": "distractor-6",
-      "text": "$\\exists x\\exists y\\; (R(x,y)\\land\\neg R(y,x))$.",
+      "text": "$\\exists x\\in A\\;\\exists y\\in A\\; (R(x,y)\\land\\neg R(y,x))$.",
       "correct": false,
       "difficulty": 2,
       "explanation": "Some related pair lacks its reverse; this is an existential violation. This defines failure of symmetry, not antisymmetry."
     },
     {
       "id": "distractor-7",
-      "text": "$\\forall x\\forall y\\; (R(x,y)\\Rightarrow x=y)$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Rightarrow x=y)$.",
       "correct": false,
       "difficulty": 3,
       "explanation": "Every related pair is diagonal; some or all loops may be missing. This defines coreflexivity, not antisymmetry."
     },
     {
       "id": "distractor-8",
-      "text": "$\\forall x\\forall y\\forall z\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\;\\forall z\\in A\\; ((R(x,y)\\land R(x,z))\\Rightarrow y=z)$.",
       "correct": false,
       "difficulty": 3,
       "explanation": "An element has at most one outgoing related element; it need not have any. This defines right-uniqueness, not antisymmetry."
     },
     {
       "id": "distractor-9",
-      "text": "$\\forall x\\forall y\\; (R(x,y)\\Leftrightarrow x=y)$.",
+      "text": "$\\forall x\\in A\\;\\forall y\\in A\\; (R(x,y)\\Leftrightarrow x=y)$.",
       "correct": false,
       "difficulty": 3,
       "explanation": "All diagonal pairs and no off-diagonal pairs are present. This defines equality as the entire relation, not antisymmetry."

@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "relations-29-empty-domain",
   "topic": "relations",
-  "revision": 1,
+  "revision": 2,
   "status": "active",
-  "prompt": "When can a binary relation on $A$ be both reflexive and irreflexive?",
+  "prompt": "When can a binary relation on a set $A$ be both reflexive and irreflexive?",
   "answers": [
     {
       "id": "correct",
