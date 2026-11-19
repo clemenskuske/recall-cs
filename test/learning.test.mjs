@@ -28,6 +28,48 @@ test('successive new questions rotate across topics rather than restarting the f
   for(let i=0;i<4;i++){const q=queueFor(fixture,s,now).fresh[0];seen.push(q.topic);reviewQuestion(q,s,q.answers[0],false,now);}
   assert.equal(new Set(seen).size,4);
 });
+test('random selection reaches the whole unseen pool before applying the daily limit',()=>{
+  const now=new Date('2026-11-19T12:00:00Z'), s=freshState();
+  s.settings.selectedTopics=['fixture'];s.settings.newPerDay=1;
+  const fixture={topics:[{id:'fixture'}],questions:Array.from({length:4},(_,i)=>({...q,id:`new-${i}`,topic:'fixture'}))};
+  const before=JSON.stringify({fixture,s}), firstChoices=new Set();
+  // Deterministic random inputs make every question selectable with a one-card
+  // allowance, including questions beyond the original first-card prefix.
+  for(const values of [[0,0,0],[0.99,0,0.99],[0,0.99,0.99],[0.99,0.99,0.99]]){
+    let index=0;const random=()=>values[index++];
+    const queue=queueFor(fixture,s,now,random);
+    assert.equal(queue.fresh.length,1);assert.equal(queue.unseen,4);
+    firstChoices.add(queue.fresh[0].id);
+  }
+  assert.equal(firstChoices.size,4);
+  assert.equal(JSON.stringify({fixture,s}),before,'queue construction must not mutate progress or bank order');
+  const seen=[];
+  for(let day=0;day<4;day++){
+    const date=new Date(+now+day*86400000), next=queueFor(fixture,s,date,()=>0.3).fresh[0];
+    seen.push(next.id);reviewQuestion(next,s,next.answers[0],false,date);
+    assert.equal(queueFor(fixture,s,date,()=>0.5).fresh.length,0,'daily allowance survives rebuilding the queue');
+  }
+  assert.equal(new Set(seen).size,4,'previously introduced cards must not be drawn as new again');
+});
+test('due reviews are randomized without admitting future, paused, retired, or unselected cards',()=>{
+  const now=new Date('2026-11-19T12:00:00Z'),s=freshState();s.settings.selectedTopics=['selected'];
+  const questions=['due-0','due-1','due-2','future','paused','retired','unselected','new'].map(id=>({...q,id,topic:id==='unselected'?'other':'selected',status:id==='retired'?'retired':'active'}));
+  const fixture={topics:[{id:'selected'},{id:'other'}],questions};
+  for(const [i,question] of questions.entries())if(question.id!=='new'){
+    reviewQuestion(question,s,question.answers[0],false,new Date(+now-86400000));
+    s.cards[question.id].card.due=new Date(+now-(i+1)*60000);
+  }
+  s.cards.future.card.due=new Date(+now+60000);s.suspended.paused=q.revision;
+  const before=JSON.stringify(s);
+  const a=queueFor(fixture,s,now,()=>0),b=queueFor(fixture,s,now,()=>0.99);
+  assert.notDeepEqual(a.due.map(q=>q.id),b.due.map(q=>q.id));
+  for(const queue of [a,b]){
+    assert.deepEqual(queue.due.map(q=>q.id).sort(),['due-0','due-1','due-2']);
+    assert.deepEqual(queue.fresh.map(q=>q.id),['new']);
+    assert.ok((queue.due[0]||queue.fresh[0]).id.startsWith('due-'));
+  }
+  assert.equal(JSON.stringify(s),before,'shuffling must not alter scheduled dates');
+});
 test('current topic replaces retired selections, while active choices and deselect-all are preserved',()=>{
   const s=freshState();assert.deepEqual(selectedTopicIds(bank,s),['dense-graph-classes']);
   assert.ok(queueFor(bank,s).fresh.every(q=>q.topic==='dense-graph-classes'));

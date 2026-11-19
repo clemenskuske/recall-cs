@@ -16,6 +16,8 @@ Relations is a second, selectable topic with 30 questions: reflexivity, irreflex
 
 Start a short daily session, choose one of four shuffled answers, and read the explanation. A correct answer gets a small celebration; an incorrect answer explains both the misconception and the right idea. If you guessed correctly, mark “I guessed” to revisit sooner.
 
+Questions are randomized too: due reviews are shuffled, and new questions are sampled from the full unseen pool within each selected topic. New questions rotate across topics, with due reviews first and the daily new-question limit respected.
+
 Settings control daily minutes, new questions per day, desired retention, distractor difficulty, and celebrations. FSRS-6 handles spaced review; progress and settings stay on the device. See [learning design and evidence](docs/learning-design.md) for the exact mapping and limitations. Export periodic backups; there is no automatic cross-device progress sync.
 
 ## Add or improve questions with an LLM

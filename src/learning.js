@@ -61,12 +61,14 @@ export function selectedTopicIds(bank, state) {
   const preferred = bank.topics.filter(t => t.defaultSelected === true);
   return (preferred.length ? preferred : bank.topics).map(t => t.id);
 }
-export function queueFor(bank, state, now = new Date()) {
+export function queueFor(bank, state, now = new Date(), random = Math.random) {
   const questions = eligibleQuestions(bank, state);
   const daily = state.daily[dayKey(now)];
   const newLeft = Math.max(0, state.settings.newPerDay - (daily?.newIds.length || 0));
-  const due = questions.filter(q => { const s = stateFor(q,state); return s && new Date(s.card.due) <= now; }).sort((a,b) => new Date(stateFor(a,state).card.due) - new Date(stateFor(b,state).card.due));
-  const unseen = questions.filter(q => !stateFor(q,state));
+  const due = shuffle(questions.filter(q => { const s = stateFor(q,state); return s && new Date(s.card.due) <= now; }), random);
+  // Shuffle the whole unseen pool before applying the daily allowance, so every
+  // eligible question can be chosen instead of just the first files in a topic.
+  const unseen = shuffle(questions.filter(q => !stateFor(q,state)), random);
   // Round-robin topics so a small daily allowance still samples the whole selection.
   const interleaved = [];
   const lastNewId = daily?.newIds.at(-1);
